@@ -1,7 +1,9 @@
-,
-{
-  "code": "GL003",
-  "name": "Mini Projector",
-  "image": "images/gl003.jpg",
-  "link": "https://your-affiliate-link-3.com"
-}
+[
+  {
+    "code": "GL001",
+    "name": "Wireless Earbuds",
+    "image": "images/earbuds.jpg",
+    "description": "Crystal clear sound with long battery life. Perfect for music, gaming and everyday use.",
+    "link": "https://your-affiliate-link.com"
+  }
+]
