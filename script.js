@@ -6,7 +6,7 @@ fetch("products.json")
     products = data;
   })
   .catch(error => {
-    console.error("Error:", error);
+    console.error("Error loading products:", error);
   });
 
 function searchProduct() {
@@ -27,31 +27,44 @@ function searchProduct() {
   }
 
   const found = products.find(
-    p => p.code.toUpperCase() === keyword
+    product => product.code.toUpperCase() === keyword
   );
 
   if (!found) {
-    result.innerHTML = "<h2>❌ Product Not Found</h2>";
+    result.innerHTML = `
+      <div class="product">
+        <h2>❌ Product Not Found</h2>
+        <p>Please check the product code and try again.</p>
+      </div>
+    `;
     return;
   }
+
+  // Convert line breaks from JSON into HTML
+  const description = found.description.replace(/\n/g, "<br>");
 
   result.innerHTML = `
     <div class="product">
 
       <h2 class="product-title">${found.name}</h2>
 
-      <img src="${found.image}" alt="${found.name}">
+      <img
+        class="product-image"
+        src="${found.image}"
+        alt="${found.name}"
+      >
 
-      <p class="product-description">
-        ${found.description}
-      </p>
+      <div class="product-description">
+        ${description}
+      </div>
 
-      <a class="buy-btn"
-         href="${found.link}"
-         target="_blank">
-
-         🛒 BUY NOW
-
+      <a
+        class="buy-btn"
+        href="${found.link}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🛒 BUY NOW
       </a>
 
     </div>
