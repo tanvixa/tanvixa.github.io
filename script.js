@@ -22,7 +22,11 @@ function searchProduct() {
   result.innerHTML = "";
 
   if (keyword === "") {
-    result.innerHTML = "<h2>Please enter a product code.</h2>";
+    result.innerHTML = `
+      <div class="product">
+        <h2>Please enter a product code.</h2>
+      </div>
+    `;
     return;
   }
 
@@ -40,19 +44,20 @@ function searchProduct() {
     return;
   }
 
-  // Convert line breaks from JSON into HTML
   const description = found.description.replace(/\n/g, "<br>");
 
   result.innerHTML = `
     <div class="product">
-
-      <h2 class="product-title">${found.name}</h2>
 
       <img
         class="product-image"
         src="${found.image}"
         alt="${found.name}"
       >
+
+      <h2 class="product-title">
+        ${found.name}
+      </h2>
 
       <div class="product-description">
         ${description}
