@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GadgetLabs</title>
+
+    <title>Tanvixa | Find Smart Gadgets by Product Code</title>
+
+    <meta name="description" content="Search featured smart gadgets by product code and discover the exact products shown in our videos.">
+
+    <meta name="keywords" content="smart gadgets, tech gadgets, gadget finder, product code search">
+
+    <meta name="author" content="Tanvixa">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,18 +18,21 @@
 <body>
 
 <header class="header">
-    <h1>GadgetLabs</h1>
-    <p>Find Your Gadget by Product Code</p>
+    <h1>Tanvixa</h1>
+    <p>Find Any Featured Gadget by Product Code</p>
 </header>
 
 <section class="search-section">
 
-    <input
-    type="text"
-    id="searchInput"
-    placeholder="Enter Product Code (Example: GL001)"
-    onkeypress="if(event.key==='Enter'){searchProduct();}"
+    <p class="search-info">
+        Enter the product code from our video to quickly find the featured gadget.
+    </p>
 
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Enter Product Code (Example: GL001)"
+        onkeypress="if(event.key==='Enter'){searchProduct();}"
     >
 
     <button onclick="searchProduct()">
