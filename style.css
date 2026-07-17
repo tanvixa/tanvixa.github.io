@@ -1,18 +1,25 @@
-/* ================= GLOBAL STYLE ================= */
+/* =====================================
+   TANVIXA GLOBAL STYLE
+===================================== */
+
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
 }
+
 
 
 body {
 
-    background: #f5f7fb;
-    color: #222;
-    line-height: 1.6;
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.6;
+    overflow-x:hidden;
 
 }
 
@@ -20,7 +27,8 @@ body {
 
 img {
 
-    max-width: 100%;
+    max-width:100%;
+    display:block;
 
 }
 
@@ -28,15 +36,25 @@ img {
 
 
 
-/* ================= HEADER ================= */
+/* =====================================
+   HEADER
+===================================== */
 
 
 .header {
 
-    background: #ffffff;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #eef4ff
+    );
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:
+    0 2px 10px rgba(0,0,0,0.08);
 
 }
 
@@ -44,10 +62,13 @@ img {
 
 .logo-area {
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
 
 }
 
@@ -55,9 +76,13 @@ img {
 
 .logo-area img {
 
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    border-radius:12px;
 
 }
 
@@ -65,9 +90,11 @@ img {
 
 .logo-area h1 {
 
-    font-size: 32px;
-    font-weight: 800;
-    color: #111827;
+    font-size:32px;
+
+    font-weight:800;
+
+    color:#111827;
 
 }
 
@@ -75,9 +102,11 @@ img {
 
 .tagline {
 
-    margin-top: 8px;
-    color: #666;
-    font-size: 15px;
+    margin-top:8px;
+
+    color:#666;
+
+    font-size:15px;
 
 }
 
@@ -86,14 +115,16 @@ img {
 
 
 
-
-/* ================= HERO SECTION ================= */
+/* =====================================
+   HERO SECTION
+===================================== */
 
 
 .hero {
 
-    text-align: center;
-    padding: 50px 20px;
+    text-align:center;
+
+    padding:50px 20px;
 
 }
 
@@ -101,9 +132,11 @@ img {
 
 .hero h2 {
 
-    font-size: 34px;
-    margin-bottom: 15px;
-    color: #111827;
+    font-size:34px;
+
+    color:#111827;
+
+    margin-bottom:15px;
 
 }
 
@@ -111,9 +144,11 @@ img {
 
 .hero p {
 
-    color: #555;
-    max-width: 600px;
-    margin: auto;
+    max-width:600px;
+
+    margin:auto;
+
+    color:#555;
 
 }
 
@@ -122,17 +157,22 @@ img {
 
 
 
-
-/* ================= SEARCH BOX ================= */
+/* =====================================
+   SEARCH BOX
+===================================== */
 
 
 .search-box {
 
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
 
 }
 
@@ -140,12 +180,17 @@ img {
 
 .search-box input {
 
-    width: 320px;
-    padding: 15px 18px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    outline: none;
+    width:320px;
+
+    padding:15px 18px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+
+    outline:none;
 
 }
 
@@ -153,8 +198,10 @@ img {
 
 .search-box input:focus {
 
-    border-color: #2563eb;
-    box-shadow: 0 0 8px rgba(37,99,235,0.3);
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 8px rgba(37,99,235,0.3);
 
 }
 
@@ -162,14 +209,21 @@ img {
 
 .search-box button {
 
-    padding: 15px 25px;
-    border: none;
-    border-radius: 10px;
-    background: #2563eb;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
 
 }
 
@@ -177,8 +231,9 @@ img {
 
 .search-box button:hover {
 
-    background: #1d4ed8;
-    transform: translateY(-2px);
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
 
 }
 
@@ -187,13 +242,28 @@ img {
 
 
 
-
-/* ================= PRODUCT RESULT ================= */
+/* =====================================
+   PRODUCT SECTION
+===================================== */
 
 
 .product-section {
 
-    padding: 20px;
+    padding:20px;
+
+}
+
+
+
+.welcome-card,
+.product-card {
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.10);
 
 }
 
@@ -201,13 +271,114 @@ img {
 
 .welcome-card {
 
-    background: white;
-    padding: 30px;
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    max-width:600px;
+
+    margin:auto;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+
+
+
+
+/* =====================================
+   PRODUCT CARD
+===================================== */
+
+
+.product-card {
+
+    max-width:650px;
+
+    margin:30px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+
+
+.product-image {
+
+    width:100%;
+
+    max-width:350px;
+
+    height:350px;
+
+    margin:0 auto 20px;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    background:#f9fafb;
+
+}
+
+
+
+.product-card h2 {
+
+    font-size:26px;
+
+    color:#111827;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.product-description {
+
+    text-align:left;
+
+    color:#555;
+
+    font-size:16px;
+
+    line-height:1.7;
+
+}
+
+/* =====================================
+   PRODUCT FEATURES LIST
+===================================== */
+
+
+.product-features {
+
+    list-style:none;
+
+    padding:0;
+
+    margin:20px 0;
+
+    text-align:left;
+
+}
+
+
+
+.product-features li {
+
+    background:#f3f4f6;
+
+    margin-bottom:10px;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    font-size:15px;
 
 }
 
@@ -217,7 +388,121 @@ img {
 
 
 
-/* ================= FEATURES ================= */
+/* =====================================
+   BUY NOW BUTTON
+===================================== */
+
+
+.buy-button {
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:16px 45px;
+
+    background:#16a34a;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+    animation:pulseButton 2s infinite;
+
+}
+
+
+
+.buy-button:hover {
+
+    background:#15803d;
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+@keyframes pulseButton {
+
+
+0% {
+
+box-shadow:
+0 0 0 0 rgba(22,163,74,0.6);
+
+}
+
+
+
+70% {
+
+box-shadow:
+0 0 0 15px rgba(22,163,74,0);
+
+}
+
+
+
+100% {
+
+box-shadow:
+0 0 0 0 rgba(22,163,74,0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   AFFILIATE BOX
+===================================== */
+
+
+.affiliate-box {
+
+    margin-top:25px;
+
+    padding:15px;
+
+    background:#fff7ed;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    color:#555;
+
+    text-align:left;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   FEATURES SECTION
+===================================== */
 
 
 .features,
@@ -226,8 +511,9 @@ img {
 .affiliate-disclosure,
 .social-section {
 
-    padding: 50px 20px;
-    text-align: center;
+    padding:50px 20px;
+
+    text-align:center;
 
 }
 
@@ -238,8 +524,9 @@ img {
 .trust-section h2,
 .social-section h2 {
 
-    font-size: 28px;
-    margin-bottom: 30px;
+    font-size:28px;
+
+    margin-bottom:30px;
 
 }
 
@@ -248,10 +535,13 @@ img {
 .feature-container,
 .steps {
 
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
 
 }
 
@@ -260,11 +550,16 @@ img {
 .feature-card,
 .step-card {
 
-    background: white;
-    width: 280px;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    width:280px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.08);
 
 }
 
@@ -272,8 +567,9 @@ img {
 
 .icon {
 
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size:40px;
+
+    margin-bottom:10px;
 
 }
 
@@ -281,7 +577,7 @@ img {
 
 .step-card span {
 
-    font-size: 35px;
+    font-size:35px;
 
 }
 
@@ -291,14 +587,19 @@ img {
 
 
 
-/* ================= AFFILIATE DISCLOSURE ================= */
+
+/* =====================================
+   AFFILIATE DISCLOSURE
+===================================== */
 
 
 .affiliate-disclosure {
 
-    background: #fff8e7;
-    margin: 20px;
-    border-radius: 15px;
+    background:#fff8e7;
+
+    margin:20px;
+
+    border-radius:15px;
 
 }
 
@@ -306,7 +607,7 @@ img {
 
 .affiliate-disclosure h3 {
 
-    margin-bottom: 10px;
+    margin-bottom:10px;
 
 }
 
@@ -316,12 +617,15 @@ img {
 
 
 
-/* ================= SOCIAL LINKS ================= */
+
+/* =====================================
+   SOCIAL LINKS
+===================================== */
 
 
 .social-links {
 
-    margin-top: 20px;
+    margin-top:20px;
 
 }
 
@@ -329,13 +633,19 @@ img {
 
 .social-links a {
 
-    display: inline-block;
-    margin: 8px;
-    padding: 12px 20px;
-    background: #111827;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
+    display:inline-block;
+
+    margin:8px;
+
+    padding:12px 20px;
+
+    background:#111827;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
 
 }
 
@@ -343,7 +653,7 @@ img {
 
 .social-links a:hover {
 
-    opacity: 0.8;
+    opacity:.8;
 
 }
 
@@ -353,15 +663,20 @@ img {
 
 
 
-/* ================= FOOTER ================= */
+/* =====================================
+   FOOTER
+===================================== */
 
 
 footer {
 
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 20px;
+    background:#111827;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
 
 }
 
@@ -371,294 +686,29 @@ footer {
 
 
 
-/* ================= MOBILE RESPONSIVE ================= */
-
-
-@media(max-width:600px){
-
-
-    .logo-area h1 {
-
-        font-size: 26px;
-
-    }
-
-
-
-    .hero h2 {
-
-        font-size: 26px;
-
-    }
-
-
-
-    .search-box input {
-
-        width: 100%;
-
-    }
-
-
-
-    .search-box button {
-
-        width: 100%;
-
-    }
-
-
-
-    .feature-card,
-    .step-card {
-
-        width: 100%;
-
-    }
-
-
-}
-
-/* ===============================
-   PRODUCT CARD DESIGN
-================================ */
-
-
-.product-card {
-
-    background: #ffffff;
-    max-width: 650px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-    text-align: center;
-    overflow: hidden;
-
-}
-
-
-
-.product-image {
-
-    width: 100%;
-    max-width: 350px;
-    height: 350px;
-    object-fit: contain;
-    border-radius: 15px;
-    margin-bottom: 20px;
-
-}
-
-
-
-.product-card h2 {
-
-    font-size: 26px;
-    color: #111827;
-    margin-bottom: 15px;
-
-}
-
-
-
-.product-description {
-
-    text-align: left;
-    color: #555;
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-
-}
-
-
-
-
-
-/* ===============================
-   FEATURES LIST
-================================ */
-
-
-.product-features {
-
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin: 20px 0;
-
-}
-
-
-
-.product-features li {
-
-    background: #f3f4f6;
-    margin-bottom: 10px;
-    padding: 12px 15px;
-    border-radius: 10px;
-    font-size: 15px;
-
-}
-
-
-
-
-
-
-
-/* ===============================
-   BUY NOW BUTTON
-================================ */
-
-
-.buy-button {
-
-    display: inline-block;
-    margin-top: 20px;
-    padding: 16px 45px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: 0.3s;
-    animation: pulseButton 2s infinite;
-
-}
-
-
-
-.buy-button:hover {
-
-    background: #1d4ed8;
-    transform: scale(1.05);
-
-}
-
-
-
-
-
-
-
-/* BUY BUTTON ANIMATION */
-
-
-@keyframes pulseButton {
-
-
-    0% {
-
-        box-shadow: 0 0 0 0 rgba(37,99,235,0.6);
-
-    }
-
-
-    70% {
-
-        box-shadow: 0 0 0 15px rgba(37,99,235,0);
-
-    }
-
-
-    100% {
-
-        box-shadow: 0 0 0 0 rgba(37,99,235,0);
-
-    }
-
-
-}
-
-
-
-
-
-
-
-/* ===============================
-   AFFILIATE BOX
-================================ */
-
-
-.affiliate-box {
-
-    margin-top: 25px;
-    padding: 15px;
-    background: #fff7ed;
-    border-radius: 12px;
-    font-size: 13px;
-    color: #555;
-    text-align: left;
-
-}
-
-
-
-
-
-
-
-/* ===============================
-   MOBILE PRODUCT CARD
-================================ */
-
-
-@media(max-width:600px){
-
-
-    .product-card {
-
-        padding: 18px;
-
-    }
-
-
-
-    .product-image {
-
-        height: 250px;
-
-    }
-
-
-
-    .product-card h2 {
-
-        font-size: 22px;
-
-    }
-
-
-
-    .buy-button {
-
-        width: 100%;
-        font-size: 17px;
-
-    }
-
-
-}
 
 /* =====================================
-   LOADING & ERROR CARD DESIGN
+   LOADING & ERROR CARD
 ===================================== */
 
 
 .loading-card,
 .error-card {
 
-    max-width: 500px;
-    margin: 30px auto;
-    background: #ffffff;
-    padding: 35px 25px;
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    max-width:500px;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:35px 25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.10);
 
 }
 
@@ -667,9 +717,11 @@ footer {
 .loading-card h3,
 .error-card h3 {
 
-    margin-top: 20px;
-    font-size: 24px;
-    color: #111827;
+    margin-top:20px;
+
+    font-size:24px;
+
+    color:#111827;
 
 }
 
@@ -678,8 +730,9 @@ footer {
 .loading-card p,
 .error-card p {
 
-    color: #666;
-    margin-top: 10px;
+    color:#666;
+
+    margin-top:10px;
 
 }
 
@@ -687,15 +740,22 @@ footer {
 
 .error-card small {
 
-    display: inline-block;
-    margin-top: 15px;
-    background: #f3f4f6;
-    padding: 8px 15px;
-    border-radius: 20px;
-    color: #2563eb;
-    font-weight: bold;
+    display:inline-block;
+
+    margin-top:15px;
+
+    background:#f3f4f6;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    color:#2563eb;
+
+    font-weight:bold;
 
 }
+
 
 
 
@@ -704,19 +764,25 @@ footer {
 
 
 /* =====================================
-   LOADING ANIMATION
+   LOADER ANIMATION
 ===================================== */
 
 
 .loader {
 
-    width: 55px;
-    height: 55px;
-    border: 6px solid #e5e7eb;
-    border-top: 6px solid #2563eb;
-    border-radius: 50%;
-    margin: auto;
-    animation: spinLoader 1s linear infinite;
+    width:55px;
+
+    height:55px;
+
+    border:6px solid #e5e7eb;
+
+    border-top:6px solid #2563eb;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    animation:spinLoader 1s linear infinite;
 
 }
 
@@ -725,21 +791,22 @@ footer {
 @keyframes spinLoader {
 
 
-    from {
+from {
 
-        transform: rotate(0deg);
+transform:rotate(0deg);
 
-    }
+}
 
 
-    to {
+to {
 
-        transform: rotate(360deg);
+transform:rotate(360deg);
 
-    }
+}
 
 
 }
+
 
 
 
@@ -748,13 +815,13 @@ footer {
 
 
 /* =====================================
-   ERROR CARD EFFECT
+   ERROR SHAKE EFFECT
 ===================================== */
 
 
 .error-card {
 
-    animation: errorShake 0.4s ease;
+    animation:errorShake .4s ease;
 
 }
 
@@ -763,39 +830,43 @@ footer {
 @keyframes errorShake {
 
 
-    0% {
+0% {
 
-        transform: translateX(0);
+transform:translateX(0);
 
-    }
-
-
-    25% {
-
-        transform: translateX(-8px);
-
-    }
+}
 
 
-    50% {
 
-        transform: translateX(8px);
+25% {
 
-    }
+transform:translateX(-8px);
 
-
-    75% {
-
-        transform: translateX(-5px);
-
-    }
+}
 
 
-    100% {
 
-        transform: translateX(0);
+50% {
 
-    }
+transform:translateX(8px);
+
+}
+
+
+
+75% {
+
+transform:translateX(-5px);
+
+}
+
+
+
+100% {
+
+transform:translateX(0);
+
+}
 
 
 }
@@ -814,205 +885,174 @@ footer {
 @media(max-width:600px){
 
 
-    .loading-card,
-    .error-card {
 
-        margin: 20px 15px;
-        padding: 25px 15px;
+.header {
 
-    }
-
-
-
-    .loading-card h3,
-    .error-card h3 {
-
-        font-size: 20px;
-
-    }
-
+padding:15px 10px;
 
 }
 
-/* =====================================
-   TANVIXA MOBILE UI POLISH
-===================================== */
 
 
-@media(max-width:600px){
+.logo-area img {
 
+width:45px;
 
-    body {
+height:45px;
 
-        overflow-x: hidden;
+}
 
-    }
 
 
+.logo-area h1 {
 
-    .header {
+font-size:24px;
 
-        padding: 15px 10px;
+}
 
-    }
 
 
+.tagline {
 
-    .logo-area img {
+font-size:13px;
 
-        width: 45px;
-        height: 45px;
+}
 
-    }
 
 
 
-    .logo-area h1 {
+.hero {
 
-        font-size: 24px;
+padding:35px 15px;
 
-    }
+}
 
 
 
-    .tagline {
+.hero h2 {
 
-        font-size: 13px;
+font-size:24px;
 
-    }
+}
 
 
 
+.hero p {
 
+font-size:14px;
 
+}
 
-    .hero {
 
-        padding: 35px 15px;
 
-    }
 
+.search-box input {
 
+width:100%;
 
-    .hero h2 {
+height:52px;
 
-        font-size: 24px;
+}
 
-        line-height: 1.3;
 
-    }
 
+.search-box button {
 
+width:100%;
 
-    .hero p {
+height:52px;
 
-        font-size: 14px;
+}
 
-    }
 
 
 
+.product-section {
 
+padding:10px;
 
+}
 
-    .search-box {
 
-        gap: 12px;
 
-    }
+.product-card {
 
+padding:18px;
 
+}
 
-    .search-box input {
 
-        height: 52px;
 
-        font-size: 15px;
+.product-image {
 
-        border-radius: 12px;
+height:220px;
 
-    }
+}
 
 
 
-    .search-box button {
+.product-card h2 {
 
-        height: 52px;
+font-size:20px;
 
-        border-radius: 12px;
+}
 
-        font-size: 16px;
 
-    }
 
+.product-description {
 
+font-size:14px;
 
+}
 
 
 
-    .product-section {
+.product-features li {
 
-        padding: 10px;
+font-size:14px;
 
-    }
+}
 
 
 
-    .product-card {
+.buy-button {
 
-        margin: 20px auto;
+width:100%;
 
-        border-radius: 15px;
+font-size:17px;
 
-    }
+}
 
 
 
-    .product-image {
 
-        height: 220px;
+.feature-card,
+.step-card {
 
-    }
+width:100%;
 
+}
 
 
-    .product-card h2 {
 
-        font-size: 20px;
+.loading-card,
+.error-card {
 
-        line-height: 1.4;
+margin:20px 15px;
 
-    }
+padding:25px 15px;
 
+}
 
 
-    .product-description {
 
-        font-size: 14px;
+.loading-card h3,
+.error-card h3 {
 
-        line-height: 1.6;
+font-size:20px;
 
-    }
+}
 
-
-
-    .product-features li {
-
-        font-size: 14px;
-
-        padding: 10px;
-
-    }
-
-
-
-    .buy-button {
-
-        padding: 15px;
-
-        border-radius: 12px;
-
-    }
 
 
 }
