@@ -1,277 +1,420 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+/* ================= GLOBAL STYLE ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:#eef2f7;
+
+body {
+
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+
 }
 
-.header{
-    background:#111827;
-    color:#fff;
-    text-align:center;
-    padding:35px 20px;
+
+
+img {
+
+    max-width: 100%;
+
 }
 
-.header h1{
-    color:#38bdf8;
-    font-size:48px;
+
+
+
+
+/* ================= HEADER ================= */
+
+
+.header {
+
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
 }
 
-.header p{
-    margin-top:10px;
-    font-size:20px;
+
+
+.logo-area {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
 }
 
-.search-section{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin:40px 20px;
+
+
+.logo-area img {
+
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+
 }
 
-.search-section input{
-    width:420px;
-    max-width:90%;
-    padding:16px;
-    font-size:18px;
-    border-radius:10px;
-    border:2px solid #ddd;
-    outline:none;
-    transition:.3s;
+
+
+.logo-area h1 {
+
+    font-size: 32px;
+    font-weight: 800;
+    color: #111827;
+
 }
 
-.search-section input:focus{
-    border-color:#0ea5e9;
-    box-shadow:0 0 10px rgba(14,165,233,.25);
+
+
+.tagline {
+
+    margin-top: 8px;
+    color: #666;
+    font-size: 15px;
+
 }
 
-.search-section button{
-    padding:16px 35px;
-    background:#0ea5e9;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+
+
+
+
+
+
+/* ================= HERO SECTION ================= */
+
+
+.hero {
+
+    text-align: center;
+    padding: 50px 20px;
+
 }
 
-.search-section button:hover{
-    background:#0284c7;
+
+
+.hero h2 {
+
+    font-size: 34px;
+    margin-bottom: 15px;
+    color: #111827;
+
 }
 
-#result{
-    display:flex;
-    justify-content:center;
-    padding:20px;
+
+
+.hero p {
+
+    color: #555;
+    max-width: 600px;
+    margin: auto;
+
 }
 
-.product{
-    width:450px;
-    max-width:95%;
-    background:#fff;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.10);
+
+
+
+
+
+
+/* ================= SEARCH BOX ================= */
+
+
+.search-box {
+
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
 }
 
-.product-image{
-    width:100%;
-    border-radius:15px;
-    margin-bottom:20px;
+
+
+.search-box input {
+
+    width: 320px;
+    padding: 15px 18px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+
 }
 
-.product-title{
-    text-align:center;
-    font-size:32px;
-    margin-bottom:20px;
-    color:#111827;
+
+
+.search-box input:focus {
+
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37,99,235,0.3);
+
 }
 
-.product-description{
-    line-height:1.8;
-    color:#444;
-    font-size:17px;
-    margin-bottom:25px;
-    white-space:pre-line;
+
+
+.search-box button {
+
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+
 }
 
-.feature-section{
-    margin-bottom:25px;
+
+
+.search-box button:hover {
+
+    background: #1d4ed8;
+    transform: translateY(-2px);
+
 }
 
-.feature-section h3{
-    margin-bottom:12px;
-    color:#111827;
-    font-size:22px;
+
+
+
+
+
+
+/* ================= PRODUCT RESULT ================= */
+
+
+.product-section {
+
+    padding: 20px;
+
 }
 
-.feature-list{
-    list-style:none;
+
+
+.welcome-card {
+
+    background: white;
+    padding: 30px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
 }
 
-.feature-list li{
-    background:#f3f4f6;
-    padding:12px;
-    margin-bottom:10px;
-    border-left:5px solid #22c55e;
-    border-radius:10px;
-    font-size:16px;
+
+
+
+
+
+
+/* ================= FEATURES ================= */
+
+
+.features,
+.how-it-works,
+.trust-section,
+.affiliate-disclosure,
+.social-section {
+
+    padding: 50px 20px;
+    text-align: center;
+
 }
 
-/* ===========================
-   BUY NOW BUTTON
-=========================== */
 
-.buy-btn{
-    display:block;
-    width:100%;
-    text-align:center;
-    text-decoration:none;
-    color:#fff;
-    background:linear-gradient(135deg,#22c55e,#16a34a);
-    font-size:24px;
-    font-weight:700;
-    padding:18px;
-    border-radius:14px;
-    margin-top:25px;
-    box-shadow:0 10px 25px rgba(34,197,94,.35);
-    transition:all .3s ease;
-    animation:pulse 2s infinite;
+
+.features h2,
+.how-it-works h2,
+.trust-section h2,
+.social-section h2 {
+
+    font-size: 28px;
+    margin-bottom: 30px;
+
 }
 
-.buy-btn:hover{
-    transform:translateY(-3px) scale(1.03);
-    box-shadow:0 16px 35px rgba(34,197,94,.45);
+
+
+.feature-container,
+.steps {
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
 }
 
-.buy-btn:active{
-    transform:scale(.97);
+
+
+.feature-card,
+.step-card {
+
+    background: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
 }
 
-@keyframes pulse{
 
-    0%{
-        transform:scale(1);
-        box-shadow:0 0 0 0 rgba(34,197,94,.45);
+
+.icon {
+
+    font-size: 40px;
+    margin-bottom: 10px;
+
+}
+
+
+
+.step-card span {
+
+    font-size: 35px;
+
+}
+
+
+
+
+
+
+
+/* ================= AFFILIATE DISCLOSURE ================= */
+
+
+.affiliate-disclosure {
+
+    background: #fff8e7;
+    margin: 20px;
+    border-radius: 15px;
+
+}
+
+
+
+.affiliate-disclosure h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+
+
+
+
+
+/* ================= SOCIAL LINKS ================= */
+
+
+.social-links {
+
+    margin-top: 20px;
+
+}
+
+
+
+.social-links a {
+
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 20px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+
+}
+
+
+
+.social-links a:hover {
+
+    opacity: 0.8;
+
+}
+
+
+
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer {
+
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+
+
+
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+
+@media(max-width:600px){
+
+
+    .logo-area h1 {
+
+        font-size: 26px;
+
     }
 
-    70%{
-        transform:scale(1.03);
-        box-shadow:0 0 0 18px rgba(34,197,94,0);
+
+
+    .hero h2 {
+
+        font-size: 26px;
+
     }
 
-    100%{
-        transform:scale(1);
-        box-shadow:0 0 0 0 rgba(34,197,94,0);
+
+
+    .search-box input {
+
+        width: 100%;
+
     }
 
-}
 
-/* ===========================
-   Affiliate Disclosure
-=========================== */
 
-.affiliate-disclosure{
+    .search-box button {
 
-    margin-top:22px;
-    padding-top:18px;
+        width: 100%;
 
-    border-top:1px solid #e5e7eb;
+    }
 
-    text-align:center;
 
-}
 
-.affiliate-disclosure h4{
+    .feature-card,
+    .step-card {
 
-    font-size:15px;
-    font-weight:600;
+        width: 100%;
 
-    color:#374151;
+    }
 
-    margin-bottom:10px;
-
-    letter-spacing:.3px;
-
-}
-
-.affiliate-disclosure p{
-
-    max-width:340px;
-
-    margin:0 auto 10px;
-
-    font-size:12px;
-
-    line-height:1.7;
-
-    color:#6b7280;
-
-}
-
-.copyright{
-
-    margin-top:12px;
-
-    font-size:11px;
-
-    color:#9ca3af;
-
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media(max-width:768px){
-
-.header h1{
-    font-size:38px;
-}
-
-.header p{
-    font-size:18px;
-}
-
-.search-section{
-    flex-direction:column;
-    align-items:center;
-}
-
-.search-section input{
-    width:100%;
-}
-
-.search-section button{
-    width:100%;
-}
-
-.product{
-    width:100%;
-    padding:20px;
-}
-
-.product-title{
-    font-size:26px;
-}
-
-.product-description{
-    font-size:16px;
-}
-
-.buy-btn{
-    font-size:21px;
-    padding:16px;
-}
-
-.affiliate-disclosure p{
-    max-width:100%;
-}
 
 }
