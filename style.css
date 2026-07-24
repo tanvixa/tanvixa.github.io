@@ -2499,3 +2499,20 @@ grid-template-columns:1fr;
 
 
 }
+.footer-links {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.footer-links a {
+    text-decoration:none;
+    color:#2563EB;
+    font-size:14px;
+}
+
+.footer-links a:hover {
+    text-decoration:underline;
+}
