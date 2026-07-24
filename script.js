@@ -545,28 +545,7 @@ ${message}
 
 
 
-// ======================================
-// PRODUCT CLICK TRACKING
-// ======================================
 
-
-function trackProductClick(code){
-
-
-
-if(!localStorage.getItem("tanvixaClicks")){
-
-
-localStorage.setItem(
-
-"tanvixaClicks",
-
-JSON.stringify({})
-
-);
-
-
-}
 
 
 
@@ -1571,26 +1550,6 @@ ${brand}
 
 
 
-
-
-// ======================================
-// START HOMEPAGE
-// ======================================
-
-
-setTimeout(
-
-()=>{
-
-
-initializeHomepage();
-
-
-},
-
-1000
-
-);
 
 
 
