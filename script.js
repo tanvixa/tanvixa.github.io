@@ -1,18 +1,23 @@
 /* =====================================================
    TANVIXA SMART GADGET FINDER
-   SCRIPT.JS PART 1
+
+   SCRIPT.JS FINAL VERSION
+
+   PART A
 
    Core System
    Product Loader
-   Search System
-   Product Card Generator
+   Search
+   Product Display
+   Click Tracking
 
 ===================================================== */
 
 
-// ======================================
-// GLOBAL VARIABLES
-// ======================================
+
+/* ======================================
+   GLOBAL VARIABLES
+====================================== */
 
 
 let products = [];
@@ -25,9 +30,9 @@ let searchHistory = {};
 
 
 
-// ======================================
-// LOAD PRODUCTS JSON
-// ======================================
+/* ======================================
+   LOAD PRODUCTS JSON
+====================================== */
 
 
 fetch("products.json")
@@ -37,7 +42,9 @@ fetch("products.json")
 
     if(!response.ok){
 
-        throw new Error("Products file not found");
+        throw new Error(
+            "Products file not found"
+        );
 
     }
 
@@ -48,7 +55,7 @@ fetch("products.json")
 })
 
 
-.then(data => {
+.then(data=>{
 
 
     products = data;
@@ -59,21 +66,29 @@ fetch("products.json")
 
 
     console.log(
+
         "Tanvixa Products Loaded:",
         products.length
+
     );
 
 
 
-    // Update product counter
-
-    const totalProducts =
-    document.getElementById("totalProducts");
 
 
-    if(totalProducts){
+    const counter =
 
-        totalProducts.innerHTML =
+    document.getElementById(
+        "totalProducts"
+    );
+
+
+
+
+
+    if(counter){
+
+        counter.innerHTML =
         products.length + "+";
 
     }
@@ -83,17 +98,23 @@ fetch("products.json")
 })
 
 
-.catch(error => {
+
+.catch(error=>{
 
 
     console.error(
-        "Product Loading Error:",
         error
     );
 
 
+
     const result =
-    document.getElementById("result");
+
+    document.getElementById(
+        "result"
+    );
+
+
 
 
     if(result){
@@ -105,14 +126,13 @@ fetch("products.json")
 
         ❌ Unable to load products.
 
-        Please try again later.
-
         </div>
 
         `;
 
 
     }
+
 
 
 });
@@ -125,9 +145,9 @@ fetch("products.json")
 
 
 
-// ======================================
-// SEARCH PRODUCT FUNCTION
-// ======================================
+/* ======================================
+   SEARCH PRODUCT
+====================================== */
 
 
 function searchProduct(){
@@ -135,7 +155,12 @@ function searchProduct(){
 
 
     const input =
-    document.getElementById("productCode");
+
+    document.getElementById(
+        "productCode"
+    );
+
+
 
 
 
@@ -147,27 +172,36 @@ function searchProduct(){
 
 
 
+
+
     const code =
+
     input.value
+
     .trim()
+
     .toUpperCase();
 
 
 
 
-    if(code === ""){
+
+
+
+    if(code===""){
 
 
         showMessage(
-
         "⚠️ Please enter a product code"
-
         );
 
 
         return;
 
+
     }
+
+
 
 
 
@@ -175,10 +209,9 @@ function searchProduct(){
     if(!productsLoaded){
 
 
+
         showMessage(
-
         "⏳ Products are loading..."
-
         );
 
 
@@ -191,12 +224,21 @@ function searchProduct(){
 
 
 
+
+
     const product =
-    products.find(item =>
+
+
+    products.find(item=>
+
 
         item.code.toUpperCase() === code
 
+
     );
+
+
+
 
 
 
@@ -205,19 +247,12 @@ function searchProduct(){
     if(product){
 
 
-        // Save search count
 
-        if(!searchHistory[code]){
+        searchHistory[code] =
 
-            searchHistory[code] = 1;
+        (searchHistory[code] || 0)+1;
 
-        }
 
-        else{
-
-            searchHistory[code]++;
-
-        }
 
 
 
@@ -228,6 +263,7 @@ function searchProduct(){
     }
 
     else{
+
 
 
         showMessage(
@@ -251,9 +287,9 @@ function searchProduct(){
 
 
 
-// ======================================
-// DISPLAY PRODUCT
-// ======================================
+/* ======================================
+   DISPLAY PRODUCT
+====================================== */
 
 
 function displayProduct(product){
@@ -261,15 +297,22 @@ function displayProduct(product){
 
 
 const result =
-document.getElementById("result");
+
+document.getElementById(
+"result"
+);
+
+
 
 
 
 if(!result){
 
-    return;
+return;
 
 }
+
+
 
 
 
@@ -280,43 +323,71 @@ let featuresHTML = "";
 
 
 
-if(product.features && product.features.length){
 
 
-    featuresHTML = `
+if(
+
+product.features &&
+
+product.features.length
+
+){
 
 
-    <div class="product-features">
+
+featuresHTML = `
 
 
-    <h3>
-    Features
-    </h3>
+<div class="product-features">
 
 
-    <ul>
+<h3>
+Features
+</h3>
 
 
-    ${
-        product.features.map(feature =>
-
-        `<li>✔️ ${feature}</li>`
-
-        ).join("")
-
-    }
+<ul>
 
 
-    </ul>
+${
+
+product.features.map(feature=>
+
+`<li>✔️ ${feature}</li>`
+
+).join("")
+
+}
 
 
-    </div>
+</ul>
 
 
-    `;
+</div>
+
+
+`;
+
 
 
 }
+
+
+
+
+
+
+
+
+let networkText =
+
+product.network ||
+
+"STORE";
+
+
+
+
 
 
 
@@ -327,6 +398,7 @@ result.innerHTML = `
 
 
 <div class="product-card">
+
 
 
 <div class="product-image">
@@ -351,6 +423,8 @@ onerror="this.src='images/no-image.png'"
 
 
 
+
+
 <div class="product-info">
 
 
@@ -360,6 +434,7 @@ onerror="this.src='images/no-image.png'"
 ${product.name}
 
 </h2>
+
 
 
 
@@ -381,6 +456,8 @@ ${product.code}
 
 
 
+
+
 <div class="product-description">
 
 ${formatDescription(product.description)}
@@ -391,7 +468,10 @@ ${formatDescription(product.description)}
 
 
 
+
+
 ${featuresHTML}
+
 
 
 
@@ -410,9 +490,11 @@ onclick="trackProductClick('${product.code}')"
 
 >
 
-🛒 BUY NOW
+🛒 BUY FROM ${networkText}
 
 </a>
+
+
 
 
 
@@ -430,8 +512,8 @@ If you purchase through these links, Tanvixa may earn a commission at no extra c
 
 
 
-</div>
 
+</div>
 
 
 </div>
@@ -452,9 +534,9 @@ If you purchase through these links, Tanvixa may earn a commission at no extra c
 
 
 
-// ======================================
-// DESCRIPTION FORMAT
-// ======================================
+/* ======================================
+   DESCRIPTION FORMAT
+====================================== */
 
 
 function formatDescription(text){
@@ -473,11 +555,11 @@ return text
 
 .split("\n\n")
 
-.map(
+.map(p=>
 
-paragraph =>
 
-`<p>${paragraph}</p>`
+`<p>${p}</p>`
+
 
 )
 
@@ -495,9 +577,9 @@ paragraph =>
 
 
 
-// ======================================
-// MESSAGE DISPLAY
-// ======================================
+/* ======================================
+   MESSAGE DISPLAY
+====================================== */
 
 
 function showMessage(message){
@@ -505,11 +587,17 @@ function showMessage(message){
 
 
 const result =
-document.getElementById("result");
+
+document.getElementById(
+"result"
+);
+
+
 
 
 
 if(result){
+
 
 
 result.innerHTML = `
@@ -531,14 +619,12 @@ ${message}
 `;
 
 
-}
-
-
 
 }
 
 
 
+}
 
 
 
@@ -547,35 +633,43 @@ ${message}
 
 
 
+
+/* ======================================
+   CLICK TRACKING
+====================================== */
+
+
+function trackProductClick(code){
 
 
 
 let clicks =
+
+
 JSON.parse(
 
-localStorage.getItem("tanvixaClicks")
+localStorage.getItem(
 
-);
+"tanvixaClicks"
 
+)
 
+)
 
-
-
-if(!clicks[code]){
-
-
-clicks[code] = 1;
+|| {};
 
 
-}
-
-else{
 
 
-clicks[code]++;
 
 
-}
+
+clicks[code] =
+
+(clicks[code] || 0)+1;
+
+
+
 
 
 
@@ -601,9 +695,9 @@ JSON.stringify(clicks)
 
 
 
-// ======================================
-// ENTER KEY SEARCH
-// ======================================
+/* ======================================
+   ENTER KEY SEARCH
+====================================== */
 
 
 document.addEventListener(
@@ -613,31 +707,37 @@ document.addEventListener(
 ()=>{
 
 
-const searchInput =
-document.getElementById("productCode");
+
+const input =
+
+document.getElementById(
+
+"productCode"
+
+);
 
 
 
-if(searchInput){
 
 
-searchInput.addEventListener(
+if(input){
+
+
+
+input.addEventListener(
 
 "keypress",
 
-function(event){
+e=>{
 
 
-
-if(event.key === "Enter"){
+if(e.key==="Enter"){
 
 
 searchProduct();
 
 
-
 }
-
 
 
 }
@@ -646,6 +746,7 @@ searchProduct();
 );
 
 
+
 }
 
 
@@ -657,38 +758,67 @@ searchProduct();
 
 
 
-// ===== END OF PART 1 =====/* =====================================================
+// ===== END OF FINAL PART A =====/* =====================================================
    TANVIXA SMART GADGET FINDER
-   SCRIPT.JS PART 2
 
-   Homepage Dynamic Content System
+   SCRIPT.JS FINAL VERSION
+
+   PART B
+
+   Homepage System
+   Product Sections
+   Categories
+   Brands
 
 ===================================================== */
 
 
 
-// ======================================
-// RUN HOMEPAGE SYSTEM
-// ======================================
+
+
+/* ======================================
+   HOMEPAGE INITIALIZER
+====================================== */
 
 
 function initializeHomepage(){
 
 
 
-if(!productsLoaded){
+    if(!productsLoaded){
 
 
-setTimeout(
+        setTimeout(
 
-initializeHomepage,
+            initializeHomepage,
 
-500
+            500
 
-);
+        );
 
 
-return;
+        return;
+
+
+    }
+
+
+
+
+
+
+    loadFeaturedProducts();
+
+    loadLatestProducts();
+
+    loadTrendingProducts();
+
+    loadDealsProducts();
+
+    loadCategories();
+
+    loadBrands();
+
 
 
 }
@@ -696,33 +826,14 @@ return;
 
 
 
-loadFeaturedProducts();
-
-loadLatestProducts();
-
-loadTrendingProducts();
-
-loadDealsProducts();
-
-loadCategories();
-
-loadBrands();
-
-
-
-}
 
 
 
 
 
-
-
-
-
-// ======================================
-// PRODUCT CARD TEMPLATE
-// ======================================
+/* ======================================
+   PRODUCT SMALL CARD
+====================================== */
 
 
 function createProductCard(product){
@@ -730,6 +841,7 @@ function createProductCard(product){
 
 
 return `
+
 
 
 <div class="small-product-card">
@@ -758,6 +870,8 @@ onerror="this.src='images/no-image.png'"
 
 
 
+
+
 <div class="small-product-info">
 
 
@@ -767,6 +881,9 @@ onerror="this.src='images/no-image.png'"
 ${product.name}
 
 </h3>
+
+
+
 
 
 
@@ -781,19 +898,22 @@ ${product.code}
 
 
 
+
+
 <a
 
 href="javascript:void(0)"
 
-onclick="openProduct('${product.code}')"
-
 class="view-button"
+
+onclick="openProduct('${product.code}')"
 
 >
 
 View Details
 
 </a>
+
 
 
 
@@ -819,9 +939,9 @@ View Details
 
 
 
-// ======================================
-// OPEN PRODUCT FROM HOMEPAGE
-// ======================================
+/* ======================================
+   OPEN PRODUCT
+====================================== */
 
 
 function openProduct(code){
@@ -829,7 +949,15 @@ function openProduct(code){
 
 
 const input =
-document.getElementById("productCode");
+
+document.getElementById(
+
+"productCode"
+
+);
+
+
+
 
 
 
@@ -843,17 +971,26 @@ input.value = code;
 
 
 
+
+
+
 searchProduct();
+
+
 
 
 
 window.scrollTo({
 
+
 top:0,
+
 
 behavior:"smooth"
 
+
 });
+
 
 
 }
@@ -866,9 +1003,9 @@ behavior:"smooth"
 
 
 
-// ======================================
-// FEATURED PRODUCTS
-// ======================================
+/* ======================================
+   FEATURED PRODUCTS
+====================================== */
 
 
 function loadFeaturedProducts(){
@@ -876,6 +1013,7 @@ function loadFeaturedProducts(){
 
 
 const container =
+
 document.getElementById(
 
 "featuredProducts"
@@ -896,10 +1034,16 @@ return;
 
 
 
+
+
 let featured =
-products.filter(product =>
+
+
+products.filter(product=>
+
 
 product.featured === true
+
 
 );
 
@@ -907,13 +1051,12 @@ product.featured === true
 
 
 
-// If JSON has no featured field
-
-if(featured.length === 0){
 
 
-featured =
-products.slice(0,6);
+if(featured.length===0){
+
+
+featured = products.slice(0,6);
 
 
 }
@@ -922,13 +1065,18 @@ products.slice(0,6);
 
 
 
+
+
 container.innerHTML =
+
 
 featured
 
-.map(product =>
+.map(product=>
+
 
 createProductCard(product)
+
 
 )
 
@@ -946,9 +1094,9 @@ createProductCard(product)
 
 
 
-// ======================================
-// LATEST PRODUCTS
-// ======================================
+/* ======================================
+   LATEST PRODUCTS
+====================================== */
 
 
 function loadLatestProducts(){
@@ -956,11 +1104,13 @@ function loadLatestProducts(){
 
 
 const container =
+
 document.getElementById(
 
 "latestProducts"
 
 );
+
 
 
 
@@ -975,7 +1125,10 @@ return;
 
 
 
+
+
 let latest =
+
 
 [...products]
 
@@ -988,14 +1141,17 @@ let latest =
 
 
 
+
 container.innerHTML =
 
 
 latest
 
-.map(product =>
+.map(product=>
+
 
 createProductCard(product)
+
 
 )
 
@@ -1013,9 +1169,9 @@ createProductCard(product)
 
 
 
-// ======================================
-// TRENDING PRODUCTS
-// ======================================
+/* ======================================
+   TRENDING PRODUCTS
+====================================== */
 
 
 function loadTrendingProducts(){
@@ -1023,6 +1179,7 @@ function loadTrendingProducts(){
 
 
 const container =
+
 document.getElementById(
 
 "trendingProducts"
@@ -1043,11 +1200,17 @@ return;
 
 
 
+
+
+
 let trending =
 
-products.filter(product =>
+
+products.filter(product=>
+
 
 product.trending === true
+
 
 );
 
@@ -1056,15 +1219,16 @@ product.trending === true
 
 
 
-if(trending.length === 0){
+
+if(trending.length===0){
 
 
-trending =
-
-products.slice(5,11);
+trending = products.slice(5,11);
 
 
 }
+
+
 
 
 
@@ -1075,9 +1239,11 @@ container.innerHTML =
 
 trending
 
-.map(product =>
+.map(product=>
+
 
 createProductCard(product)
+
 
 )
 
@@ -1095,9 +1261,9 @@ createProductCard(product)
 
 
 
-// ======================================
-// BEST DEAL PRODUCTS
-// ======================================
+/* ======================================
+   DEAL PRODUCTS
+====================================== */
 
 
 function loadDealsProducts(){
@@ -1105,6 +1271,7 @@ function loadDealsProducts(){
 
 
 const container =
+
 document.getElementById(
 
 "dealProducts"
@@ -1126,11 +1293,15 @@ return;
 
 
 
+
 let deals =
 
-products.filter(product =>
+
+products.filter(product=>
+
 
 product.deal === true
+
 
 );
 
@@ -1139,15 +1310,15 @@ product.deal === true
 
 
 
-if(deals.length === 0){
+
+if(deals.length===0){
 
 
-deals =
-
-products.slice(10,16);
+deals = products.slice(10,16);
 
 
 }
+
 
 
 
@@ -1159,9 +1330,11 @@ container.innerHTML =
 
 deals
 
-.map(product =>
+.map(product=>
+
 
 createProductCard(product)
+
 
 )
 
@@ -1179,9 +1352,9 @@ createProductCard(product)
 
 
 
-// ======================================
-// CATEGORY SYSTEM
-// ======================================
+/* ======================================
+   CATEGORY SYSTEM
+====================================== */
 
 
 function loadCategories(){
@@ -1189,11 +1362,13 @@ function loadCategories(){
 
 
 const container =
+
 document.getElementById(
 
 "categoryContainer"
 
 );
+
 
 
 
@@ -1207,7 +1382,12 @@ return;
 
 
 
-let categories = [];
+
+
+
+let categories=[];
+
+
 
 
 
@@ -1218,23 +1398,12 @@ products.forEach(product=>{
 
 
 let category =
-product.category;
+
+product.category ||
+
+detectCategory(product.name);
 
 
-
-if(!category){
-
-
-
-category =
-detectCategory(
-
-product.name
-
-);
-
-
-}
 
 
 
@@ -1261,6 +1430,7 @@ categories.push(category);
 
 
 
+
 container.innerHTML =
 
 
@@ -1268,11 +1438,17 @@ categories
 
 .slice(0,12)
 
-.map(category => `
+.map(category=>`
 
 
 
-<div class="category-card">
+<div
+
+class="category-card"
+
+onclick="searchCategory('${category}')"
+
+>
 
 
 <h3>
@@ -1280,6 +1456,7 @@ categories
 ${category}
 
 </h3>
+
 
 
 <p>
@@ -1309,9 +1486,110 @@ Explore Gadgets
 
 
 
-// ======================================
-// AUTO CATEGORY DETECTOR
-// ======================================
+/* ======================================
+   CATEGORY SEARCH
+====================================== */
+
+
+function searchCategory(category){
+
+
+
+const result =
+
+document.getElementById(
+
+"result"
+
+);
+
+
+
+
+
+
+let categoryProducts =
+
+
+products.filter(product=>{
+
+
+let productCategory =
+
+
+product.category ||
+
+
+detectCategory(product.name);
+
+
+
+
+
+return productCategory===category;
+
+
+});
+
+
+
+
+
+
+
+if(result){
+
+
+
+result.innerHTML =
+
+
+categoryProducts
+
+.map(product=>
+
+
+createProductCard(product)
+
+
+)
+
+.join("");
+
+
+
+}
+
+
+
+
+
+window.scrollTo({
+
+
+top:0,
+
+
+behavior:"smooth"
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   CATEGORY DETECTOR
+====================================== */
 
 
 function detectCategory(name){
@@ -1319,17 +1597,15 @@ function detectCategory(name){
 
 
 name =
+
 name.toLowerCase();
 
 
 
 
 
-if(
 
-name.includes("camera")
-
-)
+if(name.includes("camera"))
 
 return "Security Camera";
 
@@ -1337,11 +1613,8 @@ return "Security Camera";
 
 
 
-if(
 
-name.includes("watch")
-
-)
+if(name.includes("watch"))
 
 return "Smart Watch";
 
@@ -1349,11 +1622,8 @@ return "Smart Watch";
 
 
 
-if(
 
-name.includes("lock")
-
-)
+if(name.includes("lock"))
 
 return "Smart Security";
 
@@ -1361,11 +1631,8 @@ return "Smart Security";
 
 
 
-if(
 
-name.includes("light")
-
-)
+if(name.includes("light"))
 
 return "Smart Lighting";
 
@@ -1373,11 +1640,8 @@ return "Smart Lighting";
 
 
 
-if(
 
-name.includes("power bank")
-
-)
+if(name.includes("power bank"))
 
 return "Power Bank";
 
@@ -1385,13 +1649,11 @@ return "Power Bank";
 
 
 
-if(
 
-name.includes("charger")
-
-)
+if(name.includes("charger"))
 
 return "Charger";
+
 
 
 
@@ -1414,6 +1676,7 @@ return "Audio";
 
 
 
+
 return "Smart Gadgets";
 
 
@@ -1428,9 +1691,9 @@ return "Smart Gadgets";
 
 
 
-// ======================================
-// BRAND SYSTEM
-// ======================================
+/* ======================================
+   BRAND SYSTEM
+====================================== */
 
 
 function loadBrands(){
@@ -1438,6 +1701,7 @@ function loadBrands(){
 
 
 const container =
+
 document.getElementById(
 
 "brandContainer"
@@ -1458,7 +1722,12 @@ return;
 
 
 
-let brands = [];
+
+
+
+let brands=[];
+
+
 
 
 
@@ -1469,7 +1738,9 @@ products.forEach(product=>{
 
 
 let brand =
+
 product.brand;
+
 
 
 
@@ -1479,10 +1750,12 @@ if(!brand){
 
 
 brand =
+
 product.name.split(" ")[0];
 
 
 }
+
 
 
 
@@ -1504,6 +1777,7 @@ brands.push(brand);
 
 
 });
+
 
 
 
@@ -1551,17 +1825,17 @@ ${brand}
 
 
 
-
-
-
-// ===== END OF PART 2 =====/* =====================================================
+// ===== END OF FINAL PART B =====/* =====================================================
    TANVIXA SMART GADGET FINDER
-   SCRIPT.JS PART 3
+
+   SCRIPT.JS FINAL VERSION
+
+   PART C
 
    Guides
    Popular Products
-   Newsletter
-   Final Optimization
+   Optimization
+   Final Initialization
 
 ===================================================== */
 
@@ -1569,9 +1843,9 @@ ${brand}
 
 
 
-// ======================================
-// BUYING GUIDE SYSTEM
-// ======================================
+/* ======================================
+   BUYING GUIDE SYSTEM
+====================================== */
 
 
 function loadBuyingGuides(){
@@ -1579,6 +1853,7 @@ function loadBuyingGuides(){
 
 
 const container =
+
 document.getElementById(
 
 "guideContainer"
@@ -1600,7 +1875,9 @@ return;
 
 
 
-let guides = [];
+let guides=[];
+
+
 
 
 
@@ -1611,8 +1888,14 @@ products.forEach(product=>{
 
 
 let category =
+
+
 product.category ||
+
+
 detectCategory(product.name);
+
+
 
 
 
@@ -1655,11 +1938,14 @@ guides
 <div class="guide-card">
 
 
+
 <div class="guide-icon">
 
 📖
 
 </div>
+
+
 
 
 
@@ -1671,15 +1957,27 @@ ${item} Buying Guide
 
 
 
+
+
+
 <p>
 
-Learn how to choose the right ${item.toLowerCase()} before buying.
+Learn how to choose the right
+
+${item.toLowerCase()}
+
+before buying.
 
 </p>
 
 
 
-<a href="#"
+
+
+
+<a
+
+href="#"
 
 onclick="return false;"
 
@@ -1688,6 +1986,8 @@ onclick="return false;"
 Read Guide
 
 </a>
+
+
 
 
 
@@ -1711,9 +2011,9 @@ Read Guide
 
 
 
-// ======================================
-// MOST CLICKED PRODUCTS
-// ======================================
+/* ======================================
+   POPULAR PRODUCTS SYSTEM
+====================================== */
 
 
 function loadPopularProducts(){
@@ -1721,6 +2021,7 @@ function loadPopularProducts(){
 
 
 const container =
+
 document.getElementById(
 
 "popularProducts"
@@ -1742,7 +2043,9 @@ return;
 
 
 
+
 let clicks =
+
 
 JSON.parse(
 
@@ -1764,21 +2067,32 @@ localStorage.getItem(
 
 let popular =
 
+
 [...products]
 
 .sort((a,b)=>{
 
 
+
 let aClicks =
+
 clicks[a.code] || 0;
 
 
+
+
+
 let bClicks =
+
 clicks[b.code] || 0;
 
 
 
-return bClicks - aClicks;
+
+
+
+return bClicks-aClicks;
+
 
 
 })
@@ -1796,9 +2110,11 @@ container.innerHTML =
 
 popular
 
-.map(product =>
+.map(product=>
+
 
 createProductCard(product)
+
 
 )
 
@@ -1816,78 +2132,9 @@ createProductCard(product)
 
 
 
-// ======================================
-// UPDATE CLICK DATA AFTER BUY BUTTON
-// ======================================
-
-
-function trackProductClick(code){
-
-
-
-let clickData =
-
-JSON.parse(
-
-localStorage.getItem(
-
-"tanvixaClicks"
-
-)
-
-)
-
-|| {};
-
-
-
-
-
-
-if(!clickData[code]){
-
-
-clickData[code]=1;
-
-
-}
-
-else{
-
-
-clickData[code]++;
-
-
-}
-
-
-
-
-
-
-localStorage.setItem(
-
-"tanvixaClicks",
-
-JSON.stringify(clickData)
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ======================================
-// NEWSLETTER SYSTEM
-// ======================================
+/* ======================================
+   NEWSLETTER SYSTEM
+====================================== */
 
 
 document.addEventListener(
@@ -1898,15 +2145,16 @@ document.addEventListener(
 
 
 
-
-
 const form =
+
 
 document.querySelector(
 
 ".newsletter-form"
 
 );
+
+
 
 
 
@@ -1930,6 +2178,7 @@ e.preventDefault();
 
 
 
+
 alert(
 
 "✅ Thanks for joining Tanvixa Community!"
@@ -1940,7 +2189,9 @@ alert(
 
 
 
+
 form.reset();
+
 
 
 
@@ -1951,25 +2202,26 @@ form.reset();
 );
 
 
+
 }
 
 
 
+}
 
-
-});
-
-
-
+);
 
 
 
 
 
 
-// ======================================
-// IMAGE LAZY LOAD FALLBACK
-// ======================================
+
+
+
+/* ======================================
+   IMAGE FALLBACK SYSTEM
+====================================== */
 
 
 document.addEventListener(
@@ -1982,7 +2234,7 @@ function(event){
 
 if(
 
-event.target.tagName === "IMG"
+event.target.tagName==="IMG"
 
 ){
 
@@ -2012,12 +2264,22 @@ true
 
 
 
-// ======================================
-// SMOOTH SCROLL
-// ======================================
+/* ======================================
+   SMOOTH SCROLL SYSTEM
+====================================== */
 
 
-document.querySelectorAll(
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+
+document
+
+.querySelectorAll(
 
 'a[href^="#"]'
 
@@ -2035,13 +2297,16 @@ function(e){
 
 
 
-let target =
+const target =
+
 
 document.querySelector(
 
 this.getAttribute("href")
 
 );
+
+
 
 
 
@@ -2059,13 +2324,27 @@ e.preventDefault();
 
 target.scrollIntoView({
 
+
 behavior:"smooth"
+
 
 });
 
 
 
 }
+
+
+
+}
+
+
+
+);
+
+
+
+});
 
 
 
@@ -2074,7 +2353,6 @@ behavior:"smooth"
 );
 
 
-});
 
 
 
@@ -2082,11 +2360,9 @@ behavior:"smooth"
 
 
 
-
-
-// ======================================
-// KEYBOARD SHORTCUT
-// ======================================
+/* ======================================
+   KEYBOARD SEARCH SHORTCUT
+====================================== */
 
 
 document.addEventListener(
@@ -2097,15 +2373,12 @@ function(e){
 
 
 
-if(
-
-e.key === "/"
-
-){
+if(e.key==="/"){
 
 
 
-let search =
+const search =
+
 
 document.getElementById(
 
@@ -2117,11 +2390,14 @@ document.getElementById(
 
 
 
+
+
 if(search){
 
 
 
 e.preventDefault();
+
 
 
 search.focus();
@@ -2136,7 +2412,9 @@ search.focus();
 
 
 
-});
+}
+
+);
 
 
 
@@ -2146,9 +2424,9 @@ search.focus();
 
 
 
-// ======================================
-// FINAL INITIALIZATION
-// ======================================
+/* ======================================
+   FINAL TANVIXA START
+====================================== */
 
 
 function startTanvixa(){
@@ -2178,10 +2456,25 @@ return;
 
 
 
+
+
+initializeHomepage();
+
+
+
+
+
+
 loadBuyingGuides();
 
 
+
+
+
+
 loadPopularProducts();
+
+
 
 
 
@@ -2202,6 +2495,16 @@ console.log(
 
 
 
+
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+
 setTimeout(
 
 ()=>{
@@ -2212,7 +2515,13 @@ startTanvixa();
 
 },
 
-1500
+800
+
+);
+
+
+
+}
 
 );
 
@@ -2220,4 +2529,6 @@ startTanvixa();
 
 
 
-// ===== END OF SCRIPT.JS =====
+
+
+// ===== END OF SCRIPT.JS FINAL VERSION =====
