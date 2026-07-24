@@ -1826,7 +1826,9 @@ ${brand}
 
 
 
-// ===== END OF FINAL PART B =====/* =====================================================
+// ===== END OF FINAL PART B =====
+
+/* =====================================================
    TANVIXA SMART GADGET FINDER
 
    SCRIPT.JS FINAL VERSION
