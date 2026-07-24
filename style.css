@@ -1,112 +1,145 @@
-/* =====================================
-   TANVIXA GLOBAL STYLE
-===================================== */
+/* =====================================================
+   TANVIXA SMART GADGET FINDER
 
+   STYLE.CSS PART 1
 
-* {
+   Global
+   Header
+   Hero
+   Search
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-
-}
-
-
-
-body {
-
-    background:#f5f7fb;
-    color:#222;
-    line-height:1.6;
-    overflow-x:hidden;
-
-}
+===================================================== */
 
 
 
-img {
+/* ======================================
+   GOOGLE RESET
+====================================== */
 
-    max-width:100%;
-    display:block;
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
 
 }
 
 
 
+html{
+
+scroll-behavior:smooth;
+
+}
 
 
-/* =====================================
+
+body{
+
+background:#ffffff;
+
+color:#1f2937;
+
+line-height:1.6;
+
+overflow-x:hidden;
+
+}
+
+
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+
+
+ul{
+
+list-style:none;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   CONTAINER
+====================================== */
+
+
+.container{
+
+width:90%;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
    HEADER
-===================================== */
+====================================== */
 
 
-.header {
+.header{
 
-    background:linear-gradient(
-        135deg,
-        #ffffff,
-        #eef4ff
-    );
+background:#ffffff;
 
-    padding:20px;
+position:sticky;
 
-    text-align:center;
+top:0;
 
-    box-shadow:
-    0 2px 10px rgba(0,0,0,0.08);
+z-index:1000;
+
+border-bottom:1px solid #e5e7eb;
 
 }
 
 
 
-.logo-area {
+.header .container{
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+align-items:center;
 
-    align-items:center;
+justify-content:space-between;
 
-    gap:12px;
-
-}
-
-
-
-.logo-area img {
-
-    width:60px;
-
-    height:60px;
-
-    object-fit:contain;
-
-    border-radius:12px;
-
-}
-
-
-
-.logo-area h1 {
-
-    font-size:32px;
-
-    font-weight:800;
-
-    color:#111827;
-
-}
-
-
-
-.tagline {
-
-    margin-top:8px;
-
-    color:#666;
-
-    font-size:15px;
+padding:15px 0;
 
 }
 
@@ -115,40 +148,205 @@ img {
 
 
 
-/* =====================================
+
+
+
+/* ======================================
+   LOGO
+====================================== */
+
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+
+
+.logo img{
+
+width:55px;
+
+height:55px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+}
+
+
+
+.logo h1{
+
+font-size:28px;
+
+font-weight:800;
+
+color:#2563eb;
+
+line-height:1;
+
+}
+
+
+
+.logo p{
+
+font-size:12px;
+
+color:#6b7280;
+
+margin-top:5px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   DESKTOP MENU
+====================================== */
+
+
+.desktop-menu{
+
+display:flex;
+
+gap:25px;
+
+align-items:center;
+
+}
+
+
+
+.desktop-menu a{
+
+font-size:15px;
+
+font-weight:500;
+
+color:#374151;
+
+transition:.3s;
+
+}
+
+
+
+.desktop-menu a:hover{
+
+color:#2563eb;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
    HERO SECTION
-===================================== */
+====================================== */
 
 
-.hero {
+.hero{
 
-    text-align:center;
+padding:70px 0;
 
-    padding:50px 20px;
+background:
 
-}
+linear-gradient(
 
+135deg,
 
+#eff6ff,
 
-.hero h2 {
+#ffffff
 
-    font-size:34px;
-
-    color:#111827;
-
-    margin-bottom:15px;
+);
 
 }
 
 
 
-.hero p {
+.hero-content{
 
-    max-width:600px;
+display:grid;
 
-    margin:auto;
+grid-template-columns:
 
-    color:#555;
+1fr 1fr;
+
+gap:50px;
+
+align-items:center;
+
+}
+
+
+
+.hero-badge{
+
+display:inline-block;
+
+background:#dbeafe;
+
+color:#2563eb;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:20px;
+
+}
+
+
+
+.hero-left h2{
+
+font-size:48px;
+
+line-height:1.2;
+
+font-weight:800;
+
+color:#111827;
+
+margin-bottom:20px;
+
+}
+
+
+
+.hero-left p{
+
+font-size:17px;
+
+color:#6b7280;
+
+max-width:550px;
+
+margin-bottom:30px;
 
 }
 
@@ -157,310 +355,130 @@ img {
 
 
 
-/* =====================================
+
+
+
+/* ======================================
    SEARCH BOX
-===================================== */
+====================================== */
 
 
-.search-box {
+.search-box{
 
-    margin-top:30px;
+display:flex;
 
-    display:flex;
+max-width:600px;
 
-    justify-content:center;
+background:#ffffff;
 
-    gap:10px;
+padding:8px;
 
-    flex-wrap:wrap;
-
-}
-
-
-
-.search-box input {
-
-    width:320px;
-
-    padding:15px 18px;
-
-    border-radius:10px;
-
-    border:1px solid #ddd;
-
-    font-size:16px;
-
-    outline:none;
-
-}
-
-
-
-.search-box input:focus {
-
-    border-color:#2563eb;
-
-    box-shadow:
-    0 0 8px rgba(37,99,235,0.3);
-
-}
-
-
-
-.search-box button {
-
-    padding:15px 25px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#2563eb;
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-
-.search-box button:hover {
-
-    background:#1d4ed8;
-
-    transform:translateY(-2px);
-
-}
-
-
-
-
-
-
-/* =====================================
-   PRODUCT SECTION
-===================================== */
-
-
-.product-section {
-
-    padding:20px;
-
-}
-
-
-
-.welcome-card,
-.product-card {
-
-    background:white;
-
-    border-radius:20px;
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,0.10);
-
-}
-
-
-
-.welcome-card {
-
-    max-width:600px;
-
-    margin:auto;
-
-    padding:30px;
-
-    text-align:center;
-
-}
-
-
-
-
-
-
-/* =====================================
-   PRODUCT CARD
-===================================== */
-
-
-.product-card {
-
-    max-width:650px;
-
-    margin:30px auto;
-
-    padding:25px;
-
-    text-align:center;
-
-}
-
-
-
-.product-image {
-
-    width:100%;
-
-    max-width:350px;
-
-    height:350px;
-
-    margin:0 auto 20px;
-
-    object-fit:contain;
-
-    border-radius:15px;
-
-    background:#f9fafb;
-
-}
-
-
-
-.product-card h2 {
-
-    font-size:26px;
-
-    color:#111827;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.product-description {
-
-    text-align:left;
-
-    color:#555;
-
-    font-size:16px;
-
-    line-height:1.7;
-
-}
-
-/* =====================================
-   PRODUCT FEATURES LIST
-===================================== */
-
-
-.product-features {
-
-    list-style:none;
-
-    padding:0;
-
-    margin:20px 0;
-
-    text-align:left;
-
-}
-
-
-
-.product-features li {
-
-    background:#f3f4f6;
-
-    margin-bottom:10px;
-
-    padding:12px 15px;
-
-    border-radius:10px;
-
-    font-size:15px;
-
-}
-
-
-
-
-
-
-
-/* =====================================
-   BUY NOW BUTTON
-===================================== */
-
-
-.buy-button {
-
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:16px 45px;
-
-    background:#16a34a;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    border-radius:50px;
-
-    transition:.3s;
-
-    animation:pulseButton 2s infinite;
-
-}
-
-
-
-.buy-button:hover {
-
-    background:#15803d;
-
-    transform:scale(1.05);
-
-}
-
-
-
-
-
-@keyframes pulseButton {
-
-
-0% {
+border-radius:15px;
 
 box-shadow:
-0 0 0 0 rgba(22,163,74,0.6);
+
+0 10px 30px rgba(0,0,0,.08);
 
 }
 
 
 
-70% {
+.search-box input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+padding:15px;
+
+font-size:16px;
+
+color:#374151;
+
+}
+
+
+
+.search-box button{
+
+border:none;
+
+background:#2563eb;
+
+color:white;
+
+padding:15px 25px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+
+
+.search-box button:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   HERO FEATURES
+====================================== */
+
+
+.hero-features{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:15px;
+
+margin-top:35px;
+
+}
+
+
+
+.hero-features div{
+
+background:white;
+
+padding:12px;
+
+border-radius:12px;
+
+font-size:13px;
+
+text-align:center;
 
 box-shadow:
-0 0 0 15px rgba(22,163,74,0);
 
-}
+0 5px 20px rgba(0,0,0,.05);
 
-
-
-100% {
-
-box-shadow:
-0 0 0 0 rgba(22,163,74,0);
-
-}
-
+font-weight:500;
 
 }
 
@@ -471,336 +489,50 @@ box-shadow:
 
 
 
-/* =====================================
-   AFFILIATE BOX
-===================================== */
+
+/* ======================================
+   HERO IMAGE
+====================================== */
 
 
-.affiliate-box {
+.hero-right img{
 
-    margin-top:25px;
+width:100%;
 
-    padding:15px;
+max-width:500px;
 
-    background:#fff7ed;
+margin:auto;
 
-    border-radius:12px;
+animation:
 
-    font-size:13px;
-
-    color:#555;
-
-    text-align:left;
+floatImage 4s ease-in-out infinite;
 
 }
 
 
 
+@keyframes floatImage{
 
 
+0%{
 
-
-/* =====================================
-   FEATURES SECTION
-===================================== */
-
-
-.features,
-.how-it-works,
-.trust-section,
-.affiliate-disclosure,
-.social-section {
-
-    padding:50px 20px;
-
-    text-align:center;
+transform:translateY(0);
 
 }
 
 
 
-.features h2,
-.how-it-works h2,
-.trust-section h2,
-.social-section h2 {
+50%{
 
-    font-size:28px;
-
-    margin-bottom:30px;
+transform:translateY(-10px);
 
 }
 
 
 
-.feature-container,
-.steps {
+100%{
 
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-
-
-.feature-card,
-.step-card {
-
-    width:280px;
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,0.08);
-
-}
-
-
-
-.icon {
-
-    font-size:40px;
-
-    margin-bottom:10px;
-
-}
-
-
-
-.step-card span {
-
-    font-size:35px;
-
-}
-
-
-
-
-
-
-
-
-/* =====================================
-   AFFILIATE DISCLOSURE
-===================================== */
-
-
-.affiliate-disclosure {
-
-    background:#fff8e7;
-
-    margin:20px;
-
-    border-radius:15px;
-
-}
-
-
-
-.affiliate-disclosure h3 {
-
-    margin-bottom:10px;
-
-}
-
-
-
-
-
-
-
-
-/* =====================================
-   SOCIAL LINKS
-===================================== */
-
-
-.social-links {
-
-    margin-top:20px;
-
-}
-
-
-
-.social-links a {
-
-    display:inline-block;
-
-    margin:8px;
-
-    padding:12px 20px;
-
-    background:#111827;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:8px;
-
-}
-
-
-
-.social-links a:hover {
-
-    opacity:.8;
-
-}
-
-
-
-
-
-
-
-/* =====================================
-   FOOTER
-===================================== */
-
-
-footer {
-
-    background:#111827;
-
-    color:white;
-
-    text-align:center;
-
-    padding:20px;
-
-}
-
-
-
-
-
-
-
-
-/* =====================================
-   LOADING & ERROR CARD
-===================================== */
-
-
-.loading-card,
-.error-card {
-
-    max-width:500px;
-
-    margin:30px auto;
-
-    background:white;
-
-    padding:35px 25px;
-
-    border-radius:18px;
-
-    text-align:center;
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,0.10);
-
-}
-
-
-
-.loading-card h3,
-.error-card h3 {
-
-    margin-top:20px;
-
-    font-size:24px;
-
-    color:#111827;
-
-}
-
-
-
-.loading-card p,
-.error-card p {
-
-    color:#666;
-
-    margin-top:10px;
-
-}
-
-
-
-.error-card small {
-
-    display:inline-block;
-
-    margin-top:15px;
-
-    background:#f3f4f6;
-
-    padding:8px 15px;
-
-    border-radius:20px;
-
-    color:#2563eb;
-
-    font-weight:bold;
-
-}
-
-
-
-
-
-
-
-
-/* =====================================
-   LOADER ANIMATION
-===================================== */
-
-
-.loader {
-
-    width:55px;
-
-    height:55px;
-
-    border:6px solid #e5e7eb;
-
-    border-top:6px solid #2563eb;
-
-    border-radius:50%;
-
-    margin:auto;
-
-    animation:spinLoader 1s linear infinite;
-
-}
-
-
-
-@keyframes spinLoader {
-
-
-from {
-
-transform:rotate(0deg);
-
-}
-
-
-to {
-
-transform:rotate(360deg);
+transform:translateY(0);
 
 }
 
@@ -814,87 +546,98 @@ transform:rotate(360deg);
 
 
 
-/* =====================================
-   ERROR SHAKE EFFECT
-===================================== */
+
+/* ======================================
+   RESPONSIVE TABLET
+====================================== */
 
 
-.error-card {
-
-    animation:errorShake .4s ease;
-
-}
+@media(max-width:900px){
 
 
 
-@keyframes errorShake {
+.hero-content{
 
+grid-template-columns:1fr;
 
-0% {
-
-transform:translateX(0);
+text-align:center;
 
 }
 
 
 
-25% {
+.hero-left p{
 
-transform:translateX(-8px);
+margin-left:auto;
 
-}
-
-
-
-50% {
-
-transform:translateX(8px);
+margin-right:auto;
 
 }
 
 
 
-75% {
+.search-box{
 
-transform:translateX(-5px);
-
-}
-
-
-
-100% {
-
-transform:translateX(0);
-
-}
-
+margin:auto;
 
 }
 
 
 
+.desktop-menu{
+
+display:none;
+
+}
+
+
+
+.hero-features{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+
+.hero-left h2{
+
+font-size:38px;
+
+}
+
+
+
+}
 
 
 
 
-/* =====================================
-   MOBILE RESPONSIVE
-===================================== */
+
+
+
+
+
+/* ======================================
+   MOBILE
+====================================== */
 
 
 @media(max-width:600px){
 
 
 
-.header {
+.header .container{
 
-padding:15px 10px;
+padding:10px 0;
 
 }
 
 
 
-.logo-area img {
+.logo img{
 
 width:45px;
 
@@ -904,15 +647,544 @@ height:45px;
 
 
 
-.logo-area h1 {
+.logo h1{
 
-font-size:24px;
+font-size:22px;
 
 }
 
 
 
-.tagline {
+.hero{
+
+padding:45px 0;
+
+}
+
+
+
+.hero-left h2{
+
+font-size:30px;
+
+}
+
+
+
+.hero-left p{
+
+font-size:15px;
+
+}
+
+
+
+.search-box{
+
+flex-direction:column;
+
+background:none;
+
+box-shadow:none;
+
+gap:10px;
+
+}
+
+
+
+.search-box input{
+
+background:white;
+
+border-radius:12px;
+
+box-shadow:
+
+0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.search-box button{
+
+width:100%;
+
+}
+
+
+
+.hero-features{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+}/* =====================================================
+   TANVIXA STYLE.CSS PART 2
+
+   Product Cards
+   Homepage Sections
+===================================================== */
+
+
+
+
+
+/* ======================================
+   COMMON SECTION
+====================================== */
+
+
+.section{
+
+padding:70px 0;
+
+}
+
+
+
+.bg-light{
+
+background:#f8fafc;
+
+}
+
+
+
+.section-header{
+
+text-align:center;
+
+max-width:700px;
+
+margin:0 auto 45px;
+
+}
+
+
+
+.section-badge{
+
+display:inline-block;
+
+background:#dbeafe;
+
+color:#2563eb;
+
+padding:7px 18px;
+
+border-radius:30px;
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:15px;
+
+}
+
+
+
+.section-header h2{
+
+font-size:36px;
+
+font-weight:800;
+
+color:#111827;
+
+margin-bottom:10px;
+
+}
+
+
+
+.section-header p{
+
+color:#6b7280;
+
+font-size:16px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   SEARCH RESULT AREA
+====================================== */
+
+
+.search-section{
+
+padding:40px 0;
+
+}
+
+
+
+.welcome-card,
+.message-card,
+.error-card{
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.welcome-card h2{
+
+color:#2563eb;
+
+margin-bottom:10px;
+
+}
+
+
+
+.error-card{
+
+color:#dc2626;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   PRODUCT SEARCH CARD
+====================================== */
+
+
+.product-card{
+
+display:grid;
+
+grid-template-columns:
+
+350px 1fr;
+
+gap:35px;
+
+background:white;
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.08);
+
+margin-bottom:40px;
+
+}
+
+
+
+.product-image img{
+
+width:100%;
+
+height:350px;
+
+object-fit:contain;
+
+border-radius:20px;
+
+background:#f9fafb;
+
+}
+
+
+
+.product-info h2{
+
+font-size:28px;
+
+font-weight:800;
+
+margin-bottom:15px;
+
+color:#111827;
+
+}
+
+
+
+.product-code{
+
+background:#eff6ff;
+
+color:#2563eb;
+
+display:inline-block;
+
+padding:8px 15px;
+
+border-radius:10px;
+
+font-size:14px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.product-description p{
+
+color:#6b7280;
+
+margin-bottom:12px;
+
+}
+
+
+
+.product-features{
+
+margin-top:25px;
+
+}
+
+
+
+.product-features h3{
+
+font-size:20px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.product-features li{
+
+margin-bottom:8px;
+
+color:#374151;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   BUY BUTTON
+====================================== */
+
+
+.buy-button{
+
+display:inline-block;
+
+margin-top:25px;
+
+background:#2563eb;
+
+color:white;
+
+padding:15px 35px;
+
+border-radius:12px;
+
+font-weight:700;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+
+
+.buy-button:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-3px);
+
+box-shadow:
+
+0 10px 20px rgba(37,99,235,.3);
+
+}
+
+
+
+.affiliate-note{
+
+margin-top:20px;
+
+font-size:12px;
+
+color:#6b7280;
+
+line-height:1.5;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   PRODUCT GRID
+====================================== */
+
+
+.product-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   SMALL PRODUCT CARD
+====================================== */
+
+
+.small-product-card{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.06);
+
+transition:.3s;
+
+}
+
+
+
+.small-product-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.small-product-image{
+
+height:220px;
+
+background:#f9fafb;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.small-product-image img{
+
+width:100%;
+
+height:100%;
+
+object-fit:contain;
+
+padding:15px;
+
+}
+
+
+
+.small-product-info{
+
+padding:20px;
+
+}
+
+
+
+.small-product-info h3{
+
+font-size:17px;
+
+font-weight:700;
+
+height:55px;
+
+overflow:hidden;
+
+}
+
+
+
+.small-code{
+
+display:inline-block;
+
+margin:15px 0;
+
+background:#eff6ff;
+
+color:#2563eb;
+
+padding:5px 12px;
+
+border-radius:20px;
 
 font-size:13px;
 
@@ -921,85 +1193,1079 @@ font-size:13px;
 
 
 
-.hero {
-
-padding:35px 15px;
-
-}
-
-
-
-.hero h2 {
-
-font-size:24px;
-
-}
-
-
-
-.hero p {
-
-font-size:14px;
-
-}
 
 
 
 
-.search-box input {
 
-width:100%;
-
-height:52px;
-
-}
+/* ======================================
+   VIEW BUTTON
+====================================== */
 
 
+.view-button{
 
-.search-box button {
+display:block;
 
-width:100%;
+text-align:center;
 
-height:52px;
+background:#111827;
 
-}
-
-
-
-
-.product-section {
+color:white;
 
 padding:10px;
 
-}
+border-radius:10px;
 
+font-weight:600;
 
-
-.product-card {
-
-padding:18px;
+transition:.3s;
 
 }
 
 
 
-.product-image {
+.view-button:hover{
 
-height:220px;
-
-}
-
-
-
-.product-card h2 {
-
-font-size:20px;
+background:#2563eb;
 
 }
 
 
 
-.product-description {
+
+
+
+
+
+
+/* ======================================
+   CATEGORY GRID
+====================================== */
+
+
+.category-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+
+.category-card{
+
+background:white;
+
+padding:25px;
+
+text-align:center;
+
+border-radius:18px;
+
+box-shadow:
+
+0 8px 25px rgba(0,0,0,.06);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+
+
+.category-card:hover{
+
+transform:translateY(-5px);
+
+background:#eff6ff;
+
+}
+
+
+
+.category-card h3{
+
+font-size:18px;
+
+color:#111827;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   BRAND GRID
+====================================== */
+
+
+.brand-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(6,1fr);
+
+gap:20px;
+
+}
+
+
+
+.brand-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.05);
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+
+
+.brand-card:hover{
+
+color:#2563eb;
+
+transform:translateY(-5px);
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   RESPONSIVE TABLET
+====================================== */
+
+
+@media(max-width:900px){
+
+
+.product-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+
+.product-card{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.category-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+
+.brand-grid{
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   MOBILE
+====================================== */
+
+
+@media(max-width:600px){
+
+
+.section{
+
+padding:45px 0;
+
+}
+
+
+
+.section-header h2{
+
+font-size:28px;
+
+}
+
+
+
+.product-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.product-card{
+
+padding:20px;
+
+}
+
+
+
+.product-image img{
+
+height:250px;
+
+}
+
+
+
+.product-info h2{
+
+font-size:22px;
+
+}
+
+
+
+.category-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.brand-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+
+}/* =====================================================
+   TANVIXA STYLE.CSS PART 3
+
+   Final Homepage Sections
+   Footer
+   Responsive
+
+===================================================== */
+
+
+
+
+
+/* ======================================
+   STATS SECTION
+====================================== */
+
+
+.stats-section{
+
+padding:50px 0;
+
+background:#ffffff;
+
+}
+
+
+
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+
+.stat-card{
+
+background:#f8fafc;
+
+padding:30px;
+
+text-align:center;
+
+border-radius:20px;
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.05);
+
+}
+
+
+
+.stat-card h3{
+
+font-size:35px;
+
+color:#2563eb;
+
+font-weight:800;
+
+}
+
+
+
+.stat-card p{
+
+color:#6b7280;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   FEATURE GRID
+====================================== */
+
+
+.feature-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:25px;
+
+}
+
+
+
+.feature-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.06);
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+
+
+.feature-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.feature-icon{
+
+font-size:40px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.feature-card h3{
+
+margin-bottom:10px;
+
+}
+
+
+
+.feature-card p{
+
+color:#6b7280;
+
+font-size:15px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   HOW IT WORKS
+====================================== */
+
+
+.steps-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:25px;
+
+}
+
+
+
+.step-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+.step-number{
+
+width:50px;
+
+height:50px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#2563eb;
+
+color:white;
+
+border-radius:50%;
+
+font-size:22px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   GUIDE SECTION
+====================================== */
+
+
+.guide-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+.guide-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+.guide-icon{
+
+font-size:35px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.guide-card h3{
+
+margin-bottom:10px;
+
+}
+
+
+
+.guide-card p{
+
+color:#6b7280;
+
+}
+
+
+
+.guide-card a{
+
+display:inline-block;
+
+margin-top:15px;
+
+color:#2563eb;
+
+font-weight:600;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   VIDEO SECTION
+====================================== */
+
+
+.video-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+.video-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+.video-thumbnail{
+
+height:180px;
+
+background:#111827;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:50px;
+
+border-radius:15px;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   NEWSLETTER
+====================================== */
+
+
+.newsletter-section{
+
+padding:70px 0;
+
+background:#eff6ff;
+
+}
+
+
+
+.newsletter-box{
+
+background:white;
+
+padding:45px;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.newsletter-box h2{
+
+font-size:32px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.newsletter-box p{
+
+color:#6b7280;
+
+margin-bottom:25px;
+
+}
+
+
+
+.newsletter-form{
+
+display:flex;
+
+max-width:500px;
+
+margin:auto;
+
+gap:10px;
+
+}
+
+
+
+.newsletter-form input{
+
+flex:1;
+
+padding:15px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+outline:none;
+
+}
+
+
+
+.newsletter-form button{
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:15px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   REVIEW SECTION
+====================================== */
+
+
+.review-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+.review-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+.review-card p{
+
+margin:15px 0;
+
+color:#6b7280;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   FAQ
+====================================== */
+
+
+.faq-container{
+
+display:grid;
+
+gap:20px;
+
+}
+
+
+
+.faq-item{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.05);
+
+}
+
+
+
+.faq-item h3{
+
+margin-bottom:10px;
+
+}
+
+
+
+.faq-item p{
+
+color:#6b7280;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   TRUST SECTION
+====================================== */
+
+
+.trust-section{
+
+padding:70px 0;
+
+}
+
+
+
+.trust-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(6,1fr);
+
+gap:15px;
+
+}
+
+
+
+.trust-card{
+
+background:#f8fafc;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+font-weight:600;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   SOCIAL SECTION
+====================================== */
+
+
+.social-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+
+.social-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.06);
+
+transition:.3s;
+
+}
+
+
+
+.social-card:hover{
+
+transform:translateY(-5px);
+
+color:#2563eb;
+
+}
+
+
+
+.social-card:first-letter{
+
+font-size:35px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   CONTACT
+====================================== */
+
+
+.contact-card{
+
+text-align:center;
+
+}
+
+
+
+.primary-btn{
+
+display:inline-block;
+
+background:#2563eb;
+
+color:white;
+
+padding:15px 35px;
+
+border-radius:12px;
+
+font-weight:700;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   AFFILIATE DISCLOSURE
+====================================== */
+
+
+.affiliate-disclosure{
+
+padding:40px 0;
+
+background:#f8fafc;
+
+}
+
+
+
+.affiliate-disclosure h2{
+
+margin-bottom:15px;
+
+}
+
+
+
+.affiliate-disclosure p{
+
+color:#6b7280;
 
 font-size:14px;
 
@@ -1007,7 +2273,56 @@ font-size:14px;
 
 
 
-.product-features li {
+
+
+
+
+
+
+/* ======================================
+   FOOTER
+====================================== */
+
+
+.footer{
+
+background:#111827;
+
+color:white;
+
+padding:60px 0 25px;
+
+}
+
+
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:40px;
+
+}
+
+
+
+.footer h3{
+
+margin-bottom:15px;
+
+}
+
+
+
+.footer p,
+
+.footer a{
+
+color:#cbd5e1;
 
 font-size:14px;
 
@@ -1015,41 +2330,169 @@ font-size:14px;
 
 
 
-.buy-button {
+.footer li{
 
-width:100%;
+margin-bottom:8px;
 
-font-size:17px;
+}
+
+
+
+.footer hr{
+
+margin:35px 0;
+
+border-color:#374151;
+
+}
+
+
+
+.copyright{
+
+text-align:center;
 
 }
 
 
 
 
-.feature-card,
-.step-card {
 
-width:100%;
+
+
+
+
+/* ======================================
+   TABLET RESPONSIVE
+====================================== */
+
+
+@media(max-width:900px){
+
+
+.stats-grid,
+
+.feature-grid,
+
+.steps-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
 
 }
 
 
 
-.loading-card,
-.error-card {
+.guide-grid,
 
-margin:20px 15px;
+.video-grid,
 
-padding:25px 15px;
+.review-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
 
 }
 
 
 
-.loading-card h3,
-.error-card h3 {
+.trust-grid{
 
-font-size:20px;
+grid-template-columns:
+
+repeat(3,1fr);
+
+}
+
+
+
+.social-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   MOBILE RESPONSIVE
+====================================== */
+
+
+@media(max-width:600px){
+
+
+
+.stats-grid,
+
+.feature-grid,
+
+.steps-grid,
+
+.guide-grid,
+
+.video-grid,
+
+.review-grid,
+
+.social-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.trust-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+
+.newsletter-box{
+
+padding:25px;
+
+}
+
+
+
+.newsletter-box h2{
+
+font-size:25px;
+
+}
+
+
+
+.newsletter-form{
+
+flex-direction:column;
+
+}
+
+
+
+.footer-grid{
+
+grid-template-columns:1fr;
 
 }
 
