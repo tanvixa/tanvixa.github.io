@@ -12,7 +12,14 @@
       "10X Digital Zoom",
       "TF Card Storage Support"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3vxfFZ1"
+    "link": "https://s.click.aliexpress.com/e/_c3vxfFZ1",
+
+    "category": "Security Camera",
+    "brand": "Tenda",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -28,7 +35,14 @@
       "H.265 Video Encoding",
       "Micro SD Storage Support"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c35RArq3"
+    "link": "https://s.click.aliexpress.com/e/_c35RArq3",
+
+    "category": "Security Camera",
+    "brand": "Xiaomi",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -44,7 +58,14 @@
       "PoE Network Support",
       "Windows & macOS Support"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3mb2SG7"
+    "link": "https://s.click.aliexpress.com/e/_c3mb2SG7",
+
+    "category": "Security Camera",
+    "brand": "Runpu",
+
+    "featured": false,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -60,9 +81,15 @@
       "PIR Human Detection",
       "Night Vision Support"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3I6Zos7"
-  },
+    "link": "https://s.click.aliexpress.com/e/_c3I6Zos7",
 
+    "category": "Security Camera",
+    "brand": "SHIWOJIA",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
+  },
 
   {
     "code": "GL005",
@@ -77,9 +104,17 @@
       "IP67 Waterproof Design",
       "Keyless Security Access"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c4eqJF3H"
+    "link": "https://s.click.aliexpress.com/e/_c4eqJF3H",
+
+    "category": "Smart Security",
+    "brand": "KERUI",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
+  
   {
     "code": "GL006",
     "name": "RAYKUBE V1 Bluetooth Fingerprint Smart Lock",
@@ -93,7 +128,14 @@
       "Aluminium Alloy Body",
       "Smart App Control"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3tJSnJ5"
+    "link": "https://s.click.aliexpress.com/e/_c3tJSnJ5",
+
+    "category": "Smart Security",
+    "brand": "RAYKUBE",
+
+    "featured": false,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -109,7 +151,14 @@
       "Password Unlocking",
       "Reversible Handle Design"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3s9mYpN"
+    "link": "https://s.click.aliexpress.com/e/_c3s9mYpN",
+
+    "category": "Smart Security",
+    "brand": "RAYKUBE",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -125,10 +174,15 @@
       "Aluminium Alloy Body",
       "App Control Support"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c4qGOW4F"
+    "link": "https://s.click.aliexpress.com/e/_c4qGOW4F",
+
+    "category": "Smart Security",
+    "brand": "RAYKUBE",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
   },
-
-
 
   {
     "code": "GL009",
@@ -143,7 +197,14 @@
       "Outdoor Weather Design",
       "Easy Installation"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3NwZFU7"
+    "link": "https://s.click.aliexpress.com/e/_c3NwZFU7",
+
+    "category": "Smart Lighting",
+    "brand": "Generic",
+
+    "featured": true,
+    "trending": true,
+    "deal": true
   },
 
   {
@@ -159,9 +220,18 @@
       "Waterproof Construction",
       "Decorative Lighting"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3hR0ljv"
+    "link": "https://s.click.aliexpress.com/e/_c3hR0ljv",
+
+    "category": "Smart Lighting",
+    "brand": "Generic",
+
+    "featured": true,
+    "trending": false,
+    "deal": true
   },
 
+
+    
   {
     "code": "GL011",
     "name": "220V COB LED Strip Light",
@@ -175,7 +245,14 @@
       "Flexible Installation",
       "Long Lifespan"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3nBQH7v"
+    "link": "https://s.click.aliexpress.com/e/_c3nBQH7v",
+
+    "category": "Smart Lighting",
+    "brand": "Generic",
+
+    "featured": false,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -191,7 +268,14 @@
       "Voice Assistant Support",
       "Smart Notifications"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3nBQH7v"
+    "link": "https://s.click.aliexpress.com/e/_c3nBQH7v",
+
+    "category": "Smart Watch",
+    "brand": "GUHUAVMI",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -207,7 +291,14 @@
       "Custom Watch Faces",
       "Smart Notifications"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c4Tf5XHV"
+    "link": "https://s.click.aliexpress.com/e/_c4Tf5XHV",
+
+    "category": "Smart Watch",
+    "brand": "Generic",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -223,7 +314,14 @@
       "Sleep Monitoring",
       "Custom Watch Faces"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3T83HM3"
+    "link": "https://s.click.aliexpress.com/e/_c3T83HM3",
+
+    "category": "Smart Watch",
+    "brand": "Generic",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
   },
 
   {
@@ -239,7 +337,14 @@
       "Sleep Monitoring",
       "Custom Watch Faces"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3DdE5Bp"
+    "link": "https://s.click.aliexpress.com/e/_c3DdE5Bp",
+
+    "category": "Smart Watch",
+    "brand": "Generic",
+
+    "featured": false,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -255,10 +360,15 @@
       "IP68 Water Resistance",
       "Sports Tracking"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c4exn1JZ"
+    "link": "https://s.click.aliexpress.com/e/_c4exn1JZ",
+
+    "category": "Smart Watch",
+    "brand": "Generic",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
-
-
 
   {
     "code": "GL017",
@@ -273,7 +383,14 @@
       "Multiple Output Ports",
       "Portable Design"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3Gk1cab"
+    "link": "https://s.click.aliexpress.com/e/_c3Gk1cab",
+
+    "category": "Power Bank",
+    "brand": "OnePlus",
+
+    "featured": true,
+    "trending": true,
+    "deal": true
   },
 
   {
@@ -289,7 +406,14 @@
       "Battery Status Display",
       "Built-in LED Lamp"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c2vWqeFH"
+    "link": "https://s.click.aliexpress.com/e/_c2vWqeFH",
+
+    "category": "Power Bank",
+    "brand": "KUULAA",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -305,7 +429,14 @@
       "USB Type-C Support",
       "Two-Way Charging"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c4KbxenH"
+    "link": "https://s.click.aliexpress.com/e/_c4KbxenH",
+
+    "category": "Power Bank",
+    "brand": "Baseus",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -321,9 +452,18 @@
       "Safety Protection System",
       "Portable Stand Design"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3kkWz6J"
+    "link": "https://s.click.aliexpress.com/e/_c3kkWz6J",
+
+    "category": "Power Bank",
+    "brand": "Generic",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
   },
 
+
+      
   {
     "code": "GL021",
     "name": "Baseus 30000mAh 65W Power Bank",
@@ -337,7 +477,14 @@
       "Two-Way Quick Charge",
       "Portable Design"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3MSb77z"
+    "link": "https://s.click.aliexpress.com/e/_c3MSb77z",
+
+    "category": "Power Bank",
+    "brand": "Baseus",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -353,7 +500,14 @@
       "USB Type-C Support",
       "Dual USB Output"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c2uvGXD1"
+    "link": "https://s.click.aliexpress.com/e/_c2uvGXD1",
+
+    "category": "Power Bank",
+    "brand": "QOOVI",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
   },
 
   {
@@ -369,7 +523,14 @@
       "LED Status Indicator",
       "Metal Shell Design"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c3WmR9yX"
+    "link": "https://s.click.aliexpress.com/e/_c3WmR9yX",
+
+    "category": "Power Bank",
+    "brand": "KUULAA",
+
+    "featured": false,
+    "trending": true,
+    "deal": false
   },
 
   {
@@ -385,403 +546,511 @@
       "LED Digital Display",
       "Multi-Device Charging"
     ],
-    "link": "https://s.click.aliexpress.com/e/_c4k13San"
+    "link": "https://s.click.aliexpress.com/e/_c4k13San",
+
+    "category": "Power Bank",
+    "brand": "Generic",
+
+    "featured": true,
+    "trending": true,
+    "deal": true
   },
 
   {
-"code": "GL025",
-"name": "VBNM Bone Conduction Bluetooth Sports Headphones with 32GB MP3 Memory",
-"image": "images/GL025.jpg",
-"description": "VBNM bone conduction headphones use open-ear technology to deliver sound through the jawbones while keeping the ears open for environmental awareness. They feature Bluetooth connectivity, built-in 32GB memory for offline MP3 playback, and an ergonomic design for sports and outdoor activities.\n\nDesigned for swimming and active use, these wireless headphones include IPX8 waterproof protection, a built-in microphone, control buttons, and support activities such as running, cycling, surfing, diving, and mountain climbing.",
-"features": [
-"True bone conduction audio technology with open-ear design",
-"32GB built-in memory for offline MP3 music playback",
-"IPX8 waterproof protection for swimming and water activities",
-"Bluetooth connectivity with up to 20m wireless range",
-"Bluetooth 5.3 support with AAC codec compatibility",
-"Built-in microphone and integrated control buttons",
-"8mm drivers with 20Hz-20000Hz frequency response",
-"Lightweight 32g design with up to 8 hours battery life"
-],
-"link": "https://s.click.aliexpress.com/e/_c3UdRS8b"
-},
+    "code": "GL025",
+    "name": "VBNM Bone Conduction Bluetooth Sports Headphones with 32GB MP3 Memory",
+    "image": "images/GL025.jpg",
+    "description": "VBNM bone conduction headphones use open-ear technology to deliver sound through the jawbones while keeping the ears open for environmental awareness. They feature Bluetooth connectivity, built-in 32GB memory for offline MP3 playback, and an ergonomic design for sports and outdoor activities.\n\nDesigned for swimming and active use, these wireless headphones include IPX8 waterproof protection, a built-in microphone, control buttons, and support activities such as running, cycling, surfing, diving, and mountain climbing.",
+    "features": [
+      "True bone conduction audio technology with open-ear design",
+      "32GB built-in memory for offline MP3 music playback",
+      "IPX8 waterproof protection for swimming and water activities",
+      "Bluetooth connectivity with up to 20m wireless range",
+      "Bluetooth 5.3 support with AAC codec compatibility",
+      "Built-in microphone and integrated control buttons",
+      "8mm drivers with 20Hz-20000Hz frequency response",
+      "Lightweight 32g design with up to 8 hours battery life"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3UdRS8b",
+
+    "category": "Audio",
+    "brand": "VBNM",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL026",
-"name": "Baseus BC1 Open Ear Clip Wireless Earbuds",
-"image": "/GL026.jpg",
-"description": "Baseus BC1 open-ear clip earbuds feature an OWS design with a breathable open-ring structure and ergonomic tri-curve clip for comfortable wearing. They use Bluetooth 6.0 connectivity, 12mm dynamic drivers, and 4-mic AI clear calls for wireless audio and communication.\n\nThese true wireless earbuds include IP55 dust and water resistance, dual connection support, app compatibility, and Type-C charging. They are designed for sports, outdoor activities, office use, gaming, and everyday mobile phone audio.",
-"features": [
-"Open-ear clip design with breathable comfort structure",
-"12mm dynamic driver with enhanced bass performance",
-"Bluetooth 6.0 wireless connectivity support",
-"4-mic AI clear call technology",
-"IP55 dust and water resistance rating",
-"Up to 38 hours total playback with charging case",
-"Dual connection and app support",
-"Type-C charging with AAC and SBC codec support"
-],
-"link": "https://s.click.aliexpress.com/e/_c44Hzz35"
-},
+    "code": "GL026",
+    "name": "Baseus BC1 Open Ear Clip Wireless Earbuds",
+    "image": "images/GL026.jpg",
+    "description": "Baseus BC1 open-ear clip earbuds feature an OWS design with a breathable open-ring structure and ergonomic tri-curve clip for comfortable wearing. They use Bluetooth 6.0 connectivity, 12mm dynamic drivers, and 4-mic AI clear calls for wireless audio and communication.\n\nThese true wireless earbuds include IP55 dust and water resistance, dual connection support, app compatibility, and Type-C charging. They are designed for sports, outdoor activities, office use, gaming, and everyday mobile phone audio.",
+    "features": [
+      "Open-ear clip design with breathable comfort structure",
+      "12mm dynamic driver with enhanced bass performance",
+      "Bluetooth 6.0 wireless connectivity support",
+      "4-mic AI clear call technology",
+      "IP55 dust and water resistance rating",
+      "Up to 38 hours total playback with charging case",
+      "Dual connection and app support",
+      "Type-C charging with AAC and SBC codec support"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c44Hzz35",
+
+    "category": "Audio",
+    "brand": "Baseus",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL027",
-"name": "GDLYL TWS Bluetooth 5.0 Waterproof Sport Earbuds",
-"image": "images/GL027.jpg",
-"description": "GDLYL true wireless earbuds feature Bluetooth 5.0 connectivity, HiFi stereo sound, dual wear style, and a semi-open earcup design. They include a built-in microphone, volume control, and charging case support for everyday mobile and sports use.\n\nThese wireless earbuds provide IPX7 waterproof protection against water and sweat, with up to 20 hours total playback using the charging case. They support stable wireless connection, fast pairing, and applications including common headphone use, mobile phones, HiFi audio, and sports activities.",
-"features": [
-"Bluetooth 5.0 dual mode wireless connectivity",
-"IPX7 waterproof design for sports and outdoor use",
-"HiFi stereo sound with dynamic drivers",
-"Built-in microphone for calls",
-"Dual wear style with semi-open earcups",
-"Up to 20 hours playback with charging case",
-"Charging case with rechargeable battery support",
-"Lightweight design with 7.5g earbud weight"
-],
-"link": "https://s.click.aliexpress.com/e/_c4CtpluR"
-},
+    "code": "GL027",
+    "name": "GDLYL TWS Bluetooth 5.0 Waterproof Sport Earbuds",
+    "image": "images/GL027.jpg",
+    "description": "GDLYL true wireless earbuds feature Bluetooth 5.0 connectivity, HiFi stereo sound, dual wear style, and a semi-open earcup design. They include a built-in microphone, volume control, and charging case support for everyday mobile and sports use.\n\nThese wireless earbuds provide IPX7 waterproof protection against water and sweat, with up to 20 hours total playback using the charging case. They support stable wireless connection, fast pairing, and applications including common headphone use, mobile phones, HiFi audio, and sports activities.",
+    "features": [
+      "Bluetooth 5.0 dual mode wireless connectivity",
+      "IPX7 waterproof design for sports and outdoor use",
+      "HiFi stereo sound with dynamic drivers",
+      "Built-in microphone for calls",
+      "Dual wear style with semi-open earcups",
+      "Up to 20 hours playback with charging case",
+      "Charging case with rechargeable battery support",
+      "Lightweight design with 7.5g earbud weight"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c4CtpluR",
+
+    "category": "Audio",
+    "brand": "GDLYL",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
+  },
 
   {
-"code": "GL028",
-"name": "Baseus Bass EP10 NC True Wireless Noise Cancelling Earbuds",
-"image": "/GL028.jpg",
-"description": "Baseus Bass EP10 NC true wireless earbuds feature Bluetooth 6.0 connectivity, -43dB active noise cancellation, 12mm dynamic drivers, and SuperBass audio technology. They include 4-mic AI ENC for clear calls, IP55 water and dust resistance, and support the Baseus App for device management.\n\nThese TWS in-ear earbuds provide up to 41 hours of battery life with the charging case and support Type-C charging. Designed for mobile phones, gaming, office use, internet bars, and HiFi audio applications, they offer wireless convenience with a compact design.",
-"features": [
-"-43dB active noise cancellation technology",
-"12mm dynamic drivers with SuperBass sound",
-"Bluetooth 6.0 true wireless connectivity",
-"4-mic AI ENC for clearer voice calls",
-"IP55 water and dust resistant design",
-"Up to 41 hours total battery life with case",
-"Baseus App support for settings and updates",
-"Type-C charging with replaceable ear tips"
-],
-"link": "https://s.click.aliexpress.com/e/_c3vLqDqj"
-},
+    "code": "GL028",
+    "name": "Baseus Bass EP10 NC True Wireless Noise Cancelling Earbuds",
+    "image": "images/GL028.jpg",
+    "description": "Baseus Bass EP10 NC true wireless earbuds feature Bluetooth 6.0 connectivity, -43dB active noise cancellation, 12mm dynamic drivers, and SuperBass audio technology. They include 4-mic AI ENC for clear calls, IP55 water and dust resistance, and support the Baseus App for device management.\n\nThese TWS in-ear earbuds provide up to 41 hours of battery life with the charging case and support Type-C charging. Designed for mobile phones, gaming, office use, internet bars, and HiFi audio applications, they offer wireless convenience with a compact design.",
+    "features": [
+      "-43dB active noise cancellation technology",
+      "12mm dynamic drivers with SuperBass sound",
+      "Bluetooth 6.0 true wireless connectivity",
+      "4-mic AI ENC for clearer voice calls",
+      "IP55 water and dust resistant design",
+      "Up to 41 hours total battery life with case",
+      "Baseus App support for settings and updates",
+      "Type-C charging with replaceable ear tips"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3vLqDqj",
 
+    "category": "Audio",
+    "brand": "Baseus",
 
-{
-"code": "GL029",
-"name": "UGREEN Qi2.2 25W 15W 2-in-1 Magnetic Wireless Charger Stand",
-"image": "images/GL029.jpg",
-"description": "UGREEN Qi2.2 25W 15W 2-in-1 Magnetic Wireless Charger Stand is a multifunctional wireless charging stand designed for compatible phones, smart watches, and earphones. It features magnetic wireless charging technology and supports Apple iPhone devices with Qi certification.\n\nThe charger includes a foldable design, charging indicator, Type-C connector, and support for charging multiple devices. It comes with a cable and is certified with RoHS, CE, and FCC standards.",
-"features": [
-"2-in-1 magnetic wireless charging stand",
-"Supports compatible phones, smart watches, and earphones",
-"Compatible with Apple iPhone devices",
-"Qi certified wireless charging functionality",
-"Foldable design for convenient use",
-"Includes charging indicator and cable",
-"Type-C connector with multiple certifications"
-],
-"link": "https://s.click.aliexpress.com/e/_c38a1dqT"
-},
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL030",
-"name": "CrownQu Qi2.2 25W 3-in-1 Metal Magnetic Wireless Charger Station",
-"image": "images/GL030.jpg",
-"description": "CrownQu Qi2.2 25W 3-in-1 Metal Magnetic Wireless Charger Station is a foldable magnetic wireless charging device designed for phones, smart watches, and earphones. It supports Qi2 wireless charging protocol with magnetic alignment, temperature control management, and up to 25W maximum output power for supported models.\n\nThe charger features a metal construction, 360° rotation design, 16 N52 neodymium iron boron magnets, and a Type-C connector. It includes a charging cable and supports multiple device charging with UL, WEEE, RoHS, CE, and FCC certifications.",
-"features": [
-"Qi2.2 magnetic wireless charging protocol support",
-"3-in-1 charging for phones, smart watches, and earphones",
-"Up to 25W maximum output power for supported models",
-"360° rotation and foldable design",
-"Metal material construction",
-"16 N52 neodymium iron boron magnets for magnetic alignment",
-"Temperature control management for charging operation",
-"Includes Type-C charging cable"
-],
-"link": "https://s.click.aliexpress.com/e/_c2R5w0kx"
-},
+    "code": "GL029",
+    "name": "UGREEN Qi2.2 25W 15W 2-in-1 Magnetic Wireless Charger Stand",
+    "image": "images/GL029.jpg",
+    "description": "UGREEN Qi2.2 25W 15W 2-in-1 Magnetic Wireless Charger Stand is a multifunctional wireless charging stand designed for compatible phones, smart watches, and earphones. It features magnetic wireless charging technology and supports Apple iPhone devices with Qi certification.\n\nThe charger includes a foldable design, charging indicator, Type-C connector, and support for charging multiple devices. It comes with a cable and is certified with RoHS, CE, and FCC standards.",
+    "features": [
+      "2-in-1 magnetic wireless charging stand",
+      "Supports compatible phones, smart watches, and earphones",
+      "Compatible with Apple iPhone devices",
+      "Qi certified wireless charging functionality",
+      "Foldable design for convenient use",
+      "Includes charging indicator and cable",
+      "Type-C connector with multiple certifications"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c38a1dqT",
+
+    "category": "Wireless Charger",
+    "brand": "UGREEN",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL031",
-"name": "Truly Qi2 3-in-1 Magnetic Touch Button Wireless Charger Dock Station",
-"image": "images/GL031.jpg",
-"description": "Truly Qi2 3-in-1 Magnetic Touch Button Wireless Charger Dock Station is a wireless charging station designed for phones, smart watches, earphones, tablets, controllers, mice, and other compatible devices. It supports Qi2 wireless charging technology, magnetic attachment, touch rotation, and electric rotation functions.\n\nThe charger features a metal body, hidden charging compartment, intelligent temperature control, FOD detection, and charging indicator. It supports Apple iPhone, AirPods, and Apple Watch charging, includes a Type-C cable, and comes with a gift box and instruction manual.",
-"features": [
-"Qi2 certified 15W magnetic wireless charging",
-"3-in-1 charging support for phone, watch, and earphones",
-"Touch rotation and electric rotation design",
-"Hidden charging compartment and charging indicator",
-"Metal body construction with foldable desktop design",
-"Intelligent temperature control and FOD detection",
-"Compatible with iPhone, AirPods, and Apple Watch devices",
-"Includes Type-C charging cable and gift box"
-],
-"link": "https://s.click.aliexpress.com/e/_c3oHxlcP"
-},
+    "code": "GL030",
+    "name": "CrownQu Qi2.2 25W 3-in-1 Metal Magnetic Wireless Charger Station",
+    "image": "images/GL030.jpg",
+    "description": "CrownQu Qi2.2 25W 3-in-1 Metal Magnetic Wireless Charger Station is a foldable magnetic wireless charging device designed for phones, smart watches, and earphones. It supports Qi2 wireless charging protocol with magnetic alignment, temperature control management, and up to 25W maximum output power for supported models.\n\nThe charger features a metal construction, 360° rotation design, 16 N52 neodymium iron boron magnets, and a Type-C connector. It includes a charging cable and supports multiple device charging with UL, WEEE, RoHS, CE, and FCC certifications.",
+    "features": [
+      "Qi2.2 magnetic wireless charging protocol support",
+      "3-in-1 charging for phones, smart watches, and earphones",
+      "Up to 25W maximum output power for supported models",
+      "360° rotation and foldable design",
+      "Metal material construction",
+      "16 N52 neodymium iron boron magnets for magnetic alignment",
+      "Temperature control management for charging operation",
+      "Includes Type-C charging cable"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c2R5w0kx",
+
+    "category": "Wireless Charger",
+    "brand": "CrownQu",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
+  },
+
+
+      
+  {
+    "code": "GL031",
+    "name": "Truly Qi2 3-in-1 Magnetic Touch Button Wireless Charger Dock Station",
+    "image": "images/GL031.jpg",
+    "description": "Truly Qi2 3-in-1 Magnetic Touch Button Wireless Charger Dock Station is a wireless charging station designed for phones, smart watches, earphones, tablets, controllers, mice, and other compatible devices. It supports Qi2 wireless charging technology, magnetic attachment, touch rotation, and electric rotation functions.\n\nThe charger features a metal body, hidden charging compartment, intelligent temperature control, FOD detection, and charging indicator. It supports Apple iPhone, AirPods, and Apple Watch charging, includes a Type-C cable, and comes with a gift box and instruction manual.",
+    "features": [
+      "Qi2 certified 15W magnetic wireless charging",
+      "3-in-1 charging support for phone, watch, and earphones",
+      "Touch rotation and electric rotation design",
+      "Hidden charging compartment and charging indicator",
+      "Metal body construction with foldable desktop design",
+      "Intelligent temperature control and FOD detection",
+      "Compatible with iPhone, AirPods, and Apple Watch devices",
+      "Includes Type-C charging cable and gift box"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3oHxlcP",
+
+    "category": "Wireless Charger",
+    "brand": "Truly",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL032",
-"name": "Essager 3-in-1 Portable Folding Wireless Charger Stand 15W Magnetic",
-"image": "images/GL032.jpg",
-"description": "Essager 3-in-1 Portable Folding Wireless Charger Stand is a wireless charging stand designed for compatible phones, smart watches, and earphones. It supports Apple iPhone devices and features magnetic wireless charging functionality with a holder design.\n\nThe charger uses a Type-C connector and provides up to 15W maximum output power. It is certified with CE, FCC, and RoHS standards and is designed for wireless charging of compatible devices.",
-"features": [
-"3-in-1 wireless charging support",
-"Compatible with phones, smart watches, and earphones",
-"Magnetic wireless charging functionality",
-"Portable folding stand design",
-"Supports Apple iPhone devices",
-"Up to 15W maximum output power",
-"Type-C connector support"
-],
-"link": "https://s.click.aliexpress.com/e/_c3uZddur"
-},
+    "code": "GL032",
+    "name": "Essager 3-in-1 Portable Folding Wireless Charger Stand 15W Magnetic",
+    "image": "images/GL032.jpg",
+    "description": "Essager 3-in-1 Portable Folding Wireless Charger Stand is a wireless charging stand designed for compatible phones, smart watches, and earphones. It supports Apple iPhone devices and features magnetic wireless charging functionality with a holder design.\n\nThe charger uses a Type-C connector and provides up to 15W maximum output power. It is certified with CE, FCC, and RoHS standards and is designed for wireless charging of compatible devices.",
+    "features": [
+      "3-in-1 wireless charging support",
+      "Compatible with phones, smart watches, and earphones",
+      "Magnetic wireless charging functionality",
+      "Portable folding stand design",
+      "Supports Apple iPhone devices",
+      "Up to 15W maximum output power",
+      "Type-C connector support"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3uZddur",
+
+    "category": "Wireless Charger",
+    "brand": "Essager",
+
+    "featured": false,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL033",
-"name": "UGREEN Qi2 25W MAX Magnetic Wireless Charger Stand 3-in-1",
-"image": "images/GL033.jpg",
-"description": "UGREEN Qi2 25W MAX Magnetic Wireless Charger Stand is a 3-in-1 wireless charging stand designed for compatible iPhone devices, AirPods, and smart watches. It supports magnetic wireless charging with secure alignment and uses a Type-C connector for USB-C power sources.\n\nThe charger features a foldable structure, charging indicator, holder design, and multi-device charging capability. It supports Qi certification with RoHS, CE, and FCC certifications and is designed for daily use and travel.",
-"features": [
-"3-in-1 charging support for phones, smart watches, and earphones",
-"Qi2 magnetic wireless charging technology",
-"Up to 25W maximum output power support",
-"Foldable structure for portable use",
-"Type-C connector for USB-C power sources",
-"Magnetic alignment for secure charging placement",
-"Smart charging indicator",
-"Qi, RoHS, CE, and FCC certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c3aJz4x1"
-},
+    "code": "GL033",
+    "name": "UGREEN Qi2 25W MAX Magnetic Wireless Charger Stand 3-in-1",
+    "image": "images/GL033.jpg",
+    "description": "UGREEN Qi2 25W MAX Magnetic Wireless Charger Stand is a 3-in-1 wireless charging stand designed for compatible iPhone devices, AirPods, and smart watches. It supports magnetic wireless charging with secure alignment and uses a Type-C connector for USB-C power sources.\n\nThe charger features a foldable structure, charging indicator, holder design, and multi-device charging capability. It supports Qi certification with RoHS, CE, and FCC certifications and is designed for daily use and travel.",
+    "features": [
+      "3-in-1 charging support for phones, smart watches, and earphones",
+      "Qi2 magnetic wireless charging technology",
+      "Up to 25W maximum output power support",
+      "Foldable structure for portable use",
+      "Type-C connector for USB-C power sources",
+      "Magnetic alignment for secure charging placement",
+      "Smart charging indicator",
+      "Qi, RoHS, CE, and FCC certified"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3aJz4x1",
+
+    "category": "Wireless Charger",
+    "brand": "UGREEN",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL034",
-"name": "UYUXIO Strong Magnetic Wireless Car Phone Charger 15W Air Vent Holder",
-"image": "images/GL034.jpg",
-"description": "UYUXIO Strong Magnetic Wireless Car Phone Charger is an air vent car phone holder with magnetic wireless charging support for compatible Apple iPhone models. It features a strong magnetic attachment system, built-in cooling fan, LED charging indicator, and Type-C cable.\n\nThe charger is designed for in-car wireless charging and phone holding through an adjustable air vent mount. It supports up to 15W wireless charging with a maximum output power of 30W and includes Qi certification with CE, FCC, RoHS, and UL certifications.",
-"features": [
-"Magnetic wireless charging for compatible iPhone models",
-"Air vent car phone holder design",
-"Up to 15W wireless charging support",
-"Built-in cooling fan for heat management",
-"LED charging indicator",
-"Adjustable air vent mounting system",
-"Includes Type-C charging cable",
-"Qi, CE, FCC, RoHS, and UL certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c42AJTS3"
-},
+    "code": "GL034",
+    "name": "UYUXIO Strong Magnetic Wireless Car Phone Charger 15W Air Vent Holder",
+    "image": "images/GL034.jpg",
+    "description": "UYUXIO Strong Magnetic Wireless Car Phone Charger is an air vent car phone holder with magnetic wireless charging support for compatible Apple iPhone models. It features a strong magnetic attachment system, built-in cooling fan, LED charging indicator, and Type-C cable.\n\nThe charger is designed for in-car wireless charging and phone holding through an adjustable air vent mount. It supports up to 15W wireless charging with a maximum output power of 30W and includes Qi certification with CE, FCC, RoHS, and UL certifications.",
+    "features": [
+      "Magnetic wireless charging for compatible iPhone models",
+      "Air vent car phone holder design",
+      "Up to 15W wireless charging support",
+      "Built-in cooling fan for heat management",
+      "LED charging indicator",
+      "Adjustable air vent mounting system",
+      "Includes Type-C charging cable",
+      "Qi, CE, FCC, RoHS, and UL certified"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c42AJTS3",
+
+    "category": "Car Charger",
+    "brand": "UYUXIO",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
+  },
 
   {
-"code": "GL035",
-"name": "UGREEN Qi2.2 25W Magnetic Car Wireless Charger Stand",
-"image": "images/GL035.jpg",
-"description": "UGREEN Qi2.2 25W Magnetic Car Wireless Charger Stand is a wireless charging car mount designed for compatible Apple iPhone models. It supports Qi2 magnetic wireless charging, MagSafe technology, and secure magnetic alignment through a Type-C connector.\n\nThe charger features a holder design, blue LED charging indicator, and upright viewing angle for use while driving. It supports wireless output from 7.5W to 25W, includes a charging cable, and is certified with CE and RoHS standards.",
-"features": [
-"Qi2 magnetic wireless charging support",
-"Compatible with Apple iPhone devices",
-"MagSafe magnetic alignment technology",
-"Car phone holder stand design",
-"Blue LED charging indicator",
-"Type-C connector with included cable",
-"Supports 7.5W to 25W wireless output",
-"CE and RoHS certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c4ETI4B1"
-},
+    "code": "GL035",
+    "name": "UGREEN Qi2.2 25W Magnetic Car Wireless Charger Stand",
+    "image": "images/GL035.jpg",
+    "description": "UGREEN Qi2.2 25W Magnetic Car Wireless Charger Stand is a wireless charging car mount designed for compatible Apple iPhone models. It supports Qi2 magnetic wireless charging, MagSafe technology, and secure magnetic alignment through a Type-C connector.\n\nThe charger features a holder design, blue LED charging indicator, and upright viewing angle for use while driving. It supports wireless output from 7.5W to 25W, includes a charging cable, and is certified with CE and RoHS standards.",
+    "features": [
+      "Qi2 magnetic wireless charging support",
+      "Compatible with Apple iPhone devices",
+      "MagSafe magnetic alignment technology",
+      "Car phone holder stand design",
+      "Blue LED charging indicator",
+      "Type-C connector with included cable",
+      "Supports 7.5W to 25W wireless output",
+      "CE and RoHS certified"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c4ETI4B1",
+
+    "category": "Car Charger",
+    "brand": "UGREEN",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL036",
-"name": "3-in-1 Wireless Charger Station with Mobile Phone Holder",
-"image": "images/GL036.jpg",
-"description": "3-in-1 Wireless Charger Station is a wireless charging dock with a mobile phone holder function designed for compatible Apple devices. It supports charging for Apple mobile phones, Apple Watch models, and AirPods through wireless charging technology.\n\nThe charger features a multifunctional design with charging cables included, USB and Type-C interface support, and compatibility with phones, smart watches, and earphones. It supports wireless charging through USB or DC power connections and includes CE and FCC certifications.",
-"features": [
-"3-in-1 wireless charging station design",
-"Compatible with Apple phones, watches, and AirPods",
-"Mobile phone holder function",
-"Supports wireless charging technology",
-"Includes charging cables",
-"USB and Type-C interface support",
-"Quick Charge protocol support",
-"CE and FCC certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c3KVEPT9"
-},
+    "code": "GL036",
+    "name": "3-in-1 Wireless Charger Station with Mobile Phone Holder",
+    "image": "images/GL036.jpg",
+    "description": "3-in-1 Wireless Charger Station is a wireless charging dock with a mobile phone holder function designed for compatible Apple devices. It supports charging for Apple mobile phones, Apple Watch models, and AirPods through wireless charging technology.\n\nThe charger features a multifunctional design with charging cables included, USB and Type-C interface support, and compatibility with phones, smart watches, and earphones. It supports wireless charging through USB or DC power connections and includes CE and FCC certifications.",
+    "features": [
+      "3-in-1 wireless charging station design",
+      "Compatible with Apple phones, watches, and AirPods",
+      "Mobile phone holder function",
+      "Supports wireless charging technology",
+      "Includes charging cables",
+      "USB and Type-C interface support",
+      "Quick Charge protocol support",
+      "CE and FCC certified"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3KVEPT9",
+
+    "category": "Wireless Charger",
+    "brand": "Generic",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
+  },
 
   {
-"code": "GL037",
-"name": "AOHI THE YOUTH 65W GaN Charger 3-Port USB-C PD Charger",
-"image": "images/GL037.jpg",
-"description": "AOHI THE YOUTH 65W GaN Charger is a quick charger with a maximum output power of 65W and USB power source support. It features two USB-C ports and one USB-A port, supporting USB PD, Qualcomm Quick Charge, BC1.2, and other fast charging protocols for multiple device compatibility.\n\nThe charger uses GaN technology, PFC+AHB Half Bridge Structure, and Three-Stage Charging Technology to improve energy conversion efficiency and provide stable charging performance. It supports intelligent dynamic power allocation for charging iPhone, laptop, tablet, and other compatible devices.",
-"features": [
-"65W maximum output power for fast charging",
-"GaN technology for a compact and portable design",
-"Three charging ports with two USB-C and one USB-A",
-"Supports USB PD, Qualcomm Quick Charge, and BC1.2 protocols",
-"Intelligent Dynamic Power Allocation Technology",
-"PFC+AHB Half Bridge Structure for efficient energy conversion",
-"Designed for iPhone, laptop, tablet, and other compatible devices"
-],
-"link": "https://s.click.aliexpress.com/e/_c3XHn36B"
-},
+    "code": "GL037",
+    "name": "AOHI THE YOUTH 65W GaN Charger 3-Port USB-C PD Charger",
+    "image": "images/GL037.jpg",
+    "description": "AOHI THE YOUTH 65W GaN Charger is a quick charger with a maximum output power of 65W and USB power source support. It features two USB-C ports and one USB-A port, supporting USB PD, Qualcomm Quick Charge, BC1.2, and other fast charging protocols for multiple device compatibility.\n\nThe charger uses GaN technology, PFC+AHB Half Bridge Structure, and Three-Stage Charging Technology to improve energy conversion efficiency and provide stable charging performance. It supports intelligent dynamic power allocation for charging iPhone, laptop, tablet, and other compatible devices.",
+    "features": [
+      "65W maximum output power for fast charging",
+      "GaN technology for a compact and portable design",
+      "Three charging ports with two USB-C and one USB-A",
+      "Supports USB PD, Qualcomm Quick Charge, and BC1.2 protocols",
+      "Intelligent Dynamic Power Allocation Technology",
+      "PFC+AHB Half Bridge Structure for efficient energy conversion",
+      "Designed for iPhone, laptop, tablet, and other compatible devices"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3XHn36B",
+
+    "category": "Fast Charger",
+    "brand": "AOHI",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL038",
-"name": "Ubigbuy BK-126D 420W GaN Charger 8-Port USB-C PD Charger",
-"image": "images/GL038.jpg",
-"description": "Ubigbuy BK-126D is a 420W GaN desktop charger with eight output ports, including six USB-C ports and two USB-A ports. It supports Intelligent Charge, a digital display screen, and multiple fast charging protocols such as USB PD, PPS, Qualcomm Quick Charge, Samsung Adaptive Fast Charge, and Huawei charging protocols.\n\nThe charger uses GaN technology and provides high-power charging with multiple device compatibility. It supports laptops, smartphones, tablets, and other compatible devices with various power distribution combinations through its multiple USB-C and USB-A outputs.",
-"features": [
-"420W maximum total output power",
-"GaN technology with desktop charging design",
-"Six USB-C ports and two USB-A ports",
-"Digital display screen for charging information",
-"Supports USB PD, PPS, QC, and other fast charging protocols",
-"Multiple power distribution modes for simultaneous charging",
-"PC+ABS V0 fireproof material construction"
-],
-"link": "https://s.click.aliexpress.com/e/_c3BqwRWJ"
-},
+    "code": "GL038",
+    "name": "Ubigbuy BK-126D 420W GaN Charger 8-Port USB-C PD Charger",
+    "image": "images/GL038.jpg",
+    "description": "Ubigbuy BK-126D is a 420W GaN desktop charger with eight output ports, including six USB-C ports and two USB-A ports. It supports Intelligent Charge, a digital display screen, and multiple fast charging protocols such as USB PD, PPS, Qualcomm Quick Charge, Samsung Adaptive Fast Charge, and Huawei charging protocols.\n\nThe charger uses GaN technology and provides high-power charging with multiple device compatibility. It supports laptops, smartphones, tablets, and other compatible devices with various power distribution combinations through its multiple USB-C and USB-A outputs.",
+    "features": [
+      "420W maximum total output power",
+      "GaN technology with desktop charging design",
+      "Six USB-C ports and two USB-A ports",
+      "Digital display screen for charging information",
+      "Supports USB PD, PPS, QC, and other fast charging protocols",
+      "Multiple power distribution modes for simultaneous charging",
+      "PC+ABS V0 fireproof material construction"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c3BqwRWJ",
+
+    "category": "Fast Charger",
+    "brand": "Ubigbuy",
+
+    "featured": false,
+    "trending": true,
+    "deal": true
+  },
 
   {
-"code": "GL039",
-"name": "AOHI Magcube Pro 140W GaN PD3.1 3-Port USB Charger",
-"image": "images/GL039.jpg",
-"description": "AOHI Magcube Pro AOC-C012 is a 140W GaN charger with three USB ports, supporting USB Type-C and USB-A connectors. It features Intelligent Charge, Quick Charge, USB data transmission support, and USB PD3.1 charging with multiple output voltage options for compatible devices.\n\nThe charger is designed for tablets, laptops, smartphones, smartwatches, and other devices. It includes protection features such as input overvoltage protection, output overcurrent protection, output overvoltage protection, over temperature protection, and short circuit protection.",
-"features": [
-"140W maximum total output power",
-"GaN technology for efficient charging performance",
-"Three USB ports with USB-C and USB-A support",
-"Supports USB PD3.1, Intelligent Charge, and Quick Charge",
-"Compatible with laptops, tablets, phones, and smartwatches",
-"USB data transmission support",
-"Multiple safety protection features including temperature and overcurrent protection"
-],
-"link": "https://s.click.aliexpress.com/e/_c2wswXif"
-},
+    "code": "GL039",
+    "name": "AOHI Magcube Pro 140W GaN PD3.1 3-Port USB Charger",
+    "image": "images/GL039.jpg",
+    "description": "AOHI Magcube Pro AOC-C012 is a 140W GaN charger with three USB ports, supporting USB Type-C and USB-A connectors. It features Intelligent Charge, Quick Charge, USB data transmission support, and USB PD3.1 charging with multiple output voltage options for compatible devices.\n\nThe charger is designed for tablets, laptops, smartphones, smartwatches, and other devices. It includes protection features such as input overvoltage protection, output overcurrent protection, output overvoltage protection, over temperature protection, and short circuit protection.",
+    "features": [
+      "140W maximum total output power",
+      "GaN technology for efficient charging performance",
+      "Three USB ports with USB-C and USB-A support",
+      "Supports USB PD3.1, Intelligent Charge, and Quick Charge",
+      "Compatible with laptops, tablets, phones, and smartwatches",
+      "USB data transmission support",
+      "Multiple safety protection features including temperature and overcurrent protection"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c2wswXif",
+
+    "category": "Fast Charger",
+    "brand": "AOHI",
+
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
 
   {
-"code": "GL040",
-"name": "Rocoren 200W GaN 8-in-1 Desktop Fast Charger",
-"image": "images/GL040.jpg",
-"description": "Rocoren 8-in-1 GaN Charger is a desktop charging hub designed for multiple device charging with GaN technology. It supports USB PD, Qualcomm Quick Charge, Apple Fast Charging, Samsung Adaptive Fast Charge, Huawei FCP, Huawei Quick Charge, BC1.2, and other fast charging protocols.\n\nThe charger features an Intelligent Charge Management System that detects connected devices and provides suitable power output. It includes four USB-A ports, three USB-C ports, and interchangeable EU, UK, US, and KR plugs for different regional usage.",
-"features": [
-"GaN technology for compact and efficient charging",
-"8-in-1 desktop charging hub design",
-"Supports USB PD and multiple fast charging protocols",
-"Intelligent Charge Management System for device recognition",
-"Four USB-A ports and three USB-C ports",
-"Includes interchangeable EU, UK, US, and KR plugs",
-"Compatible with phones, tablets, and laptops"
-],
-"link": "https://s.click.aliexpress.com/e/_c4pBWrQr"
-},
+    "code": "GL040",
+    "name": "Rocoren 200W GaN 8-in-1 Desktop Fast Charger",
+    "image": "images/GL040.jpg",
+    "description": "Rocoren 8-in-1 GaN Charger is a desktop charging hub designed for multiple device charging with GaN technology. It supports USB PD, Qualcomm Quick Charge, Apple Fast Charging, Samsung Adaptive Fast Charge, Huawei FCP, Huawei Quick Charge, BC1.2, and other fast charging protocols.\n\nThe charger features an Intelligent Charge Management System that detects connected devices and provides suitable power output. It includes four USB-A ports, three USB-C ports, and interchangeable EU, UK, US, and KR plugs for different regional usage.",
+    "features": [
+      "GaN technology for compact and efficient charging",
+      "8-in-1 desktop charging hub design",
+      "Supports USB PD and multiple fast charging protocols",
+      "Intelligent Charge Management System for device recognition",
+      "Four USB-A ports and three USB-C ports",
+      "Includes interchangeable EU, UK, US, and KR plugs",
+      "Compatible with phones, tablets, and laptops"
+    ],
+    "link": "https://s.click.aliexpress.com/e/_c4pBWrQr",
 
+    "category": "Fast Charger",
+    "brand": "Rocoren",
 
-{
-"code": "GL041",
-"name": "Essager 15W Ice Cooling Magnetic Wireless Car Charger",
-"image": "images/GL041.jpg",
-"description": "The Essager 15W Ice Cooling Magnetic Wireless Car Charger is a magnetic car phone holder with integrated wireless charging for compatible smartphones. It supports up to 15W wireless output, connects through a Type-C interface, and includes a charging cable for convenient installation.\n\nDesigned for in-car use, it combines magnetic phone mounting with wireless charging in a multifunctional design. The charger features an ice cooling system, LED light, and charging indicator to support everyday driving while keeping your phone securely positioned and powered.",
-"features": [
-"Supports up to 15W wireless charging",
-"Magnetic car phone holder design",
-"Ice cooling technology",
-"Type-C connector",
-"Built-in charging indicator",
-"Integrated LED light",
-"Compatible with smartphones",
-"RoHS and CE certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c2zzzx5H"
-},
+    "featured": true,
+    "trending": true,
+    "deal": false
+  },
+
+        
+  {
+    "code": "GL041",
+    "name": "Essager 15W Ice Cooling Magnetic Wireless Car Charger",
+    "image": "images/GL041.jpg",
+    "description": "The Essager 15W Ice Cooling Magnetic Wireless Car Charger is a magnetic car phone holder with integrated wireless charging for compatible smartphones. It supports up to 15W wireless output, connects through a Type-C interface, and includes a charging cable for convenient installation.\n\nDesigned for in-car use, it combines magnetic phone mounting with wireless charging in a multifunctional design. The charger features an ice cooling system, LED light, and charging indicator to support everyday driving while keeping your phone securely positioned and powered.",
+    "features": [
+      "Supports up to 15W wireless charging",
+      "Magnetic car phone holder design",
+      "Ice cooling technology",
+      "Type-C connector",
+      "Built-in charging indicator",
+      "Integrated LED light",
+      "Compatible with smartphones",
+      "RoHS and CE certified"
+    ],
+    "category": "Wireless Charger",
+    "brand": "Essager",
+    "link": "https://s.click.aliexpress.com/e/_c2zzzx5H"
+  },
 
   {
-"code": "GL042",
-"name": "UGREEN Qi2 25W Max 3-in-1 Magnetic Wireless Charger Stand",
-"image": "images/GL042.jpg",
-"description": "The UGREEN Qi2 25W Max 3-in-1 Magnetic Wireless Charger Stand is a foldable charging station designed for compatible Apple iPhone devices, AirPods, and smart watches. It supports magnetic wireless charging, USB Type-C connectivity, and a multifunctional design that allows multiple devices to be charged from a single stand.\n\nIts foldable construction makes it convenient for travel and everyday use while magnetic alignment helps position compatible devices securely. The built-in charging indicator provides charging status at a glance, and the charger is certified by RoHS, CE, FCC, Qi, and MFI for compatibility and compliance.",
-"features": [
-"3-in-1 charging for phone, smart watch, and earphones",
-"Magnetic wireless charging support",
-"Foldable and portable stand design",
-"USB Type-C connector",
-"Built-in charging indicator",
-"Magnetic alignment for compatible devices",
-"Qi and MFI certified",
-"RoHS, CE, and FCC certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c3mISLpV"
-},
+    "code": "GL042",
+    "name": "UGREEN Qi2 25W Max 3-in-1 Magnetic Wireless Charger Stand",
+    "image": "images/GL042.jpg",
+    "description": "The UGREEN Qi2 25W Max 3-in-1 Magnetic Wireless Charger Stand is a foldable charging station designed for compatible Apple iPhone devices, AirPods, and smart watches. It supports magnetic wireless charging, USB Type-C connectivity, and a multifunctional design that allows multiple devices to be charged from a single stand.\n\nIts foldable construction makes it convenient for travel and everyday use while magnetic alignment helps position compatible devices securely. The built-in charging indicator provides charging status at a glance, and the charger is certified by RoHS, CE, FCC, Qi, and MFI for compatibility and compliance.",
+    "features": [
+      "3-in-1 charging for phone, smart watch, and earphones",
+      "Magnetic wireless charging support",
+      "Foldable and portable stand design",
+      "USB Type-C connector",
+      "Built-in charging indicator",
+      "Magnetic alignment for compatible devices",
+      "Qi and MFI certified",
+      "RoHS, CE, and FCC certified"
+    ],
+    "category": "Wireless Charger",
+    "brand": "UGREEN",
+    "link": "https://s.click.aliexpress.com/e/_c3mISLpV"
+  },
 
   {
-"code": "GL043",
-"name": "Baseus 30W GaN USB-C PD Travel Charger",
-"image": "images/GL043.jpg",
-"description": "The Baseus 30W GaN USB-C PD Travel Charger is a compact AC-powered charger designed for compatible smartphones and tablets. It features a USB Type-C output with up to 30W maximum power and uses GaN technology to support efficient charging in a travel-friendly form factor.\n\nThe charger supports multiple fast charging protocols, including USB Power Delivery, Qualcomm Quick Charge, Samsung Adaptive Fast Charging, Huawei FCP, and Huawei Quick Charge. It does not include a charging cable, display screen, or intelligent charging functions, and is certified by RoHS, CE, and CCC.",
-"features": [
-"Up to 30W USB-C output",
-"GaN charging technology",
-"Supports USB Power Delivery",
-"Supports Qualcomm Quick Charge",
-"Compatible with Samsung Adaptive Fast Charging and Huawei FCP",
-"AC-powered travel charger",
-"RoHS, CE, and CCC certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c4VspY1D"
-},
+    "code": "GL043",
+    "name": "Baseus 30W GaN USB-C PD Travel Charger",
+    "image": "images/GL043.jpg",
+    "description": "The Baseus 30W GaN USB-C PD Travel Charger is a compact AC-powered charger designed for compatible smartphones and tablets. It features a USB Type-C output with up to 30W maximum power and uses GaN technology to support efficient charging in a travel-friendly form factor.\n\nThe charger supports multiple fast charging protocols, including USB Power Delivery, Qualcomm Quick Charge, Samsung Adaptive Fast Charging, Huawei FCP, and Huawei Quick Charge. It does not include a charging cable, display screen, or intelligent charging functions, and is certified by RoHS, CE, and CCC.",
+    "features": [
+      "Up to 30W USB-C output",
+      "GaN charging technology",
+      "Supports USB Power Delivery",
+      "Supports Qualcomm Quick Charge",
+      "Compatible with Samsung Adaptive Fast Charging and Huawei FCP",
+      "AC-powered travel charger",
+      "RoHS, CE, and CCC certified"
+    ],
+    "category": "Power Charger",
+    "brand": "Baseus",
+    "link": "https://s.click.aliexpress.com/e/_c4VspY1D"
+  },
 
   {
-"code": "GL044",
-"name": "Baseus 15W Qi2 Foldable Magnetic Wireless Charger Stand",
-"image": "images/GL044.jpg",
-"description": "The Baseus 15W Qi2 Foldable Magnetic Wireless Charger Stand is a wireless charging stand designed for compatible Apple iPhone models and AirPods. It supports Qi2 magnetic wireless charging with up to 15W output, uses a USB Type-C connection, and features a compact foldable design for convenient everyday use and travel.\n\nThe adjustable viewing angle allows comfortable positioning while charging for activities such as video calls or media viewing. Magnetic alignment helps keep compatible devices securely positioned, and the package includes a Type-C charging cable along with a choice of a 20W EU or UK plug.",
-"features": [
-"Supports up to 15W Qi2 magnetic wireless charging",
-"Foldable and compact stand design",
-"Adjustable viewing angle",
-"Magnetic alignment for compatible devices",
-"USB Type-C connectivity",
-"Compatible with Apple iPhone and AirPods",
-"Includes Type-C charging cable",
-"CE, RoHS, and Qi certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c3bj4ynz"
-},
+    "code": "GL044",
+    "name": "Baseus 15W Qi2 Foldable Magnetic Wireless Charger Stand",
+    "image": "images/GL044.jpg",
+    "description": "The Baseus 15W Qi2 Foldable Magnetic Wireless Charger Stand is a wireless charging stand designed for compatible Apple iPhone models and AirPods. It supports Qi2 magnetic wireless charging with up to 15W output, uses a USB Type-C connection, and features a compact foldable design for convenient everyday use and travel.\n\nThe adjustable viewing angle allows comfortable positioning while charging for activities such as video calls or media viewing. Magnetic alignment helps keep compatible devices securely positioned, and the package includes a Type-C charging cable along with a choice of a 20W EU or UK plug.",
+    "features": [
+      "Supports up to 15W Qi2 magnetic wireless charging",
+      "Foldable and compact stand design",
+      "Adjustable viewing angle",
+      "Magnetic alignment for compatible devices",
+      "USB Type-C connectivity",
+      "Compatible with Apple iPhone and AirPods",
+      "Includes Type-C charging cable",
+      "CE, RoHS, and Qi certified"
+    ],
+    "category": "Wireless Charger",
+    "brand": "Baseus",
+    "link": "https://s.click.aliexpress.com/e/_c3bj4ynz"
+  },
 
   {
-"code": "GL045",
-"name": "Baseus Qi2 15W Mini Magnetic Wireless Charger",
-"image": "images/GL045.jpg",
-"description": "The Baseus Qi2 15W Mini Magnetic Wireless Charger is a compact magnetic wireless charging device designed for compatible iPhone models and Qi2-enabled devices. It supports up to 15W wireless charging output, uses a Type-C connector for power input, and is compatible with phones and earphones.\n\nThe charger features magnetic alignment for secure device placement and a lightweight mini design for convenient carrying. It is certified with CE, FCC, and RoHS standards, does not contain high-concern chemicals, and includes the wireless charger unit without a charging cable.",
-"features": [
-"Supports up to 15W magnetic wireless charging",
-"Qi2 compatible wireless charger",
-"Magnetic alignment for secure placement",
-"Compact mini design",
-"USB Type-C connector",
-"Compatible with phones and earphones",
-"CE, FCC, and RoHS certified"
-],
-"link": "https://s.click.aliexpress.com/e/_c3AMCzo7"
-}
-
+    "code": "GL045",
+    "name": "Baseus Qi2 15W Mini Magnetic Wireless Charger",
+    "image": "images/GL045.jpg",
+    "description": "The Baseus Qi2 15W Mini Magnetic Wireless Charger is a compact magnetic wireless charging device designed for compatible iPhone models and Qi2-enabled devices. It supports up to 15W wireless charging output, uses a Type-C connector for power input, and is compatible with phones and earphones.\n\nThe charger features magnetic alignment for secure device placement and a lightweight mini design for convenient carrying. It is certified with CE, FCC, and RoHS standards, does not contain high-concern chemicals, and includes the wireless charger unit without a charging cable.",
+    "features": [
+      "Supports up to 15W magnetic wireless charging",
+      "Qi2 compatible wireless charger",
+      "Magnetic alignment for secure placement",
+      "Compact mini design",
+      "USB Type-C connector",
+      "Compatible with phones and earphones",
+      "CE, FCC, and RoHS certified"
+    ],
+    "category": "Wireless Charger",
+    "brand": "Baseus",
+    "link": "https://s.click.aliexpress.com/e/_c3AMCzo7"
+  }
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
