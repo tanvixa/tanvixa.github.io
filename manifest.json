@@ -1,0 +1,22 @@
+{
+  "name": "Tanvixa",
+  "short_name": "Tanvixa",
+  "description": "Discover Smart Tech. Buy with Confidence.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1220",
+  "theme_color": "#2563EB",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/tanvixalogo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "images/tanvixalogo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
