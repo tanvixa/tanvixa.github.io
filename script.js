@@ -758,7 +758,9 @@ searchProduct();
 
 
 
-// ===== END OF FINAL PART A =====/* =====================================================
+// ===== END OF FINAL PART A =====
+
+/* =====================================================
    TANVIXA SMART GADGET FINDER
 
    SCRIPT.JS FINAL VERSION
@@ -771,7 +773,6 @@ searchProduct();
    Brands
 
 ===================================================== */
-
 
 
 
