@@ -1,0 +1,13 @@
+# =====================================
+# Tanvixa Robots.txt
+# =====================================
+
+User-agent: *
+
+Allow: /
+
+# Block system folders (if added in future)
+Disallow: /backup/
+
+# Sitemap
+Sitemap: https://tanvixa.github.io/sitemap.xml
