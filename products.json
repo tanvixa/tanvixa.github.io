@@ -1049,8 +1049,113 @@
     "category": "Wireless Charger",
     "brand": "Baseus",
     "link": "https://s.click.aliexpress.com/e/_c3AMCzo7"
-  }
+  },
+
+  {
+"code": "GL046",
+"name": "Baseus EnerFill FS41 3-in-1 Qi2 Magnetic Wireless Charging Stand",
+"image": "images/GL046.jpg",
+"description": "The Baseus EnerFill FS41 is a 3-in-1 wireless charging stand designed to charge a compatible iPhone, AirPods, and Apple Watch simultaneously. It supports Qi2 wireless charging with up to 22.5W maximum output and features magnetic alignment for compatible iPhone models.\n\nThe stand includes TEC cooling technology to help maintain an optimal charging temperature during charging. It provides up to 15W wireless charging for phones, up to 5W for TWS earphones, and up to 2.5W for Apple Watch, using a USB Type-C power input. A charging cable is included.",
+"features": [
+"3-in-1 wireless charging stand",
+"Qi2 wireless charging support",
+"Up to 22.5W maximum wireless output",
+"15W magnetic charging for compatible iPhones",
+"TEC cooling technology",
+"USB Type-C power input",
+"Simultaneous charging for iPhone, AirPods, and Apple Watch",
+"RoHS, CE, FCC, and Qi certified"
+],
+"category": "Wireless Charger",
+"brand": "Baseus",
+"link": "https://s.click.aliexpress.com/e/_c4SX3s5v"
+},
+
+  {
+"code": "GL047",
+"name": "Baseus Qi2.2 25W Magnetic Wireless Car Charger",
+"image": "images/GL047.jpg",
+"description": "The Baseus Qi2.2 25W Magnetic Wireless Car Charger is a car-mounted wireless charging solution that combines fast charging with a secure magnetic phone holder. It supports compatible iPhone models with magnetic wireless charging and can also be used with supported Samsung and Xiaomi smartphones.\n\nThe charger supports up to 25W wireless charging through Qi2.2 technology and features a built-in cooling fan to help manage heat during charging. It uses a USB Type-C connection, includes a charging indicator, functions as a car phone holder, and comes with a charging cable.",
+"features": [
+"Qi2.2 wireless charging support",
+"Up to 25W wireless charging output",
+"Magnetic phone attachment",
+"Built-in cooling fan",
+"Integrated car phone holder",
+"Charging status indicator",
+"USB Type-C connector",
+"CE, RoHS, and Qi certified"
+],
+"category": "Wireless Charger",
+"brand": "Baseus",
+"link": "https://s.click.aliexpress.com/e/_c3ZLWg6x"
+},
+
+  {
+"code": "GL048",
+"name": "Baseus 65W PD Fast Car Charger with LED Display",
+"image": "images/GL048.jpg",
+"description": "The Baseus 65W PD Fast Car Charger is a multi-port car charger designed to power compatible smartphones and other USB devices while driving. It plugs into a car lighter socket and features one USB Type-C port and two USB-A ports for charging multiple devices at the same time.\n\nThe charger supports USB Power Delivery, Qualcomm Quick Charge, Samsung Adaptive Fast Charge, and Huawei FCP fast charging protocols. It includes an LED display for real-time charging status, is constructed from aluminum, ABS, and PC materials, and comes with a 100W Type-C to Type-C PD fast charging cable.",
+"features": [
+"Up to 65W maximum output power",
+"1 USB Type-C port and 2 USB-A ports",
+"Supports USB Power Delivery",
+"Supports Qualcomm Quick Charge 4.0 and 3.0",
+"Supports Samsung Adaptive Fast Charge and Huawei FCP",
+"LED charging status display",
+"Aluminum, ABS, and PC construction",
+"100W Type-C to Type-C charging cable included"
+],
+"category": "Power Charger",
+"brand": "Baseus",
+"link": "https://s.click.aliexpress.com/e/_c2zJpC9v"
+},
+
+  {
+"code": "GL049",
+"name": "Baseus 65W GaN5 Fast Charger with Dual USB-C and USB-A",
+"image": "images/GL049.jpg",
+"description": "The Baseus 65W GaN5 Fast Charger is a compact wall charger designed for charging USB-C laptops, iPhones, and other compatible devices. It uses upgraded GaN5 technology and provides up to 65W output through two USB-C ports and one USB-A port for flexible charging.\n\nThe charger supports USB Power Delivery, Qualcomm Quick Charge, Huawei FCP, Huawei Quick Charge, and Samsung Adaptive Fast Charge protocols. It is suitable for charging multiple compatible devices simultaneously and is available in Black and White EU plug options. A charging cable is not included.",
+"features": [
+"Upgraded GaN5 technology",
+"Up to 65W maximum output",
+"Dual USB-C ports",
+"One USB-A port",
+"Supports USB Power Delivery",
+"Supports Qualcomm Quick Charge",
+"Supports Huawei FCP and Huawei Quick Charge",
+"CE, RoHS, and CCC certified"
+],
+"category": "Power Charger",
+"brand": "Baseus",
+"link": "https://s.click.aliexpress.com/e/_c4TzKJKR"
+},
+
+  {
+"code": "GL050",
+"name": "Baseus 70W GaN Universal Travel Adapter with Built-in Cable",
+"image": "images/GL050.jpg",
+"description": "The Baseus 70W EnerCore CG11 Universal Travel Adapter is a GaN-powered travel adapter designed for charging multiple devices using an AC power source. It features a built-in charging cable and provides up to 70W maximum output power with multiple charging ports.\n\nThe adapter includes two USB-A ports and two USB Type-C ports and supports various fast charging protocols including USB PD, Qualcomm Quick Charge, Samsung Adaptive Fast Charge, and Huawei FCP. It operates with 100V–250V AC input and is certified with CE and RoHS.",
+"features": [
+"GaN technology support",
+"Up to 70W maximum output power",
+"Built-in charging cable",
+"Two USB-A ports",
+"Two USB Type-C ports",
+"Supports USB Power Delivery",
+"Supports Qualcomm Quick Charge",
+"CE and RoHS certified"
+],
+"category": "Power Charger",
+"brand": "Baseus",
+"link": "https://s.click.aliexpress.com/e/_c3BXyV0b"
+}
+
+
 ]
+
+
+
 
 
 
