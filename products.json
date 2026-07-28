@@ -1149,10 +1149,119 @@
 "category": "Power Charger",
 "brand": "Baseus",
 "link": "https://s.click.aliexpress.com/e/_c3BXyV0b"
+},
+
+
+  {
+"code": "GL051",
+"name": "Rocoren Energy Station Series 200W GaN Desktop Charger 4C+2A",
+"image": "images/GL051.jpg",
+"description": "The Rocoren Energy Station Series 200W GaN Desktop Charger is a desktop charging station designed to power multiple devices from a single AC source. It features four USB-C ports and two USB-A ports with a maximum combined output of 200W for efficient multi-device charging.\n\nBuilt with GaN technology and intelligent charging, it supports USB Power Delivery, Qualcomm Quick Charge, Huawei Quick Charge, BC1.2, and other fast charging protocols. The charger includes a charging cable, operates on AC100–240V input, and is suitable for compatible smartphones, tablets, laptops, and other USB-powered devices.",
+"features": [
+"200W maximum total output",
+"GaN charging technology",
+"4 USB-C and 2 USB-A ports",
+"Intelligent charging support",
+"USB Power Delivery compatible",
+"Supports Qualcomm Quick Charge",
+"Supports Huawei Quick Charge",
+"AC100–240V wide voltage input"
+],
+"category": "Power Charger",
+"brand": "Rocoren",
+"link": "https://s.click.aliexpress.com/e/_c2xq7x2F"
+},
+
+
+{
+"code": "GL052",
+"name": "Rocoren 100W GaN 6-Port Desktop Charger",
+"image": "images/GL052.jpg",
+"description": "Rocoren 100W GaN Charger is a desktop power charger with six charging ports, including three USB-A and three USB-C ports, designed for charging multiple devices from an A.C. power source.\n\nIt features GaN technology, intelligent charge detection, and support for USB PD, Qualcomm Quick Charge, Samsung Adaptive Fast Charge, and BC1.2 protocols. It is compatible with iPhone, Samsung, Xiaomi, and other devices with multiple plug options.",
+"features": [
+"GaN technology",
+"6 charging ports",
+"3 USB-C ports",
+"3 USB-A ports",
+"Intelligent charge detection",
+"USB PD fast charging support",
+"Multiple device compatibility",
+"Overheating and overcharging protection"
+],
+"category": "Power Charger",
+"brand": "Rocoren",
+"link": "https://s.click.aliexpress.com/e/_c40bfQPZ"
+},
+
+  {
+"code": "GL053",
+"name": "660W GaN 8-Port USB C PD Charging Station",
+"image": "images/GL053.jpg",
+"description": "660W GaN Charger is a multi-port desktop charging station designed to charge multiple devices simultaneously through USB and Type C interfaces. It supports USB PD fast charging and provides a compact charging solution for compatible devices.\n\nThe charger features GaN technology, intelligent charge management, and safety protection against overheating, overcurrent, and short circuits. It is compatible with devices such as iPhone and Samsung models and supports multiple international plug options.",
+"features": [
+"GaN fast charging technology",
+"8-port USB Type C charging station",
+"USB PD fast charging support",
+"USB and Type C output interfaces",
+"Intelligent charge technology",
+"120W maximum output power",
+"Overheat and overcurrent protection",
+"Multiple plug options"
+],
+"category": "Power Charger",
+"brand": "Generic",
+"link": "https://s.click.aliexpress.com/e/_c2wlrJfd"
+},
+
+  {
+"code": "GL054",
+"name": "ASOMETECH 160W GaN USB Charging Station",
+"image": "images/GL054.jpg",
+"description": "ASOMETECH 160W GaN USB Charging Station is a desktop charging device with USB ports, wireless charging, and an LCD display for monitoring power output. It is designed to charge multiple devices simultaneously with intelligent power distribution.\n\nThe charger features GaN technology, USB PD and QC fast charging support, 15W wireless charging, and compatibility with smartphones, tablets, laptops, and Qi-enabled devices. It includes multiple protection features and supports various international plug types.",
+"features": [
+"160W maximum output power",
+"GaN technology",
+"LCD power monitoring display",
+"3 USB-C ports and 2 USB-A ports",
+"15W wireless charging",
+"USB PD 65W fast charging support",
+"Intelligent charge detection",
+"Multiple fast charging protocols"
+],
+"category": "Power Charger",
+"brand": "ASOMETECH",
+"link": "https://s.click.aliexpress.com/e/_c4SQf8KJ"
+},
+
+
+  {
+"code": "GL055",
+"name": "AIXXCO 65W 7-in-1 Smart Charging Station",
+"image": "images/GL055.jpg",
+"description": "AIXXCO 7-in-1 Smart Charger is a universal charging station with an AC outlet, USB-A ports, and USB-C ports for charging multiple devices simultaneously. It is designed for desktop and multi-device charging use.\n\nThe charger supports USB PD and Qualcomm Quick Charge fast charging protocols with a maximum output power of 65W. It includes multiple international plug options and is compatible with devices such as iPhone 16 and iPhone 15 Pro Max.",
+"features": [
+"7-in-1 charging capability",
+"65W maximum output power",
+"1 AC outlet",
+"2 USB-A ports and 3 USB-C ports",
+"USB PD fast charging support",
+"Qualcomm Quick Charge support",
+"Multiple international plug options",
+"CE, FCC, and RoHS certified"
+],
+"category": "Power Charger",
+"brand": "AIXXCO",
+"link": "https://s.click.aliexpress.com/e/_c2z3vmlH"
 }
 
-
 ]
+
+
+
+
+
+
+
 
 
 
