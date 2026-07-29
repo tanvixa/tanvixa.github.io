@@ -2576,25 +2576,77 @@ function showProductNotFound() {
 
 function renderProduct() {
 
-    document.title = currentProduct.name + " | Tanvixa";
 
-    document.getElementById("productName").textContent =
-        currentProduct.name;
+    document.title =
+    currentProduct.name + " | Tanvixa";
 
-    document.getElementById("productBrand").textContent =
-        currentProduct.brand;
 
-    document.getElementById("productCategory").textContent =
-        currentProduct.category;
+    const name =
+    document.getElementById("productName");
 
-    document.getElementById("buyButton").href =
-        currentProduct.link;
+
+    const brand =
+    document.getElementById("productBrand");
+
+
+    const category =
+    document.getElementById("productCategory");
+
+
+    const buy =
+    document.getElementById("buyButton");
+
+
+
+    if(name)
+    name.textContent =
+    currentProduct.name;
+
+
+
+    if(brand)
+    brand.textContent =
+    currentProduct.brand || "-";
+
+
+
+    if(category)
+    category.textContent =
+    currentProduct.category || "-";
+
+
+
+    if(buy)
+    buy.href =
+    currentProduct.link;
+
+
 
     renderDescription();
 
     renderFeatures();
 
     renderImages();
+
+
+    // EXTRA SYSTEM START
+
+    updateProductSEO();
+
+    updateBuyButtons();
+
+    loadSpecifications();
+
+    setupShareButtons();
+
+    setupCopyButton();
+
+    updateRecentlyViewed();
+
+    generateProductSchema();
+
+    generateBreadcrumbSchema();
+
 
 }
 
