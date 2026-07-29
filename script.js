@@ -2905,7 +2905,14 @@ window.location.href=
 // START
 // ==============================
 
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
 loadProductPage();
+
+}
+);
 
 
 
