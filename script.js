@@ -903,18 +903,15 @@ ${product.code}
 
 <a
 
-href="javascript:void(0)"
+href="product.html?code=${product.code}"
 
 class="view-button"
-
-onclick="openProduct('${product.code}')"
 
 >
 
 View Details
 
 </a>
-
 
 
 
