@@ -947,56 +947,10 @@ View Details
 
 function openProduct(code){
 
-
-
-const input =
-
-document.getElementById(
-
-"productCode"
-
-);
-
-
-
-
-
-
-if(input){
-
-
-input.value = code;
-
+    window.location.href =
+    "product.html?code=" + code;
 
 }
-
-
-
-
-
-
-searchProduct();
-
-
-
-
-
-window.scrollTo({
-
-
-top:0,
-
-
-behavior:"smooth"
-
-
-});
-
-
-
-}
-
-
 
 
 
