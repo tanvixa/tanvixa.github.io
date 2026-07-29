@@ -3856,3 +3856,31 @@ padding:10px 20px;
 border-radius:20px;
 background:#eee;
 }
+
+
+/* =========================
+   TANVIXA LOGO FIX
+========================= */
+
+.tv-logo img{
+
+    width:80px;
+
+    height:auto;
+
+    object-fit:contain;
+
+}
+
+
+.tv-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:15px 30px;
+
+}
