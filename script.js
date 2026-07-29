@@ -2529,6 +2529,382 @@ startTanvixa();
 );
 
 
+/* =====================================================
+   TANVIXA PRODUCT PAGE
+   SCRIPT PART 1
+===================================================== */
+
+// ==============================
+// PRODUCT PAGE SYSTEM
+// ==============================
+
+let currentProduct = null;
+let allProducts = [];
+
+// ==============================
+// GET PRODUCT CODE FROM URL
+// Example:
+// product.html?code=GL001
+// ==============================
+
+function getProductCode() {
+
+    const params = new URLSearchParams(window.location.search);
+
+    return params.get("code");
+
+}
+
+// ==============================
+// LOAD PRODUCTS
+// ==============================
+
+async function loadProductPage() {
+
+    // product.html না হলে কিছু করবে না
+
+    if (!window.location.pathname.includes("product.html")) {
+
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch("products.json");
+
+        allProducts = await response.json();
+
+        const code = getProductCode();
+
+        if (!code) {
+
+            showProductNotFound();
+
+            return;
+
+        }
+
+        currentProduct = allProducts.find(item => item.code === code);
+
+        if (!currentProduct) {
+
+            showProductNotFound();
+
+            return;
+
+        }
+
+        renderProduct();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        showProductNotFound();
+
+    }
+
+}
+
+// ==============================
+// PRODUCT NOT FOUND
+// ==============================
+
+function showProductNotFound() {
+
+    document.getElementById("productName").textContent = "Product Not Found";
+
+}
+
+// ==============================
+// RENDER PRODUCT
+// ==============================
+
+function renderProduct() {
+
+    document.title = currentProduct.name + " | Tanvixa";
+
+    document.getElementById("productName").textContent =
+        currentProduct.name;
+
+    document.getElementById("productBrand").textContent =
+        currentProduct.brand;
+
+    document.getElementById("productCategory").textContent =
+        currentProduct.category;
+
+    document.getElementById("buyButton").href =
+        currentProduct.link;
+
+    renderDescription();
+
+    renderFeatures();
+
+    renderImages();
+
+}
+
+// ==============================
+// DESCRIPTION
+// ==============================
+
+function renderDescription() {
+
+    const description =
+        currentProduct.description.replace(/\n/g, "<br><br>");
+
+    document.getElementById("productDescription").innerHTML =
+        description;
+
+}
+
+// ==============================
+// FEATURES
+// ==============================
+
+function renderFeatures() {
+
+    const list =
+        document.getElementById("productFeatures");
+
+    list.innerHTML = "";
+
+    currentProduct.features.forEach(feature => {
+
+        const li = document.createElement("li");
+
+        li.textContent = feature;
+
+        list.appendChild(li);
+
+    });
+
+}
+
+
+/* =====================================================
+   TANVIXA PRODUCT PAGE
+   SCRIPT PART 2
+===================================================== */
+
+// ==============================
+// IMAGE GALLERY
+// ==============================
+
+function renderImages() {
+
+    const mainImage =
+        document.getElementById("mainImage");
+
+    const thumbnailContainer =
+        document.getElementById("thumbnailContainer");
+
+    thumbnailContainer.innerHTML = "";
+
+    // Support old & new structure
+
+    let images = [];
+
+    if (currentProduct.images && currentProduct.images.length > 0) {
+
+        images = currentProduct.images;
+
+    } else {
+
+        images = [currentProduct.image];
+
+    }
+
+    // Main Image
+
+    mainImage.src = images[0];
+
+    mainImage.alt = currentProduct.name;
+
+    // Thumbnails
+
+    images.forEach(image => {
+
+        const img = document.createElement("img");
+
+        img.src = image;
+
+        img.alt = currentProduct.name;
+
+        img.onclick = function () {
+
+            mainImage.src = image;
+
+        };
+
+        thumbnailContainer.appendChild(img);
+
+    });
+
+}
+
+// ==============================
+// RELATED PRODUCTS
+// ==============================
+
+function renderRelatedProducts() {
+
+    const container =
+        document.getElementById("relatedProducts");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const related = allProducts.filter(product =>
+
+        product.category === currentProduct.category &&
+        product.code !== currentProduct.code
+
+    ).slice(0,4);
+
+    related.forEach(product => {
+
+        container.innerHTML += `
+
+<div class="related-card">
+
+<a href="product.html?code=${product.code}">
+
+<img src="${product.image}" alt="${product.name}">
+
+</a>
+
+<h4>${product.name}</h4>
+
+<a href="product.html?code=${product.code}">
+
+View Product
+
+</a>
+
+</div>
+
+`;
+
+    });
+
+}
+
+// ==============================
+// UPDATE RENDER
+// ==============================
+
+const oldRenderProduct = renderProduct;
+
+renderProduct = function(){
+
+    oldRenderProduct();
+
+    renderRelatedProducts();
+
+};
+
+// ==============================
+// SEARCH SYSTEM
+// ==============================
+
+function goToProduct() {
+
+    const input =
+
+    document.getElementById("searchInput");
+
+    if(!input) return;
+
+    const code =
+
+    input.value.trim().toUpperCase();
+
+    if(code==="") return;
+
+    window.location.href=
+
+    "product.html?code="+code;
+
+}
+
+// Header Search
+
+const searchBtn=
+
+document.getElementById("searchButton");
+
+if(searchBtn){
+
+searchBtn.onclick=goToProduct;
+
+}
+
+// Enter Key
+
+const searchInput=
+
+document.getElementById("searchInput");
+
+if(searchInput){
+
+searchInput.addEventListener(
+
+"keypress",
+
+function(e){
+
+if(e.key==="Enter"){
+
+goToProduct();
+
+}
+
+}
+
+);
+
+}
+
+// Sidebar Search
+
+const sideBtn=
+
+document.getElementById("sidebarSearchBtn");
+
+if(sideBtn){
+
+sideBtn.onclick=function(){
+
+const code=
+
+document.getElementById("sidebarSearch")
+
+.value.trim()
+
+.toUpperCase();
+
+if(code==="") return;
+
+window.location.href=
+
+"product.html?code="+code;
+
+};
+
+}
+
+// ==============================
+// START
+// ==============================
+
+loadProductPage();
+
+
 
 
 
