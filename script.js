@@ -3168,6 +3168,223 @@ document.addEventListener(
     }
 );
 
+/* =====================================================
+   TANVIXA PRODUCT PAGE UPGRADE
+   SCRIPT PART 3
+===================================================== */
+
+/* ===========================
+RECENTLY VIEWED
+=========================== */
+
+function updateRecentlyViewed() {
+
+    if (!currentProduct) return;
+
+    let history =
+        JSON.parse(
+            localStorage.getItem(
+                "tanvixa_recent"
+            )
+        ) || [];
+
+    history = history.filter(item =>
+        item.code !== currentProduct.code
+    );
+
+    history.unshift({
+        code: currentProduct.code,
+        name: currentProduct.name,
+        image: currentProduct.image
+    });
+
+    history = history.slice(0,8);
+
+    localStorage.setItem(
+        "tanvixa_recent",
+        JSON.stringify(history)
+    );
+
+}
+
+/* ===========================
+PRODUCT JSON-LD
+=========================== */
+
+function generateProductSchema() {
+
+    if (!currentProduct) return;
+
+    const old =
+        document.getElementById(
+            "productSchema"
+        );
+
+    if (old) {
+
+        old.remove();
+
+    }
+
+    const schema = {
+
+        "@context":"https://schema.org",
+
+        "@type":"Product",
+
+        "name":currentProduct.name,
+
+        "image":[currentProduct.image],
+
+        "description":
+        (currentProduct.description || "")
+        .replace(/\n/g," "),
+
+        "sku":currentProduct.code,
+
+        "brand":{
+
+            "@type":"Brand",
+
+            "name":
+            currentProduct.brand || "Tanvixa"
+
+        },
+
+        "offers":{
+
+            "@type":"Offer",
+
+            "url":currentProduct.link,
+
+            "availability":
+            "https://schema.org/InStock"
+
+        }
+
+    };
+
+    const script =
+        document.createElement("script");
+
+    script.type =
+        "application/ld+json";
+
+    script.id =
+        "productSchema";
+
+    script.textContent =
+        JSON.stringify(schema);
+
+    document.head.appendChild(script);
+
+}
+
+/* ===========================
+BREADCRUMB
+=========================== */
+
+function generateBreadcrumbSchema(){
+
+    if(!currentProduct) return;
+
+    const data={
+
+        "@context":"https://schema.org",
+
+        "@type":"BreadcrumbList",
+
+        "itemListElement":[
+
+            {
+
+                "@type":"ListItem",
+
+                "position":1,
+
+                "name":"Home",
+
+                "item":window.location.origin
+
+            },
+
+            {
+
+                "@type":"ListItem",
+
+                "position":2,
+
+                "name":"Products",
+
+                "item":
+
+                window.location.origin+
+
+                "/product.html"
+
+            },
+
+            {
+
+                "@type":"ListItem",
+
+                "position":3,
+
+                "name":
+
+                currentProduct.name
+
+            }
+
+        ]
+
+    };
+
+    const script=
+
+    document.createElement("script");
+
+    script.type=
+
+    "application/ld+json";
+
+    script.textContent=
+
+    JSON.stringify(data);
+
+    document.head.appendChild(script);
+
+}
+
+/* ===========================
+START ADVANCED FEATURES
+=========================== */
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+function(){
+
+const timer=
+
+setInterval(function(){
+
+if(currentProduct){
+
+clearInterval(timer);
+
+updateRecentlyViewed();
+
+generateProductSchema();
+
+generateBreadcrumbSchema();
+
+}
+
+},200);
+
+});
 
 
 // ===== END OF SCRIPT.JS FINAL VERSION =====
