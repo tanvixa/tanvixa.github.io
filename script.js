@@ -3076,7 +3076,7 @@ function setupShareButtons() {
             "https://pinterest.com/pin/create/button/?url=" +
             encodeURIComponent(pageUrl) +
             "&media=" +
-            encodeURIComponent(currentProduct.image) +
+            encodeURIComponent(currentProduct.images ? currentProduct.images[0] : currentProduct.image) +
             "&description=" +
             encodeURIComponent(pageTitle);
 
