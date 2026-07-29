@@ -2944,7 +2944,7 @@ currentProduct.brand
 
 setText(
 "specModel",
-currentProduct.code
+currentProduct.model || currentProduct.code
 );
 
 
