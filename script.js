@@ -2906,8 +2906,270 @@ loadProductPage();
 
 
 
+/* =====================================================
+   TANVIXA PRODUCT PAGE UPGRADE
+   SCRIPT PART 1
+===================================================== */
 
+/* ===========================
+DYNAMIC PAGE SEO
+=========================== */
+
+function updateProductSEO() {
+
+    if (!currentProduct) return;
+
+    document.title =
+        currentProduct.name + " | Tanvixa";
+
+    const description =
+        (currentProduct.description || "")
+        .replace(/\n/g, " ")
+        .substring(0, 155);
+
+    // Meta Description
+
+    let metaDescription =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+    if (metaDescription) {
+
+        metaDescription.content =
+            description;
+
+    }
+
+    // Canonical
+
+    let canonical =
+        document.querySelector(
+            'link[rel="canonical"]'
+        );
+
+    if (canonical) {
+
+        canonical.href =
+            window.location.origin +
+            "/product.html?code=" +
+            currentProduct.code;
+
+    }
+
+}
+
+/* ===========================
+UPDATE BUY BUTTONS
+=========================== */
+
+function updateBuyButtons() {
+
+    if (!currentProduct) return;
+
+    const topButton =
+        document.getElementById("buyButton");
+
+    const bottomButton =
+        document.getElementById("bottomBuyButton");
+
+    if (topButton) {
+
+        topButton.href =
+            currentProduct.link;
+
+    }
+
+    if (bottomButton) {
+
+        bottomButton.href =
+            currentProduct.link;
+
+    }
+
+}
+
+/* ===========================
+SPECIFICATION SYSTEM
+=========================== */
+
+function loadSpecifications() {
+
+    if (!currentProduct) return;
+
+    const brand =
+        document.getElementById("specBrand");
+
+    const model =
+        document.getElementById("specModel");
+
+    const category =
+        document.getElementById("specCategory");
+
+    if (brand)
+        brand.textContent =
+        currentProduct.brand || "-";
+
+    if (model)
+        model.textContent =
+        currentProduct.code;
+
+    if (category)
+        category.textContent =
+        currentProduct.category || "-";
+
+}
+
+/* =====================================================
+   TANVIXA PRODUCT PAGE UPGRADE
+   SCRIPT PART 2
+===================================================== */
+
+/* ===========================
+SOCIAL SHARE SYSTEM
+=========================== */
+
+function setupShareButtons() {
+
+    if (!currentProduct) return;
+
+    const pageUrl = window.location.href;
+
+    const pageTitle = currentProduct.name;
+
+    // Facebook
+
+    const facebook =
+        document.getElementById("shareFacebook");
+
+    if (facebook) {
+
+        facebook.href =
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+            encodeURIComponent(pageUrl);
+
+    }
+
+    // X (Twitter)
+
+    const x =
+        document.getElementById("shareX");
+
+    if (x) {
+
+        x.href =
+            "https://twitter.com/intent/tweet?url=" +
+            encodeURIComponent(pageUrl) +
+            "&text=" +
+            encodeURIComponent(pageTitle);
+
+    }
+
+    // Pinterest
+
+    const pinterest =
+        document.getElementById("sharePinterest");
+
+    if (pinterest) {
+
+        pinterest.href =
+            "https://pinterest.com/pin/create/button/?url=" +
+            encodeURIComponent(pageUrl) +
+            "&media=" +
+            encodeURIComponent(currentProduct.image) +
+            "&description=" +
+            encodeURIComponent(pageTitle);
+
+    }
+
+}
+
+/* ===========================
+COPY LINK
+=========================== */
+
+function setupCopyButton() {
+
+    const button =
+        document.getElementById("copyProductLink");
+
+    if (!button) return;
+
+    button.onclick = async function () {
+
+        try {
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            button.textContent =
+                "✅ Link Copied";
+
+            setTimeout(function () {
+
+                button.textContent =
+                    "Copy Link";
+
+            }, 2000);
+
+        }
+
+        catch {
+
+            alert(
+                "Unable to copy the link."
+            );
+
+        }
+
+    };
+
+}
+
+/* ===========================
+INITIALIZE EXTRA FEATURES
+=========================== */
+
+function initializeProductExtras() {
+
+    updateProductSEO();
+
+    updateBuyButtons();
+
+    loadSpecifications();
+
+    setupShareButtons();
+
+    setupCopyButton();
+
+}
+
+/* ===========================
+AUTO START
+=========================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const wait = setInterval(function () {
+
+            if (currentProduct) {
+
+                clearInterval(wait);
+
+                initializeProductExtras();
+
+            }
+
+        }, 200);
+
+    }
+);
 
 
 
 // ===== END OF SCRIPT.JS FINAL VERSION =====
+
+
