@@ -3767,3 +3767,92 @@ padding:15px;
     background:#f8f8f8;
 
 }
+
+
+/* PRODUCT PAGE EXTRA */
+
+.product-page{
+max-width:1200px;
+margin:auto;
+padding:30px 20px;
+}
+
+
+.product-gallery{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+
+.main-image-container img{
+width:100%;
+max-width:500px;
+border-radius:20px;
+}
+
+
+.thumbnail-container{
+display:flex;
+gap:10px;
+}
+
+
+.thumbnail-container img{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+}
+
+
+.spec-table{
+width:100%;
+border-collapse:collapse;
+}
+
+
+.spec-table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+
+.why-card{
+padding:20px;
+border-radius:15px;
+background:#f5f7fb;
+}
+
+
+.buy-now-large{
+display:inline-block;
+padding:15px 30px;
+border-radius:50px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+
+.share-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+
+.share-buttons a{
+padding:10px 20px;
+border-radius:20px;
+background:#eee;
+}
