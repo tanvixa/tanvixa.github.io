@@ -406,7 +406,7 @@ result.innerHTML = `
 
 <img
 
-src="${product.image}"
+src="${product.images ? product.images[0] : product.image}"
 
 alt="${product.name}"
 
@@ -854,7 +854,7 @@ return `
 
 <img
 
-src="${product.image}"
+src="${product.images ? product.images[0] : product.image}"
 
 alt="${product.name}"
 
@@ -2774,7 +2774,7 @@ function renderRelatedProducts() {
 
 <a href="product.html?code=${product.code}">
 
-<img src="${product.image}" alt="${product.name}">
+<img src="${product.images ? product.images[0] : product.image}" alt="${product.name}">
 
 </a>
 
