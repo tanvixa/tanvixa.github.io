@@ -3234,7 +3234,7 @@ function generateProductSchema() {
 
         "name":currentProduct.name,
 
-        "image":[currentProduct.image],
+        "image": currentProduct.images ? currentProduct.images : [currentProduct.image],
 
         "description":
         (currentProduct.description || "")
