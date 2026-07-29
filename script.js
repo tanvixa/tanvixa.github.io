@@ -3195,7 +3195,7 @@ function updateRecentlyViewed() {
     history.unshift({
         code: currentProduct.code,
         name: currentProduct.name,
-        image: currentProduct.image
+        image: currentProduct.images ? currentProduct.images[0] : currentProduct.image
     });
 
     history = history.slice(0,8);
