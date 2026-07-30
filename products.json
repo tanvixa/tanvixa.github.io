@@ -1161,7 +1161,135 @@
     "featured": true,
     "trending": true,
     "deal": false
-  }
+  },
+
+  {
+"code": "GL056",
+"name": "Baseus 45W GaN USB-C Power Charger",
+"model": "GaN Charger",
+"images": [
+"images/GL056-1.jpg",
+"images/GL056-2.jpg",
+"images/GL056-3.jpg"
+],
+"description": "The Baseus 45W GaN USB-C Power Charger is a compact travel charger designed for fast and efficient charging of smartphones and other compatible USB-C devices. It features a single USB-C port with up to 45W output and supports worldwide AC 100–240V power input.\n\nBuilt with GaN technology and graphene for cooler and safer operation, it supports multiple fast charging protocols including PD3.0, PPS, QC3.0, FCP, AFC, USB PD, and Qualcomm Quick Charge. It is compatible with iPhone 17 series, iPhone 16, Samsung Galaxy devices, and other supported USB-C devices.",
+"features": [
+"45W USB-C fast charging",
+"GaN technology",
+"Compact travel design",
+"Graphene cooling",
+"Supports PD3.0 and PPS",
+"Supports QC3.0, FCP and AFC",
+"100–240V AC input",
+"Compatible with iPhone and Samsung Galaxy"
+],
+"category": "Power Charger",
+"brand": "BASEUS",
+"link": "https://s.click.aliexpress.com/e/_c42DtOzV"
+},
+
+  {
+"code": "GL057",
+"name": "UGREEN 130W USB-C Fast Car Charger",
+"model": "CD293",
+"images": [
+"images/GL057-1.jpg",
+"images/GL057-2.jpg"
+],
+"description": "The UGREEN 130W USB-C Fast Car Charger is a multi-port car charger designed for charging smartphones, tablets, laptops, and other USB devices while traveling. It features two USB-C ports and one USB-A port with a total power output of up to 130W, making it suitable for charging multiple devices at the same time.\n\nEquipped with intelligent charging technology, it automatically detects compatible devices to deliver appropriate power while helping protect against overheating and overcharging. It supports PD3.0, PPS, QC4+, Qualcomm Quick Charge, Huawei FCP, AFC, SCP, and other fast charging protocols, and is compatible with 12–24V vehicle power systems.",
+"features": [
+"130W total power output",
+"Two USB-C ports and one USB-A port",
+"Intelligent charging technology",
+"Supports PD3.0 and PPS",
+"Supports QC4+, QC3.0, FCP and AFC",
+"Supports SCP and Apple 5V2.4A",
+"Compatible with 12–24V vehicles",
+"Suitable for phones, tablets and laptops"
+],
+"category": "Power Charger",
+"brand": "UGREEN",
+"link": "https://s.click.aliexpress.com/e/_c3bszPjN"
+},
+
+  {
+"code": "GL058",
+"name": "Baseus 65W GaN Fast Charger",
+"model": "Baseus 65W Fast Charger",
+"images": [
+"images/GL058-1.jpg",
+"images/GL058-2.jpg"
+],
+"description": "The Baseus 65W GaN Fast Charger is a compact USB charger designed for charging smartphones, tablets, and USB-C laptops. It features two USB-C ports and one USB-A port, allowing multiple compatible devices to be charged simultaneously with a maximum output of 65W.\n\nBuilt with upgraded GaN5 technology, it delivers efficient charging while maintaining a compact design. The charger supports USB PD, Qualcomm Quick Charge, Huawei FCP, Huawei Quick Charge, and Samsung Adaptive Fast Charge protocols, making it compatible with iPhone 17, iPhone 16, earlier iPhone models, and USB-C laptops.",
+"features": [
+"Upgraded GaN5 technology",
+"65W maximum power output",
+"Two USB-C ports and one USB-A port",
+"Supports simultaneous device charging",
+"Supports USB PD fast charging",
+"Supports Qualcomm Quick Charge",
+"Supports Huawei FCP and Huawei Quick Charge",
+"Compatible with USB-C laptops and iPhone models"
+],
+"category": "Power Charger",
+"brand": "BASEUS",
+"link": "https://s.click.aliexpress.com/e/_c3psw4ld"
+},
+
+  {
+"code": "GL059",
+"name": "UGREEN USB-C 60W Car Charger with Retractable Cable",
+"model": "Generic",
+"images": [
+"images/GL059-1.jpg",
+"images/GL059-2.jpg",
+"images/GL059-3.jpg"
+],
+"description": "The UGREEN USB-C 60W Car Charger is designed for charging compatible devices while driving. It features USB, USB-A, and USB-C output interfaces and includes a charging cable for convenient everyday use in supported vehicles.\n\nThe charger supports multiple fast charging protocols, including USB PD, Qualcomm Quick Charge, Huawei Quick Charge, and Samsung Adaptive Fast Charge. Intelligent charging technology helps deliver suitable power to compatible devices, making it suitable for charging smartphones, tablets, and other supported USB-powered devices.",
+"features": [
+"60W maximum power output",
+"Retractable charging cable included",
+"USB, USB-A and USB-C outputs",
+"Intelligent charging technology",
+"Supports USB PD",
+"Supports Qualcomm Quick Charge",
+"Supports Samsung Adaptive Fast Charge",
+"Supports Huawei Quick Charge"
+],
+"category": "Power Charger",
+"brand": "UGREEN",
+"link": "https://s.click.aliexpress.com/e/_c45JuyeB"
+},
+
+  {
+"code": "GL060",
+"name": "Baseus 140W Enerfill GaN Fast Charger",
+"model": "Enerfill",
+"images": [
+"images/GL060-1.jpg",
+"images/GL060-2.jpg",
+"images/GL060-3.jpg"
+],
+"description": "The Baseus 140W Enerfill GaN Fast Charger is a high-power travel charger designed for charging laptops, tablets, and smartphones. It features two USB-C ports and one USB port, delivering up to 140W output while supporting simultaneous charging for up to three compatible devices.\n\nBuilt with upgraded GaN technology, the charger supports USB PD, Qualcomm Quick Charge, PPS, Samsung Adaptive Fast Charge, and Huawei FCP protocols for efficient charging. It is compatible with MacBook, tablets, iPhone 17, iPhone 16, iPhone 15, iPhone 14, and other supported USB-powered devices.",
+"features": [
+"140W maximum power output",
+"Upgraded GaN technology",
+"Two USB-C ports and one USB port",
+"Charges up to three devices simultaneously",
+"Supports USB PD fast charging",
+"Supports PPS and Qualcomm Quick Charge",
+"Supports Samsung Adaptive Fast Charge and Huawei FCP",
+"Compatible with laptops, tablets and smartphones"
+],
+"category": "Power Charger",
+"brand": "BASEUS",
+"link": "https://s.click.aliexpress.com/e/_c3nXVJMf"
+}
+
 ]
+
+
+
+
 
 
