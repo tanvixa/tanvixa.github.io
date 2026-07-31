@@ -3880,3 +3880,61 @@ background:#eee;
     padding:15px 30px;
 
 }
+
+/* ===========================
+   Product Animation
+=========================== */
+
+.product-card{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:all .7s ease;
+
+}
+
+.product-card.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Image Zoom */
+
+.product-image img{
+
+    animation:imageZoom .8s ease;
+
+}
+
+@keyframes imageZoom{
+
+0%{
+
+opacity:0;
+
+transform:scale(.9);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/* Smooth Scroll */
+
+html{
+
+scroll-behavior:smooth;
+
+}
