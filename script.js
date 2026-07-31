@@ -522,7 +522,26 @@ If you purchase through these links, Tanvixa may earn a commission at no extra c
 
 `;
 
+// ==============================
+// Smooth Scroll + Animation
+// ==============================
 
+const card = result.querySelector(".product-card");
+
+if (card) {
+
+    card.classList.add("show");
+
+    setTimeout(() => {
+
+        card.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 300);
+
+}
 
 }
 
