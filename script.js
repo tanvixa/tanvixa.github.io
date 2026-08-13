@@ -35,7 +35,9 @@ let searchHistory = {};
 ====================================== */
 
 
-fetch("./products.json?v=" + Date.now())
+fetch("./products.json?v=" + Date.now(), {
+    cache: "no-store"
+})
 .then(response => {
 
 
@@ -2533,7 +2535,9 @@ try{
 
 
 const response =
-await fetch("./products.json?v=" + Date.now());
+await fetch("./products.json?v=" + Date.now(), {
+    cache: "no-store"
+});
 
 productList =
 await response.json();
