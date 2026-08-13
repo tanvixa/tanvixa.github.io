@@ -922,7 +922,7 @@ ${product.code}
 
 <a
 
-href="product.html?code=${product.code}"
+href="./product.html?code=${encodeURIComponent(product.code)}"
 
 class="view-button"
 
