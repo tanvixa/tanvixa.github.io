@@ -2964,64 +2964,46 @@ RELATED PRODUCTS
 
 function renderRelatedProducts(){
 
+    const box =
+        document.getElementById("relatedProducts");
 
+    if(!box) return;
 
-const box =
-document.getElementById(
-"relatedProducts"
-);
+    let related =
+        productList.filter(
+            p =>
+                p.category === currentProduct.category &&
+                p.code !== currentProduct.code
+        )
+        .slice(0,4);
 
+    box.innerHTML =
+        related.map(p => `
 
+        <div class="related-card">
 
-if(!box)return;
+            <img
+                src="${p.images ? p.images[0] : p.image}"
+                alt="${p.name}"
+                loading="lazy"
+                onerror="this.src='images/no-image.png'"
+            >
 
+            <h3>
+                ${p.name}
+            </h3>
 
+            <a
+                href="./product.html?code=${encodeURIComponent(p.code)}"
+            >
+                View Product
+            </a>
 
+        </div>
 
-let related =
-productList.filter(
-p=>
-
-p.category === currentProduct.category
-&&
-p.code !== currentProduct.code
-
-)
-.slice(0,4);
-
-
-
-
-box.innerHTML =
-related.map(p=>`
-
-
-<div class="related-card">
-
-
-<img src="${p.image}">
-
-
-<h3>${p.name}</h3>
-
-
-<a href="product.html?code=${p.code}">
-
-View Product
-
-</a>
-
-
-</div>
-
-
-`).join("");
-
-
+        `).join("");
 
 }
-
-
 
 
 
