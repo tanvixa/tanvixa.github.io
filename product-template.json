@@ -1,0 +1,58 @@
+{
+  "code": "TVX091",
+  "name": "PRODUCT NAME",
+  "brand": "BRAND",
+  "model": "",
+  "category": "CATEGORY",
+  "subcategory": "SUBCATEGORY",
+  "tags": [
+    "keyword 1",
+    "keyword 2"
+  ],
+  "rating": null,
+  "images": [
+    "images/products/TVX091/1.webp",
+    "images/products/TVX091/2.webp",
+    "images/products/TVX091/3.webp"
+  ],
+  "shortDescription": "Short factual description.",
+  "benefits": [
+    "Benefit 1",
+    "Benefit 2",
+    "Benefit 3",
+    "Benefit 4"
+  ],
+  "overview": [
+    "Overview paragraph 1.",
+    "Overview paragraph 2."
+  ],
+  "features": [
+    "Feature 1",
+    "Feature 2",
+    "Feature 3",
+    "Feature 4",
+    "Feature 5"
+  ],
+  "video": "",
+  "specifications": {
+    "Brand": "BRAND",
+    "Model": "MODEL"
+  },
+  "perfectFor": [
+    "Use case 1"
+  ],
+  "pros": [
+    "Pro 1"
+  ],
+  "considerations": [
+    "Consideration 1"
+  ],
+  "dateAdded": "2026-08-13",
+  "trending": false,
+  "featured": false,
+  "deal": false,
+  "affiliate": {
+    "aliexpress": "",
+    "amazon": ""
+  }
+}

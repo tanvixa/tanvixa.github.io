@@ -1,0 +1,21 @@
+{
+  "siteName": "Tanvixa",
+  "siteUrl": "https://tanvixa.github.io/",
+  "logo": "images/tanvixalogo.jpg",
+  "heroBanner": "images/tanvixa-hero-banner.webp",
+  "contact": {
+    "email": "YOUR_GMAIL@gmail.com",
+    "facebook": "YOUR_FACEBOOK_PROFILE_OR_PAGE_URL"
+  },
+  "social": {
+    "youtube": "YOUR_YOUTUBE_URL",
+    "facebook": "YOUR_FACEBOOK_URL",
+    "instagram": "YOUR_INSTAGRAM_URL"
+  },
+  "newsletter": {
+    "enabled": true,
+    "provider": "YOUR_EMAIL_SERVICE",
+    "action": "YOUR_NEWSLETTER_FORM_ENDPOINT"
+  },
+  "affiliateDisclosure": "Some links on Tanvixa may be affiliate links. If you purchase through a link, we may earn a commission at no extra cost to you."
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "audio",
+    "name": "Audio",
+    "count": 4
+  },
+  {
+    "id": "car-charger",
+    "name": "Car Charger",
+    "count": 3
+  },
+  {
+    "id": "computer-accessories",
+    "name": "Computer Accessories",
+    "count": 9
+  },
+  {
+    "id": "fast-charger",
+    "name": "Fast Charger",
+    "count": 4
+  },
+  {
+    "id": "mobile-accessories",
+    "name": "Mobile Accessories",
+    "count": 1
+  },
+  {
+    "id": "power-bank",
+    "name": "Power Bank",
+    "count": 8
+  },
+  {
+    "id": "power-charger",
+    "name": "Power Charger",
+    "count": 14
+  },
+  {
+    "id": "security-camera",
+    "name": "Security Camera",
+    "count": 4
+  },
+  {
+    "id": "smart-lighting",
+    "name": "Smart Lighting",
+    "count": 3
+  },
+  {
+    "id": "smart-security",
+    "name": "Smart Security",
+    "count": 4
+  },
+  {
+    "id": "smart-watch",
+    "name": "Smart Watch",
+    "count": 25
+  },
+  {
+    "id": "wireless-charger",
+    "name": "Wireless Charger",
+    "count": 11
+  }
+]
