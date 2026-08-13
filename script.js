@@ -243,37 +243,24 @@ function searchProduct(){
 
 
 
-    if(product){
+  if(product){
 
+    searchHistory[code] =
+    (searchHistory[code] || 0) + 1;
 
+    window.location.assign(
+        "./product.html?code=" +
+        encodeURIComponent(product.code)
+    );
 
-        searchHistory[code] =
+}
+else{
 
-        (searchHistory[code] || 0)+1;
-
-
-
-
-
-        displayProduct(product);
-
-
-
-    }
-
-    else{
-
-
-
-        showMessage(
-
+    showMessage(
         "❌ Product Not Found. Please check the code."
+    );
 
-        );
-
-
-    }
-
+}
 
 
 }
