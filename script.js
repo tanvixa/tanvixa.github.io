@@ -964,10 +964,10 @@ View Details
 function openProduct(code){
 
     window.location.href =
-    "product.html?code=" + code;
+    "./product.html?code=" +
+    encodeURIComponent(code);
 
 }
-
 
 
 
