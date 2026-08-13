@@ -2546,8 +2546,7 @@ try{
 
 
 const response =
-await fetch("products.json?v=" + Date.now());
-
+await fetch("./products.json?v=" + Date.now());
 
 productList =
 await response.json();
