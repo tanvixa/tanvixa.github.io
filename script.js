@@ -2761,92 +2761,66 @@ el.href=url;
 IMAGE SYSTEM
 =========================== */
 
-
 function renderImages(){
 
+    const main =
+        document.getElementById("mainImage");
 
-const main =
-document.getElementById(
-"mainImage"
-);
+    const thumbs =
+        document.getElementById("thumbnailContainer");
 
+    if(!main) return;
 
-const thumbs =
-document.getElementById(
-"thumbnailContainer"
-);
+    let images = [];
 
+    if(
+        currentProduct.images &&
+        Array.isArray(currentProduct.images) &&
+        currentProduct.images.length
+    ){
 
+        images = currentProduct.images;
 
-if(!main) return;
+    } else if(currentProduct.image){
 
+        images = [currentProduct.image];
 
+    }
 
-let images=[];
+    if(!images.length){
 
+        main.src = "images/no-image.png";
 
+        return;
 
-if(currentProduct.images){
+    }
 
-images =
-currentProduct.images;
+    main.src = images[0];
 
-}
+    if(!thumbs) return;
 
-else{
+    thumbs.innerHTML = "";
 
-images=[
-currentProduct.image
-];
+    images.forEach(img => {
 
-}
+        const image =
+            document.createElement("img");
 
+        image.src = img;
 
+        image.alt = currentProduct.name;
 
+        image.onclick = () => {
 
+            main.src = img;
 
-main.src =
-images[0];
+        };
 
+        thumbs.appendChild(image);
 
-
-
-thumbs.innerHTML="";
-
-
-
-images.forEach(img=>{
-
-
-let image =
-document.createElement("img");
-
-
-image.src=img;
-
-image.alt=currentProduct.name;
-
-
-
-image.onclick=()=>{
-
-main.src=img;
-
-};
-
-
-
-thumbs.appendChild(image);
-
-
-
-});
-
-
+    });
 
 }
-
-
 
 
 
