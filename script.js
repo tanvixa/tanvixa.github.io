@@ -2553,18 +2553,18 @@ await response.json();
 
 
 
-const code =
-getProductCode();
+const code = getProductCode();
 
+if (!code) {
+    showProductError();
+    return;
+}
 
-
-currentProduct =
-productList.find(
-item =>
-item.code.toUpperCase() === code.toUpperCase()
+currentProduct = productList.find(
+    item =>
+        item.code &&
+        item.code.toUpperCase() === code.toUpperCase()
 );
-
-
 
 if(!currentProduct){
 
