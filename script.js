@@ -207,19 +207,19 @@ function searchProduct(){
 
 
 
-    if(!productsLoaded){
+ if(!productsLoaded){
 
+    showMessage(
+        "⏳ Loading products, please wait..."
+    );
 
+    setTimeout(() => {
+        searchProduct();
+    }, 500);
 
-        showMessage(
-        "⏳ Products are loading..."
-        );
+    return;
 
-
-        return;
-
-
-    }
+}
 
 
 
