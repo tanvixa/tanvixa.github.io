@@ -35,8 +35,7 @@ let searchHistory = {};
 ====================================== */
 
 
-fetch("products.json?v=" + Date.now())
-
+fetch("./products.json?v=" + Date.now())
 .then(response => {
 
 
