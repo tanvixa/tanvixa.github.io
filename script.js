@@ -971,17 +971,91 @@ function listings() {
 
 function categories() {
 
-    const element =
-        document.getElementById(
-            "allCategories"
+    const allCategories =
+        document.getElementById("allCategories");
+
+    if (allCategories) {
+
+        allCategories.innerHTML =
+            TVX.categories
+                .map(catCard)
+                .join("");
+    }
+
+
+    const categoryGrid =
+        document.getElementById("categoryProducts");
+
+    if (!categoryGrid) return;
+
+
+    const params =
+        new URLSearchParams(location.search);
+
+    const categoryName =
+        params.get("category");
+
+
+    if (!categoryName) {
+
+        categoryGrid.innerHTML =
+            `<div class="notice">
+                <h2>Category Not Found</h2>
+                <p>Please select a valid product category.</p>
+            </div>`;
+
+        return;
+    }
+
+
+    const normalizedCategory =
+        categoryName.trim().toLowerCase();
+
+
+    const products =
+        TVX.products.filter(product =>
+            String(product.category || "")
+                .trim()
+                .toLowerCase() === normalizedCategory
         );
 
-    if (!element) return;
+
+    const title =
+        document.getElementById("categoryTitle");
+
+    if (title) {
+        title.textContent = categoryName;
+    }
 
 
-    element.innerHTML =
-        TVX.categories
-            .map(catCard)
+    const description =
+        document.getElementById("categoryDescription");
+
+    if (description) {
+
+        description.textContent =
+            `${products.length} product${products.length !== 1 ? "s" : ""} available in ${categoryName}.`;
+    }
+
+
+    if (!products.length) {
+
+        categoryGrid.innerHTML =
+            `<div class="notice">
+                <h2>No Products Found</h2>
+                <p>
+                    No products are currently available in
+                    ${esc(categoryName)}.
+                </p>
+            </div>`;
+
+        return;
+    }
+
+
+    categoryGrid.innerHTML =
+        products
+            .map(card)
             .join("");
 }
 
