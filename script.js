@@ -2523,71 +2523,96 @@ LOAD PRODUCT PAGE
 
 async function loadProductPage(){
 
+    if(!window.location.pathname.includes("product.html")){
+        return;
+    }
 
-if(!window.location.pathname.includes("product.html")){
+    try{
 
-return;
+        const code =
+            new URLSearchParams(window.location.search)
+            .get("code");
+
+        if(!code){
+            showProductError();
+            return;
+        }
+
+        const response =
+            await fetch(
+                "products.json?v=" + Date.now()
+            );
+
+        if(!response.ok){
+            throw new Error(
+                "products.json could not be loaded"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        productList = Array.isArray(data)
+            ? data
+            : [];
+
+        const searchCode =
+            code.trim().toUpperCase();
+
+        currentProduct =
+            productList.find(product => {
+
+                if(!product || product.code == null){
+                    return false;
+                }
+
+                return String(product.code)
+                    .trim()
+                    .toUpperCase()
+                    === searchCode;
+
+            });
+
+        if(!currentProduct){
+
+            console.error(
+                "Product not found:",
+                searchCode
+            );
+
+            console.log(
+                "Available codes:",
+                productList.map(
+                    product => product.code
+                )
+            );
+
+            showProductError();
+
+            return;
+        }
+
+        console.log(
+            "✅ Product found:",
+            currentProduct
+        );
+
+        renderProduct();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "❌ Product page error:",
+            error
+        );
+
+        showProductError();
+
+    }
 
 }
-
-
-try{
-
-
-const response =
-await fetch("./products.json?v=" + Date.now(), {
-    cache: "no-store"
-});
-
-productList =
-await response.json();
-
-
-
-const code = getProductCode();
-
-if (!code) {
-    showProductError();
-    return;
-}
-
-currentProduct = productList.find(
-    item =>
-        item.code &&
-        item.code.toUpperCase() === code.toUpperCase()
-);
-
-if(!currentProduct){
-
-showProductError();
-
-return;
-
-}
-
-
-
-renderProduct();
-
-
-
-}
-
-
-
-catch(error){
-
-console.log(error);
-
-showProductError();
-
-}
-
-
-
-}
-
-
 
 
 
