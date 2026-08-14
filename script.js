@@ -972,23 +972,7 @@ function listings() {
 function categories() {
 
     /* =====================================================
-       ALL CATEGORY LIST
-       ===================================================== */
-
-    const allCategories =
-        document.getElementById("allCategories");
-
-    if (allCategories) {
-
-        allCategories.innerHTML =
-            TVX.categories
-                .map(catCard)
-                .join("");
-    }
-
-
-    /* =====================================================
-       CATEGORY PRODUCT PAGE
+       CATEGORY LIST / PRODUCT PAGE
        ===================================================== */
 
     const categoryGrid =
@@ -1007,34 +991,181 @@ function categories() {
     const params =
         new URLSearchParams(location.search);
 
+
     const categoryName =
         params.get("category");
 
 
-    /* No category selected */
+    /* =====================================================
+       NORMALIZE CATEGORY
+       ===================================================== */
+
+    const normalizeCategory = value => {
+
+        return String(value || "")
+            .trim()
+            .toLowerCase()
+            .replace(/[_-]+/g, " ")
+            .replace(/\s+/g, " ");
+
+    };
+
+
+    /* =====================================================
+       NO CATEGORY SELECTED
+       SHOW ALL CATEGORIES
+       ===================================================== */
 
     if (!categoryName) {
 
         if (title) {
-            title.textContent = "Category";
+
+            title.textContent =
+                "Product Categories";
+
         }
+
 
         if (description) {
+
             description.textContent =
-                "Select a category to explore products.";
+                "Explore Tanvixa products by category.";
+
         }
 
+
+        if (!TVX.categories.length) {
+
+            categoryGrid.innerHTML = `
+
+                <div class="notice">
+
+                    <h2>
+                        No Categories Found
+                    </h2>
+
+                    <p>
+                        Product categories are currently unavailable.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        categoryGrid.className =
+            "category-grid";
+
+
+        categoryGrid.innerHTML =
+            TVX.categories
+                .map(catCard)
+                .join("");
+
+
+        return;
+    }
+
+
+    /* =====================================================
+       CATEGORY SELECTED
+       ===================================================== */
+
+    const requestedCategory =
+        normalizeCategory(categoryName);
+
+
+    const products =
+        TVX.products.filter(product => {
+
+            const productCategory =
+                normalizeCategory(
+                    product.category
+                );
+
+
+            return (
+                productCategory ===
+                requestedCategory
+            );
+
+        });
+
+
+    /* =====================================================
+       CATEGORY TITLE
+       ===================================================== */
+
+    if (title) {
+
+        title.textContent =
+            categoryName;
+
+    }
+
+
+    /* =====================================================
+       CATEGORY DESCRIPTION
+       ===================================================== */
+
+    if (description) {
+
+        description.textContent =
+            products.length
+                ? `${products.length} product${products.length !== 1 ? "s" : ""} available in ${categoryName}.`
+                : `No products are currently available in ${categoryName}.`;
+
+    }
+
+
+    /* =====================================================
+       NO PRODUCTS
+       ===================================================== */
+
+    if (!products.length) {
+
+        categoryGrid.className =
+            "grid";
+
+
         categoryGrid.innerHTML = `
+
             <div class="notice">
-                <h2>Select a Category</h2>
+
+                <h2>
+                    No Products Found
+                </h2>
+
                 <p>
-                    Please select a product category from the category list.
+                    No products are currently available in
+                    ${esc(categoryName)}.
                 </p>
+
             </div>
+
         `;
 
         return;
     }
+
+
+    /* =====================================================
+       SHOW CATEGORY PRODUCTS
+       ===================================================== */
+
+    categoryGrid.className =
+        "grid";
+
+
+    categoryGrid.innerHTML =
+        products
+            .map(card)
+            .join("");
+
+}
 
 
     /* =====================================================
