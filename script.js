@@ -1,1985 +1,3093 @@
-/* =====================================================
-   TANVIXA SMART GADGET FINDER
-   FINAL UNIFIED SCRIPT
-   Version: 20260814
+/* =========================================================
+   TANVIXA — UNIFIED PRODUCT SYSTEM
+   FINAL SCRIPT.JS
 
-   ONE JAVASCRIPT FILE FOR:
+   Supports:
+   ✅ Product code search
+   ✅ Product name search
+   ✅ Brand search
+   ✅ Category search
+   ✅ Direct product URL
+   ✅ Product page rendering
+   ✅ Multiple product images
+   ✅ Affiliate links
+   ✅ Related products
+   ✅ Recently viewed
+   ✅ Product sharing
+   ✅ Dynamic SEO
+   ✅ Product Schema
+   ✅ GitHub Pages
+   ✅ One products.json request per page
+========================================================= */
 
-   • Homepage
-   • Product Search
-   • Product Page
-   • Categories
-   • Brands
-   • Featured Products
-   • Latest Products
-   • Trending Products
-   • Deals
-   • Buying Guides
-   • Popular Products
-   • Product Sharing
-   • Recently Viewed
-   • Click Tracking
-===================================================== */
+(() => {
 
-
-/* =====================================================
-   GLOBAL VARIABLES
-===================================================== */
-
-let products = [];
-let productsLoaded = false;
-let currentProduct = null;
-let productList = [];
+    "use strict";
 
 
-/* =====================================================
-   PRODUCTS JSON URL
-===================================================== */
+    /* =====================================================
+       GLOBAL SETTINGS
+    ===================================================== */
 
-const PRODUCTS_URL =
-    "./products.json?v=20260814";
+    const PRODUCTS_URL = "./products.json";
+
+    const PRODUCT_PAGE = "product.html";
+
+    const NO_IMAGE = "images/no-image.png";
+
+    let products = [];
+
+    let productsLoaded = false;
+
+    let productsPromise = null;
+
+    let currentProduct = null;
 
 
-/* =====================================================
-   LOAD PRODUCTS
-===================================================== */
 
-async function loadProducts() {
+    /* =====================================================
+       BASIC HELPERS
+    ===================================================== */
 
-    try {
+    function byId(...ids) {
 
-        const response = await fetch(
-            PRODUCTS_URL,
-            {
-                cache: "no-store"
+        for (const id of ids) {
+
+            const element =
+                document.getElementById(id);
+
+            if (element) {
+
+                return element;
+
             }
-        );
-
-        if (!response.ok) {
-
-            throw new Error(
-                "products.json could not be loaded"
-            );
 
         }
 
-        const data =
-            await response.json();
-
-
-        if (!Array.isArray(data)) {
-
-            throw new Error(
-                "products.json must contain an array"
-            );
-
-        }
-
-
-        products = data;
-        productList = data;
-        productsLoaded = true;
-
-
-        console.log(
-            "✅ Tanvixa Products Loaded:",
-            products.length
-        );
-
-
-        const counter =
-            document.getElementById(
-                "totalProducts"
-            );
-
-
-        if (counter) {
-
-            counter.textContent =
-                products.length + "+";
-
-        }
-
-
-        return true;
-
-
-    } catch (error) {
-
-        console.error(
-            "❌ Products loading error:",
-            error
-        );
-
-
-        productsLoaded = false;
-
-
-        const result =
-            document.getElementById(
-                "result"
-            );
-
-
-        if (result) {
-
-            result.innerHTML = `
-
-                <div class="error-card">
-
-                    ❌ Unable to load products.
-
-                </div>
-
-            `;
-
-        }
-
-
-        return false;
+        return null;
 
     }
 
-}
 
 
-/* =====================================================
-   SEARCH PRODUCT
-===================================================== */
+    function text(value) {
 
-async function searchProduct() {
+        if (
+            value === null ||
+            value === undefined
+        ) {
 
-    const input =
-        document.getElementById(
-            "productCode"
-        );
+            return "";
 
+        }
 
-    if (!input) {
-        return;
+        return String(value);
+
     }
 
 
-    const code =
-        String(input.value || "")
+
+    function normalize(value) {
+
+        return text(value)
             .trim()
+            .replace(/\s+/g, " ")
             .toUpperCase();
 
+    }
 
-    if (!code) {
 
-        showMessage(
-            "⚠️ Please enter a product code"
-        );
 
-        return;
+    function esc(value) {
+
+        return text(value)
+
+            .replace(/&/g, "&amp;")
+
+            .replace(/</g, "&lt;")
+
+            .replace(/>/g, "&gt;")
+
+            .replace(/"/g, "&quot;")
+
+            .replace(/'/g, "&#039;");
 
     }
 
 
-    if (!productsLoaded) {
 
-        showMessage(
-            "⏳ Loading products, please wait..."
-        );
+    function setText(id, value) {
 
+        const element =
+            document.getElementById(id);
 
-        const loaded =
-            await loadProducts();
+        if (element) {
 
+            element.textContent =
+                value ?? "";
 
-        if (!loaded) {
-            return;
         }
 
     }
 
 
-    const product =
-        products.find(item => {
 
-            if (!item || item.code == null) {
-                return false;
+    function safeArray(value) {
+
+        return Array.isArray(value)
+            ? value.filter(Boolean)
+            : [];
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT IMAGE SYSTEM
+    ===================================================== */
+
+    function getImages(product) {
+
+        if (
+            product &&
+            Array.isArray(product.images) &&
+            product.images.length > 0
+        ) {
+
+            const images =
+                product.images
+
+                    .map(item =>
+                        text(item).trim()
+                    )
+
+                    .filter(Boolean);
+
+
+            if (images.length > 0) {
+
+                return images;
+
             }
 
-
-            return String(item.code)
-                .trim()
-                .toUpperCase()
-                === code;
-
-        });
+        }
 
 
-    if (product) {
+        if (
+            product &&
+            product.image
+        ) {
+
+            return [
+                text(product.image).trim()
+            ];
+
+        }
+
+
+        return [
+            NO_IMAGE
+        ];
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT CATEGORY
+    ===================================================== */
+
+    function detectCategory(name) {
+
+        const value =
+            normalize(name);
+
+
+        if (
+            value.includes("CAMERA") ||
+            value.includes("CCTV")
+        ) {
+
+            return "Security Camera";
+
+        }
+
+
+        if (
+            value.includes("SMART WATCH") ||
+            value.includes("WATCH")
+        ) {
+
+            return "Smart Watch";
+
+        }
+
+
+        if (
+            value.includes("EARBUD") ||
+            value.includes("HEADPHONE") ||
+            value.includes("HEADSET")
+        ) {
+
+            return "Audio";
+
+        }
+
+
+        if (
+            value.includes("CHARGER") ||
+            value.includes("POWER BANK")
+        ) {
+
+            return "Charging";
+
+        }
+
+
+        if (
+            value.includes("ROUTER") ||
+            value.includes("WIFI")
+        ) {
+
+            return "Networking";
+
+        }
+
+
+        if (
+            value.includes("KEYBOARD") ||
+            value.includes("MOUSE")
+        ) {
+
+            return "Computer Accessories";
+
+        }
+
+
+        if (
+            value.includes("PROJECTOR")
+        ) {
+
+            return "Projector";
+
+        }
+
+
+        if (
+            value.includes("DRONE")
+        ) {
+
+            return "Drone";
+
+        }
+
+
+        if (
+            value.includes("TABLET")
+        ) {
+
+            return "Tablet";
+
+        }
+
+
+        if (
+            value.includes("PHONE") ||
+            value.includes("SMARTPHONE")
+        ) {
+
+            return "Smartphone";
+
+        }
+
+
+        if (
+            value.includes("LIGHT") ||
+            value.includes("LAMP") ||
+            value.includes("LED")
+        ) {
+
+            return "Smart Lighting";
+
+        }
+
+
+        if (
+            value.includes("LOCK")
+        ) {
+
+            return "Smart Lock";
+
+        }
+
+
+        if (
+            value.includes("VACUUM")
+        ) {
+
+            return "Home Appliances";
+
+        }
+
+
+        return "Smart Gadgets";
+
+    }
+
+
+
+    function getCategory(product) {
+
+        if (
+            product &&
+            product.category
+        ) {
+
+            return text(
+                product.category
+            ).trim();
+
+        }
+
+        return detectCategory(
+            product?.name
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT CODE
+    ===================================================== */
+
+    function getCode(product) {
+
+        return normalize(
+            product?.code
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT URL
+    ===================================================== */
+
+    function getProductPageUrl(code) {
+
+        return (
+            PRODUCT_PAGE +
+            "?code=" +
+            encodeURIComponent(
+                text(code).trim()
+            )
+        );
+
+    }
+
+
+
+    function openProduct(code) {
+
+        const cleanCode =
+            text(code).trim();
+
+
+        if (!cleanCode) {
+
+            return;
+
+        }
+
 
         window.location.href =
-            "./product.html?code=" +
-            encodeURIComponent(
-                product.code
+            getProductPageUrl(
+                cleanCode
             );
 
-    } else {
-
-        showMessage(
-            "❌ Product Not Found. Please check the code."
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   SHOW MESSAGE
-===================================================== */
-
-function showMessage(message) {
-
-    const result =
-        document.getElementById(
-            "result"
-        );
-
-
-    if (!result) {
-        return;
     }
 
 
-    result.innerHTML = `
 
-        <div class="message-card">
+    window.openProduct =
+        openProduct;
 
-            <h3>
-                ${message}
-            </h3>
 
-        </div>
 
-    `;
+    /* =====================================================
+       AFFILIATE LINK
+    ===================================================== */
 
-}
-
-
-/* =====================================================
-   CREATE PRODUCT CARD
-===================================================== */
-
-function createProductCard(product) {
-
-    const image =
-        getProductImage(product);
-
-
-    return `
-
-        <div class="small-product-card">
-
-            <div class="small-product-image">
-
-                <img
-                    src="${image}"
-                    alt="${escapeHTML(product.name || "Product")}"
-                    loading="lazy"
-                    onerror="this.src='images/no-image.png'"
-                >
-
-            </div>
-
-
-            <div class="small-product-info">
-
-                <h3>
-                    ${escapeHTML(product.name || "Product")}
-                </h3>
-
-
-                <span class="small-code">
-                    ${escapeHTML(product.code || "")}
-                </span>
-
-
-                <a
-                    href="./product.html?code=${encodeURIComponent(product.code || "")}"
-                    class="view-button"
-                >
-                    View Details
-                </a>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* =====================================================
-   PRODUCT IMAGE HELPER
-===================================================== */
-
-function getProductImage(product) {
-
-    if (
-        product &&
-        Array.isArray(product.images) &&
-        product.images.length
-    ) {
-
-        return product.images[0];
-
-    }
-
-
-    if (
-        product &&
-        product.image
-    ) {
-
-        return product.image;
-
-    }
-
-
-    return "images/no-image.png";
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value) {
-
-    return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-/* =====================================================
-   FEATURED PRODUCTS
-===================================================== */
-
-function loadFeaturedProducts() {
-
-    const container =
-        document.getElementById(
-            "featuredProducts"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    let featured =
-        products.filter(
-            product =>
-                product.featured === true
-        );
-
-
-    if (!featured.length) {
-
-        featured =
-            products.slice(0, 6);
-
-    }
-
-
-    container.innerHTML =
-        featured
-            .map(createProductCard)
-            .join("");
-
-}
-
-
-/* =====================================================
-   LATEST PRODUCTS
-===================================================== */
-
-function loadLatestProducts() {
-
-    const container =
-        document.getElementById(
-            "latestProducts"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    const latest =
-        [...products]
-            .reverse()
-            .slice(0, 6);
-
-
-    container.innerHTML =
-        latest
-            .map(createProductCard)
-            .join("");
-
-}
-
-
-/* =====================================================
-   TRENDING PRODUCTS
-===================================================== */
-
-function loadTrendingProducts() {
-
-    const container =
-        document.getElementById(
-            "trendingProducts"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    let trending =
-        products.filter(
-            product =>
-                product.trending === true
-        );
-
-
-    if (!trending.length) {
-
-        trending =
-            products.slice(5, 11);
-
-    }
-
-
-    container.innerHTML =
-        trending
-            .map(createProductCard)
-            .join("");
-
-}
-
-
-/* =====================================================
-   DEAL PRODUCTS
-===================================================== */
-
-function loadDealsProducts() {
-
-    const container =
-        document.getElementById(
-            "dealProducts"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    let deals =
-        products.filter(
-            product =>
-                product.deal === true
-        );
-
-
-    if (!deals.length) {
-
-        deals =
-            products.slice(10, 16);
-
-    }
-
-
-    container.innerHTML =
-        deals
-            .map(createProductCard)
-            .join("");
-
-}
-
-
-/* =====================================================
-   CATEGORY DETECTOR
-===================================================== */
-
-function detectCategory(name) {
-
-    name =
-        String(name || "")
-            .toLowerCase();
-
-
-    if (name.includes("camera"))
-        return "Security Camera";
-
-
-    if (name.includes("watch"))
-        return "Smart Watch";
-
-
-    if (name.includes("lock"))
-        return "Smart Security";
-
-
-    if (name.includes("light"))
-        return "Smart Lighting";
-
-
-    if (name.includes("power bank"))
-        return "Power Bank";
-
-
-    if (name.includes("charger"))
-        return "Charger";
-
-
-    if (
-        name.includes("earbud") ||
-        name.includes("headphone")
-    )
-        return "Audio";
-
-
-    return "Smart Gadgets";
-
-}
-
-
-/* =====================================================
-   CATEGORY SYSTEM
-===================================================== */
-
-function loadCategories() {
-
-    const container =
-        document.getElementById(
-            "categoryContainer"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    const categories = [];
-
-
-    products.forEach(product => {
-
-        const category =
-            product.category ||
-            detectCategory(product.name);
-
+    function getAffiliateLink(product) {
 
         if (
-            !categories.includes(category)
+            product &&
+            product.affiliate &&
+            typeof product.affiliate === "object"
         ) {
 
-            categories.push(category);
-
-        }
-
-    });
-
-
-    container.innerHTML =
-        categories
-            .slice(0, 12)
-            .map(category => `
-
-                <div
-                    class="category-card"
-                    onclick="searchCategory('${escapeHTML(category)}')"
-                >
-
-                    <h3>
-                        ${escapeHTML(category)}
-                    </h3>
-
-                    <p>
-                        Explore Gadgets
-                    </p>
-
-                </div>
-
-            `)
-            .join("");
-
-}
-
-
-/* =====================================================
-   CATEGORY SEARCH
-===================================================== */
-
-function searchCategory(category) {
-
-    const result =
-        document.getElementById(
-            "result"
-        );
-
-
-    const categoryProducts =
-        products.filter(product => {
-
-            const productCategory =
-                product.category ||
-                detectCategory(product.name);
-
-
-            return productCategory === category;
-
-        });
-
-
-    if (result) {
-
-        result.innerHTML =
-            categoryProducts
-                .map(createProductCard)
-                .join("");
-
-    }
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =====================================================
-   BRAND SYSTEM
-===================================================== */
-
-function loadBrands() {
-
-    const container =
-        document.getElementById(
-            "brandContainer"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    const brands = [];
-
-
-    products.forEach(product => {
-
-        let brand =
-            product.brand;
-
-
-        if (!brand) {
-
-            brand =
-                String(product.name || "")
-                    .split(" ")[0];
-
-        }
-
-
-        if (
-            brand &&
-            !brands.includes(brand)
-        ) {
-
-            brands.push(brand);
-
-        }
-
-    });
-
-
-    container.innerHTML =
-        brands
-            .slice(0, 12)
-            .map(brand => `
-
-                <div class="brand-card">
-
-                    <h3>
-                        ${escapeHTML(brand)}
-                    </h3>
-
-                </div>
-
-            `)
-            .join("");
-
-}
-
-
-/* =====================================================
-   BUYING GUIDES
-===================================================== */
-
-function loadBuyingGuides() {
-
-    const container =
-        document.getElementById(
-            "guideContainer"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    const guides = [];
-
-
-    products.forEach(product => {
-
-        const category =
-            product.category ||
-            detectCategory(product.name);
-
-
-        if (
-            !guides.includes(category)
-        ) {
-
-            guides.push(category);
-
-        }
-
-    });
-
-
-    container.innerHTML =
-        guides
-            .slice(0, 6)
-            .map(category => `
-
-                <div class="guide-card">
-
-                    <div class="guide-icon">
-                        📖
-                    </div>
-
-                    <h3>
-                        ${escapeHTML(category)}
-                        Buying Guide
-                    </h3>
-
-                    <p>
-                        Learn how to choose the right
-                        ${escapeHTML(category.toLowerCase())}
-                        before buying.
-                    </p>
-
-                    <a
-                        href="#"
-                        onclick="return false;"
-                    >
-                        Read Guide
-                    </a>
-
-                </div>
-
-            `)
-            .join("");
-
-}
-
-
-/* =====================================================
-   POPULAR PRODUCTS
-===================================================== */
-
-function loadPopularProducts() {
-
-    const container =
-        document.getElementById(
-            "popularProducts"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    let clicks = {};
-
-
-    try {
-
-        clicks =
-            JSON.parse(
-                localStorage.getItem(
-                    "tanvixaClicks"
-                )
-            ) || {};
-
-    } catch {
-
-        clicks = {};
-
-    }
-
-
-    const popular =
-        [...products]
-            .sort((a, b) => {
-
-                const aClicks =
-                    clicks[a.code] || 0;
-
-                const bClicks =
-                    clicks[b.code] || 0;
-
-                return bClicks - aClicks;
-
-            })
-            .slice(0, 6);
-
-
-    container.innerHTML =
-        popular
-            .map(createProductCard)
-            .join("");
-
-}
-
-
-/* =====================================================
-   PRODUCT CLICK TRACKING
-===================================================== */
-
-function trackProductClick(code) {
-
-    let clicks = {};
-
-
-    try {
-
-        clicks =
-            JSON.parse(
-                localStorage.getItem(
-                    "tanvixaClicks"
-                )
-            ) || {};
-
-    } catch {
-
-        clicks = {};
-
-    }
-
-
-    clicks[code] =
-        (clicks[code] || 0) + 1;
-
-
-    localStorage.setItem(
-        "tanvixaClicks",
-        JSON.stringify(clicks)
-    );
-
-}
-
-
-/* =====================================================
-   PRODUCT PAGE
-===================================================== */
-
-function isProductPage() {
-
-    return (
-        window.location.pathname
-            .toLowerCase()
-            .endsWith("product.html")
-    );
-
-}
-
-
-/* =====================================================
-   GET PRODUCT CODE
-===================================================== */
-
-function getProductCode() {
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    return params.get("code");
-
-}
-
-
-/* =====================================================
-   LOAD PRODUCT PAGE
-===================================================== */
-
-async function loadProductPage() {
-
-    if (!isProductPage()) {
-        return;
-    }
-
-
-    console.log(
-        "🟢 Tanvixa Product Page System 20260814"
-    );
-
-
-    const code =
-        getProductCode();
-
-
-    if (!code) {
-
-        showProductError(
-            "No product code was provided."
-        );
-
-        return;
-
-    }
-
-
-    try {
-
-        if (!productsLoaded) {
-
-            const loaded =
-                await loadProducts();
-
-
-            if (!loaded) {
-
-                showProductError(
-                    "Unable to load product data."
-                );
-
-                return;
+            if (
+                product.affiliate.aliexpress
+            ) {
+
+                return product
+                    .affiliate
+                    .aliexpress;
 
             }
 
-        }
+
+            if (
+                product.affiliate.amazon
+            ) {
+
+                return product
+                    .affiliate
+                    .amazon;
+
+            }
 
 
-        const searchCode =
-            String(code)
-                .trim()
-                .toUpperCase();
-
-
-        currentProduct =
-            products.find(product => {
+            for (
+                const value
+                of Object.values(
+                    product.affiliate
+                )
+            ) {
 
                 if (
-                    !product ||
-                    product.code == null
+                    typeof value === "string" &&
+                    value.trim()
                 ) {
 
-                    return false;
+                    return value.trim();
 
                 }
 
+            }
 
-                return String(product.code)
-                    .trim()
-                    .toUpperCase()
-                    === searchCode;
-
-            });
+        }
 
 
-        if (!currentProduct) {
+        if (
+            product &&
+            product.link
+        ) {
 
-            console.error(
-                "❌ Product not found:",
-                searchCode
-            );
+            return text(
+                product.link
+            ).trim();
+
+        }
+
+
+        return "";
+
+    }
+
+
+
+    /* =====================================================
+       LOAD PRODUCTS.JSON
+       IMPORTANT:
+       ONLY ONE REQUEST PER PAGE
+    ===================================================== */
+
+    async function loadProducts() {
+
+        if (productsLoaded) {
+
+            return products;
+
+        }
+
+
+        if (productsPromise) {
+
+            return productsPromise;
+
+        }
+
+
+        productsPromise = fetch(
+            PRODUCTS_URL +
+            "?v=20260814",
+            {
+                cache: "no-store"
+            }
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "products.json HTTP " +
+                    response.status
+                );
+
+            }
+
+
+            return response.json();
+
+        })
+
+
+        .then(data => {
+
+            if (
+                !Array.isArray(data)
+            ) {
+
+                throw new Error(
+                    "products.json must contain an array."
+                );
+
+            }
+
+
+            products =
+                data.filter(
+                    item =>
+                        item &&
+                        typeof item === "object"
+                );
+
+
+            productsLoaded =
+                true;
 
 
             console.log(
-                "Available codes:",
-                products.map(
-                    product => product.code
-                )
+                "✅ Tanvixa products loaded:",
+                products.length
             );
 
 
-            showProductError(
-                "We could not find this product."
+            return products;
+
+        })
+
+
+        .catch(error => {
+
+            productsPromise =
+                null;
+
+
+            console.error(
+                "❌ products.json error:",
+                error
             );
 
+
+            throw error;
+
+        });
+
+
+        return productsPromise;
+
+    }
+
+
+
+    /* =====================================================
+       FIND PRODUCT BY CODE
+    ===================================================== */
+
+    function findProductByCode(code) {
+
+        const searchCode =
+            normalize(code);
+
+
+        if (!searchCode) {
+
+            return null;
+
+        }
+
+
+        return products.find(
+            product =>
+                getCode(product) ===
+                searchCode
+        ) || null;
+
+    }
+
+
+
+    /* =====================================================
+       SEARCH PRODUCTS
+    ===================================================== */
+
+    function searchProducts(query) {
+
+        const search =
+            normalize(query);
+
+
+        if (!search) {
+
+            return [];
+
+        }
+
+
+        /* Exact product code */
+
+        const exact =
+            findProductByCode(
+                search
+            );
+
+
+        if (exact) {
+
+            return [
+                exact
+            ];
+
+        }
+
+
+        /* Name / brand / category /
+           description / features */
+
+        return products.filter(
+            product => {
+
+                const fields = [
+
+                    product.code,
+
+                    product.name,
+
+                    product.brand,
+
+                    product.category,
+
+                    product.description,
+
+                    product.shortDescription,
+
+                    ...safeArray(
+                        product.features
+                    )
+
+                ];
+
+
+                return fields.some(
+                    value =>
+                        normalize(
+                            value
+                        ).includes(search)
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       SEARCH ERROR
+    ===================================================== */
+
+    function showSearchMessage(message) {
+
+        const result =
+            byId(
+                "result",
+                "searchResult"
+            );
+
+
+        if (!result) {
 
             return;
 
         }
 
 
-        console.log(
-            "✅ Product Found:",
-            currentProduct.code
-        );
+        result.innerHTML = `
 
+            <div class="error-card">
 
-        renderProduct();
+                ${esc(message)}
 
-
-    } catch (error) {
-
-        console.error(
-            "❌ Product Page Error:",
-            error
-        );
-
-
-        showProductError(
-            "Unable to load this product."
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   PRODUCT ERROR
-===================================================== */
-
-function showProductError(message) {
-
-    const name =
-        document.getElementById(
-            "productName"
-        );
-
-
-    if (name) {
-
-        name.textContent =
-            "Product Not Found";
-
-    }
-
-
-    const description =
-        document.getElementById(
-            "productDescription"
-        );
-
-
-    if (description) {
-
-        description.innerHTML = `
-
-            <p>
-                ${escapeHTML(message)}
-                Search again using a product code.
-            </p>
+            </div>
 
         `;
 
     }
 
 
-    const mainImage =
-        document.getElementById(
-            "mainImage"
-        );
 
+    /* =====================================================
+       SEARCH FUNCTION
+    ===================================================== */
 
-    if (mainImage) {
+    async function searchProduct() {
 
-        mainImage.src =
-            "images/no-image.png";
+        const input =
+            byId(
 
-    }
+                "productCode",
 
-}
+                "searchInput",
 
+                "productSearch",
 
-/* =====================================================
-   RENDER PRODUCT
-===================================================== */
+                "searchQuery"
 
-function renderProduct() {
+            );
 
-    if (!currentProduct) {
-        return;
-    }
 
+        if (!input) {
 
-    document.title =
-        currentProduct.name +
-        " | Tanvixa";
+            return;
 
-
-    setText(
-        "productName",
-        currentProduct.name
-    );
-
-
-    setText(
-        "productBrand",
-        currentProduct.brand || "-"
-    );
-
-
-    setText(
-        "productCategory",
-        currentProduct.category ||
-        detectCategory(
-            currentProduct.name
-        )
-    );
-
-
-    setLink(
-        "buyButton",
-        currentProduct.link
-    );
-
-
-    setLink(
-        "bottomBuyButton",
-        currentProduct.link
-    );
-
-
-    renderImages();
-
-    renderDescription();
-
-    renderFeatures();
-
-    loadSpecifications();
-
-    renderRelatedProducts();
-
-    renderRecentlyViewed();
-
-    updateSEO();
-
-    setupShare();
-
-    setupCopy();
-
-    generateSchema();
-
-    generateBreadcrumb();
-
-}
-
-
-/* =====================================================
-   SET TEXT
-===================================================== */
-
-function setText(id, value) {
-
-    const element =
-        document.getElementById(id);
-
-
-    if (element) {
-
-        element.textContent =
-            value == null
-                ? "-"
-                : value;
-
-    }
-
-}
-
-
-/* =====================================================
-   SET LINK
-===================================================== */
-
-function setLink(id, url) {
-
-    const element =
-        document.getElementById(id);
-
-
-    if (!element) {
-        return;
-    }
-
-
-    if (url) {
-
-        element.href = url;
-
-    } else {
-
-        element.href = "#";
-
-    }
-
-}
-
-
-/* =====================================================
-   RENDER IMAGES
-===================================================== */
-
-function renderImages() {
-
-    const main =
-        document.getElementById(
-            "mainImage"
-        );
-
-
-    const thumbs =
-        document.getElementById(
-            "thumbnailContainer"
-        );
-
-
-    if (!main) {
-        return;
-    }
-
-
-    let images = [];
-
-
-    if (
-        Array.isArray(
-            currentProduct.images
-        ) &&
-        currentProduct.images.length
-    ) {
-
-        images =
-            currentProduct.images;
-
-    } else if (
-        currentProduct.image
-    ) {
-
-        images = [
-            currentProduct.image
-        ];
-
-    }
-
-
-    if (!images.length) {
-
-        main.src =
-            "images/no-image.png";
-
-        if (thumbs) {
-            thumbs.innerHTML = "";
         }
 
-        return;
 
-    }
-
-
-    main.src =
-        images[0];
+        const query =
+            text(
+                input.value
+            ).trim();
 
 
-    main.alt =
-        currentProduct.name;
+        if (!query) {
 
-
-    if (!thumbs) {
-        return;
-    }
-
-
-    thumbs.innerHTML = "";
-
-
-    images.forEach((imageURL, index) => {
-
-        const image =
-            document.createElement(
-                "img"
+            showSearchMessage(
+                "Please enter a product code, product name, brand or category."
             );
 
 
-        image.src =
-            imageURL;
+            input.focus();
+
+            return;
+
+        }
 
 
-        image.alt =
-            currentProduct.name +
-            " image " +
-            (index + 1);
+        try {
+
+            await loadProducts();
+
+        }
+
+        catch {
+
+            showSearchMessage(
+                "Unable to load products. Please refresh the page and try again."
+            );
+
+            return;
+
+        }
 
 
-        image.loading =
-            "lazy";
-
-
-        image.onclick =
-            function () {
-
-                main.src =
-                    imageURL;
-
-            };
-
-
-        image.onerror =
-            function () {
-
-                this.src =
-                    "images/no-image.png";
-
-            };
-
-
-        thumbs.appendChild(
-            image
-        );
-
-    });
-
-}
-
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
-function renderDescription() {
-
-    const box =
-        document.getElementById(
-            "productDescription"
-        );
-
-
-    if (!box) {
-        return;
-    }
-
-
-    const description =
-        currentProduct.description ||
-        "Product information is currently unavailable.";
-
-
-    box.innerHTML =
-        String(description)
-            .split(/\n\s*\n/)
-            .map(paragraph => {
-
-                return `
-                    <p>
-                        ${escapeHTML(paragraph)}
-                    </p>
-                `;
-
-            })
-            .join("");
-
-}
-
-
-/* =====================================================
-   FEATURES
-===================================================== */
-
-function renderFeatures() {
-
-    const list =
-        document.getElementById(
-            "productFeatures"
-        );
-
-
-    if (!list) {
-        return;
-    }
-
-
-    list.innerHTML = "";
-
-
-    const features =
-        Array.isArray(
-            currentProduct.features
-        )
-            ? currentProduct.features
-            : [];
-
-
-    features.forEach(feature => {
-
-        const li =
-            document.createElement(
-                "li"
+        const results =
+            searchProducts(
+                query
             );
 
 
-        li.textContent =
-            "✔️ " + feature;
+        if (
+            !results.length
+        ) {
+
+            showSearchMessage(
+                `No product found for "${query}".`
+            );
+
+            return;
+
+        }
 
 
-        list.appendChild(
-            li
+        /*
+         EXACT CODE
+         → DIRECT PRODUCT PAGE
+        */
+
+        if (
+            normalize(
+                results[0].code
+            ) ===
+            normalize(query)
+        ) {
+
+            openProduct(
+                results[0].code
+            );
+
+            return;
+
+        }
+
+
+        /*
+         NAME / BRAND /
+         CATEGORY
+         → SEARCH RESULTS
+        */
+
+        renderSearchResults(
+            results
         );
 
-    });
-
-}
-
-
-/* =====================================================
-   SPECIFICATIONS
-===================================================== */
-
-function loadSpecifications() {
-
-    setText(
-        "specBrand",
-        currentProduct.brand || "-"
-    );
-
-
-    setText(
-        "specModel",
-        currentProduct.model ||
-        currentProduct.code ||
-        "-"
-    );
-
-
-    setText(
-        "specCategory",
-        currentProduct.category ||
-        detectCategory(
-            currentProduct.name
-        )
-    );
-
-}
-
-
-/* =====================================================
-   RELATED PRODUCTS
-===================================================== */
-
-function renderRelatedProducts() {
-
-    const box =
-        document.getElementById(
-            "relatedProducts"
-        );
-
-
-    if (!box) {
-        return;
     }
 
 
-    const currentCategory =
-        currentProduct.category ||
-        detectCategory(
-            currentProduct.name
-        );
+
+    window.searchProduct =
+        searchProduct;
 
 
-    const related =
-        productList
-            .filter(product => {
 
-                if (!product) {
-                    return false;
+    /* =====================================================
+       SEARCH RESULTS
+    ===================================================== */
+
+    function renderSearchResults(
+        results
+    ) {
+
+        const result =
+            byId(
+                "result",
+                "searchResult"
+            );
+
+
+        if (!result) {
+
+            return;
+
+        }
+
+
+        result.innerHTML = `
+
+            <div class="search-results">
+
+                <div class="search-results-header">
+
+                    <strong>
+                        ${
+                            results.length
+                        }
+                        product${
+                            results.length === 1
+                                ? ""
+                                : "s"
+                        }
+                        found
+                    </strong>
+
+                </div>
+
+
+                ${
+                    results
+                        .map(
+                            createProductCard
+                        )
+                        .join("")
                 }
 
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT CARD
+    ===================================================== */
+
+    function createProductCard(
+        product
+    ) {
+
+        const images =
+            getImages(
+                product
+            );
+
+
+        const image =
+            images[0];
+
+
+        const code =
+            text(
+                product.code
+            );
+
+
+        const name =
+            text(
+                product.name
+            ) ||
+            "Tanvixa Product";
+
+
+        const brand =
+            text(
+                product.brand
+            );
+
+
+        const category =
+            getCategory(
+                product
+            );
+
+
+        const description =
+            text(
+                product.shortDescription
+            ) ||
+            text(
+                product.description
+            );
+
+
+        return `
+
+            <article class="product-card">
+
+                <a
+                    href="${esc(
+                        getProductPageUrl(
+                            code
+                        )
+                    )}"
+                    class="product-card-link"
+                    aria-label="View ${esc(
+                        name
+                    )}"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="${esc(
+                                image
+                            )}"
+                            alt="${esc(
+                                name
+                            )}"
+                            loading="lazy"
+                            decoding="async"
+                            onerror="
+                                this.onerror=null;
+                                this.src='${NO_IMAGE}';
+                            "
+                        >
+
+                    </div>
+
+
+                    <div class="product-card-content">
+
+                        <div class="product-code">
+
+                            ${esc(code)}
+
+                        </div>
+
+
+                        <h3>
+
+                            ${esc(name)}
+
+                        </h3>
+
+
+                        ${
+                            brand
+                                ? `
+                                    <p class="product-brand">
+                                        ${esc(brand)}
+                                    </p>
+                                `
+                                : ""
+                        }
+
+
+                        ${
+                            category
+                                ? `
+                                    <p class="product-category">
+                                        ${esc(category)}
+                                    </p>
+                                `
+                                : ""
+                        }
+
+
+                        ${
+                            description
+                                ? `
+                                    <p class="product-description">
+                                        ${esc(
+                                            description
+                                        ).slice(
+                                            0,
+                                            180
+                                        )}
+                                    </p>
+                                `
+                                : ""
+                        }
+
+
+                        <span class="view-button">
+
+                            View Product →
+
+                        </span>
+
+
+                    </div>
+
+                </a>
+
+            </article>
+
+        `;
+
+    }
+
+
+
+    /* =====================================================
+       CATEGORY SEARCH
+    ===================================================== */
+
+    function searchCategory(
+        category
+    ) {
+
+        const wanted =
+            normalize(
+                category
+            );
+
+
+        const results =
+            products.filter(
+                product =>
+                    normalize(
+                        getCategory(
+                            product
+                        )
+                    ) === wanted
+            );
+
+
+        renderSearchResults(
+            results
+        );
+
+
+        const result =
+            byId(
+                "result",
+                "searchResult"
+            );
+
+
+        if (result) {
+
+            result.scrollIntoView({
+                behavior:
+                    "smooth",
+                block:
+                    "start"
+            });
+
+        }
+
+    }
+
+
+
+    window.searchCategory =
+        searchCategory;
+
+
+
+    /* =====================================================
+       CATEGORY LIST
+    ===================================================== */
+
+    function loadCategories() {
+
+        const container =
+            document.getElementById(
+                "categoryContainer"
+            );
+
+
+        if (!container) {
+
+            return;
+
+        }
+
+
+        const categories =
+            [];
+
+
+        products.forEach(
+            product => {
 
                 const category =
-                    product.category ||
-                    detectCategory(
-                        product.name
-                    );
-
-
-                return (
-                    category ===
-                    currentCategory
-                ) &&
-                (
-                    String(product.code)
-                        .toUpperCase() !==
-                    String(currentProduct.code)
-                        .toUpperCase()
-                );
-
-            })
-            .slice(0, 4);
-
-
-    box.innerHTML =
-        related
-            .map(product => {
-
-                const image =
-                    getProductImage(
+                    getCategory(
                         product
                     );
 
 
-                return `
+                if (
+                    category &&
+                    !categories.includes(
+                        category
+                    )
+                ) {
 
-                    <div class="related-card">
+                    categories.push(
+                        category
+                    );
 
-                        <img
-                            src="${image}"
-                            alt="${escapeHTML(product.name)}"
-                            loading="lazy"
-                            onerror="this.src='images/no-image.png'"
+                }
+
+            }
+        );
+
+
+        container.innerHTML =
+            categories
+                .slice(
+                    0,
+                    12
+                )
+                .map(
+                    category => `
+
+                        <button
+                            type="button"
+                            class="category-card"
+                            data-category="${esc(
+                                category
+                            )}"
                         >
 
-                        <h3>
-                            ${escapeHTML(product.name)}
-                        </h3>
+                            <h3>
 
-                        <a
-                            href="./product.html?code=${encodeURIComponent(product.code)}"
-                        >
-                            View Product
-                        </a>
+                                ${esc(
+                                    category
+                                )}
 
-                    </div>
-
-                `;
-
-            })
-            .join("");
-
-}
+                            </h3>
 
 
-/* =====================================================
-   RECENTLY VIEWED
-===================================================== */
+                            <p>
+                                Explore Gadgets
+                            </p>
 
-function saveRecentlyViewed() {
+                        </button>
 
-    if (!currentProduct) {
-        return;
-    }
-
-
-    let history = [];
-
-
-    try {
-
-        history =
-            JSON.parse(
-                localStorage.getItem(
-                    "tanvixa_recent"
+                    `
                 )
-            ) || [];
-
-    } catch {
-
-        history = [];
-
-    }
+                .join("");
 
 
-    history =
-        history.filter(
-            product =>
-                product.code !==
-                currentProduct.code
-        );
-
-
-    history.unshift({
-
-        code:
-            currentProduct.code,
-
-        name:
-            currentProduct.name,
-
-        image:
-            getProductImage(
-                currentProduct
+        container
+            .querySelectorAll(
+                "[data-category]"
             )
+            .forEach(
+                button => {
 
-    });
+                    button.addEventListener(
+                        "click",
+                        () => {
 
+                            searchCategory(
+                                button.dataset.category
+                            );
 
-    localStorage.setItem(
-        "tanvixa_recent",
-        JSON.stringify(
-            history.slice(0, 6)
-        )
-    );
+                        }
+                    );
 
-}
-
-
-function renderRecentlyViewed() {
-
-    const box =
-        document.getElementById(
-            "recentProducts"
-        );
-
-
-    if (!box) {
-        return;
-    }
-
-
-    let history = [];
-
-
-    try {
-
-        history =
-            JSON.parse(
-                localStorage.getItem(
-                    "tanvixa_recent"
-                )
-            ) || [];
-
-    } catch {
-
-        history = [];
-
-    }
-
-
-    box.innerHTML =
-        history
-            .filter(
-                item =>
-                    item.code !==
-                    currentProduct.code
-            )
-            .slice(0, 6)
-            .map(item => `
-
-                <div class="recent-card">
-
-                    <img
-                        src="${item.image || "images/no-image.png"}"
-                        alt="${escapeHTML(item.name)}"
-                        loading="lazy"
-                        onerror="this.src='images/no-image.png'"
-                    >
-
-                    <h3>
-                        ${escapeHTML(item.name)}
-                    </h3>
-
-                    <a
-                        href="./product.html?code=${encodeURIComponent(item.code)}"
-                    >
-                        View Product
-                    </a>
-
-                </div>
-
-            `)
-            .join("");
-
-}
-
-
-/* =====================================================
-   SEO UPDATE
-===================================================== */
-
-function updateSEO() {
-
-    if (!currentProduct) {
-        return;
-    }
-
-
-    const description =
-        String(
-            currentProduct.description ||
-            ""
-        );
-
-
-    const meta =
-        document.querySelector(
-            'meta[name="description"]'
-        );
-
-
-    if (meta) {
-
-        meta.content =
-            description.substring(
-                0,
-                155
+                }
             );
 
     }
 
 
-    const ogTitle =
-        document.querySelector(
-            'meta[property="og:title"]'
-        );
+
+    /* =====================================================
+       HOMEPAGE PRODUCT SECTIONS
+    ===================================================== */
+
+    function renderSection(
+        id,
+        list
+    ) {
+
+        const container =
+            document.getElementById(
+                id
+            );
 
 
-    if (ogTitle) {
+        if (!container) {
 
-        ogTitle.content =
-            currentProduct.name;
+            return;
+
+        }
+
+
+        container.innerHTML =
+            list
+                .map(
+                    createProductCard
+                )
+                .join("");
 
     }
 
 
-    const ogDescription =
-        document.querySelector(
-            'meta[property="og:description"]'
+
+    function loadFeaturedProducts() {
+
+        const featured =
+            products.filter(
+                product =>
+                    product.featured ===
+                    true
+            );
+
+
+        renderSection(
+            "featuredProducts",
+            featured.length
+                ? featured.slice(
+                    0,
+                    6
+                )
+                : products.slice(
+                    0,
+                    6
+                )
+        );
+
+    }
+
+
+
+    function loadLatestProducts() {
+
+        renderSection(
+            "latestProducts",
+            [
+                ...products
+            ]
+                .reverse()
+                .slice(
+                    0,
+                    6
+                )
+        );
+
+    }
+
+
+
+    function loadTrendingProducts() {
+
+        const trending =
+            products.filter(
+                product =>
+                    product.trending ===
+                    true
+            );
+
+
+        renderSection(
+            "trendingProducts",
+            trending.length
+                ? trending.slice(
+                    0,
+                    6
+                )
+                : products.slice(
+                    0,
+                    6
+                )
+        );
+
+    }
+
+
+
+    function loadDealProducts() {
+
+        const deals =
+            products.filter(
+                product =>
+                    product.deal ===
+                    true
+            );
+
+
+        renderSection(
+            "dealProducts",
+            deals.length
+                ? deals.slice(
+                    0,
+                    6
+                )
+                : products.slice(
+                    0,
+                    6
+                )
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT PAGE CHECK
+    ===================================================== */
+
+    function isProductPage() {
+
+        const path =
+            window.location.pathname
+                .toLowerCase();
+
+
+        return (
+            path.endsWith(
+                "/product.html"
+            ) ||
+            path.endsWith(
+                "product.html"
+            )
+        );
+
+    }
+
+
+
+    /* =====================================================
+       GET URL CODE
+    ===================================================== */
+
+    function getProductCodeFromURL() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        return text(
+            params.get(
+                "code"
+            )
+        ).trim();
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT PAGE ERROR
+    ===================================================== */
+
+    function showProductPageError(
+        message
+    ) {
+
+        document.title =
+            "Product Not Found | Tanvixa";
+
+
+        setText(
+            "productName",
+            "Product Not Found"
         );
 
 
-    if (ogDescription) {
+        setText(
+            "productBrand",
+            "—"
+        );
 
-        ogDescription.content =
-            description.substring(
-                0,
-                155
+
+        setText(
+            "productCategory",
+            "—"
+        );
+
+
+        setText(
+            "productDescription",
+            message
+        );
+
+
+        setText(
+            "specBrand",
+            "—"
+        );
+
+
+        setText(
+            "specModel",
+            "—"
+        );
+
+
+        setText(
+            "specCategory",
+            "—"
+        );
+
+
+        const mainImage =
+            document.getElementById(
+                "mainImage"
+            );
+
+
+        if (mainImage) {
+
+            mainImage.src =
+                NO_IMAGE;
+
+            mainImage.alt =
+                "Product not found";
+
+        }
+
+
+        const buyButton =
+            document.getElementById(
+                "buyButton"
+            );
+
+
+        const bottomButton =
+            document.getElementById(
+                "bottomBuyButton"
+            );
+
+
+        if (buyButton) {
+
+            buyButton.style.display =
+                "none";
+
+        }
+
+
+        if (bottomButton) {
+
+            bottomButton.style.display =
+                "none";
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT PAGE IMAGE SYSTEM
+    ===================================================== */
+
+    function renderProductImages(
+        product
+    ) {
+
+        const mainImage =
+            document.getElementById(
+                "mainImage"
+            );
+
+
+        const thumbnailContainer =
+            document.getElementById(
+                "thumbnailContainer"
+            );
+
+
+        const images =
+            getImages(
+                product
+            );
+
+
+        if (mainImage) {
+
+            mainImage.src =
+                images[0];
+
+            mainImage.alt =
+                text(
+                    product.name
+                ) ||
+                "Product Image";
+
+
+            mainImage.loading =
+                "eager";
+
+
+            mainImage.decoding =
+                "async";
+
+
+            mainImage.onerror =
+                function() {
+
+                    this.onerror =
+                        null;
+
+                    this.src =
+                        NO_IMAGE;
+
+                };
+
+        }
+
+
+        if (
+            !thumbnailContainer
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            images.length <= 1
+        ) {
+
+            thumbnailContainer.innerHTML =
+                "";
+
+            return;
+
+        }
+
+
+        thumbnailContainer.innerHTML =
+            images
+                .map(
+                    (
+                        image,
+                        index
+                    ) => `
+
+                        <button
+                            type="button"
+                            class="${
+                                index === 0
+                                    ? "active"
+                                    : ""
+                            }"
+                            data-image="${esc(
+                                image
+                            )}"
+                            aria-label="View product image ${
+                                index + 1
+                            }"
+                        >
+
+                            <img
+                                src="${esc(
+                                    image
+                                )}"
+                                alt="${esc(
+                                    product.name
+                                )} thumbnail ${
+                                    index + 1
+                                }"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="
+                                    this.onerror=null;
+                                    this.src='${NO_IMAGE}';
+                                "
+                            >
+
+                        </button>
+
+                    `
+                )
+                .join("");
+
+
+        thumbnailContainer
+            .querySelectorAll(
+                "button"
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            if (
+                                mainImage
+                            ) {
+
+                                mainImage.src =
+                                    button.dataset.image;
+
+                            }
+
+
+                            thumbnailContainer
+                                .querySelectorAll(
+                                    "button"
+                                )
+                                .forEach(
+                                    item =>
+                                        item.classList.remove(
+                                            "active"
+                                        )
+                                );
+
+
+                            button.classList.add(
+                                "active"
+                            );
+
+                        }
+                    );
+
+                }
             );
 
     }
 
 
-    const ogImage =
-        document.querySelector(
-            'meta[property="og:image"]'
-        );
+
+    /* =====================================================
+       DESCRIPTION
+    ===================================================== */
+
+    function renderProductDescription(
+        product
+    ) {
+
+        const box =
+            document.getElementById(
+                "productDescription"
+            );
 
 
-    if (ogImage) {
+        if (!box) {
 
-        ogImage.content =
-            new URL(
-                getProductImage(
-                    currentProduct
-                ),
-                window.location.href
-            ).href;
+            return;
 
-    }
-
-}
+        }
 
 
-/* =====================================================
-   SHARE
-===================================================== */
-
-function setupShare() {
-
-    if (!currentProduct) {
-        return;
-    }
-
-
-    const url =
-        encodeURIComponent(
-            window.location.href
-        );
+        const description =
+            text(
+                product.description
+            ) ||
+            text(
+                product.shortDescription
+            ) ||
+            "Product description is not available.";
 
 
-    const title =
-        encodeURIComponent(
-            currentProduct.name
-        );
-
-
-    const facebook =
-        document.getElementById(
-            "shareFacebook"
-        );
-
-
-    if (facebook) {
-
-        facebook.href =
-            "https://www.facebook.com/sharer/sharer.php?u=" +
-            url;
-
-    }
-
-
-    const x =
-        document.getElementById(
-            "shareX"
-        );
-
-
-    if (x) {
-
-        x.href =
-            "https://twitter.com/intent/tweet?text=" +
-            title +
-            "&url=" +
-            url;
-
-    }
-
-
-    const pinterest =
-        document.getElementById(
-            "sharePinterest"
-        );
-
-
-    if (pinterest) {
-
-        pinterest.href =
-            "https://pinterest.com/pin/create/button/?url=" +
-            url +
-            "&description=" +
-            title;
-
-    }
-
-}
-
-
-/* =====================================================
-   COPY LINK
-===================================================== */
-
-function setupCopy() {
-
-    const button =
-        document.getElementById(
-            "copyProductLink"
-        );
-
-
-    if (!button) {
-        return;
-    }
-
-
-    button.onclick =
-        async function (event) {
-
-            event.preventDefault();
-
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    window.location.href
+        const paragraphs =
+            description
+                .split(
+                    /\n\s*\n/
                 );
 
 
-                button.textContent =
-                    "✅ Copied";
+        box.innerHTML =
+            paragraphs
+                .map(
+                    paragraph => `
+
+                        <p>
+
+                            ${esc(
+                                paragraph
+                            ).replace(
+                                /\n/g,
+                                "<br>"
+                            )}
+
+                        </p>
+
+                    `
+                )
+                .join("");
+
+    }
 
 
-            } catch {
 
-                button.textContent =
-                    "Copy failed";
+    /* =====================================================
+       FEATURES
+    ===================================================== */
+
+    function renderProductFeatures(
+        product
+    ) {
+
+        const list =
+            document.getElementById(
+                "productFeatures"
+            );
+
+
+        if (!list) {
+
+            return;
+
+        }
+
+
+        const features =
+            safeArray(
+                product.features
+            );
+
+
+        if (!features.length) {
+
+            list.innerHTML = `
+                <li>
+                    Product features are not available.
+                </li>
+            `;
+
+            return;
+
+        }
+
+
+        list.innerHTML =
+            features
+                .map(
+                    feature => `
+
+                        <li>
+
+                            ${esc(
+                                feature
+                            )}
+
+                        </li>
+
+                    `
+                )
+                .join("");
+
+    }
+
+
+
+    /* =====================================================
+       AFFILIATE BUTTONS
+    ===================================================== */
+
+    function renderAffiliateButtons(
+        product
+    ) {
+
+        const link =
+            getAffiliateLink(
+                product
+            );
+
+
+        const buttons = [
+
+            document.getElementById(
+                "buyButton"
+            ),
+
+            document.getElementById(
+                "bottomBuyButton"
+            )
+
+        ];
+
+
+        buttons.forEach(
+            button => {
+
+                if (!button) {
+
+                    return;
+
+                }
+
+
+                if (link) {
+
+                    button.href =
+                        link;
+
+                    button.target =
+                        "_blank";
+
+                    button.rel =
+                        "nofollow sponsored noopener";
+
+                    button.style.display =
+                        "";
+
+                }
+
+                else {
+
+                    button.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       SPECIFICATIONS
+    ===================================================== */
+
+    function renderSpecifications(
+        product
+    ) {
+
+        const specifications =
+            product.specifications;
+
+
+        if (
+            !specifications ||
+            typeof specifications !==
+                "object" ||
+            Array.isArray(
+                specifications
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const table =
+            document.getElementById(
+                "specs"
+            );
+
+
+        const section =
+            byId(
+                "specSection",
+                "specificationsSection"
+            );
+
+
+        if (section) {
+
+            section.hidden =
+                false;
+
+        }
+
+
+        if (!table) {
+
+            return;
+
+        }
+
+
+        table.innerHTML =
+            Object.entries(
+                specifications
+            )
+            .map(
+                (
+                    [
+                        key,
+                        value
+                    ]
+                ) => `
+
+                    <tr>
+
+                        <td>
+
+                            ${esc(
+                                key
+                            )}
+
+                        </td>
+
+
+                        <td>
+
+                            ${esc(
+                                value
+                            )}
+
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join("");
+
+    }
+
+
+
+    /* =====================================================
+       YOUTUBE
+    ===================================================== */
+
+    function getYoutubeEmbed(
+        url
+    ) {
+
+        if (!url) {
+
+            return "";
+
+        }
+
+
+        try {
+
+            const youtube =
+                new URL(
+                    url
+                );
+
+
+            let id = "";
+
+
+            if (
+                youtube.hostname
+                    .includes(
+                        "youtu.be"
+                    )
+            ) {
+
+                id =
+                    youtube.pathname
+                        .slice(
+                            1
+                        );
 
             }
 
 
-            setTimeout(
-                function () {
+            else if (
+                youtube.searchParams
+                    .get(
+                        "v"
+                    )
+            ) {
 
-                    button.textContent =
-                        "Copy Link";
+                id =
+                    youtube.searchParams
+                        .get(
+                            "v"
+                        );
 
-                },
-                2000
+            }
+
+
+            else if (
+                youtube.pathname
+                    .includes(
+                        "/embed/"
+                    )
+            ) {
+
+                id =
+                    youtube.pathname
+                        .split(
+                            "/embed/"
+                        )[1]
+                        .split(
+                            "/"
+                        )[0];
+
+            }
+
+
+            else if (
+                youtube.pathname
+                    .includes(
+                        "/shorts/"
+                    )
+            ) {
+
+                id =
+                    youtube.pathname
+                        .split(
+                            "/shorts/"
+                        )[1]
+                        .split(
+                            "/"
+                        )[0];
+
+            }
+
+
+            if (!id) {
+
+                return "";
+
+            }
+
+
+            return (
+                "https://www.youtube.com/embed/" +
+                encodeURIComponent(
+                    id
+                )
             );
 
-        };
+        }
 
-}
+        catch {
 
+            return "";
 
-/* =====================================================
-   PRODUCT SCHEMA
-===================================================== */
+        }
 
-function generateSchema() {
-
-    if (!currentProduct) {
-        return;
     }
 
 
-    const existing =
-        document.getElementById(
-            "tanvixa-product-schema"
-        );
+
+    function renderProductVideo(
+        product
+    ) {
+
+        const section =
+            document.getElementById(
+                "videoSection"
+            );
 
 
-    if (existing) {
-        existing.remove();
+        const frame =
+            document.getElementById(
+                "videoFrame"
+            );
+
+
+        const embed =
+            getYoutubeEmbed(
+                product.video
+            );
+
+
+        if (
+            section &&
+            frame &&
+            embed
+        ) {
+
+            section.hidden =
+                false;
+
+            frame.src =
+                embed;
+
+        }
+
     }
 
 
-    const script =
-        document.createElement(
-            "script"
+
+    /* =====================================================
+       RELATED PRODUCTS
+    ===================================================== */
+
+    function createRelatedCard(
+        product
+    ) {
+
+        const image =
+            getImages(
+                product
+            )[0];
+
+
+        return `
+
+            <article class="related-card">
+
+                <a
+                    href="${esc(
+                        getProductPageUrl(
+                            product.code
+                        )
+                    )}"
+                >
+
+                    <img
+                        src="${esc(
+                            image
+                        )}"
+                        alt="${esc(
+                            product.name
+                        )}"
+                        loading="lazy"
+                        decoding="async"
+                        onerror="
+                            this.onerror=null;
+                            this.src='${NO_IMAGE}';
+                        "
+                    >
+
+
+                    <h3>
+
+                        ${esc(
+                            product.name
+                        )}
+
+                    </h3>
+
+
+                    <span>
+
+                        View Product →
+
+                    </span>
+
+                </a>
+
+            </article>
+
+        `;
+
+    }
+
+
+
+    function renderRelatedProducts(
+        product
+    ) {
+
+        const container =
+            byId(
+                "relatedProducts",
+                "related"
+            );
+
+
+        if (!container) {
+
+            return;
+
+        }
+
+
+        const currentCode =
+            getCode(
+                product
+            );
+
+
+        const currentCategory =
+            normalize(
+                getCategory(
+                    product
+                )
+            );
+
+
+        const currentBrand =
+            normalize(
+                product.brand
+            );
+
+
+        let related =
+            products.filter(
+                item => {
+
+                    if (
+                        getCode(
+                            item
+                        ) ===
+                        currentCode
+                    ) {
+
+                        return false;
+
+                    }
+
+
+                    return (
+
+                        normalize(
+                            getCategory(
+                                item
+                            )
+                        ) ===
+                        currentCategory
+
+                    ) ||
+
+                    (
+
+                        currentBrand &&
+                        normalize(
+                            item.brand
+                        ) ===
+                        currentBrand
+
+                    );
+
+                }
+            )
+            .slice(
+                0,
+                4
+            );
+
+
+        if (
+            !related.length
+        ) {
+
+            related =
+                products
+                    .filter(
+                        item =>
+                            getCode(
+                                item
+                            ) !==
+                            currentCode
+                    )
+                    .slice(
+                        0,
+                        4
+                    );
+
+        }
+
+
+        container.innerHTML =
+            related
+                .map(
+                    createRelatedCard
+                )
+                .join("");
+
+    }
+
+
+
+    /* =====================================================
+       RECENTLY VIEWED
+    ===================================================== */
+
+    function renderRecentlyViewed(
+        product
+    ) {
+
+        const container =
+            byId(
+                "recentProducts",
+                "recent"
+            );
+
+
+        if (!container) {
+
+            return;
+
+        }
+
+
+        const storageKey =
+            "tanvixa_recent_products";
+
+
+        let codes = [];
+
+
+        try {
+
+            codes =
+                JSON.parse(
+                    localStorage.getItem(
+                        storageKey
+                    ) ||
+                    "[]"
+                );
+
+        }
+
+        catch {
+
+            codes =
+                [];
+
+        }
+
+
+        if (
+            !Array.isArray(
+                codes
+            )
+        ) {
+
+            codes =
+                [];
+
+        }
+
+
+        const currentCode =
+            getCode(
+                product
+            );
+
+
+        const previousProducts =
+            codes
+
+                .map(
+                    code =>
+                        findProductByCode(
+                            code
+                        )
+                )
+
+                .filter(Boolean)
+
+                .filter(
+                    item =>
+                        getCode(
+                            item
+                        ) !==
+                        currentCode
+                )
+
+                .slice(
+                    0,
+                    4
+                );
+
+
+        container.innerHTML =
+            previousProducts
+                .map(
+                    createRelatedCard
+                )
+                .join("");
+
+
+        const newCodes = [
+
+            currentCode,
+
+            ...previousProducts.map(
+                item =>
+                    getCode(
+                        item
+                    )
+            )
+
+        ]
+
+        .filter(Boolean);
+
+
+        const uniqueCodes =
+            [
+                ...new Set(
+                    newCodes
+                )
+            ]
+            .slice(
+                0,
+                8
+            );
+
+
+        try {
+
+            localStorage.setItem(
+                storageKey,
+                JSON.stringify(
+                    uniqueCodes
+                )
+            );
+
+        }
+
+        catch {
+
+            /* localStorage unavailable */
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       SHARE SYSTEM
+    ===================================================== */
+
+    function setupSharing(
+        product
+    ) {
+
+        const url =
+            window.location.href;
+
+
+        const title =
+            text(
+                product.name
+            ) ||
+            "Tanvixa Product";
+
+
+        const facebook =
+            byId(
+                "shareFacebook",
+                "facebookShare"
+            );
+
+
+        if (facebook) {
+
+            facebook.href =
+                "https://www.facebook.com/sharer/sharer.php?u=" +
+                encodeURIComponent(
+                    url
+                );
+
+        }
+
+
+        const x =
+            byId(
+                "shareX",
+                "xShare"
+            );
+
+
+        if (x) {
+
+            x.href =
+                "https://twitter.com/intent/tweet?url=" +
+                encodeURIComponent(
+                    url
+                ) +
+                "&text=" +
+                encodeURIComponent(
+                    title
+                );
+
+        }
+
+
+        const pinterest =
+            document.getElementById(
+                "sharePinterest"
+            );
+
+
+        if (pinterest) {
+
+            pinterest.href =
+                "https://pinterest.com/pin/create/button/?url=" +
+                encodeURIComponent(
+                    url
+                ) +
+                "&description=" +
+                encodeURIComponent(
+                    title
+                );
+
+        }
+
+
+        const whatsapp =
+            document.getElementById(
+                "whatsappShare"
+            );
+
+
+        if (whatsapp) {
+
+            whatsapp.href =
+                "https://wa.me/?text=" +
+                encodeURIComponent(
+                    title +
+                    " " +
+                    url
+                );
+
+        }
+
+
+        const copy =
+            byId(
+                "copyProductLink",
+                "copyLink"
+            );
+
+
+        if (copy) {
+
+            copy.onclick =
+                async function(
+                    event
+                ) {
+
+                    event.preventDefault();
+
+
+                    try {
+
+                        await navigator
+                            .clipboard
+                            .writeText(
+                                url
+                            );
+
+
+                        alert(
+                            "Product link copied."
+                        );
+
+                    }
+
+                    catch {
+
+                        alert(
+                            "Unable to copy the link."
+                        );
+
+                    }
+
+                };
+
+        }
+
+
+        const nativeShare =
+            document.getElementById(
+                "nativeShare"
+            );
+
+
+        if (nativeShare) {
+
+            nativeShare.onclick =
+                async function(
+                    event
+                ) {
+
+                    event.preventDefault();
+
+
+                    if (
+                        navigator.share
+                    ) {
+
+                        try {
+
+                            await navigator.share({
+
+                                title:
+                                    title,
+
+                                url:
+                                    url
+
+                            });
+
+
+                            return;
+
+                        }
+
+                        catch {
+
+                            /* User cancelled */
+
+                        }
+
+                    }
+
+
+                    try {
+
+                        await navigator
+                            .clipboard
+                            .writeText(
+                                url
+                            );
+
+
+                        alert(
+                            "Product link copied."
+                        );
+
+                    }
+
+                    catch {
+
+                        alert(
+                            "Unable to copy the link."
+                        );
+
+                    }
+
+                };
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       BREADCRUMB
+    ===================================================== */
+
+    function updateBreadcrumb(
+        product
+    ) {
+
+        const breadcrumb =
+            document.querySelector(
+                ".breadcrumb"
+            );
+
+
+        if (!breadcrumb) {
+
+            return;
+
+        }
+
+
+        breadcrumb.innerHTML = `
+
+            <a href="index.html">
+
+                Home
+
+            </a>
+
+
+            <span>
+
+                &gt;
+
+            </span>
+
+
+            <span>
+
+                ${esc(
+                    getCategory(
+                        product
+                    )
+                )}
+
+            </span>
+
+
+            <span>
+
+                &gt;
+
+            </span>
+
+
+            <span>
+
+                ${esc(
+                    product.name
+                )}
+
+            </span>
+
+        `;
+
+    }
+
+
+
+    /* =====================================================
+       SEO META
+    ===================================================== */
+
+    function updateMeta(
+        name,
+        content
+    ) {
+
+        if (!content) {
+
+            return;
+
+        }
+
+
+        let meta =
+            document.querySelector(
+                `meta[name="${name}"]`
+            );
+
+
+        if (!meta) {
+
+            meta =
+                document.createElement(
+                    "meta"
+                );
+
+
+            meta.setAttribute(
+                "name",
+                name
+            );
+
+
+            document.head.appendChild(
+                meta
+            );
+
+        }
+
+
+        meta.setAttribute(
+            "content",
+            content
+        );
+
+    }
+
+
+
+    function updateOG(
+        property,
+        content
+    ) {
+
+        if (!content) {
+
+            return;
+
+        }
+
+
+        let meta =
+            document.querySelector(
+                `meta[property="${property}"]`
+            );
+
+
+        if (!meta) {
+
+            meta =
+                document.createElement(
+                    "meta"
+                );
+
+
+            meta.setAttribute(
+                "property",
+                property
+            );
+
+
+            document.head.appendChild(
+                meta
+            );
+
+        }
+
+
+        meta.setAttribute(
+            "content",
+            content
+        );
+
+    }
+
+
+
+    function setCanonical(
+        url
+    ) {
+
+        let canonical =
+            document.querySelector(
+                'link[rel="canonical"]'
+            );
+
+
+        if (!canonical) {
+
+            canonical =
+                document.createElement(
+                    "link"
+                );
+
+
+            canonical.rel =
+                "canonical";
+
+
+            document.head.appendChild(
+                canonical
+            );
+
+        }
+
+
+        canonical.href =
+            url;
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT SEO
+    ===================================================== */
+
+    function updateProductSEO(
+        product
+    ) {
+
+        const name =
+            text(
+                product.name
+            );
+
+
+        const description =
+            text(
+                product.description
+            ) ||
+            text(
+                product.shortDescription
+            ) ||
+            `Discover ${name} on Tanvixa.`;
+
+
+        const url =
+            window.location.href;
+
+
+        const images =
+            getImages(
+                product
+            );
+
+
+        const image =
+            new URL(
+                images[0],
+                window.location.href
+            ).href;
+
+
+        document.title =
+            `${name} | Tanvixa`;
+
+
+        updateMeta(
+            "description",
+            description.slice(
+                0,
+                155
+            )
         );
 
 
-    script.id =
-        "tanvixa-product-schema";
+        updateMeta(
+            "keywords",
+            [
+
+                name,
+
+                product.brand,
+
+                getCategory(
+                    product
+                ),
+
+                "smart gadgets",
+
+                "tech gadgets",
+
+                "Tanvixa"
+
+            ]
+
+            .filter(Boolean)
+
+            .join(", ")
+
+        );
 
 
-    script.type =
-        "application/ld+json";
+        updateOG(
+            "og:title",
+            `${name} | Tanvixa`
+        );
 
 
-    script.textContent =
-        JSON.stringify({
+        updateOG(
+            "og:description",
+            description.slice(
+                0,
+                200
+            )
+        );
+
+
+        updateOG(
+            "og:image",
+            image
+        );
+
+
+        updateOG(
+            "og:url",
+            url
+        );
+
+
+        updateMeta(
+            "twitter:title",
+            `${name} | Tanvixa`
+        );
+
+
+        updateMeta(
+            "twitter:description",
+            description.slice(
+                0,
+                200
+            )
+        );
+
+
+        updateMeta(
+            "twitter:image",
+            image
+        );
+
+
+        setCanonical(
+            url
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT STRUCTURED DATA
+    ===================================================== */
+
+    function generateProductSchema(
+        product
+    ) {
+
+        const old =
+            document.getElementById(
+                "tanvixa-product-schema"
+            );
+
+
+        if (old) {
+
+            old.remove();
+
+        }
+
+
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        script.id =
+            "tanvixa-product-schema";
+
+
+        script.type =
+            "application/ld+json";
+
+
+        const images =
+            getImages(
+                product
+            )
+            .map(
+                image =>
+                    new URL(
+                        image,
+                        window.location.href
+                    ).href
+            );
+
+
+        const schema = {
 
             "@context":
                 "https://schema.org",
@@ -1987,441 +3095,449 @@ function generateSchema() {
             "@type":
                 "Product",
 
-            "name":
-                currentProduct.name,
+            name:
+                text(
+                    product.name
+                ),
 
-            "image":
-                Array.isArray(
-                    currentProduct.images
-                )
-                    ? currentProduct.images
-                    : [
-                        getProductImage(
-                            currentProduct
-                        )
-                    ],
+            image:
+                images,
 
-            "description":
-                currentProduct.description || "",
+            description:
+                text(
+                    product.description
+                ) ||
+                text(
+                    product.shortDescription
+                ) ||
+                "",
 
-            "sku":
-                currentProduct.code,
+            sku:
+                text(
+                    product.code
+                ),
 
-            "brand": {
+            brand: {
 
                 "@type":
                     "Brand",
 
-                "name":
-                    currentProduct.brand || "Unknown"
+                name:
+                    text(
+                        product.brand
+                    ) ||
+                    "Tanvixa"
 
-            }
+            },
 
-        });
+            category:
+                getCategory(
+                    product
+                )
 
+        };
 
-    document.head.appendChild(
-        script
-    );
 
-}
-
-
-/* =====================================================
-   BREADCRUMB SCHEMA
-===================================================== */
-
-function generateBreadcrumb() {
-
-    if (!currentProduct) {
-        return;
-    }
-
-
-    const existing =
-        document.getElementById(
-            "tanvixa-breadcrumb-schema"
-        );
-
-
-    if (existing) {
-        existing.remove();
-    }
-
-
-    const script =
-        document.createElement(
-            "script"
-        );
-
-
-    script.id =
-        "tanvixa-breadcrumb-schema";
-
-
-    script.type =
-        "application/ld+json";
-
-
-    script.textContent =
-        JSON.stringify({
-
-            "@context":
-                "https://schema.org",
-
-            "@type":
-                "BreadcrumbList",
-
-            "itemListElement": [
-
-                {
-
-                    "@type":
-                        "ListItem",
-
-                    "position":
-                        1,
-
-                    "name":
-                        "Home",
-
-                    "item":
-                        "https://tanvixa.github.io/"
-
-                },
-
-                {
-
-                    "@type":
-                        "ListItem",
-
-                    "position":
-                        2,
-
-                    "name":
-                        currentProduct.name
-
-                }
-
-            ]
-
-        });
-
-
-    document.head.appendChild(
-        script
-    );
-
-}
-
-
-/* =====================================================
-   HOMEPAGE INITIALIZER
-===================================================== */
-
-function initializeHomepage() {
-
-    if (!productsLoaded) {
-        return;
-    }
-
-
-    loadFeaturedProducts();
-
-    loadLatestProducts();
-
-    loadTrendingProducts();
-
-    loadDealsProducts();
-
-    loadCategories();
-
-    loadBrands();
-
-    loadBuyingGuides();
-
-    loadPopularProducts();
-
-}
-
-
-/* =====================================================
-   NEWSLETTER
-===================================================== */
-
-function initializeNewsletter() {
-
-    const form =
-        document.querySelector(
-            ".newsletter-form"
-        );
-
-
-    if (!form) {
-        return;
-    }
-
-
-    form.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
-
-
-            alert(
-                "✅ Thanks for joining Tanvixa Community!"
+        script.textContent =
+            JSON.stringify(
+                schema
             );
 
 
-            form.reset();
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   ENTER KEY SEARCH
-===================================================== */
-
-function initializeSearch() {
-
-    const input =
-        document.getElementById(
-            "productCode"
+        document.head.appendChild(
+            script
         );
 
-
-    if (!input) {
-        return;
     }
 
 
-    input.addEventListener(
-        "keypress",
-        function (event) {
 
-            if (
-                event.key ===
-                "Enter"
-            ) {
+    /* =====================================================
+       PRODUCT PAGE RENDER
+    ===================================================== */
 
-                searchProduct();
+    function renderProductPage(
+        product
+    ) {
 
-            }
+        currentProduct =
+            product;
+
+
+        setText(
+            "productName",
+            product.name
+        );
+
+
+        setText(
+            "productBrand",
+            product.brand ||
+            "TECH GADGET"
+        );
+
+
+        setText(
+            "productCategory",
+            getCategory(
+                product
+            )
+        );
+
+
+        setText(
+            "specBrand",
+            product.brand ||
+            "TECH GADGET"
+        );
+
+
+        setText(
+            "specModel",
+            product.model ||
+            product.modelNumber ||
+            product.code ||
+            "Not specified"
+        );
+
+
+        setText(
+            "specCategory",
+            getCategory(
+                product
+            )
+        );
+
+
+        renderProductImages(
+            product
+        );
+
+
+        renderProductDescription(
+            product
+        );
+
+
+        renderProductFeatures(
+            product
+        );
+
+
+        renderAffiliateButtons(
+            product
+        );
+
+
+        renderSpecifications(
+            product
+        );
+
+
+        renderProductVideo(
+            product
+        );
+
+
+        renderRelatedProducts(
+            product
+        );
+
+
+        renderRecentlyViewed(
+            product
+        );
+
+
+        setupSharing(
+            product
+        );
+
+
+        updateBreadcrumb(
+            product
+        );
+
+
+        updateProductSEO(
+            product
+        );
+
+
+        generateProductSchema(
+            product
+        );
+
+
+        console.log(
+            "✅ Product rendered:",
+            product.code
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PRODUCT PAGE INITIALIZATION
+    ===================================================== */
+
+    async function initProductPage() {
+
+        if (
+            !isProductPage()
+        ) {
+
+            return;
 
         }
-    );
-
-}
 
 
-/* =====================================================
-   KEYBOARD SEARCH SHORTCUT
-===================================================== */
-
-function initializeKeyboardShortcut() {
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "/" &&
-                !(
-                    event.target.tagName ===
-                    "INPUT" ||
-                    event.target.tagName ===
-                    "TEXTAREA"
-                )
-            ) {
-
-                const search =
-                    document.getElementById(
-                        "productCode"
-                    );
+        const code =
+            getProductCodeFromURL();
 
 
-                if (search) {
+        if (!code) {
 
-                    event.preventDefault();
+            showProductPageError(
+                "No product code was provided in the URL."
+            );
 
-                    search.focus();
 
-                }
-
-            }
+            return;
 
         }
-    );
-
-}
 
 
-/* =====================================================
-   IMAGE FALLBACK
-===================================================== */
+        try {
 
-function initializeImageFallback() {
+            await loadProducts();
 
-    document.addEventListener(
-        "error",
-        function (event) {
+        }
 
-            if (
-                event.target &&
-                event.target.tagName ===
-                "IMG"
-            ) {
+        catch {
 
-                if (
-                    !event.target.src.includes(
-                        "no-image.png"
-                    )
-                ) {
-
-                    event.target.src =
-                        "images/no-image.png";
-
-                }
-
-            }
-
-        },
-        true
-    );
-
-}
+            showProductPageError(
+                "Unable to load products.json. Please refresh the page and try again."
+            );
 
 
-/* =====================================================
-   SMOOTH ANCHOR SCROLL
-===================================================== */
+            return;
 
-function initializeSmoothScroll() {
+        }
 
-    document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(anchor => {
 
-            anchor.addEventListener(
+        const product =
+            findProductByCode(
+                code
+            );
+
+
+        if (!product) {
+
+            console.error(
+                "❌ Product Not Found:",
+                code
+            );
+
+
+            showProductPageError(
+                `Product code "${code}" was not found in products.json.`
+            );
+
+
+            return;
+
+        }
+
+
+        renderProductPage(
+            product
+        );
+
+    }
+
+
+
+    /* =====================================================
+       HOMEPAGE INITIALIZATION
+    ===================================================== */
+
+    async function initHomepage() {
+
+        if (
+            isProductPage()
+        ) {
+
+            return;
+
+        }
+
+
+        const hasHomepageElements =
+            byId(
+
+                "productCode",
+
+                "searchInput",
+
+                "result",
+
+                "searchResult",
+
+                "featuredProducts",
+
+                "latestProducts",
+
+                "categoryContainer"
+
+            );
+
+
+        if (
+            !hasHomepageElements
+        ) {
+
+            return;
+
+        }
+
+
+        try {
+
+            await loadProducts();
+
+        }
+
+        catch {
+
+            showSearchMessage(
+                "Unable to load products. Please refresh the page."
+            );
+
+
+            return;
+
+        }
+
+
+        loadFeaturedProducts();
+
+        loadLatestProducts();
+
+        loadTrendingProducts();
+
+        loadDealProducts();
+
+        loadCategories();
+
+    }
+
+
+
+    /* =====================================================
+       SEARCH BUTTON + ENTER KEY
+    ===================================================== */
+
+    function setupSearchEvents() {
+
+        const input =
+            byId(
+
+                "productCode",
+
+                "searchInput",
+
+                "productSearch",
+
+                "searchQuery"
+
+            );
+
+
+        const button =
+            document.getElementById(
+                "searchButton"
+            );
+
+
+        if (button) {
+
+            button.addEventListener(
                 "click",
-                function (event) {
+                searchProduct
+            );
 
-                    const selector =
-                        this.getAttribute(
-                            "href"
-                        );
+        }
 
+
+        if (input) {
+
+            input.addEventListener(
+                "keydown",
+                event => {
 
                     if (
-                        !selector ||
-                        selector === "#"
+                        event.key ===
+                        "Enter"
                     ) {
-
-                        return;
-
-                    }
-
-
-                    const target =
-                        document.querySelector(
-                            selector
-                        );
-
-
-                    if (target) {
 
                         event.preventDefault();
 
-
-                        target.scrollIntoView({
-                            behavior: "smooth"
-                        });
+                        searchProduct();
 
                     }
 
                 }
             );
 
-        });
+        }
 
-}
-
-
-/* =====================================================
-   START TANVIXA
-===================================================== */
-
-async function startTanvixa() {
-
-    console.log(
-        "🚀 Tanvixa System Starting..."
-    );
+    }
 
 
-    const loaded =
-        await loadProducts();
 
+    /* =====================================================
+       FINAL START
+    ===================================================== */
 
-    if (!loaded) {
+    async function start() {
 
-        console.error(
-            "❌ Tanvixa could not start because products.json failed."
+        console.log(
+            "🚀 Tanvixa Product System Starting..."
         );
 
-        return;
+
+        setupSearchEvents();
+
+
+        if (
+            isProductPage()
+        ) {
+
+            await initProductPage();
+
+        }
+
+        else {
+
+            await initHomepage();
+
+        }
+
+
+        console.log(
+            "✅ Tanvixa Product System Ready"
+        );
 
     }
 
 
-    initializeSearch();
 
-    initializeNewsletter();
-
-    initializeKeyboardShortcut();
-
-    initializeImageFallback();
-
-    initializeSmoothScroll();
-
-
-    if (isProductPage()) {
-
-        await loadProductPage();
-
-    } else {
-
-        initializeHomepage();
-
-    }
-
-
-    console.log(
-        "🚀 Tanvixa System Ready"
+    document.addEventListener(
+        "DOMContentLoaded",
+        start
     );
 
-}
 
-
-/* =====================================================
-   DOM READY
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        startTanvixa();
-
-    }
-);
-
-
-/* =====================================================
-   END OF TANVIXA FINAL SCRIPT
-===================================================== */
+})();
