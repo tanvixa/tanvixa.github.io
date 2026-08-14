@@ -971,6 +971,10 @@ function listings() {
 
 function categories() {
 
+    /* =====================================================
+       ALL CATEGORY LIST
+       ===================================================== */
+
     const allCategories =
         document.getElementById("allCategories");
 
@@ -983,10 +987,21 @@ function categories() {
     }
 
 
+    /* =====================================================
+       CATEGORY PRODUCT PAGE
+       ===================================================== */
+
     const categoryGrid =
         document.getElementById("categoryProducts");
 
     if (!categoryGrid) return;
+
+
+    const title =
+        document.getElementById("categoryTitle");
+
+    const description =
+        document.getElementById("categoryDescription");
 
 
     const params =
@@ -996,62 +1011,122 @@ function categories() {
         params.get("category");
 
 
+    /* No category selected */
+
     if (!categoryName) {
 
-        categoryGrid.innerHTML =
-            `<div class="notice">
-                <h2>Category Not Found</h2>
-                <p>Please select a valid product category.</p>
-            </div>`;
+        if (title) {
+            title.textContent = "Category";
+        }
+
+        if (description) {
+            description.textContent =
+                "Select a category to explore products.";
+        }
+
+        categoryGrid.innerHTML = `
+            <div class="notice">
+                <h2>Select a Category</h2>
+                <p>
+                    Please select a product category from the category list.
+                </p>
+            </div>
+        `;
 
         return;
     }
 
 
-    const normalizedCategory =
-        categoryName.trim().toLowerCase();
+    /* =====================================================
+       NORMALIZE CATEGORY NAME
+       ===================================================== */
 
+    const normalizeCategory = value => {
+
+        return String(value || "")
+            .trim()
+            .toLowerCase()
+            .replace(/[_-]+/g, " ")
+            .replace(/\s+/g, " ");
+    };
+
+
+    const requestedCategory =
+        normalizeCategory(categoryName);
+
+
+    /* =====================================================
+       FIND PRODUCTS
+       ===================================================== */
 
     const products =
-        TVX.products.filter(product =>
-            String(product.category || "")
-                .trim()
-                .toLowerCase() === normalizedCategory
-        );
+        TVX.products.filter(product => {
+
+            const productCategory =
+                normalizeCategory(
+                    product.category
+                );
+
+            return (
+                productCategory ===
+                requestedCategory
+            );
+
+        });
 
 
-    const title =
-        document.getElementById("categoryTitle");
+    /* =====================================================
+       CATEGORY TITLE
+       ===================================================== */
 
     if (title) {
-        title.textContent = categoryName;
+
+        title.textContent =
+            categoryName;
     }
 
 
-    const description =
-        document.getElementById("categoryDescription");
+    /* =====================================================
+       CATEGORY DESCRIPTION
+       ===================================================== */
 
     if (description) {
 
         description.textContent =
-            `${products.length} product${products.length !== 1 ? "s" : ""} available in ${categoryName}.`;
+            products.length
+                ? `${products.length} product${products.length !== 1 ? "s" : ""} available in ${categoryName}.`
+                : `No products are currently available in ${categoryName}.`;
     }
 
 
+    /* =====================================================
+       NO PRODUCTS
+       ===================================================== */
+
     if (!products.length) {
 
-        categoryGrid.innerHTML =
-            `<div class="notice">
-                <h2>No Products Found</h2>
+        categoryGrid.innerHTML = `
+            <div class="notice">
+
+                <h2>
+                    No Products Found
+                </h2>
+
                 <p>
                     No products are currently available in
                     ${esc(categoryName)}.
                 </p>
-            </div>`;
+
+            </div>
+        `;
 
         return;
     }
 
+
+    /* =====================================================
+       SHOW PRODUCTS
+       ===================================================== */
 
     categoryGrid.innerHTML =
         products
