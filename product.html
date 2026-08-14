@@ -23,129 +23,102 @@
 
     <link
         rel="stylesheet"
-        href="style.css"
+        href="./style.css"
     >
 
     <link
         rel="icon"
-        href="images/tanvixalogo.jpg"
+        href="./images/tanvixalogo.jpg"
     >
 
 </head>
 
-
 <body>
 
 
-    <!-- HEADER -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="header-container">
 
-        <div class="header-container">
+        <a
+            href="./index.html"
+            class="logo-link"
+        >
 
-
-            <a
-                href="index.html"
-                class="logo-link"
+            <img
+                src="./images/tanvixalogo.jpg"
+                alt="Tanvixa"
+                class="site-logo"
             >
 
-                <img
-                    src="images/tanvixalogo.jpg"
-                    alt="Tanvixa"
-                    class="site-logo"
-                >
+        </a>
 
+
+        <nav class="main-nav">
+
+            <a href="./index.html">
+                Home
             </a>
 
+        </nav>
 
-            <nav class="main-nav">
+    </div>
 
-                <a href="index.html">
-                    Home
-                </a>
+</header>
 
-            </nav>
 
+
+<main class="main-content">
+
+    <section
+        id="productPage"
+        class="product-page-container"
+    >
+
+        <!--
+        Product will be rendered here immediately
+        from sessionStorage/localStorage when available.
+        -->
+
+        <div class="product-loading">
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Opening product...
+            </p>
 
         </div>
 
-    </header>
+    </section>
+
+
+    <section
+        id="relatedProducts"
+        class="related-products"
+    ></section>
+
+</main>
 
 
 
-    <!-- MAIN -->
+<footer class="site-footer">
 
-    <main class="main-content">
+    <p>
+        Some links on this website may be affiliate links.
+        If you make a purchase through these links, we may earn
+        a commission at no extra cost to you.
+    </p>
 
+    <p>
+        © 2026 Tanvixa. All rights reserved.
+    </p>
 
-        <!-- PRODUCT -->
-
-        <section
-            id="productPage"
-            class="product-page-container"
-        >
-
-            <div class="product-loading">
-
-                <div class="loading-spinner"></div>
-
-                <p>
-                    Loading product...
-                </p>
-
-            </div>
-
-        </section>
+</footer>
 
 
 
-        <!-- RELATED PRODUCTS -->
-
-        <section
-            id="relatedProducts"
-            class="related-products"
-        ></section>
-
-
-    </main>
-
-
-
-    <!-- FOOTER -->
-
-    <footer class="site-footer">
-
-
-        <p>
-
-            Some links on this website may be
-            affiliate links. If you make a purchase
-            through these links, we may earn a
-            commission at no extra cost to you.
-
-        </p>
-
-
-        <p>
-
-            © 2026 Tanvixa.
-            All rights reserved.
-
-        </p>
-
-
-    </footer>
-
-
-
-    <!-- JAVASCRIPT -->
-
-    <script
-        src="script.js"
-        defer
-    ></script>
-
+<script src="./script.js" defer></script>
 
 </body>
-
 </html>
