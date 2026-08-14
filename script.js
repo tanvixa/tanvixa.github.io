@@ -445,65 +445,15 @@ function footer() {
 
     if (!container) return;
 
-    const config =
-        TVX.config || {};
-
-    const social =
-        config.social || {};
-
-    const contact =
-        config.contact || {};
-
-
-    const email =
-        contact.email &&
-        contact.email !== "YOUR_GMAIL@gmail.com"
-            ? `
-                <a
-                    href="mailto:${esc(contact.email)}"
-                >
-                    Email
-                </a>
-            `
-            : "";
-
-
-    const youtube =
-        social.youtube &&
-        social.youtube !== "YOUR_YOUTUBE_URL"
-            ? `
-                <a
-                    href="${esc(social.youtube)}"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    YouTube
-                </a>
-            `
-            : "";
-
-
-    const facebook =
-        social.facebook &&
-        social.facebook !== "YOUR_FACEBOOK_URL"
-            ? `
-                <a
-                    href="${esc(social.facebook)}"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Facebook
-                </a>
-            `
-            : "";
-
+    const config = TVX.config || {};
+    const social = config.social || {};
+    const contact = config.contact || {};
 
     container.innerHTML = `
 
         <footer class="footer">
 
             <div class="container footer-grid">
-
 
                 <div>
 
@@ -573,8 +523,62 @@ function footer() {
                 <div>
 
                     <h3>
-                        Legal
+                        Connect
                     </h3>
+
+                    ${
+                        contact.email
+                        ? `
+                            <a
+                                href="mailto:${esc(contact.email)}"
+                            >
+                                Email
+                            </a>
+                        `
+                        : ""
+                    }
+
+                    ${
+                        social.youtube
+                        ? `
+                            <a
+                                href="${esc(social.youtube)}"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                YouTube
+                            </a>
+                        `
+                        : ""
+                    }
+
+                    ${
+                        social.facebook
+                        ? `
+                            <a
+                                href="${esc(social.facebook)}"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Facebook
+                            </a>
+                        `
+                        : ""
+                    }
+
+                    ${
+                        social.instagram
+                        ? `
+                            <a
+                                href="${esc(social.instagram)}"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Instagram
+                            </a>
+                        `
+                        : ""
+                    }
 
                     <a href="privacy.html">
                         Privacy Policy
@@ -583,12 +587,6 @@ function footer() {
                     <a href="terms.html">
                         Terms
                     </a>
-
-                    ${email}
-
-                    ${youtube}
-
-                    ${facebook}
 
                 </div>
 
@@ -602,9 +600,7 @@ function footer() {
                 </span>
 
                 <span>
-                    ${esc(
-                        config.affiliateDisclosure || ""
-                    )}
+                    ${esc(config.affiliateDisclosure || "")}
                 </span>
 
             </div>
@@ -612,7 +608,6 @@ function footer() {
         </footer>
     `;
 }
-
 
 /* =========================================================
    SEARCH
