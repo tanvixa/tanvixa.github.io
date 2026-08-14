@@ -1,1 +1,113 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><link rel="icon" href="images/tanvixalogo.jpg"><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><title>Contact Tanvixa | Tanvixa</title></head><body><div id="siteHeader"></div><main><section class="page-hero"><div class="container"><h1>Contact Tanvixa</h1></div></section><section class="section"><div class="container"><div class="product-section"><p>Add your real email and social URLs in site-config.json. The site footer will use those values.</p></div></div></section></main><div id="siteFooter"></div><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+
+<link rel="icon" href="images/tanvixalogo.jpg">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<title>Contact Tanvixa | Tanvixa</title>
+</head>
+
+<body>
+
+<div id="siteHeader"></div>
+
+<main>
+
+<section class="page-hero">
+<div class="container">
+<h1>Contact Tanvixa</h1>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<div class="contact-icon">✉️</div>
+<h2>Email</h2>
+<p>For general questions, business inquiries or website-related matters.</p>
+<a id="contactEmail" class="contact-link"></a>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">▶️</div>
+<h2>YouTube</h2>
+<p>Follow Tanvixa for gadget videos, product reviews and technology content.</p>
+<a id="contactYoutube" class="contact-link" target="_blank" rel="noopener">
+Visit YouTube Channel →
+</a>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">📘</div>
+<h2>Facebook</h2>
+<p>Follow Tanvixa on Facebook for updates and new gadget content.</p>
+<a id="contactFacebook" class="contact-link" target="_blank" rel="noopener">
+Visit Facebook Page →
+</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+<div id="siteFooter"></div>
+
+<script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const email = TVX.config?.contact?.email || "";
+    const youtube = TVX.config?.social?.youtube || "";
+    const facebook = TVX.config?.social?.facebook || "";
+
+    const emailEl = document.getElementById("contactEmail");
+    const youtubeEl = document.getElementById("contactYoutube");
+    const facebookEl = document.getElementById("contactFacebook");
+
+    if (emailEl && email) {
+        emailEl.href = "mailto:" + email;
+        emailEl.textContent = email;
+    }
+
+    if (
+        youtubeEl &&
+        youtube &&
+        youtube !== "YOUR_YOUTUBE_CHANNEL_URL"
+    ) {
+        youtubeEl.href = youtube;
+    } else if (youtubeEl) {
+        youtubeEl.removeAttribute("href");
+        youtubeEl.textContent = "YouTube channel link coming soon";
+    }
+
+    if (
+        facebookEl &&
+        facebook &&
+        facebook !== "YOUR_FACEBOOK_URL"
+    ) {
+        facebookEl.href = facebook;
+    } else if (facebookEl) {
+        facebookEl.removeAttribute("href");
+        facebookEl.textContent = "Facebook page link coming soon";
+    }
+
+});
+</script>
+
+</body>
+</html>
