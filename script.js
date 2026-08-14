@@ -1084,7 +1084,7 @@ function home() {
 
         homeCategories.innerHTML =
             TVX.categories
-                .slice(0, 8)
+                .slice(0, 4)
                 .map(catCard)
                 .join("");
 
