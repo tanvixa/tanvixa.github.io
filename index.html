@@ -1,126 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="Find Tanvixa gadget products quickly using the product code shown in our videos.">
+    <meta
+        name="description"
+        content="Find Tanvixa products using the product code shown in our videos."
+    >
 
-    <meta name="robots" content="index, follow">
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
     <title>Tanvixa — Find Your Product</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
 
-    <link rel="icon" href="images/tanvixalogo.jpg">
+    <link
+        rel="icon"
+        href="./images/tanvixalogo.jpg"
+    >
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="header-container">
+    <div class="header-container">
 
-            <a href="index.html" class="logo-link">
-                <img
-                    src="images/tanvixalogo.jpg"
-                    alt="Tanvixa"
-                    class="site-logo"
-                >
+        <a
+            href="./index.html"
+            class="logo-link"
+        >
+            <img
+                src="./images/tanvixalogo.jpg"
+                alt="Tanvixa"
+                class="site-logo"
+            >
+        </a>
+
+        <nav class="main-nav">
+            <a href="./index.html">
+                Home
             </a>
+        </nav>
 
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-            </nav>
+    </div>
 
-        </div>
-
-    </header>
+</header>
 
 
-    <!-- MAIN -->
-    <main class="main-content">
+<main class="main-content">
 
-        <section class="search-section">
+    <section class="search-section">
 
-            <div class="search-container">
+        <div class="search-container">
 
-                <h1>Find Your Product</h1>
+            <h1>
+                Find Your Product
+            </h1>
 
-                <p class="search-subtitle">
-                    Enter the product code shown in our video.
-                </p>
-
-
-                <div class="search-box">
-
-                    <input
-                        type="text"
-                        id="productCode"
-                        placeholder="Enter Product Code (Example: GL001)"
-                        autocomplete="off"
-                        spellcheck="false"
-                    >
-
-                    <button
-                        type="button"
-                        id="searchButton"
-                        onclick="searchProduct()"
-                    >
-                        Search
-                    </button>
-
-                </div>
+            <p class="search-subtitle">
+                Enter the product code shown in our video.
+            </p>
 
 
-                <div
-                    id="searchMessage"
-                    class="search-message"
-                    aria-live="polite"
-                ></div>
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="productCode"
+                    placeholder="Enter Product Code (Example: GL001)"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+                <button
+                    type="button"
+                    id="searchButton"
+                >
+                    Search
+                </button>
 
             </div>
 
-        </section>
+
+            <div
+                id="searchMessage"
+                class="search-message"
+                aria-live="polite"
+            ></div>
+
+        </div>
+
+    </section>
 
 
-        <!-- SEARCH RESULT -->
-        <section
-            id="searchResult"
-            class="product-result"
-        ></section>
+    <section
+        id="searchResult"
+        class="product-result"
+    ></section>
 
 
-        <!-- RECENT PRODUCTS -->
-        <section
-            id="recentProducts"
-            class="recent-products"
-        ></section>
+    <section
+        id="recentProducts"
+        class="recent-products"
+    ></section>
 
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-
-        <p>
-            Some links on this website may be affiliate links.
-            If you make a purchase through these links, we may earn
-            a commission at no extra cost to you.
-        </p>
-
-        <p>
-            © 2026 Tanvixa. All rights reserved.
-        </p>
-
-    </footer>
+</main>
 
 
-    <script src="script.js" defer></script>
+<footer class="site-footer">
+
+    <p>
+        Some links on this website may be affiliate links.
+        If you make a purchase through these links, we may earn
+        a commission at no extra cost to you.
+    </p>
+
+    <p>
+        © 2026 Tanvixa. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="./script.js" defer></script>
 
 </body>
 </html>
