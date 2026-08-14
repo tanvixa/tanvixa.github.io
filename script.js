@@ -61,7 +61,7 @@ function hash(value = "") {
 
 async function loadJSON(path) {
     const response = await fetch(path, {
-        cache: "default"
+        cache: "no-cache"
     });
 
     if (!response.ok) {
@@ -123,22 +123,31 @@ function buildCategoriesFromProducts(products) {
 
 
 /* =========================================================
-   GLOBAL DATA READY PROMISE
-   IMPORTANT:
-   Every page waits for THIS instead of using timeout.
+   GLOBAL DATA READY
    ========================================================= */
 
 TVX.ready = (async () => {
 
-    const [
-        productsData,
-        categoriesData,
-        configData
-    ] = await Promise.all([
-        loadJSON("products.json"),
-        loadJSON("categories.json").catch(() => []),
-        loadJSON("site-config.json").catch(() => ({}))
-    ]);
+    const productsData = await loadJSON("products.json");
+
+    let categoriesData = [];
+    let configData = {};
+
+    try {
+        categoriesData = await loadJSON("categories.json");
+    } catch (error) {
+        console.warn(
+            "categories.json could not be loaded. Categories will be generated from products."
+        );
+    }
+
+    try {
+        configData = await loadJSON("site-config.json");
+    } catch (error) {
+        console.warn(
+            "site-config.json could not be loaded. Default configuration will be used."
+        );
+    }
 
     TVX.products = normalizeProducts(productsData);
 
@@ -147,13 +156,19 @@ TVX.ready = (async () => {
             ? categoriesData
             : buildCategoriesFromProducts(TVX.products);
 
-    TVX.config = configData || {};
+    TVX.config =
+        configData && typeof configData === "object"
+            ? configData
+            : {};
 
     return TVX;
 
 })().catch(error => {
 
-    console.error("Tanvixa data loading error:", error);
+    console.error(
+        "Tanvixa data loading error:",
+        error
+    );
 
     TVX.products = [];
     TVX.categories = [];
@@ -169,7 +184,8 @@ TVX.ready = (async () => {
 
 function card(product) {
 
-    const code = encodeURIComponent(product.code);
+    const code =
+        encodeURIComponent(product.code);
 
     return `
         <article class="product-card">
@@ -178,22 +194,31 @@ function card(product) {
                 class="card-media"
                 href="product.html?code=${code}"
             >
+
                 <img
                     src="${esc(img(product))}"
                     alt="${esc(product.name || product.code)}"
                     loading="lazy"
                     onerror="this.onerror=null;this.src='images/no-image.png'"
                 >
+
             </a>
 
             <div class="card-body">
 
                 <span class="card-kicker">
-                    ${esc(product.brand || product.category || "Gadget")}
+                    ${esc(
+                        product.brand ||
+                        product.category ||
+                        "Gadget"
+                    )}
                 </span>
 
                 <h3 class="card-title">
-                    ${esc(product.name || "Unnamed Product")}
+                    ${esc(
+                        product.name ||
+                        "Unnamed Product"
+                    )}
                 </h3>
 
                 <div class="card-meta">
@@ -249,24 +274,34 @@ function catCard(category) {
         "category";
 
     const icon =
-        icons[Math.abs(hash(id)) % icons.length];
+        icons[
+            Math.abs(hash(String(id))) %
+            icons.length
+        ];
 
     return `
         <a
             class="category-card"
-            href="category.html?category=${encodeURIComponent(category.name || "")}"
+            href="category.html?category=${encodeURIComponent(
+                category.name || ""
+            )}"
         >
+
             <div class="category-icon">
                 ${icon}
             </div>
 
             <strong>
-                ${esc(category.name || "Category")}
+                ${esc(
+                    category.name ||
+                    "Category"
+                )}
             </strong>
 
             <span>
                 ${Number(category.count || 0)} products →
             </span>
+
         </a>
     `;
 }
@@ -283,10 +318,12 @@ function header() {
 
     if (!container) return;
 
-    const config = TVX.config || {};
+    const config =
+        TVX.config || {};
 
     const logo =
-        config.logo || "images/tanvixalogo.jpg";
+        config.logo ||
+        "images/tanvixalogo.jpg";
 
     container.innerHTML = `
 
@@ -408,15 +445,65 @@ function footer() {
 
     if (!container) return;
 
-    const config = TVX.config || {};
-    const social = config.social || {};
-    const contact = config.contact || {};
+    const config =
+        TVX.config || {};
+
+    const social =
+        config.social || {};
+
+    const contact =
+        config.contact || {};
+
+
+    const email =
+        contact.email &&
+        contact.email !== "YOUR_GMAIL@gmail.com"
+            ? `
+                <a
+                    href="mailto:${esc(contact.email)}"
+                >
+                    Email
+                </a>
+            `
+            : "";
+
+
+    const youtube =
+        social.youtube &&
+        social.youtube !== "YOUR_YOUTUBE_URL"
+            ? `
+                <a
+                    href="${esc(social.youtube)}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    YouTube
+                </a>
+            `
+            : "";
+
+
+    const facebook =
+        social.facebook &&
+        social.facebook !== "YOUR_FACEBOOK_URL"
+            ? `
+                <a
+                    href="${esc(social.facebook)}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Facebook
+                </a>
+            `
+            : "";
+
 
     container.innerHTML = `
 
         <footer class="footer">
 
             <div class="container footer-grid">
+
 
                 <div>
 
@@ -497,32 +584,11 @@ function footer() {
                         Terms
                     </a>
 
-                    ${
-                        contact.email &&
-                        contact.email !== "YOUR_GMAIL@gmail.com"
-                            ? `
-                                <a href="mailto:${esc(contact.email)}">
-                                    Email
-                                </a>
-                            `
-                            : ""
-                    }
+                    ${email}
 
-                    ${
-                        social.facebook &&
-                        ${s.youtube&&s.youtube!=="https://www.youtube.com/channel/UCkgg-PTs6aMHvu01bfMRCvg"?`<a href="${esc(s.youtube)}" target="_blank" rel="noopener">YouTube</a>`:""}
-${s.facebook&&s.facebook!=="https://www.facebook.com/tanvixagadgets"?`<a href="${esc(s.facebook)}" target="_blank" rel="noopener">Facebook</a>`:""}
-                            ? `
-                                <a
-                                    href="${esc(social.facebook)}"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    Facebook
-                                </a>
-                            `
-                            : ""
-                    }
+                    ${youtube}
+
+                    ${facebook}
 
                 </div>
 
@@ -536,7 +602,9 @@ ${s.facebook&&s.facebook!=="https://www.facebook.com/tanvixagadgets"?`<a href="$
                 </span>
 
                 <span>
-                    ${esc(config.affiliateDisclosure || "")}
+                    ${esc(
+                        config.affiliateDisclosure || ""
+                    )}
                 </span>
 
             </div>
@@ -560,18 +628,22 @@ function go(query) {
     const normalized =
         value.toLowerCase();
 
+
     const match =
         TVX.products.find(product => {
 
             const fields = [
+
                 product.code,
                 product.name,
                 product.brand,
                 product.category,
                 product.subcategory,
+
                 ...(Array.isArray(product.tags)
                     ? product.tags
                     : [])
+
             ];
 
             return fields
@@ -588,7 +660,9 @@ function go(query) {
 
         location.href =
             "product.html?code=" +
-            encodeURIComponent(match.code);
+            encodeURIComponent(
+                match.code
+            );
 
         return;
     }
@@ -607,20 +681,30 @@ function go(query) {
 function initSearch() {
 
     const form =
-        document.getElementById("headerSearch");
+        document.getElementById(
+            "headerSearch"
+        );
 
     if (!form) return;
 
-    form.addEventListener("submit", event => {
 
-        event.preventDefault();
+    form.addEventListener(
+        "submit",
+        event => {
 
-        const input =
-            document.getElementById("headerQuery");
+            event.preventDefault();
 
-        go(input?.value || "");
+            const input =
+                document.getElementById(
+                    "headerQuery"
+                );
 
-    });
+            go(
+                input?.value || ""
+            );
+
+        }
+    );
 }
 
 
@@ -631,25 +715,38 @@ function initSearch() {
 function home() {
 
     const heroForm =
-        document.getElementById("heroSearch");
+        document.getElementById(
+            "heroSearch"
+        );
+
 
     if (heroForm) {
 
-        heroForm.addEventListener("submit", event => {
+        heroForm.addEventListener(
+            "submit",
+            event => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const input =
-                document.getElementById("heroQuery");
+                const input =
+                    document.getElementById(
+                        "heroQuery"
+                    );
 
-            go(input?.value || "");
+                go(
+                    input?.value || ""
+                );
 
-        });
+            }
+        );
     }
 
 
     const homeCategories =
-        document.getElementById("homeCategories");
+        document.getElementById(
+            "homeCategories"
+        );
+
 
     if (homeCategories) {
 
@@ -662,7 +759,10 @@ function home() {
 
 
     const useCategories =
-        document.getElementById("useCategories");
+        document.getElementById(
+            "useCategories"
+        );
+
 
     if (useCategories) {
 
@@ -676,8 +776,12 @@ function home() {
 
     const trending =
         TVX.products
-            .filter(product => product.trending)
+            .filter(
+                product =>
+                    product.trending
+            )
             .slice(0, 8);
+
 
     const latest =
         TVX.products
@@ -687,34 +791,53 @@ function home() {
 
 
     const trendingGrid =
-        document.getElementById("trendingGrid");
+        document.getElementById(
+            "trendingGrid"
+        );
+
 
     if (trendingGrid) {
 
         trendingGrid.innerHTML =
-            trending.map(card).join("");
+            trending
+                .map(card)
+                .join("");
     }
 
 
     const latestGrid =
-        document.getElementById("latestGrid");
+        document.getElementById(
+            "latestGrid"
+        );
+
 
     if (latestGrid) {
 
         latestGrid.innerHTML =
-            latest.map(card).join("");
+            latest
+                .map(card)
+                .join("");
     }
 
 
     const featured =
-        document.getElementById("featuredPick");
+        document.getElementById(
+            "featuredPick"
+        );
+
 
     const featuredProduct =
-        TVX.products.find(product => product.featured) ||
+        TVX.products.find(
+            product =>
+                product.featured
+        ) ||
         TVX.products[0];
 
 
-    if (featured && featuredProduct) {
+    if (
+        featured &&
+        featuredProduct
+    ) {
 
         featured.innerHTML = `
 
@@ -723,8 +846,12 @@ function home() {
                 <div class="featured-media">
 
                     <img
-                        src="${esc(img(featuredProduct))}"
-                        alt="${esc(featuredProduct.name)}"
+                        src="${esc(
+                            img(featuredProduct)
+                        )}"
+                        alt="${esc(
+                            featuredProduct.name
+                        )}"
                         loading="lazy"
                         onerror="this.onerror=null;this.src='images/no-image.png'"
                     >
@@ -739,7 +866,9 @@ function home() {
                     </span>
 
                     <h2>
-                        ${esc(featuredProduct.name)}
+                        ${esc(
+                            featuredProduct.name
+                        )}
                     </h2>
 
                     <p>
@@ -749,22 +878,30 @@ function home() {
                         )}
                     </p>
 
+
                     <ul class="benefit-list">
 
                         ${
-                            (featuredProduct.features || [])
-                                .slice(0, 3)
-                                .map(feature =>
+                            (
+                                featuredProduct.features ||
+                                []
+                            )
+                            .slice(0, 3)
+                            .map(
+                                feature =>
                                     `<li>${esc(feature)}</li>`
-                                )
-                                .join("")
+                            )
+                            .join("")
                         }
 
                     </ul>
 
+
                     <a
                         class="dark-btn"
-                        href="product.html?code=${encodeURIComponent(featuredProduct.code)}"
+                        href="product.html?code=${encodeURIComponent(
+                            featuredProduct.code
+                        )}"
                     >
                         VIEW PRODUCT →
                     </a>
@@ -777,8 +914,10 @@ function home() {
 
 
     const search =
-        new URLSearchParams(location.search)
-            .get("search");
+        new URLSearchParams(
+            location.search
+        ).get("search");
+
 
     if (search) {
 
@@ -802,21 +941,32 @@ function home() {
 function listings() {
 
     const grid =
-        document.getElementById("listingGrid");
+        document.getElementById(
+            "listingGrid"
+        );
 
     if (!grid) return;
 
 
-    let list =
+    const list =
         document.body.dataset.page === "trending"
-            ? TVX.products.filter(product => product.trending)
-            : TVX.products.slice().reverse();
+            ? TVX.products.filter(
+                product =>
+                    product.trending
+            )
+            : TVX.products
+                .slice()
+                .reverse();
 
 
     grid.innerHTML =
         list.length
             ? list.map(card).join("")
-            : `<div class="notice">No products available.</div>`;
+            : `
+                <div class="notice">
+                    No products available.
+                </div>
+            `;
 }
 
 
@@ -827,9 +977,12 @@ function listings() {
 function categories() {
 
     const element =
-        document.getElementById("allCategories");
+        document.getElementById(
+            "allCategories"
+        );
 
     if (!element) return;
+
 
     element.innerHTML =
         TVX.categories
@@ -845,33 +998,48 @@ function categories() {
 function newsletter() {
 
     const form =
-        document.getElementById("newsletterForm");
+        document.getElementById(
+            "newsletterForm"
+        );
 
     if (!form) return;
 
-    form.addEventListener("submit", event => {
 
-        event.preventDefault();
+    form.addEventListener(
+        "submit",
+        event => {
 
-        const action =
-            TVX.config.newsletter?.action || "";
+            event.preventDefault();
 
-        if (
-            action &&
-            action !== "YOUR_NEWSLETTER_FORM_ENDPOINT"
-        ) {
+            const action =
+                TVX.config
+                    ?.newsletter
+                    ?.action || "";
 
-            form.action = action;
-            form.method = "POST";
-            form.submit();
 
-        } else {
+            if (
+                action &&
+                action !==
+                "YOUR_NEWSLETTER_FORM_ENDPOINT"
+            ) {
 
-            alert(
-                "Connect your email marketing provider by adding its form endpoint in site-config.json."
-            );
+                form.action =
+                    action;
+
+                form.method =
+                    "POST";
+
+                form.submit();
+
+            } else {
+
+                alert(
+                    "Connect your email marketing provider by adding its form endpoint in site-config.json."
+                );
+            }
+
         }
-    });
+    );
 }
 
 
@@ -879,47 +1047,72 @@ function newsletter() {
    SITE INITIALIZATION
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
 
-    try {
+        try {
 
-        await TVX.ready;
+            await TVX.ready;
 
-        header();
-        footer();
+            header();
 
-        initSearch();
-        home();
-        listings();
-        categories();
-        newsletter();
+            footer();
 
-    } catch (error) {
+            initSearch();
 
-        console.error(
-            "Tanvixa initialization failed:",
-            error
-        );
+            home();
 
-        const main =
-            document.querySelector("main");
+            listings();
 
-        if (main) {
+            categories();
 
-            const notice =
-                document.createElement("div");
+            newsletter();
 
-            notice.className = "notice";
+        } catch (error) {
 
-            notice.innerHTML = `
-                <h2>Unable to load products</h2>
-                <p>
-                    Please try again in a moment.
-                </p>
-            `;
+            console.error(
+                "Tanvixa initialization failed:",
+                error
+            );
 
-            main.prepend(notice);
+
+            const main =
+                document.querySelector(
+                    "main"
+                );
+
+
+            if (main) {
+
+                const notice =
+                    document.createElement(
+                        "div"
+                    );
+
+                notice.className =
+                    "notice";
+
+
+                notice.innerHTML = `
+
+                    <h2>
+                        Unable to load products
+                    </h2>
+
+                    <p>
+                        Please try again in a moment.
+                    </p>
+
+                `;
+
+
+                main.prepend(
+                    notice
+                );
+            }
+
         }
-    }
 
-});
+    }
+);
