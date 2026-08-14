@@ -510,7 +510,8 @@ function footer() {
 
                     ${
                         social.facebook &&
-                        social.facebook !== "YOUR_FACEBOOK_URL"
+                        ${s.youtube&&s.youtube!=="https://www.youtube.com/channel/UCkgg-PTs6aMHvu01bfMRCvg"?`<a href="${esc(s.youtube)}" target="_blank" rel="noopener">YouTube</a>`:""}
+${s.facebook&&s.facebook!=="https://www.facebook.com/tanvixagadgets"?`<a href="${esc(s.facebook)}" target="_blank" rel="noopener">Facebook</a>`:""}
                             ? `
                                 <a
                                     href="${esc(social.facebook)}"
