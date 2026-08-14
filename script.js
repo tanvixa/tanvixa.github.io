@@ -969,7 +969,200 @@ function listings() {
    CATEGORIES PAGE
    ========================================================= */
 
-function categories() {
+
+   function categories() {
+
+    const categoryGrid =
+        document.getElementById("categoryProducts");
+
+    if (!categoryGrid) return;
+
+
+    const title =
+        document.getElementById("categoryTitle");
+
+    const description =
+        document.getElementById("categoryDescription");
+
+
+    const params =
+        new URLSearchParams(location.search);
+
+
+    const categoryName =
+        params.get("category");
+
+
+    /* =====================================================
+       NORMALIZE CATEGORY
+       ===================================================== */
+
+    const normalizeCategory = value => {
+
+        return String(value || "")
+            .trim()
+            .toLowerCase()
+            .replace(/[_-]+/g, " ")
+            .replace(/\s+/g, " ");
+
+    };
+
+
+    /* =====================================================
+       NO CATEGORY SELECTED
+       SHOW ALL CATEGORIES
+       ===================================================== */
+
+    if (!categoryName) {
+
+        if (title) {
+
+            title.textContent =
+                "Product Categories";
+
+        }
+
+
+        if (description) {
+
+            description.textContent =
+                "Explore Tanvixa products by category.";
+
+        }
+
+
+        if (!TVX.categories.length) {
+
+            categoryGrid.innerHTML = `
+
+                <div class="notice">
+
+                    <h2>
+                        No Categories Found
+                    </h2>
+
+                    <p>
+                        Product categories are currently unavailable.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        categoryGrid.className =
+            "category-grid";
+
+
+        categoryGrid.innerHTML =
+            TVX.categories
+                .map(catCard)
+                .join("");
+
+
+        return;
+    }
+
+
+    /* =====================================================
+       CATEGORY SELECTED
+       ===================================================== */
+
+    const requestedCategory =
+        normalizeCategory(categoryName);
+
+
+    const products =
+        TVX.products.filter(product => {
+
+            const productCategory =
+                normalizeCategory(
+                    product.category
+                );
+
+
+            return (
+                productCategory ===
+                requestedCategory
+            );
+
+        });
+
+
+    /* =====================================================
+       CATEGORY TITLE
+       ===================================================== */
+
+    if (title) {
+
+        title.textContent =
+            categoryName;
+
+    }
+
+
+    /* =====================================================
+       CATEGORY DESCRIPTION
+       ===================================================== */
+
+    if (description) {
+
+        description.textContent =
+            products.length
+                ? `${products.length} product${products.length !== 1 ? "s" : ""} available in ${categoryName}.`
+                : `No products are currently available in ${categoryName}.`;
+
+    }
+
+
+    /* =====================================================
+       NO PRODUCTS
+       ===================================================== */
+
+    if (!products.length) {
+
+        categoryGrid.className =
+            "grid";
+
+
+        categoryGrid.innerHTML = `
+
+            <div class="notice">
+
+                <h2>
+                    No Products Found
+                </h2>
+
+                <p>
+                    No products are currently available in
+                    ${esc(categoryName)}.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* =====================================================
+       SHOW CATEGORY PRODUCTS
+       ===================================================== */
+
+    categoryGrid.className =
+        "grid";
+
+
+    categoryGrid.innerHTML =
+        products
+            .map(card)
+            .join("");
+
+}
 
     /* =====================================================
        CATEGORY LIST / PRODUCT PAGE
