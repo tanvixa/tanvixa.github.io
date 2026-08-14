@@ -1,155 +1,72 @@
+"use strict";
+
 /*
 ===========================================================
- TANVIXA PRODUCT SEARCH SYSTEM
- FINAL STABLE VERSION
+ TANVIXA PRODUCT SYSTEM
+ FAST / CACHE / NO FALSE PRODUCT-NOT-FOUND VERSION
 ===========================================================
 
- Features:
- - Product code search
- - Product name search
- - Brand search
- - Category search
- - Feature search
- - Direct product page
- - product.html?code=GL001
- - View Details support
- - No hard refresh required
- - GitHub Pages compatible
- - Handles image and images[]
- - Handles affiliate links
- - Handles missing products
- - Enter key search
- - URL query search
- - Related products
- - Recent products
- - Safe JSON loading
+ Product structure supported:
+
+ {
+   "code": "GL001",
+   "name": "...",
+   "image": "images/GL001.jpg",
+   "description": "...",
+   "features": [],
+   "link": "...",
+   "category": "...",
+   "brand": "...",
+   "featured": true,
+   "trending": true,
+   "deal": false
+ }
+
+ Main strategy:
+
+ 1. products.json loads ONCE.
+ 2. Products are stored in localStorage.
+ 3. Clicked product is stored in sessionStorage.
+ 4. product.html renders cached product FIRST.
+ 5. JSON is only used as fallback.
+ 6. Product Not Found appears ONLY after
+    a successful database lookup.
 ===========================================================
 */
 
 
-"use strict";
+/* ========================================================
+   CONFIGURATION
+======================================================== */
+
+const PRODUCTS_FILE = "./products.json";
+
+const LOCAL_CACHE_KEY =
+    "tanvixa_products_cache_v1";
+
+const LOCAL_CACHE_TIME_KEY =
+    "tanvixa_products_cache_time_v1";
+
+const SESSION_PRODUCT_KEY =
+    "tanvixa_selected_product_v1";
+
+const CACHE_DURATION =
+    24 * 60 * 60 * 1000;
 
 
 /* ========================================================
-   GLOBAL VARIABLES
+   GLOBAL STATE
 ======================================================== */
 
 let products = [];
 
 let productsLoaded = false;
 
-let productsLoading = false;
+let productsPromise = null;
 
 
 /* ========================================================
-   BASE PATH
-   Works on GitHub Pages and normal hosting
-======================================================== */
-
-function getBasePath() {
-
-    const path = window.location.pathname;
-
-    if (path.endsWith("/")) {
-        return path;
-    }
-
-    const lastSlash = path.lastIndexOf("/");
-
-    if (lastSlash >= 0) {
-        return path.substring(0, lastSlash + 1);
-    }
-
-    return "/";
-}
-
-
-/* ========================================================
-   LOAD PRODUCTS
-======================================================== */
-
-async function loadProducts() {
-
-    if (productsLoaded) {
-        return products;
-    }
-
-    if (productsLoading) {
-
-        while (productsLoading) {
-            await new Promise(resolve => setTimeout(resolve, 50));
-        }
-
-        return products;
-    }
-
-
-    productsLoading = true;
-
-
-    try {
-
-        const response = await fetch(
-            "products.json?cache=" + Date.now(),
-            {
-                method: "GET",
-                cache: "no-store"
-            }
-        );
-
-
-        if (!response.ok) {
-            throw new Error(
-                "Unable to load products.json"
-            );
-        }
-
-
-        const data = await response.json();
-
-
-        if (!Array.isArray(data)) {
-
-            throw new Error(
-                "products.json must contain an array."
-            );
-
-        }
-
-
-        products = data;
-
-        productsLoaded = true;
-
-
-        return products;
-
-
-    } catch (error) {
-
-        console.error(
-            "Tanvixa Product Loading Error:",
-            error
-        );
-
-
-        products = [];
-
-
-        throw error;
-
-
-    } finally {
-
-        productsLoading = false;
-
-    }
-
-}
-
-
-/* ========================================================
-   NORMALIZE TEXT
+   BASIC HELPERS
 ======================================================== */
 
 function normalizeText(value) {
@@ -161,17 +78,12 @@ function normalizeText(value) {
         return "";
     }
 
-
     return String(value)
         .trim()
         .toLowerCase();
 
 }
 
-
-/* ========================================================
-   NORMALIZE PRODUCT CODE
-======================================================== */
 
 function normalizeCode(value) {
 
@@ -182,7 +94,7 @@ function normalizeCode(value) {
 
 
 /* ========================================================
-   GET PRODUCT CODE
+   PRODUCT HELPERS
 ======================================================== */
 
 function getProductCode(product) {
@@ -190,7 +102,6 @@ function getProductCode(product) {
     if (!product) {
         return "";
     }
-
 
     return (
         product.code ||
@@ -202,16 +113,11 @@ function getProductCode(product) {
 }
 
 
-/* ========================================================
-   GET PRODUCT NAME
-======================================================== */
-
 function getProductName(product) {
 
     if (!product) {
         return "Product";
     }
-
 
     return (
         product.name ||
@@ -222,45 +128,16 @@ function getProductName(product) {
 }
 
 
-/* ========================================================
-   GET PRODUCT IMAGE
-======================================================== */
-
 function getProductImage(product) {
 
     if (!product) {
         return "";
     }
 
-
-    if (
-        product.image &&
-        typeof product.image === "string"
-    ) {
-
-        return product.image;
-
-    }
-
-
-    if (
-        Array.isArray(product.images) &&
-        product.images.length > 0
-    ) {
-
-        return product.images[0];
-
-    }
-
-
-    return "";
+    return product.image || "";
 
 }
 
-
-/* ========================================================
-   GET PRODUCT IMAGES
-======================================================== */
 
 function getProductImages(product) {
 
@@ -268,45 +145,43 @@ function getProductImages(product) {
         return [];
     }
 
-
-    let images = [];
-
-
-    if (
-        Array.isArray(product.images)
-    ) {
-
-        images = product.images.filter(
-            image =>
-                typeof image === "string" &&
-                image.trim() !== ""
-        );
-
-    }
-
+    const images = [];
 
     if (
         product.image &&
         typeof product.image === "string"
     ) {
 
-        if (!images.includes(product.image)) {
-
-            images.unshift(product.image);
-
-        }
+        images.push(
+            product.image
+        );
 
     }
 
+    if (
+        Array.isArray(product.images)
+    ) {
+
+        product.images.forEach(image => {
+
+            if (
+                typeof image === "string" &&
+                image.trim() !== "" &&
+                !images.includes(image)
+            ) {
+
+                images.push(image);
+
+            }
+
+        });
+
+    }
 
     return images;
 
 }
 
-
-/* ========================================================
-   GET DESCRIPTION
-======================================================== */
 
 function getProductDescription(product) {
 
@@ -314,54 +189,35 @@ function getProductDescription(product) {
         return "";
     }
 
+    return product.description || "";
 
-    return (
-        product.description ||
-        product.desc ||
-        ""
+}
+
+
+function getProductFeatures(product) {
+
+    if (
+        !product ||
+        !Array.isArray(product.features)
+    ) {
+        return [];
+    }
+
+    return product.features.filter(
+        feature =>
+            feature !== null &&
+            feature !== undefined &&
+            String(feature).trim() !== ""
     );
 
 }
 
-
-/* ========================================================
-   GET FEATURES
-======================================================== */
-
-function getProductFeatures(product) {
-
-    if (!product) {
-        return [];
-    }
-
-
-    if (Array.isArray(product.features)) {
-
-        return product.features.filter(
-            feature =>
-                feature !== null &&
-                feature !== undefined &&
-                String(feature).trim() !== ""
-        );
-
-    }
-
-
-    return [];
-
-}
-
-
-/* ========================================================
-   GET AFFILIATE LINK
-======================================================== */
 
 function getAffiliateLink(product) {
 
     if (!product) {
         return "#";
     }
-
 
     return (
         product.link ||
@@ -374,7 +230,7 @@ function getAffiliateLink(product) {
 
 
 /* ========================================================
-   ESCAPE HTML
+   HTML ESCAPE
 ======================================================== */
 
 function escapeHTML(value) {
@@ -385,7 +241,6 @@ function escapeHTML(value) {
     ) {
         return "";
     }
-
 
     return String(value)
         .replace(/&/g, "&amp;")
@@ -398,7 +253,7 @@ function escapeHTML(value) {
 
 
 /* ========================================================
-   CONVERT DESCRIPTION
+   DESCRIPTION FORMAT
 ======================================================== */
 
 function formatDescription(description) {
@@ -406,7 +261,6 @@ function formatDescription(description) {
     if (!description) {
         return "";
     }
-
 
     return escapeHTML(description)
         .replace(/\r\n/g, "<br><br>")
@@ -416,93 +270,352 @@ function formatDescription(description) {
 
 
 /* ========================================================
-   GET PRODUCT BY CODE
+   SAVE PRODUCTS TO LOCAL STORAGE
 ======================================================== */
 
-function findProductByCode(code) {
+function saveProductsToCache(data) {
 
-    const normalizedSearch =
-        normalizeCode(code);
+    try {
 
-
-    if (!normalizedSearch) {
-        return null;
-    }
-
-
-    return products.find(product => {
-
-        return (
-            normalizeCode(
-                getProductCode(product)
-            ) === normalizedSearch
+        localStorage.setItem(
+            LOCAL_CACHE_KEY,
+            JSON.stringify(data)
         );
 
-    }) || null;
+        localStorage.setItem(
+            LOCAL_CACHE_TIME_KEY,
+            String(Date.now())
+        );
+
+    } catch (error) {
+
+        console.warn(
+            "Tanvixa localStorage unavailable:",
+            error
+        );
+
+    }
 
 }
 
 
 /* ========================================================
-   GET PRODUCT BY ANY SEARCH
+   GET PRODUCTS FROM LOCAL CACHE
 ======================================================== */
 
-function searchProducts(value) {
+function getProductsFromCache() {
 
-    const search =
-        normalizeText(value);
+    try {
+
+        const cached =
+            localStorage.getItem(
+                LOCAL_CACHE_KEY
+            );
+
+        if (!cached) {
+            return null;
+        }
+
+        const parsed =
+            JSON.parse(cached);
+
+        if (
+            !Array.isArray(parsed)
+        ) {
+            return null;
+        }
+
+        return parsed;
+
+    } catch (error) {
+
+        console.warn(
+            "Invalid Tanvixa cache:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
 
 
-    if (!search) {
-        return [];
+/* ========================================================
+   CHECK CACHE AGE
+======================================================== */
+
+function isCacheFresh() {
+
+    try {
+
+        const time =
+            Number(
+                localStorage.getItem(
+                    LOCAL_CACHE_TIME_KEY
+                )
+            );
+
+        if (!time) {
+            return false;
+        }
+
+        return (
+            Date.now() - time <
+            CACHE_DURATION
+        );
+
+    } catch (error) {
+
+        return false;
+
+    }
+
+}
+
+
+/* ========================================================
+   LOAD PRODUCTS
+======================================================== */
+
+function loadProducts(options = {}) {
+
+    const forceRefresh =
+        options.forceRefresh === true;
+
+
+    /*
+    Already loaded in this page
+    */
+
+    if (
+        productsLoaded &&
+        products.length > 0 &&
+        !forceRefresh
+    ) {
+
+        return Promise.resolve(
+            products
+        );
+
     }
 
 
-    return products.filter(product => {
+    /*
+    If another request is already running,
+    reuse that SAME request.
+    */
 
-        const code =
-            normalizeText(
-                getProductCode(product)
+    if (
+        productsPromise &&
+        !forceRefresh
+    ) {
+
+        return productsPromise;
+
+    }
+
+
+    /*
+    FIRST:
+    Use local cache immediately.
+    */
+
+    if (!forceRefresh) {
+
+        const cached =
+            getProductsFromCache();
+
+
+        if (
+            cached &&
+            cached.length > 0
+        ) {
+
+            products =
+                cached;
+
+            productsLoaded =
+                true;
+
+
+            /*
+            Return cached data immediately.
+            */
+
+            productsPromise =
+                Promise.resolve(
+                    products
+                );
+
+
+            /*
+            If cache is old, refresh in
+            background without blocking UI.
+            */
+
+            if (!isCacheFresh()) {
+
+                refreshProductsInBackground();
+
+            }
+
+
+            return productsPromise;
+
+        }
+
+    }
+
+
+    /*
+    No cache:
+    Fetch products.json.
+    */
+
+    productsPromise =
+        fetch(
+            PRODUCTS_FILE,
+            {
+                method: "GET",
+                cache: "default"
+            }
+        )
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Products database could not be loaded."
+                );
+
+            }
+
+            return response.json();
+
+        })
+        .then(data => {
+
+            if (
+                !Array.isArray(data)
+            ) {
+
+                throw new Error(
+                    "products.json must contain an array."
+                );
+
+            }
+
+
+            products =
+                data;
+
+            productsLoaded =
+                true;
+
+
+            saveProductsToCache(
+                products
             );
 
 
-        const name =
-            normalizeText(
-                getProductName(product)
+            return products;
+
+        })
+        .catch(error => {
+
+            console.error(
+                "Tanvixa products loading error:",
+                error
             );
 
 
-        const brand =
-            normalizeText(
-                product.brand || ""
+            /*
+            If old cache exists,
+            use it even if network fails.
+            */
+
+            const fallback =
+                getProductsFromCache();
+
+
+            if (
+                fallback &&
+                fallback.length > 0
+            ) {
+
+                products =
+                    fallback;
+
+                productsLoaded =
+                    true;
+
+                return products;
+
+            }
+
+
+            throw error;
+
+        });
+
+
+    return productsPromise;
+
+}
+
+
+/* ========================================================
+   BACKGROUND REFRESH
+======================================================== */
+
+function refreshProductsInBackground() {
+
+    fetch(
+        PRODUCTS_FILE,
+        {
+            method: "GET",
+            cache: "default"
+        }
+    )
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error(
+                "Background refresh failed."
             );
+        }
+
+        return response.json();
+
+    })
+    .then(data => {
+
+        if (
+            !Array.isArray(data)
+        ) {
+            return;
+        }
 
 
-        const category =
-            normalizeText(
-                product.category || ""
-            );
+        products =
+            data;
+
+        productsLoaded =
+            true;
 
 
-        const description =
-            normalizeText(
-                getProductDescription(product)
-            );
+        saveProductsToCache(
+            products
+        );
 
 
-        const features =
-            getProductFeatures(product)
-                .join(" ")
-                .toLowerCase();
+    })
+    .catch(error => {
 
-
-        return (
-            code.includes(search) ||
-            name.includes(search) ||
-            brand.includes(search) ||
-            category.includes(search) ||
-            description.includes(search) ||
-            features.includes(search)
+        console.warn(
+            "Background product refresh failed:",
+            error
         );
 
     });
@@ -511,83 +624,221 @@ function searchProducts(value) {
 
 
 /* ========================================================
-   SHOW LOADING
+   FIND PRODUCT BY CODE
 ======================================================== */
 
-function showLoading() {
+function findProductByCode(code) {
 
-    const result =
-        document.getElementById(
-            "searchResult"
-        );
+    const wanted =
+        normalizeCode(code);
 
 
-    if (!result) {
-        return;
+    if (!wanted) {
+        return null;
     }
 
 
-    result.innerHTML = `
-        <div class="product-loading">
-            <div class="loading-spinner"></div>
-            <p>Finding your product...</p>
-        </div>
-    `;
+    for (
+        let i = 0;
+        i < products.length;
+        i++
+    ) {
+
+        const current =
+            normalizeCode(
+                getProductCode(
+                    products[i]
+                )
+            );
+
+
+        if (
+            current === wanted
+        ) {
+
+            return products[i];
+
+        }
+
+    }
+
+
+    return null;
 
 }
 
 
 /* ========================================================
-   SHOW ERROR
+   SAVE SELECTED PRODUCT
 ======================================================== */
 
-function showError(message) {
+function saveSelectedProduct(product) {
 
-    const result =
-        document.getElementById(
-            "searchResult"
-        );
-
-
-    if (!result) {
+    if (!product) {
         return;
     }
 
 
-    result.innerHTML = `
-        <div class="product-error">
-            <h2>❌ Product Not Found</h2>
-            <p>${escapeHTML(message)}</p>
-        </div>
-    `;
+    try {
+
+        sessionStorage.setItem(
+            SESSION_PRODUCT_KEY,
+            JSON.stringify(product)
+        );
+
+    } catch (error) {
+
+        console.warn(
+            "Session storage unavailable:",
+            error
+        );
+
+    }
 
 }
 
 
 /* ========================================================
-   SHOW MESSAGE
+   GET SELECTED PRODUCT
 ======================================================== */
 
-function showSearchMessage(message) {
+function getSelectedProduct() {
 
-    const messageBox =
-        document.getElementById(
-            "searchMessage"
-        );
+    try {
+
+        const stored =
+            sessionStorage.getItem(
+                SESSION_PRODUCT_KEY
+            );
 
 
-    if (!messageBox) {
-        return;
+        if (!stored) {
+            return null;
+        }
+
+
+        const product =
+            JSON.parse(stored);
+
+
+        if (!product) {
+            return null;
+        }
+
+
+        return product;
+
+
+    } catch (error) {
+
+        return null;
+
     }
-
-
-    messageBox.textContent = message;
 
 }
 
 
 /* ========================================================
-   CREATE PRODUCT CARD
+   CLEAR SELECTED PRODUCT
+======================================================== */
+
+function clearSelectedProduct() {
+
+    try {
+
+        sessionStorage.removeItem(
+            SESSION_PRODUCT_KEY
+        );
+
+    } catch (error) {
+
+        /* Ignore */
+
+    }
+
+}
+
+
+/* ========================================================
+   GET URL PRODUCT CODE
+======================================================== */
+
+function getURLProductCode() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    return (
+        params.get("code") ||
+        ""
+    ).trim();
+
+}
+
+
+/* ========================================================
+   SET PAGE TITLE
+======================================================== */
+
+function setProductTitle(product) {
+
+    if (!product) {
+        return;
+    }
+
+    document.title =
+        `${getProductName(product)} — Tanvixa`;
+
+}
+
+
+/* ========================================================
+   UPDATE DESCRIPTION META
+======================================================== */
+
+function updateMetaDescription(
+    description
+) {
+
+    let meta =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+
+    if (!meta) {
+
+        meta =
+            document.createElement(
+                "meta"
+            );
+
+        meta.name =
+            "description";
+
+        document.head.appendChild(
+            meta
+        );
+
+    }
+
+
+    meta.content =
+        String(
+            description || ""
+        )
+        .replace(/\s+/g, " ")
+        .trim()
+        .substring(0, 160);
+
+}
+
+
+/* ========================================================
+   PRODUCT CARD
 ======================================================== */
 
 function createProductCard(product) {
@@ -595,69 +846,66 @@ function createProductCard(product) {
     const code =
         getProductCode(product);
 
-
     const name =
         getProductName(product);
-
 
     const image =
         getProductImage(product);
 
-
     const description =
         getProductDescription(product);
-
 
     const features =
         getProductFeatures(product);
 
 
-    const safeCode =
-        escapeHTML(code);
-
-
-    const safeName =
-        escapeHTML(name);
-
-
-    const safeImage =
-        escapeHTML(image);
-
-
     const featureHTML =
         features.length > 0
 
-            ? `
-                <ul class="product-features">
-                    ${features.map(feature => `
-                        <li>
-                            ${escapeHTML(feature)}
-                        </li>
-                    `).join("")}
-                </ul>
-              `
+        ?
 
-            : "";
+        `
+        <ul class="product-features">
+
+            ${features.map(
+                feature => `
+                    <li>
+                        ${escapeHTML(feature)}
+                    </li>
+                `
+            ).join("")}
+
+        </ul>
+        `
+
+        :
+
+        "";
 
 
     return `
+
         <article class="product-card">
+
 
             <div class="product-image-wrapper">
 
                 ${
                     image
+
                     ?
+
                     `
                     <img
-                        src="${safeImage}"
-                        alt="${safeName}"
+                        src="${escapeHTML(image)}"
+                        alt="${escapeHTML(name)}"
                         class="product-image"
                         loading="lazy"
-                        onerror="this.style.display='none'"
                     >
                     `
+
                     :
+
                     `
                     <div class="no-product-image">
                         No Image Available
@@ -670,25 +918,30 @@ function createProductCard(product) {
 
             <div class="product-info">
 
+
                 <div class="product-code">
-                    ${safeCode}
+                    ${escapeHTML(code)}
                 </div>
 
 
                 <h2 class="product-title">
-                    ${safeName}
+                    ${escapeHTML(name)}
                 </h2>
 
 
                 ${
                     description
+
                     ?
+
                     `
                     <div class="product-description">
                         ${formatDescription(description)}
                     </div>
                     `
+
                     :
+
                     ""
                 }
 
@@ -697,16 +950,55 @@ function createProductCard(product) {
 
 
                 <a
-                    href="product.html?code=${encodeURIComponent(code)}"
+                    href="./product.html?code=${encodeURIComponent(code)}"
                     class="view-product-button"
+                    data-product-code="${escapeHTML(code)}"
                 >
                     View Details
                 </a>
 
+
             </div>
 
+
         </article>
+
     `;
+
+}
+
+
+/* ========================================================
+   OPEN PRODUCT
+======================================================== */
+
+function openProduct(product) {
+
+    if (!product) {
+        return;
+    }
+
+
+    /*
+    IMPORTANT:
+    Save the COMPLETE product before navigating.
+
+    This means product.html can render immediately
+    without waiting for products.json.
+    */
+
+    saveSelectedProduct(
+        product
+    );
+
+
+    const code =
+        getProductCode(product);
+
+
+    window.location.href =
+        "./product.html?code=" +
+        encodeURIComponent(code);
 
 }
 
@@ -734,73 +1026,81 @@ async function searchProduct() {
     }
 
 
-    const searchValue =
+    const search =
         input.value.trim();
 
 
-    if (!searchValue) {
-
-        showSearchMessage(
-            "Please enter a product code."
-        );
-
+    if (!search) {
 
         result.innerHTML = `
             <div class="product-error">
-                <h2>⚠️ Enter a Product Code</h2>
+
+                <h2>
+                    ⚠️ Enter a Product Code
+                </h2>
+
                 <p>
                     Example: GL001
                 </p>
+
             </div>
         `;
 
-
         return;
+
     }
 
 
-    showSearchMessage("");
+    /*
+    First check currently available
+    cached products.
+    */
 
-    showLoading();
+    if (
+        productsLoaded &&
+        products.length > 0
+    ) {
 
+        const product =
+            findProductByCode(
+                search
+            );
+
+
+        if (product) {
+
+            openProduct(
+                product
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+    Load cache / JSON.
+    */
 
     try {
 
-        await loadProducts();
+        const data =
+            await loadProducts();
 
 
-        /*
-        ================================================
-        FIRST PRIORITY:
-        Exact product code
-        ================================================
-        */
-
-        const exactProduct =
+        const product =
             findProductByCode(
-                searchValue
+                search
             );
 
 
-        if (exactProduct) {
+        if (product) {
 
-            const code =
-                getProductCode(
-                    exactProduct
-                );
-
-
-            /*
-            Go directly to product page.
-
-            replace() prevents the user from
-            needing a refresh.
-            */
-
-            window.location.href =
-                "product.html?code=" +
-                encodeURIComponent(code);
-
+            openProduct(
+                product
+            );
 
             return;
 
@@ -808,53 +1108,23 @@ async function searchProduct() {
 
 
         /*
-        ================================================
-        SECOND PRIORITY:
-        Name / brand / category / feature search
-        ================================================
-        */
-
-        const matchedProducts =
-            searchProducts(
-                searchValue
-            );
-
-
-        if (matchedProducts.length === 0) {
-
-            showError(
-                `No product matched "${searchValue}".`
-            );
-
-
-            return;
-
-        }
-
-
-        /*
-        ================================================
-        If multiple results are found,
-        show them directly.
-        ================================================
+        Exact code not found.
         */
 
         result.innerHTML = `
 
-            <div class="search-results-container">
+            <div class="product-error">
 
-                <h2 class="results-title">
-                    Search Results
+                <h2>
+                    ❌ Product Not Found
                 </h2>
 
-                <div class="results-grid">
-
-                    ${matchedProducts.map(
-                        product =>
-                            createProductCard(product)
-                    ).join("")}
-
-                </div>
+                <p>
+                    No product was found for
+                    <strong>
+                        ${escapeHTML(search)}
+                    </strong>.
+                </p>
 
             </div>
 
@@ -863,17 +1133,25 @@ async function searchProduct() {
 
     } catch (error) {
 
-        console.error(error);
-
+        /*
+        NEVER call this Product Not Found.
+        This is a DATABASE/NETWORK error.
+        */
 
         result.innerHTML = `
+
             <div class="product-error">
-                <h2>⚠️ Something Went Wrong</h2>
+
+                <h2>
+                    ⚠️ Product Database Unavailable
+                </h2>
+
                 <p>
-                    We could not load the product database.
-                    Please try again.
+                    Please try again in a moment.
                 </p>
+
             </div>
+
         `;
 
     }
@@ -882,105 +1160,111 @@ async function searchProduct() {
 
 
 /* ========================================================
-   DIRECT PRODUCT PAGE
+   SHOW SEARCH RESULTS
 ======================================================== */
 
-async function loadDirectProductPage() {
+function showSearchResults(
+    searchValue
+) {
 
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const code =
-        params.get("code");
-
-
-    if (!code) {
-        return false;
-    }
-
-
-    const productPageContainer =
+    const result =
         document.getElementById(
-            "productPage"
+            "searchResult"
         );
 
 
-    if (!productPageContainer) {
-        return false;
+    if (!result) {
+        return;
     }
 
 
-    try {
-
-        await loadProducts();
-
-
-        const product =
-            findProductByCode(code);
-
-
-        if (!product) {
-
-            productPageContainer.innerHTML = `
-                <div class="product-error">
-                    <h2>❌ Product Not Found</h2>
-                    <p>
-                        Product code
-                        <strong>
-                            ${escapeHTML(code)}
-                        </strong>
-                        was not found.
-                    </p>
-
-                    <a
-                        href="index.html"
-                        class="view-product-button"
-                    >
-                        Back to Search
-                    </a>
-                </div>
-            `;
-
-
-            document.title =
-                "Product Not Found — Tanvixa";
-
-
-            return true;
-
-        }
-
-
-        renderProductPage(
-            product,
-            productPageContainer
+    const search =
+        normalizeText(
+            searchValue
         );
 
 
-        return true;
+    const matched =
+        products.filter(product => {
+
+            const code =
+                normalizeText(
+                    getProductCode(product)
+                );
+
+            const name =
+                normalizeText(
+                    getProductName(product)
+                );
+
+            const brand =
+                normalizeText(
+                    product.brand || ""
+                );
+
+            const category =
+                normalizeText(
+                    product.category || ""
+                );
 
 
-    } catch (error) {
+            return (
+                code.includes(search) ||
+                name.includes(search) ||
+                brand.includes(search) ||
+                category.includes(search)
+            );
 
-        console.error(error);
+        });
 
 
-        productPageContainer.innerHTML = `
+    if (
+        matched.length === 0
+    ) {
+
+        result.innerHTML = `
+
             <div class="product-error">
-                <h2>⚠️ Unable to Load Product</h2>
+
+                <h2>
+                    ❌ Product Not Found
+                </h2>
+
                 <p>
-                    Please try again.
+                    No matching product found.
                 </p>
+
             </div>
+
         `;
 
-
-        return true;
+        return;
 
     }
+
+
+    result.innerHTML = `
+
+        <div class="search-results-container">
+
+            <h2 class="results-title">
+                Search Results
+            </h2>
+
+            <div class="results-grid">
+
+                ${matched.map(
+                    product =>
+                        createProductCard(
+                            product
+                        )
+                ).join("")}
+
+            </div>
+
+        </div>
+
+    `;
 
 }
 
@@ -994,37 +1278,51 @@ function renderProductPage(
     container
 ) {
 
+    if (!product || !container) {
+        return;
+    }
+
+
     const code =
         getProductCode(product);
-
 
     const name =
         getProductName(product);
 
-
     const description =
         getProductDescription(product);
-
 
     const features =
         getProductFeatures(product);
 
-
     const images =
         getProductImages(product);
-
 
     const affiliateLink =
         getAffiliateLink(product);
 
 
-    const imageHTML =
+    setProductTitle(
+        product
+    );
+
+
+    updateMetaDescription(
+        description
+    );
+
+
+    let galleryHTML = "";
+
+
+    if (
         images.length > 0
+    ) {
 
-            ?
+        galleryHTML = `
 
-            `
             <div class="product-gallery">
+
 
                 <div class="main-product-image">
 
@@ -1039,6 +1337,7 @@ function renderProductPage(
 
                 ${
                     images.length > 1
+
                     ?
 
                     `
@@ -1046,6 +1345,7 @@ function renderProductPage(
 
                         ${images.map(
                             (image, index) => `
+
                                 <button
                                     type="button"
                                     class="product-thumbnail ${
@@ -1053,10 +1353,7 @@ function renderProductPage(
                                         ? "active"
                                         : ""
                                     }"
-                                    onclick="changeMainImage(
-                                        '${escapeHTML(image)}',
-                                        this
-                                    )"
+                                    data-image="${escapeHTML(image)}"
                                 >
 
                                     <img
@@ -1065,6 +1362,7 @@ function renderProductPage(
                                     >
 
                                 </button>
+
                             `
                         ).join("")}
 
@@ -1074,60 +1372,98 @@ function renderProductPage(
                     :
 
                     ""
-
                 }
 
+
             </div>
-            `
 
-            :
+        `;
 
-            `
+    } else {
+
+        galleryHTML = `
+
             <div class="no-product-image">
                 No Image Available
             </div>
-            `;
+
+        `;
+
+    }
 
 
     const featuresHTML =
         features.length > 0
 
-            ?
-
-            `
-            <div class="product-features-section">
-
-                <h2>
-                    Key Features
-                </h2>
-
-                <ul class="product-features">
-
-                    ${features.map(
-                        feature => `
-                            <li>
-                                ${escapeHTML(feature)}
-                            </li>
-                        `
-                    ).join("")}
-
-                </ul>
-
-            </div>
-            `
-
-            :
-
-            "";
-
-
-    const safeAffiliateLink =
-        affiliateLink &&
-        affiliateLink !== "YOUR_AFFILIATE_LINK"
         ?
-        affiliateLink
+
+        `
+
+        <div class="product-features-section">
+
+            <h2>
+                Key Features
+            </h2>
+
+
+            <ul class="product-features">
+
+                ${features.map(
+                    feature => `
+                        <li>
+                            ${escapeHTML(feature)}
+                        </li>
+                    `
+                ).join("")}
+
+            </ul>
+
+        </div>
+
+        `
+
         :
-        "#";
+
+        "";
+
+
+    const hasAffiliateLink =
+        affiliateLink &&
+        affiliateLink !== "#" &&
+        affiliateLink !== "YOUR_AFFILIATE_LINK";
+
+
+    const buyHTML =
+        hasAffiliateLink
+
+        ?
+
+        `
+
+        <a
+            href="${escapeHTML(affiliateLink)}"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="buy-now-button"
+        >
+            BUY NOW
+        </a>
+
+        `
+
+        :
+
+        `
+
+        <button
+            type="button"
+            class="buy-now-button disabled"
+            disabled
+        >
+            LINK NOT AVAILABLE
+        </button>
+
+        `;
 
 
     container.innerHTML = `
@@ -1138,42 +1474,37 @@ function renderProductPage(
             <div class="single-product-grid">
 
 
-                <!-- PRODUCT IMAGE -->
-
                 <div class="single-product-media">
 
-                    ${imageHTML}
+                    ${galleryHTML}
 
                 </div>
 
-
-                <!-- PRODUCT INFORMATION -->
 
                 <div class="single-product-info">
 
 
                     <div class="product-code">
-
                         ${escapeHTML(code)}
-
                     </div>
 
 
                     <h1 class="single-product-title">
-
                         ${escapeHTML(name)}
-
                     </h1>
 
 
                     ${
                         description
+
                         ?
 
                         `
                         <div class="single-product-description">
 
-                            ${formatDescription(description)}
+                            ${formatDescription(
+                                description
+                            )}
 
                         </div>
                         `
@@ -1189,36 +1520,7 @@ function renderProductPage(
 
                     <div class="buy-section">
 
-
-                        ${
-                            safeAffiliateLink !== "#"
-
-                            ?
-
-                            `
-                            <a
-                                href="${escapeHTML(safeAffiliateLink)}"
-                                target="_blank"
-                                rel="noopener noreferrer sponsored"
-                                class="buy-now-button"
-                            >
-                                BUY NOW
-                            </a>
-                            `
-
-                            :
-
-                            `
-                            <button
-                                type="button"
-                                class="buy-now-button disabled"
-                                disabled
-                            >
-                                LINK NOT AVAILABLE
-                            </button>
-                            `
-
-                        }
+                        ${buyHTML}
 
 
                         <p class="affiliate-disclosure">
@@ -1230,12 +1532,11 @@ function renderProductPage(
 
                         </p>
 
-
                     </div>
 
 
                     <a
-                        href="index.html"
+                        href="./index.html"
                         class="back-search-button"
                     >
                         ← Search Another Product
@@ -1253,31 +1554,40 @@ function renderProductPage(
     `;
 
 
-    document.title =
-        `${name} — Tanvixa`;
+    /*
+    Setup image thumbnails AFTER HTML exists.
+    */
+
+    setupImageGallery();
 
 
-    updateMetaDescription(
-        description ||
-        `${name} product details on Tanvixa.`
-    );
+    /*
+    Related products can be rendered after
+    the main product is already visible.
+    */
 
-
-    loadRelatedProducts(
-        product
+    requestAnimationFrame(
+        () => {
+            renderRelatedProducts(
+                product
+            );
+        }
     );
 
 }
 
 
 /* ========================================================
-   CHANGE MAIN IMAGE
+   IMAGE GALLERY
 ======================================================== */
 
-function changeMainImage(
-    image,
-    button
-) {
+function setupImageGallery() {
+
+    const buttons =
+        document.querySelectorAll(
+            ".product-thumbnail"
+        );
+
 
     const mainImage =
         document.getElementById(
@@ -1285,33 +1595,49 @@ function changeMainImage(
         );
 
 
-    if (!mainImage) {
+    if (
+        !mainImage ||
+        buttons.length === 0
+    ) {
         return;
     }
 
 
-    mainImage.src = image;
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const image =
+                    button.dataset.image;
 
 
-    document
-        .querySelectorAll(
-            ".product-thumbnail"
-        )
-        .forEach(
-            thumbnail =>
-                thumbnail.classList.remove(
+                if (!image) {
+                    return;
+                }
+
+
+                mainImage.src =
+                    image;
+
+
+                buttons.forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
+
+
+                button.classList.add(
                     "active"
-                )
+                );
+
+            }
         );
 
-
-    if (button) {
-
-        button.classList.add(
-            "active"
-        );
-
-    }
+    });
 
 }
 
@@ -1320,7 +1646,7 @@ function changeMainImage(
    RELATED PRODUCTS
 ======================================================== */
 
-function loadRelatedProducts(
+function renderRelatedProducts(
     currentProduct
 ) {
 
@@ -1354,7 +1680,9 @@ function loadRelatedProducts(
 
             const code =
                 normalizeCode(
-                    getProductCode(product)
+                    getProductCode(
+                        product
+                    )
                 );
 
 
@@ -1371,7 +1699,9 @@ function loadRelatedProducts(
                     product.category || ""
                 ) === currentCategory
             ) {
+
                 return true;
+
             }
 
 
@@ -1381,42 +1711,65 @@ function loadRelatedProducts(
 
 
     /*
-    If category matches are not enough,
-    fill with other products.
+    Fill remaining slots with other products.
     */
 
-    if (related.length < 4) {
+    if (
+        related.length < 4
+    ) {
 
-        const additional =
-            products.filter(product => {
+        products.forEach(product => {
 
-                const code =
-                    normalizeCode(
-                        getProductCode(product)
-                    );
+            if (
+                related.length >= 4
+            ) {
+                return;
+            }
 
 
-                return (
-                    code !== currentCode &&
-                    !related.includes(product)
+            const code =
+                normalizeCode(
+                    getProductCode(
+                        product
+                    )
                 );
 
-            });
+
+            if (
+                code === currentCode
+            ) {
+                return;
+            }
 
 
-        related =
-            related.concat(
-                additional
+            if (
+                related.includes(
+                    product
+                )
+            ) {
+                return;
+            }
+
+
+            related.push(
+                product
             );
+
+        });
 
     }
 
 
     related =
-        related.slice(0, 4);
+        related.slice(
+            0,
+            4
+        );
 
 
-    if (related.length === 0) {
+    if (
+        related.length === 0
+    ) {
         return;
     }
 
@@ -1434,7 +1787,9 @@ function loadRelatedProducts(
 
                 ${related.map(
                     product =>
-                        createProductCard(product)
+                        createProductCard(
+                            product
+                        )
                 ).join("")}
 
             </div>
@@ -1450,7 +1805,7 @@ function loadRelatedProducts(
    RECENT PRODUCTS
 ======================================================== */
 
-async function renderRecentProducts() {
+function renderRecentProducts() {
 
     const container =
         document.getElementById(
@@ -1463,104 +1818,103 @@ async function renderRecentProducts() {
     }
 
 
-    try {
-
-        await loadProducts();
-
-
-        const recent =
-            products.slice(
-                Math.max(
-                    0,
-                    products.length - 4
-                )
-            ).reverse();
+    if (
+        !products.length
+    ) {
+        return;
+    }
 
 
-        if (recent.length === 0) {
-            return;
-        }
+    const recent =
+        products
+            .slice(0, 4);
 
 
-        container.innerHTML = `
+    container.innerHTML = `
 
-            <div class="recent-products-container">
+        <div class="recent-products-container">
 
-                <h2>
-                    Latest Products
-                </h2>
+            <h2>
+                Latest Products
+            </h2>
 
 
-                <div class="results-grid">
+            <div class="results-grid">
 
-                    ${recent.map(
-                        product =>
-                            createProductCard(product)
-                    ).join("")}
-
-                </div>
+                ${recent.map(
+                    product =>
+                        createProductCard(
+                            product
+                        )
+                ).join("")}
 
             </div>
 
-        `;
+        </div>
 
-
-    } catch (error) {
-
-        console.error(
-            "Recent products error:",
-            error
-        );
-
-    }
+    `;
 
 }
 
 
 /* ========================================================
-   UPDATE META DESCRIPTION
+   EVENT: PRODUCT LINKS
 ======================================================== */
 
-function updateMetaDescription(
-    description
-) {
+function setupProductLinks() {
 
-    let meta =
-        document.querySelector(
-            'meta[name="description"]'
-        );
+    document.addEventListener(
+        "click",
+        function(event) {
+
+            const link =
+                event.target.closest(
+                    "[data-product-code]"
+                );
 
 
-    if (!meta) {
+            if (!link) {
+                return;
+            }
 
-        meta =
-            document.createElement(
-                "meta"
+
+            const code =
+                link.dataset.productCode;
+
+
+            if (!code) {
+                return;
+            }
+
+
+            const product =
+                findProductByCode(
+                    code
+                );
+
+
+            if (!product) {
+                return;
+            }
+
+
+            /*
+            Save COMPLETE product BEFORE
+            browser navigation.
+            */
+
+            saveSelectedProduct(
+                product
             );
 
-
-        meta.name =
-            "description";
-
-
-        document.head.appendChild(
-            meta
-        );
-
-    }
-
-
-    meta.content =
-        String(description)
-            .replace(/\s+/g, " ")
-            .trim()
-            .substring(0, 160);
+        }
+    );
 
 }
 
 
 /* ========================================================
-   ENTER KEY SEARCH
+   ENTER KEY
 ======================================================== */
 
 function setupSearchInput() {
@@ -1597,93 +1951,398 @@ function setupSearchInput() {
 
 
 /* ========================================================
-   AUTO SEARCH FROM URL
+   INDEX PAGE INITIALIZATION
 ======================================================== */
 
-async function autoHandleURL() {
+async function initializeIndexPage() {
 
-    const path =
-        window.location.pathname;
-
-
-    /*
-    Product page
-    */
-
-    if (
-        path.endsWith(
-            "/product.html"
-        )
-        ||
-        path.endsWith(
-            "product.html"
-        )
-    ) {
-
-        await loadDirectProductPage();
-
-        return;
-
-    }
-
-
-    /*
-    Index page with ?code=GL001
-    */
-
-    const params =
-        new URLSearchParams(
-            window.location.search
+    const input =
+        document.getElementById(
+            "productCode"
         );
 
 
-    const code =
-        params.get("code");
+    const button =
+        document.getElementById(
+            "searchButton"
+        );
 
 
-    if (code) {
+    if (button) {
 
-        const input =
-            document.getElementById(
-                "productCode"
-            );
+        button.addEventListener(
+            "click",
+            searchProduct
+        );
 
-
-        if (input) {
-
-            input.value =
-                code;
-
-        }
+    }
 
 
-        await searchProduct();
+    setupSearchInput();
 
-        return;
+
+    /*
+    Start loading products immediately.
+
+    IMPORTANT:
+    The user does NOT have to wait.
+
+    The browser starts loading products
+    while the user is reading the page.
+    */
+
+    try {
+
+        await loadProducts();
+
+        renderRecentProducts();
+
+    } catch (error) {
+
+        console.error(
+            "Initial product load failed:",
+            error
+        );
 
     }
 
 
     /*
-    Normal homepage
+    Handle ?code=GL001 if present.
     */
 
-    await renderRecentProducts();
+    const urlCode =
+        getURLProductCode();
+
+
+    if (
+        urlCode &&
+        input
+    ) {
+
+        input.value =
+            urlCode;
+
+
+        searchProduct();
+
+    }
 
 }
 
 
 /* ========================================================
-   INITIALIZE WEBSITE
+   PRODUCT PAGE INITIALIZATION
+======================================================== */
+
+async function initializeProductPage() {
+
+    const container =
+        document.getElementById(
+            "productPage"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const urlCode =
+        getURLProductCode();
+
+
+    if (!urlCode) {
+
+        container.innerHTML = `
+
+            <div class="product-error">
+
+                <h2>
+                    Product Code Missing
+                </h2>
+
+                <p>
+                    No product code was provided.
+                </p>
+
+
+                <a
+                    href="./index.html"
+                    class="view-product-button"
+                >
+                    Back to Search
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /*
+    =======================================================
+    STEP 1
+    INSTANT SESSION PRODUCT
+    =======================================================
+
+    If user clicked a product from homepage,
+    the COMPLETE product is already here.
+
+    Render it immediately.
+    */
+
+    const selected =
+        getSelectedProduct();
+
+
+    if (
+        selected &&
+        normalizeCode(
+            getProductCode(
+                selected
+            )
+        ) === normalizeCode(
+            urlCode
+        )
+    ) {
+
+        renderProductPage(
+            selected,
+            container
+        );
+
+
+        /*
+        Do NOT wait for products.json.
+
+        Refresh the cache in background.
+        */
+
+        loadProducts()
+            .then(() => {
+
+                /*
+                If newer data exists, we don't
+                interrupt the current page.
+                */
+
+            })
+            .catch(() => {});
+
+
+        return;
+
+    }
+
+
+    /*
+    =======================================================
+    STEP 2
+    LOCAL CACHE
+    =======================================================
+
+    Direct product URL:
+    product.html?code=GL001
+
+    If localStorage already has products,
+    render immediately.
+    */
+
+    const cached =
+        getProductsFromCache();
+
+
+    if (
+        cached &&
+        cached.length > 0
+    ) {
+
+        products =
+            cached;
+
+        productsLoaded =
+            true;
+
+
+        const product =
+            findProductByCode(
+                urlCode
+            );
+
+
+        if (product) {
+
+            renderProductPage(
+                product,
+                container
+            );
+
+
+            /*
+            Refresh in background.
+            */
+
+            if (
+                !isCacheFresh()
+            ) {
+
+                refreshProductsInBackground();
+
+            }
+
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+    =======================================================
+    STEP 3
+    NO CACHE
+    =======================================================
+
+    Only now do we need to fetch
+    products.json.
+    */
+
+    try {
+
+        const data =
+            await loadProducts();
+
+
+        const product =
+            findProductByCode(
+                urlCode
+            );
+
+
+        if (product) {
+
+            renderProductPage(
+                product,
+                container
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+        IMPORTANT:
+        Only successful database lookup
+        can produce Product Not Found.
+        */
+
+        container.innerHTML = `
+
+            <div class="product-error">
+
+                <h2>
+                    ❌ Product Not Found
+                </h2>
+
+                <p>
+                    Product code
+                    <strong>
+                        ${escapeHTML(urlCode)}
+                    </strong>
+                    does not exist in the product database.
+                </p>
+
+
+                <a
+                    href="./index.html"
+                    class="view-product-button"
+                >
+                    Back to Search
+                </a>
+
+            </div>
+
+        `;
+
+
+    } catch (error) {
+
+        /*
+        Network/database error is NOT
+        the same thing as Product Not Found.
+        */
+
+        container.innerHTML = `
+
+            <div class="product-error">
+
+                <h2>
+                    ⚠️ Product Database Unavailable
+                </h2>
+
+                <p>
+                    The product database could not be loaded.
+                    Please try again.
+                </p>
+
+
+                <a
+                    href="./index.html"
+                    class="view-product-button"
+                >
+                    Back to Search
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ========================================================
+   DETECT PAGE
+======================================================== */
+
+function initializeSite() {
+
+    setupProductLinks();
+
+
+    const productPage =
+        document.getElementById(
+            "productPage"
+        );
+
+
+    if (productPage) {
+
+        initializeProductPage();
+
+        return;
+
+    }
+
+
+    initializeIndexPage();
+
+}
+
+
+/* ========================================================
+   START
 ======================================================== */
 
 document.addEventListener(
     "DOMContentLoaded",
-    async function() {
-
-        setupSearchInput();
-
-        await autoHandleURL();
-
-    }
+    initializeSite
 );
