@@ -4,14 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow">
-
 <link rel="icon" href="images/tanvixalogo.jpg">
 <link rel="stylesheet" href="style.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 <title>Contact Tanvixa | Tanvixa</title>
 </head>
 
@@ -24,6 +21,7 @@
 <section class="page-hero">
 <div class="container">
 <h1>Contact Tanvixa</h1>
+<p>Have a question, feedback or business inquiry? Get in touch with Tanvixa.</p>
 </div>
 </section>
 
@@ -35,28 +33,45 @@
 <div class="contact-card">
 <div class="contact-icon">✉️</div>
 <h2>Email</h2>
-<p>For general questions, business inquiries or website-related matters.</p>
-<a id="contactEmail" class="contact-link"></a>
+<p>For general questions, feedback or business inquiries.</p>
+<a href="mailto:fk0250408@gmail.com" class="contact-link">
+fk0250408@gmail.com
+</a>
 </div>
 
 <div class="contact-card">
 <div class="contact-icon">▶️</div>
 <h2>YouTube</h2>
-<p>Follow Tanvixa for gadget videos, product reviews and technology content.</p>
-<a id="contactYoutube" class="contact-link" target="_blank" rel="noopener">
+<p>Watch Tanvixa gadget reviews, demonstrations and product videos.</p>
+<a href="YOUR_YOUTUBE_CHANNEL_LINK"
+target="_blank"
+rel="noopener"
+class="contact-link">
 Visit YouTube Channel →
 </a>
 </div>
 
 <div class="contact-card">
-<div class="contact-icon">📘</div>
+<div class="contact-icon">f</div>
 <h2>Facebook</h2>
-<p>Follow Tanvixa on Facebook for updates and new gadget content.</p>
-<a id="contactFacebook" class="contact-link" target="_blank" rel="noopener">
+<p>Follow Tanvixa for gadget updates and new content.</p>
+<a href="https://www.facebook.com/tanvixagadgets"
+target="_blank"
+rel="noopener"
+class="contact-link">
 Visit Facebook Page →
 </a>
 </div>
 
+</div>
+
+<div class="contact-note">
+<h2>About Tanvixa</h2>
+<p>
+Tanvixa is an independent technology and gadget discovery website.
+We provide product information, features, specifications and links to
+available marketplace listings. Tanvixa does not sell products directly.
+</p>
 </div>
 
 </div>
@@ -67,47 +82,6 @@ Visit Facebook Page →
 <div id="siteFooter"></div>
 
 <script src="script.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const email = TVX.config?.contact?.email || "";
-    const youtube = TVX.config?.social?.youtube || "";
-    const facebook = TVX.config?.social?.facebook || "";
-
-    const emailEl = document.getElementById("contactEmail");
-    const youtubeEl = document.getElementById("contactYoutube");
-    const facebookEl = document.getElementById("contactFacebook");
-
-    if (emailEl && email) {
-        emailEl.href = "mailto:" + email;
-        emailEl.textContent = email;
-    }
-
-    if (
-        youtubeEl &&
-        youtube &&
-        youtube !== "YOUR_YOUTUBE_CHANNEL_URL"
-    ) {
-        youtubeEl.href = youtube;
-    } else if (youtubeEl) {
-        youtubeEl.removeAttribute("href");
-        youtubeEl.textContent = "YouTube channel link coming soon";
-    }
-
-    if (
-        facebookEl &&
-        facebook &&
-        facebook !== "YOUR_FACEBOOK_URL"
-    ) {
-        facebookEl.href = facebook;
-    } else if (facebookEl) {
-        facebookEl.removeAttribute("href");
-        facebookEl.textContent = "Facebook page link coming soon";
-    }
-
-});
-</script>
 
 </body>
 </html>
