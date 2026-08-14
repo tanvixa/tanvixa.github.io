@@ -1,1 +1,924 @@
-let TVX={products:[],categories:[],config:{}};async function j(p){let r=await fetch(p,{cache:"no-cache"});if(!r.ok)throw Error(p);return r.json()}function esc(v=""){return String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}function img(p){return p.images?.[0]||p.image||"images/no-image.png"}function hash(s){let h=0;for(let i=0;i<s.length;i++)h=((h<<5)-h)+s.charCodeAt(i)|0;return h}function card(p){return `<article class="product-card"><a class="card-media" href="product.html?code=${encodeURIComponent(p.code)}"><img src="${esc(img(p))}" alt="${esc(p.name)}" loading="lazy" onerror="this.src='images/no-image.png'"></a><div class="card-body"><span class="card-kicker">${esc(p.brand||p.category||"Gadget")}</span><h3 class="card-title">${esc(p.name)}</h3><div class="card-meta">${p.rating?`<span>⭐ ${esc(p.rating)}</span>`:""}<span class="card-code">${esc(p.code)}</span></div><a class="view-btn" href="product.html?code=${encodeURIComponent(p.code)}">VIEW DETAILS →</a></div></article>`}function catCard(c){let icons=["📱","⚡","💻","🏠","🎧","🎮","📷","⌚","🔐","🚗"];return `<a class="category-card" href="category.html?category=${encodeURIComponent(c.name)}"><div class="category-icon">${icons[Math.abs(hash(c.id||c.name))%icons.length]}</div><strong>${esc(c.name)}</strong><span>${c.count} products →</span></a>`}function header(){let c=TVX.config;document.getElementById("siteHeader").innerHTML=`<div class="topbar"><div class="container"><span>Smart gadget discovery & product information.</span><span>Independent affiliate website</span></div></div><header class="site-header"><div class="container header-inner"><a class="logo" href="index.html"><img src="${esc(c.logo)}" alt="Tanvixa"><span><strong>Tanvixa</strong><small>SMART GADGET DISCOVERY</small></span></a><form class="header-search" id="headerSearch"><input id="headerQuery" placeholder="Search product or code" autocomplete="off"><button>Search</button></form><nav class="nav"><a href="index.html">Home</a><a href="categories.html">Categories</a><a href="trending.html">Trending</a><a href="latest.html">Latest</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="menu-btn" onclick="location.href='categories.html'">☰</button></div></header>`}function footer(){let c=TVX.config,s=c.social||{},ct=c.contact||{};document.getElementById("siteFooter").innerHTML=`<footer class="footer"><div class="container footer-grid"><div><h3>Tanvixa</h3><p>Discover useful tech gadgets, understand key details and find available buying options.</p></div><div><h3>Explore</h3><a href="index.html">Home</a><a href="categories.html">Categories</a><a href="trending.html">Trending</a><a href="latest.html">Latest</a></div><div><h3>Help</h3><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="disclosure.html">Affiliate Disclosure</a></div><div><h3>Legal</h3><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a>${ct.email&&ct.email!=="YOUR_GMAIL@gmail.com"?`<a href="mailto:${esc(ct.email)}">Email</a>`:""}${s.facebook&&s.facebook!=="YOUR_FACEBOOK_URL"?`<a href="${esc(s.facebook)}" target="_blank" rel="noopener">Facebook</a>`:""}</div></div><div class="container footer-bottom"><span>© 2026 Tanvixa. All rights reserved.</span><span>${esc(c.affiliateDisclosure)}</span></div></footer>`}function go(q){q=q.trim();if(!q)return;let n=q.toLowerCase();let m=TVX.products.filter(p=>[p.code,p.name,p.brand,p.category,p.subcategory,...(p.tags||[])].filter(Boolean).join(" ").toLowerCase().includes(n));if(m.length)location.href="product.html?code="+encodeURIComponent(m[0].code);else{location.href="index.html?search="+encodeURIComponent(q);}}function initSearch(){let f=document.getElementById("headerSearch");if(f)f.onsubmit=e=>{e.preventDefault();go(document.getElementById("headerQuery").value)}}function home(){let f=document.getElementById("heroSearch");if(f)f.onsubmit=e=>{e.preventDefault();go(document.getElementById("heroQuery").value)};let c=document.getElementById("homeCategories");if(c)c.innerHTML=TVX.categories.slice(0,8).map(catCard).join("");let u=document.getElementById("useCategories");if(u)u.innerHTML=TVX.categories.slice(0,7).map(catCard).join("");let t=TVX.products.filter(p=>p.trending).slice(0,8),l=TVX.products.slice().reverse().slice(0,8);let tg=document.getElementById("trendingGrid");if(tg)tg.innerHTML=t.map(card).join("");let lg=document.getElementById("latestGrid");if(lg)lg.innerHTML=l.map(card).join("");let fp=document.getElementById("featuredPick"),p=TVX.products.find(x=>x.featured)||TVX.products[0];if(fp&&p)fp.innerHTML=`<div class="featured"><div class="featured-media"><img src="${esc(img(p))}" alt="${esc(p.name)}"></div><div class="featured-body"><span class="eyebrow">Featured Pick</span><h2>${esc(p.name)}</h2><p>${esc(p.shortDescription||"Explore this product's details and available buying options.")}</p><ul class="benefit-list">${(p.features||[]).slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul><a class="dark-btn" href="product.html?code=${encodeURIComponent(p.code)}">VIEW PRODUCT →</a></div></div>`;let q=new URLSearchParams(location.search).get("search");if(q)setTimeout(()=>alert("No exact match was found for: "+q+". Try another product name, code or keyword."),80)}function listings(){let e=document.getElementById("listingGrid");if(!e)return;let list=document.body.dataset.page==="trending"?TVX.products.filter(p=>p.trending):TVX.products.slice().reverse();e.innerHTML=list.map(card).join("")||`<div class="notice">No products available.</div>`}function categories(){let e=document.getElementById("allCategories");if(e)e.innerHTML=TVX.categories.map(catCard).join("")}function newsletter(){let f=document.getElementById("newsletterForm");if(f)f.onsubmit=e=>{e.preventDefault();let a=TVX.config.newsletter?.action||"";if(a&&a!=="YOUR_NEWSLETTER_FORM_ENDPOINT"){f.action=a;f.method="POST";f.submit()}else alert("Connect your email marketing provider by adding its form endpoint in site-config.json.")}}async function init(){try{[TVX.products,TVX.categories,TVX.config]=await Promise.all([j("products.json"),j("categories.json"),j("site-config.json")]);header();footer();initSearch();home();listings();categories();newsletter()}catch(e){console.error(e)}}document.addEventListener("DOMContentLoaded",init);
+/* =========================================================
+   TANVIXA V3 - GLOBAL DATA + SITE SYSTEM
+   FINAL STABLE VERSION
+   ========================================================= */
+
+const TVX = {
+    products: [],
+    categories: [],
+    config: {},
+    ready: null
+};
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function esc(value = "") {
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[char]));
+}
+
+
+/* =========================================================
+   IMAGE HELPER
+   ========================================================= */
+
+function img(product) {
+    if (Array.isArray(product?.images) && product.images.length) {
+        return product.images[0];
+    }
+
+    return product?.image || "images/no-image.png";
+}
+
+
+/* =========================================================
+   HASH
+   ========================================================= */
+
+function hash(value = "") {
+    let h = 0;
+
+    for (let i = 0; i < value.length; i++) {
+        h = ((h << 5) - h) + value.charCodeAt(i);
+        h |= 0;
+    }
+
+    return h;
+}
+
+
+/* =========================================================
+   JSON LOADER
+   ========================================================= */
+
+async function loadJSON(path) {
+    const response = await fetch(path, {
+        cache: "default"
+    });
+
+    if (!response.ok) {
+        throw new Error(
+            `Failed to load ${path} (${response.status})`
+        );
+    }
+
+    return await response.json();
+}
+
+
+/* =========================================================
+   NORMALIZE PRODUCTS
+   ========================================================= */
+
+function normalizeProducts(products) {
+
+    if (!Array.isArray(products)) {
+        throw new Error("products.json must contain an array");
+    }
+
+    return products
+        .filter(product => product && product.code)
+        .map(product => ({
+            ...product,
+            code: String(product.code).trim().toUpperCase()
+        }));
+}
+
+
+/* =========================================================
+   BUILD CATEGORIES FROM PRODUCTS
+   ========================================================= */
+
+function buildCategoriesFromProducts(products) {
+
+    const map = new Map();
+
+    products.forEach(product => {
+
+        const name = String(
+            product.category || "Other"
+        ).trim();
+
+        if (!map.has(name)) {
+            map.set(name, {
+                id: name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+                name,
+                count: 0
+            });
+        }
+
+        map.get(name).count++;
+    });
+
+    return Array.from(map.values());
+}
+
+
+/* =========================================================
+   GLOBAL DATA READY PROMISE
+   IMPORTANT:
+   Every page waits for THIS instead of using timeout.
+   ========================================================= */
+
+TVX.ready = (async () => {
+
+    const [
+        productsData,
+        categoriesData,
+        configData
+    ] = await Promise.all([
+        loadJSON("products.json"),
+        loadJSON("categories.json").catch(() => []),
+        loadJSON("site-config.json").catch(() => ({}))
+    ]);
+
+    TVX.products = normalizeProducts(productsData);
+
+    TVX.categories =
+        Array.isArray(categoriesData) && categoriesData.length
+            ? categoriesData
+            : buildCategoriesFromProducts(TVX.products);
+
+    TVX.config = configData || {};
+
+    return TVX;
+
+})().catch(error => {
+
+    console.error("Tanvixa data loading error:", error);
+
+    TVX.products = [];
+    TVX.categories = [];
+    TVX.config = {};
+
+    throw error;
+});
+
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+function card(product) {
+
+    const code = encodeURIComponent(product.code);
+
+    return `
+        <article class="product-card">
+
+            <a
+                class="card-media"
+                href="product.html?code=${code}"
+            >
+                <img
+                    src="${esc(img(product))}"
+                    alt="${esc(product.name || product.code)}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='images/no-image.png'"
+                >
+            </a>
+
+            <div class="card-body">
+
+                <span class="card-kicker">
+                    ${esc(product.brand || product.category || "Gadget")}
+                </span>
+
+                <h3 class="card-title">
+                    ${esc(product.name || "Unnamed Product")}
+                </h3>
+
+                <div class="card-meta">
+
+                    ${
+                        product.rating
+                            ? `<span>⭐ ${esc(product.rating)}</span>`
+                            : ""
+                    }
+
+                    <span class="card-code">
+                        ${esc(product.code)}
+                    </span>
+
+                </div>
+
+                <a
+                    class="view-btn"
+                    href="product.html?code=${code}"
+                >
+                    VIEW DETAILS →
+                </a>
+
+            </div>
+
+        </article>
+    `;
+}
+
+
+/* =========================================================
+   CATEGORY CARD
+   ========================================================= */
+
+function catCard(category) {
+
+    const icons = [
+        "📱",
+        "⚡",
+        "💻",
+        "🏠",
+        "🎧",
+        "🎮",
+        "📷",
+        "⌚",
+        "🔐",
+        "🚗"
+    ];
+
+    const id =
+        category.id ||
+        category.name ||
+        "category";
+
+    const icon =
+        icons[Math.abs(hash(id)) % icons.length];
+
+    return `
+        <a
+            class="category-card"
+            href="category.html?category=${encodeURIComponent(category.name || "")}"
+        >
+            <div class="category-icon">
+                ${icon}
+            </div>
+
+            <strong>
+                ${esc(category.name || "Category")}
+            </strong>
+
+            <span>
+                ${Number(category.count || 0)} products →
+            </span>
+        </a>
+    `;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+function header() {
+
+    const container =
+        document.getElementById("siteHeader");
+
+    if (!container) return;
+
+    const config = TVX.config || {};
+
+    const logo =
+        config.logo || "images/tanvixalogo.jpg";
+
+    container.innerHTML = `
+
+        <div class="topbar">
+
+            <div class="container">
+
+                <span>
+                    Smart gadget discovery & product information.
+                </span>
+
+                <span>
+                    Independent affiliate website
+                </span>
+
+            </div>
+
+        </div>
+
+        <header class="site-header">
+
+            <div class="container header-inner">
+
+                <a
+                    class="logo"
+                    href="index.html"
+                >
+
+                    <img
+                        src="${esc(logo)}"
+                        alt="Tanvixa"
+                    >
+
+                    <span>
+
+                        <strong>
+                            Tanvixa
+                        </strong>
+
+                        <small>
+                            SMART GADGET DISCOVERY
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <form
+                    class="header-search"
+                    id="headerSearch"
+                >
+
+                    <input
+                        id="headerQuery"
+                        placeholder="Search product or code"
+                        autocomplete="off"
+                    >
+
+                    <button type="submit">
+                        Search
+                    </button>
+
+                </form>
+
+
+                <nav class="nav">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="trending.html">
+                        Trending
+                    </a>
+
+                    <a href="latest.html">
+                        Latest
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </nav>
+
+
+                <button
+                    class="menu-btn"
+                    type="button"
+                    onclick="location.href='categories.html'"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </header>
+    `;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+function footer() {
+
+    const container =
+        document.getElementById("siteFooter");
+
+    if (!container) return;
+
+    const config = TVX.config || {};
+    const social = config.social || {};
+    const contact = config.contact || {};
+
+    container.innerHTML = `
+
+        <footer class="footer">
+
+            <div class="container footer-grid">
+
+                <div>
+
+                    <h3>
+                        Tanvixa
+                    </h3>
+
+                    <p>
+                        Discover useful tech gadgets,
+                        understand key details and find
+                        available buying options.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="trending.html">
+                        Trending
+                    </a>
+
+                    <a href="latest.html">
+                        Latest
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Help
+                    </h3>
+
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                    <a href="disclosure.html">
+                        Affiliate Disclosure
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Legal
+                    </h3>
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="terms.html">
+                        Terms
+                    </a>
+
+                    ${
+                        contact.email &&
+                        contact.email !== "YOUR_GMAIL@gmail.com"
+                            ? `
+                                <a href="mailto:${esc(contact.email)}">
+                                    Email
+                                </a>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        social.facebook &&
+                        social.facebook !== "YOUR_FACEBOOK_URL"
+                            ? `
+                                <a
+                                    href="${esc(social.facebook)}"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    Facebook
+                                </a>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+            </div>
+
+
+            <div class="container footer-bottom">
+
+                <span>
+                    © 2026 Tanvixa. All rights reserved.
+                </span>
+
+                <span>
+                    ${esc(config.affiliateDisclosure || "")}
+                </span>
+
+            </div>
+
+        </footer>
+    `;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function go(query) {
+
+    const value =
+        String(query || "").trim();
+
+    if (!value) return;
+
+    const normalized =
+        value.toLowerCase();
+
+    const match =
+        TVX.products.find(product => {
+
+            const fields = [
+                product.code,
+                product.name,
+                product.brand,
+                product.category,
+                product.subcategory,
+                ...(Array.isArray(product.tags)
+                    ? product.tags
+                    : [])
+            ];
+
+            return fields
+                .filter(Boolean)
+                .some(field =>
+                    String(field)
+                        .toLowerCase()
+                        .includes(normalized)
+                );
+        });
+
+
+    if (match) {
+
+        location.href =
+            "product.html?code=" +
+            encodeURIComponent(match.code);
+
+        return;
+    }
+
+
+    location.href =
+        "index.html?search=" +
+        encodeURIComponent(value);
+}
+
+
+/* =========================================================
+   SEARCH EVENTS
+   ========================================================= */
+
+function initSearch() {
+
+    const form =
+        document.getElementById("headerSearch");
+
+    if (!form) return;
+
+    form.addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        const input =
+            document.getElementById("headerQuery");
+
+        go(input?.value || "");
+
+    });
+}
+
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+
+function home() {
+
+    const heroForm =
+        document.getElementById("heroSearch");
+
+    if (heroForm) {
+
+        heroForm.addEventListener("submit", event => {
+
+            event.preventDefault();
+
+            const input =
+                document.getElementById("heroQuery");
+
+            go(input?.value || "");
+
+        });
+    }
+
+
+    const homeCategories =
+        document.getElementById("homeCategories");
+
+    if (homeCategories) {
+
+        homeCategories.innerHTML =
+            TVX.categories
+                .slice(0, 8)
+                .map(catCard)
+                .join("");
+    }
+
+
+    const useCategories =
+        document.getElementById("useCategories");
+
+    if (useCategories) {
+
+        useCategories.innerHTML =
+            TVX.categories
+                .slice(0, 7)
+                .map(catCard)
+                .join("");
+    }
+
+
+    const trending =
+        TVX.products
+            .filter(product => product.trending)
+            .slice(0, 8);
+
+    const latest =
+        TVX.products
+            .slice()
+            .reverse()
+            .slice(0, 8);
+
+
+    const trendingGrid =
+        document.getElementById("trendingGrid");
+
+    if (trendingGrid) {
+
+        trendingGrid.innerHTML =
+            trending.map(card).join("");
+    }
+
+
+    const latestGrid =
+        document.getElementById("latestGrid");
+
+    if (latestGrid) {
+
+        latestGrid.innerHTML =
+            latest.map(card).join("");
+    }
+
+
+    const featured =
+        document.getElementById("featuredPick");
+
+    const featuredProduct =
+        TVX.products.find(product => product.featured) ||
+        TVX.products[0];
+
+
+    if (featured && featuredProduct) {
+
+        featured.innerHTML = `
+
+            <div class="featured">
+
+                <div class="featured-media">
+
+                    <img
+                        src="${esc(img(featuredProduct))}"
+                        alt="${esc(featuredProduct.name)}"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='images/no-image.png'"
+                    >
+
+                </div>
+
+
+                <div class="featured-body">
+
+                    <span class="eyebrow">
+                        Featured Pick
+                    </span>
+
+                    <h2>
+                        ${esc(featuredProduct.name)}
+                    </h2>
+
+                    <p>
+                        ${esc(
+                            featuredProduct.shortDescription ||
+                            "Explore this product's details and available buying options."
+                        )}
+                    </p>
+
+                    <ul class="benefit-list">
+
+                        ${
+                            (featuredProduct.features || [])
+                                .slice(0, 3)
+                                .map(feature =>
+                                    `<li>${esc(feature)}</li>`
+                                )
+                                .join("")
+                        }
+
+                    </ul>
+
+                    <a
+                        class="dark-btn"
+                        href="product.html?code=${encodeURIComponent(featuredProduct.code)}"
+                    >
+                        VIEW PRODUCT →
+                    </a>
+
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    const search =
+        new URLSearchParams(location.search)
+            .get("search");
+
+    if (search) {
+
+        setTimeout(() => {
+
+            alert(
+                "No exact match was found for: " +
+                search +
+                ". Try another product name, code or keyword."
+            );
+
+        }, 80);
+    }
+}
+
+
+/* =========================================================
+   LISTING PAGES
+   ========================================================= */
+
+function listings() {
+
+    const grid =
+        document.getElementById("listingGrid");
+
+    if (!grid) return;
+
+
+    let list =
+        document.body.dataset.page === "trending"
+            ? TVX.products.filter(product => product.trending)
+            : TVX.products.slice().reverse();
+
+
+    grid.innerHTML =
+        list.length
+            ? list.map(card).join("")
+            : `<div class="notice">No products available.</div>`;
+}
+
+
+/* =========================================================
+   CATEGORIES PAGE
+   ========================================================= */
+
+function categories() {
+
+    const element =
+        document.getElementById("allCategories");
+
+    if (!element) return;
+
+    element.innerHTML =
+        TVX.categories
+            .map(catCard)
+            .join("");
+}
+
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+
+function newsletter() {
+
+    const form =
+        document.getElementById("newsletterForm");
+
+    if (!form) return;
+
+    form.addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        const action =
+            TVX.config.newsletter?.action || "";
+
+        if (
+            action &&
+            action !== "YOUR_NEWSLETTER_FORM_ENDPOINT"
+        ) {
+
+            form.action = action;
+            form.method = "POST";
+            form.submit();
+
+        } else {
+
+            alert(
+                "Connect your email marketing provider by adding its form endpoint in site-config.json."
+            );
+        }
+    });
+}
+
+
+/* =========================================================
+   SITE INITIALIZATION
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    try {
+
+        await TVX.ready;
+
+        header();
+        footer();
+
+        initSearch();
+        home();
+        listings();
+        categories();
+        newsletter();
+
+    } catch (error) {
+
+        console.error(
+            "Tanvixa initialization failed:",
+            error
+        );
+
+        const main =
+            document.querySelector("main");
+
+        if (main) {
+
+            const notice =
+                document.createElement("div");
+
+            notice.className = "notice";
+
+            notice.innerHTML = `
+                <h2>Unable to load products</h2>
+                <p>
+                    Please try again in a moment.
+                </p>
+            `;
+
+            main.prepend(notice);
+        }
+    }
+
+});
