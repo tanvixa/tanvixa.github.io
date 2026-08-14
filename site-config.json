@@ -3,21 +3,19 @@
   "siteUrl": "https://tanvixa.github.io/",
   "logo": "images/tanvixalogo.jpg",
   "heroBanner": "images/tanvixa-hero-banner.webp",
-
   "contact": {
-    "email": "fk0250408@gmail.com"
-  },
-
-  "social": {
-    "youtube": "https://www.youtube.com/channel/UCkgg-PTs6aMHvu01bfMRCvg",
+    "email": "fk0250408@gmail.com",
     "facebook": "https://www.facebook.com/tanvixagadgets"
   },
-
+  "social": {
+    "youtube": "https://www.youtube.com/channel/UCkgg-PTs6aMHvu01bfMRCvg",
+    "facebook": "https://www.facebook.com/tanvixagadgets",
+    "instagram": "YOUR_INSTAGRAM_URL"
+  },
   "newsletter": {
     "enabled": false,
     "provider": "",
     "action": ""
   },
-
   "affiliateDisclosure": "Some links on Tanvixa may be affiliate links. If you purchase through a link, we may earn a commission at no extra cost to you."
 }
