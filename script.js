@@ -554,7 +554,7 @@ function catCard(category) {
                     category.count || 0
                 )}
 
-                products →
+                products 
 
             </span>
 
