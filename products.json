@@ -4702,5 +4702,982 @@
       "aliexpress": "https://s.click.aliexpress.com/e/_c3nba0nZ",
       "amazon": ""
     }
-  }
+  },
+
+{
+"code": "GL091",
+"name": "GUHUAVMI New Fitness Tracker ECG Heart Rate Smart Bracelet",
+"brand": "GUHUAVMI",
+"model": "",
+"category": "Fitness Trackers",
+"subcategory": "Health & Fitness Smart Bracelets",
+"tags": [
+"fitness tracker",
+"smart bracelet",
+"ECG",
+"heart rate monitor",
+"blood oxygen monitor",
+"blood pressure monitor",
+"sleep tracker",
+"health monitoring",
+"120+ sports modes"
+],
+"rating": null,
+"images": [
+"images/GL091-1.jpg",
+"images/GL091-2.jpg",
+"images/GL091-3.jpg"
+],
+"shortDescription": "Screen-free GUHUAVMI health and fitness bracelet with 24/7 monitoring, ECG analysis, activity tracking, 120+ motion modes, reminders, magnetic charging, and mobile APP control.",
+"benefits": [
+"Monitors multiple health and activity metrics continuously.",
+"Tracks steps, calories, distance, active time, and 120+ motion modes.",
+"Provides health, daily, SMS, call, and activity reminders.",
+"Supports AI health analysis, remote care, and mobile APP control."
+],
+"overview": [
+"The GUHUAVMI fitness tracker is a screen-free health and fitness bracelet designed for 24/7 real-time monitoring. It provides ECG heart health analysis, heart rate, blood oxygen, blood pressure, sleep, HRV, temperature, pressure, blood composition, and body composition monitoring, along with women's health and menstrual tracking.",
+"For activity tracking, the bracelet records steps, calories, distance, active time, and supports 120+ motion tracking modes. It also provides sitting, drinking water, reading, exercise, hand washing, alarm clock, SMS, call, and distant view reminders, plus AI health analysis, remote care, remote photo taking by shaking, and mobile APP control."
+],
+"features": [
+"ECG heart health analysis",
+"24/7 real-time health monitoring",
+"Heart rate, blood oxygen, blood pressure, sleep, HRV, temperature, pressure, blood composition, and body composition monitoring",
+"Women's health and menstrual tracking",
+"Steps, calories, distance, active time, and 120+ motion tracking",
+"SMS, call, health, daily, and distant view reminders",
+"AI health analysis and remote care",
+"Mobile APP control with magnetic charging"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"productType": "Wristbands",
+"style": "SPORT",
+"applicationAgeGroup": "Adult",
+"screenStyle": "None",
+"screenType": "None",
+"touchScreen": "No",
+"bandDetachable": "No",
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Women's Health Monitoring",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Other",
+"Blood Pressure Monitor",
+"Body Temperature Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Distance Tracker",
+"Other",
+"Steps Tracker",
+"Activity Tracker",
+"Calorie Tracker"
+],
+"ecgHeartHealthAnalysis": true,
+"hrvMonitoring": true,
+"bloodCompositionMonitoring": "Blood lipids, uric acid, etc.",
+"bodyCompositionTesting": "BMI, body fat percentage, etc.",
+"motionTrackingModes": "120+",
+"timeDistanceCaloriesCalculation": "Accurately calculate time, distance, calories",
+"gps": "No GPS",
+"globalPositioning": "NONE",
+"bluetoothCompatibleVersion": "5.3",
+"bluetoothVersion": "BLE 5.3",
+"batteryCapacity": "180 mAh",
+"batteryCapacityListedRange": "180–220 mAh",
+"batteryType": "High density Li-Polymer",
+"chargingType": "Magnetic charging",
+"enduranceTime": "Use for 5–10 days and standby for 60+ days",
+"weight": "28 g",
+"bandLength": "260 mm",
+"bandWidth": "24 mm",
+"braceletSize": "42.3 × 28.3 × 10.6 mm",
+"caseMaterial": "Alloy",
+"bandMaterial": "Rubber",
+"waterproofing": [
+"Professional Waterproof",
+"3ATM Waterproof"
+],
+"certifications": [
+"CE",
+"RoHS",
+"FCC"
+],
+"languages": [
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Norwegian",
+"Korean",
+"Japanese",
+"Ukrainian",
+"Hebrew"
+],
+"appName": "G band",
+"origin": "Mainland China",
+"compatibility": "iOS",
+"packageContents": [
+"Bracelet ×1",
+"Charging cable ×1",
+"Instruction manual ×1",
+"Packing box ×1",
+"Strap ×2"
+],
+"highConcernChemical": "None",
+"manipulationMode": "Mobile APP control"
+},
+"perfectFor": [
+"Health and wellness monitoring",
+"Fitness and activity tracking",
+"Sleep and women's health tracking",
+"Users who want a screen-free smart bracelet",
+"Users needing health and daily reminders"
+],
+"pros": [
+"Screen-free design with 24/7 real-time monitoring",
+"Supports ECG, HRV, blood oxygen, blood pressure, sleep, and body composition monitoring",
+"Tracks 120+ motion modes and multiple activity metrics",
+"Includes magnetic charging and up to 60+ days of standby"
+],
+"considerations": [
+"The bracelet has no GPS or global positioning.",
+"The screen style and screen type are listed as none, and the touchscreen is not supported.",
+"The band is not detachable.",
+"Compatibility is specified for iOS."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c40HMIVH",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL092",
+"name": "luxuglow Women Smart Bracelet Heart Rate Monitor Activity Fitness Tracker",
+"brand": "luxuglow",
+"model": "",
+"category": "Smartwatches",
+"subcategory": "Fitness Smart Bracelets",
+"tags": [
+"smart bracelet",
+"fitness tracker",
+"heart rate monitor",
+"blood oxygen monitor",
+"sleep tracker",
+"women's health",
+"activity tracker",
+"smartband",
+"Bluetooth 5.3",
+"waterproof"
+],
+"rating": null,
+"images": [
+"images/GL092-1.jpg",
+"images/GL092-2.jpg",
+"images/GL092-3.jpg"
+],
+"shortDescription": "Multifunctional luxuglow smart bracelet with 24-hour health monitoring, activity tracking, notifications, Bluetooth 5.3, LCD touchscreen, remote photography, and daily waterproof use.",
+"benefits": [
+"Monitors heart rate, blood oxygen, sleep, stress, and women's health.",
+"Tracks steps, calories, distance, and activity automatically.",
+"Provides call, message, and social media notifications.",
+"Enables mobile app data monitoring and remote photography."
+],
+"overview": [
+"The luxuglow smart bracelet combines health monitoring, fitness tracking, notifications, and daily activity tracking in a multifunctional wristband. It provides 24-hour monitoring of heart rate, blood oxygen, sleep, stress, exercise, and women's health, while automatically tracking steps, calories, distance, and activity.",
+"The bracelet connects to phones through Bluetooth 5.3 and provides real-time data monitoring through its mobile app. It features a black and white LCD touchscreen, supports call, message, and social media notifications, remote photography, alarm clock, calendar, countdown, and chronograph functions, and is designed for daily waterproof use."
+],
+"features": [
+"24-hour heart rate, blood oxygen, sleep, stress, exercise, and women's health monitoring",
+"Steps, calories, distance, and activity tracking",
+"Black and white LCD touchscreen display",
+"Bluetooth 5.3 connectivity with mobile app data monitoring",
+"Call, message, and social media notifications",
+"Remote photography with phone camera control",
+"Alarm clock, chronograph, calendar, and countdown functions",
+"Daily waterproof use and shock resistance"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"category": "Wristbands",
+"name": "Multifunctional Wristband",
+"style": "SPORT",
+"applicationAgeGroup": "Adult",
+"origin": "Mainland China",
+"globalPositioning": "NONE",
+"highConcernedChemical": "None",
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Women's Health Monitoring",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Distance Tracker",
+"Other",
+"Steps Tracker",
+"Activity Tracker",
+"Calorie Tracker"
+],
+"indicators": [
+"Heart rate",
+"Blood oxygen level",
+"Sleep",
+"Exercise",
+"Time",
+"Battery level"
+],
+"monitoring": "24-hour monitoring",
+"phoneDisconnectedMonitoring": "Independently monitors blood oxygen and heart rate when the phone is disconnected and updates the data in the app once connected",
+"screenSize": "44.510.55.6mm",
+"screenStyle": "Rectangle/Square-shape",
+"screenType": "Black & White LCD",
+"display": "LED",
+"touchScreen": "Yes",
+"bluetoothCompatibleVersion": "5.3",
+"bluetooth": "BT5.3",
+"compatibility": "All Compatible",
+"osCompatibility": "iPhone 11.0 and above, Android 6.0 and above",
+"notifications": [
+"Call",
+"Message",
+"Social media"
+],
+"batteryCapacity": "180-220mAh",
+"batteryCapacitySpecification": "18 mAh polymer lithium battery with battery protection",
+"battery": "Built-in 18mAh polymer lithium battery",
+"operatingTime": "Approximately 3-5 days",
+"chargingTime": "2 hours",
+"caseMaterial": "STEEL",
+"material": "Zinc alloy + epoxy resin",
+"bandMaterial": "STEEL",
+"strap": "Stainless steel + silicone strap",
+"claspType": "Buckle",
+"bandDetachable": "Yes",
+"colors": [
+"Black",
+"Gold",
+"Silver"
+],
+"variants": "Available in Black, Gold, Silver, and mesh variants",
+"waterproofGrade": "Life Waterproof",
+"waterproof": "Waterproof for daily use",
+"functions": [
+"Shock Resistant",
+"Passometer",
+"Fitness tracker",
+"Sleep tracker",
+"Message Reminder",
+"Call Reminder",
+"Alarm Clock",
+"Chronograph",
+"Social Media Notifications",
+"Blood Oxygen",
+"Calendar",
+"Countdown",
+"Calorie Counter",
+"Week",
+"Heart Rate Tracker",
+"Activity Tracker"
+],
+"languages": [
+"CN",
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Norwegian",
+"Korean",
+"Japanese",
+"Ukrainian",
+"Hebrew"
+],
+"certifications": [
+"CE",
+"FCC",
+"RoHS"
+],
+"chipset": "OM6626B",
+"gSensor": "SC7A20H",
+"heartRateSensor": "HX3918",
+"packageContents": [
+"1 * Watch",
+"1 * Charging Cable",
+"1 * Instruction Manual"
+],
+"remotePhotographyCompatibility": "iPhone 11.0 and above and Android 6.0 and above",
+"remotePhotography": "Phone camera control for taking photos and recording videos by tapping to click the shutter"
+},
+"perfectFor": [
+"Daily health monitoring",
+"Fitness and activity tracking",
+"Sleep and women's health tracking",
+"Users who want call and message notifications",
+"Users needing mobile app health data monitoring"
+],
+"pros": [
+"Provides 24-hour monitoring of multiple health metrics",
+"Tracks steps, calories, distance, and activity automatically",
+"Includes Bluetooth 5.3 and mobile app data monitoring",
+"Supports notifications and remote photography",
+"Features a detachable band and daily waterproof design"
+],
+"considerations": [
+"The listed battery capacity includes both 180-220mAh and 18mAh specifications.",
+"Operating time is approximately 3-5 days and charging time is 2 hours.",
+"OS compatibility is specified as iPhone 11.0 and above and Android 6.0 and above.",
+"The listed screen size is 44.510.55.6mm."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3KdRIEj",
+"amazon": ""
+}
+},
+
+
+{
+"code": "GL093",
+"name": "luxuglow 2208A Smart Bracelet Heart Rate Blood Pressure Monitor",
+"brand": "luxuglow",
+"model": "2208A",
+"category": "Fitness Trackers",
+"subcategory": "Health & Fitness Smart Bracelets",
+"tags": [
+"smart bracelet",
+"fitness tracker",
+"heart rate monitor",
+"blood pressure monitor",
+"blood oxygen monitor",
+"sleep tracker",
+"activity tracker",
+"pedometer",
+"IP68 waterproof",
+"Bluetooth 5.0"
+],
+"rating": null,
+"images": [
+"images/GL093-1.jpg",
+"images/GL093-2.jpg",
+"images/GL093-3.jpg"
+],
+"shortDescription": "luxuglow 2208A smart bracelet with continuous health monitoring, 50+ sports modes, APP tracking, Bluetooth 5.0, IP68 protection, and up to 10 days of daily use.",
+"benefits": [
+"Continuously monitors heart rate, blood pressure, blood oxygen, temperature, stress, sleep, and activity.",
+"Tracks more than 50 sports modes with real-time exercise data.",
+"Provides daily, weekly, and monthly health reports through the APP.",
+"Offers IP68 waterproof and dustproof protection with up to 10 days of daily use."
+],
+"overview": [
+"The luxuglow 2208A smart bracelet provides automatic continuous monitoring of heart rate, blood pressure, blood oxygen, body temperature, stress, sleep, heart rate variability, pressure, and activity. It supports real-time health data tracking through an APP, including daily, weekly, and monthly health reports.",
+"For fitness tracking, the bracelet supports more than 50 sports modes and records exercise data in real time. It uses Bluetooth 5.0 connectivity, includes a silicone band, and provides IP68 waterproof and dustproof protection. The rechargeable battery supports up to 10 days of daily use and 20 days of standby."
+],
+"features": [
+"7 × 24 automatic monitoring of blood oxygen, heart rate, heart rate variability, pressure, blood pressure, and body temperature",
+"More than 50 sports modes with real-time tracking",
+"APP health data tracking with daily, weekly, and monthly reports",
+"Heart rate, blood pressure, blood oxygen, temperature, stress, sleep, and activity monitoring",
+"Bluetooth 5.0 connectivity with OTA support",
+"IP68 waterproof and dustproof protection",
+"Up to 10 days of daily use and 20 days of standby",
+"No touch screen and no screen type"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"productCategory": "Wristbands",
+"applicationAgeGroup": "Adult",
+"bluetoothCompatibleVersion": "5.0",
+"otaSupport": "Support Bluetooth 5.0 OTA",
+"globalPositioning": "NONE",
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Blood Pressure Monitor",
+"Body Temperature Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Steps Tracker",
+"Activity Tracker"
+],
+"functions": [
+"Passometer",
+"Fitness tracker",
+"Sleep tracker",
+"Blood Pressure",
+"Blood Oxygen",
+"Heart Rate Tracker",
+"Activity Tracker"
+],
+"monitoring": [
+"Automatic continuous vital signs monitoring",
+"7 × 24 automatic blood oxygen saturation monitoring",
+"Heart rate variability monitoring",
+"Pressure monitoring"
+],
+"appSupport": "Android system 5.0 and above, IOS system 10.0 and above",
+"appHealthDataTracking": "Real-time health data tracking",
+"healthReports": [
+"Daily",
+"Weekly",
+"Monthly"
+],
+"sportsModes": "More than 50 different sports modes",
+"waterproofGrade": "Life Waterproof",
+"waterproofRating": "IP68",
+"underwaterUse": "Can be submerged to 10m underwater for 2 hours",
+"touchScreen": "No",
+"screenType": "None",
+"compatibility": "All Compatible",
+"language": [
+"CN",
+"English"
+],
+"bandMaterial": "Silicone",
+"upperAndLowerCoverMaterial": "ABS + PC",
+"sideButtonMaterial": "Aluminum alloy",
+"magneticUSBChargingStandMaterial": "ABS + PC",
+"battery": "95mAh rechargeable lithium battery",
+"dailyUseBatteryLife": "Up to 10 days",
+"standbyTime": "20 days",
+"dataStorageTime": "30 days",
+"size": "10 x 10 x 10 cm",
+"colors": [
+"Rose golden",
+"Silver",
+"Black"
+],
+"origin": "Mainland China",
+"highConcernedChemical": "None",
+"packageContents": [
+"1 * Smart bracelet",
+"1 * Magnetic USB charging stand",
+"1 * User manual"
 ]
+},
+"perfectFor": [
+"Daily health monitoring",
+"Fitness and multi-sports tracking",
+"Sleep and activity tracking",
+"Users who want APP-based health reports",
+"Outdoor and daily-use activity tracking"
+],
+"pros": [
+"Provides automatic continuous monitoring of multiple health metrics",
+"Supports more than 50 sports modes",
+"Includes daily, weekly, and monthly health reports",
+"Offers IP68 waterproof and dustproof protection",
+"Provides up to 10 days of daily use and 20 days of standby"
+],
+"considerations": [
+"The bracelet has no touch screen and the screen type is listed as none.",
+"Global positioning is listed as NONE.",
+"APP compatibility is specified for Android 5.0 and above and IOS 10.0 and above.",
+"The listed size is 10 x 10 x 10 cm."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c38ncJzz",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL094",
+"name": "EIGIIS KE3Pro Military Smart Watch",
+"brand": "EIGIIS",
+"model": "KE3Pro",
+"category": "Smartwatches",
+"subcategory": "Outdoor Smart Watches",
+"tags": [
+"EIGIIS KE3Pro",
+"smart watch",
+"outdoor smartwatch",
+"GPS smartwatch",
+"fitness tracker",
+"heart rate monitor",
+"sleep tracker",
+"LED flashlight",
+"Bluetooth 5.3",
+"sport modes"
+],
+"rating": null,
+"images": [
+"images/GL094-1.jpg",
+"images/GL094-2.jpg",
+"images/GL094-3.jpg"
+],
+"shortDescription": "EIGIIS KE3Pro outdoor smartwatch with 1.45-inch TFT touchscreen, GPS, heart rate and sleep monitoring, multiple sport modes, LED flashlight, and Bluetooth 5.3.",
+"benefits": [
+"Tracks heart rate, blood oxygen, sleep, stress, steps, distance, calories, and activity.",
+"Supports GPS and multiple sport modes for outdoor activities.",
+"Provides call, message, music, calendar, compass, and alarm functions.",
+"Includes an LED flashlight, voice assistant, Alexa support, and smartphone connectivity."
+],
+"overview": [
+"The EIGIIS KE3Pro is an outdoor smartwatch featuring a 1.45-inch round TFT touchscreen with 360 × 360 resolution. It provides heart rate, blood oxygen, sleep, and stress monitoring alongside steps, distance, calories, and activity tracking. GPS and multiple sport modes support outdoor activity tracking.",
+"The smartwatch includes Bluetooth 5.3, a built-in voice assistant, Alexa support, an LED flashlight, call and message functions, interactive music, compass, calendar, countdown, and multiple dials. It uses the GloryFit app for performance monitoring and supports Android 8.0 or above and iOS 8.0 or above."
+],
+"features": [
+"1.45-inch round TFT touchscreen with 360 × 360 resolution",
+"Heart rate, blood oxygen, sleep, and stress monitoring",
+"GPS and multiple sport modes",
+"Steps, distance, calorie, and activity tracking",
+"Built-in LED flashlight",
+"Bluetooth 5.3 smartphone connectivity",
+"Built-in voice assistant with Alexa support",
+"Call, message, music, compass, calendar, and alarm functions"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"category": "Smart Watches",
+"model": "KE3Pro",
+"productName": "EIGIIS Military Smart Watches",
+"launchDate": "2025",
+"style": "Outdoor",
+"applicationAgeGroup": "Adult",
+"type": "On Wrist",
+"movementType": "Electronic",
+"mechanism": "Yes",
+"origin": "Mainland China",
+"screenMaterial": "TFT",
+"screenSize": "1.45 inch",
+"displaySize": "1.45"",
+"screenShape": "Round",
+"touchScreen": "Yes",
+"touchScreenType": "TFT",
+"resolution": "360x360",
+"dialWindowMaterialType": "Plastic",
+"caseMaterial": "Alloy",
+"material": "Zinc alloy",
+"bandMaterial": "Silica Gel",
+"accessoryType": "silicone strap",
+"bandLength": "230mm",
+"bandWidth": "23mm",
+"bandDetachable": "Yes",
+"bluetoothCompatibleVersion": "5.3",
+"bluetoothVersion": "BLE 5.3",
+"wifi": "no",
+"networkMode": "None",
+"simCardSlot": "NO",
+"simCardAvailable": "No",
+"gps": "Yes",
+"voiceAssistantBuiltIn": "Yes",
+"supportAlexa": "Y",
+"multipleDials": "Yes",
+"rearCamera": "None",
+"appDownloadAvailable": "Yes",
+"appName": "GloryFit",
+"additionalAppName": "FitCloud",
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker",
+"Activity Tracker"
+],
+"batteryLife": "7 days",
+"batteryCapacity": ">450mAh",
+"batteryCapacitySpecification": "530 mAh",
+"batteryDetachable": "No",
+"chargingType": "Magnetic charging",
+"chargingTime": "2 Hours",
+"rom": "128 MB",
+"ram": "128 MB",
+"cpuModel": "RTL8763EWE",
+"cpuManufacturer": "MediaTek",
+"system": "Android Wear",
+"waterproofGrade": "Life Waterproof",
+"waterproofRating": "IP67",
+"compatibility": "All Compatible",
+"compatibleSystem": "Android system 8.0 version or above; IOS system 8.0 version or above",
+"languages": [
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Italian",
+"French",
+"German",
+"Japanese",
+"Dutch",
+"Arabic",
+"Greek"
+],
+"functions": [
+"Passometer",
+"Fitness tracker",
+"Sleep tracker",
+"Message Reminder",
+"Call Reminder",
+"Answer Call",
+"Dial Call",
+"Push Message",
+"Chronograph",
+"Alarm Clock",
+"Calorie Counter",
+"DIVER",
+"Power Reserve",
+"Perspective Window",
+"Phase of the Moon",
+"Speed Measurement",
+"Heart Rate Tracker",
+"Interactive Music",
+"Calendar",
+"Compass",
+"Countdown"
+],
+"certifications": [
+"CE",
+"FCC",
+"RoHS"
+],
+"packageContents": [
+"1 x Smart Watch Body",
+"1 x Charging Cable",
+"1 x User Manual",
+"1 x Retailed Box"
+],
+"ledFlashlight": "Yes"
+},
+"perfectFor": [
+"Outdoor activities",
+"Fitness and sport tracking",
+"Running and cycling",
+"Health and activity monitoring",
+"Users needing GPS and smartphone connectivity"
+],
+"pros": [
+"Includes GPS and multiple sport modes",
+"Provides heart rate, blood oxygen, sleep, and stress monitoring",
+"Features a 1.45-inch TFT touchscreen with 360 × 360 resolution",
+"Includes LED flashlight and built-in voice assistant",
+"Supports Bluetooth 5.3 and smartphone connectivity"
+],
+"considerations": [
+"The product is not a professional medical device and its data is for reference only.",
+"Battery capacity is listed as both >450mAh and 530 mAh.",
+"The app information lists both GloryFit and FitCloud.",
+"Compatible systems are specified as Android 8.0 or above and iOS 8.0 or above."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3nioDp9",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL095",
+"name": "GUHUAVMI V93 Smart Watch",
+"brand": "GUHUAVMI",
+"model": "V93",
+"category": "Smartwatches",
+"subcategory": "Fashion Smart Watches",
+"tags": [
+"smart watch",
+"fitness smartwatch",
+"AMOLED smartwatch",
+"heart rate monitor",
+"blood oxygen monitor",
+"GPS smartwatch",
+"Bluetooth call watch",
+"women's health",
+"DAFit smartwatch",
+"sports watch"
+],
+"rating": null,
+"images": [
+"images/GL095-1.jpg",
+"images/GL095-2.jpg",
+"images/GL095-3.jpg"
+],
+"shortDescription": "GUHUAVMI V93 smartwatch with 1.32-inch AMOLED touchscreen, 466×466 resolution, health monitoring, GPS, Bluetooth calls, sports tracking, customizable dials, and DAFit app support.",
+"benefits": [
+"Monitors heart rate, blood oxygen, sleep, blood pressure, stress, calories, and women's health.",
+"Supports GPS positioning, multiple sports modes, exercise records, and activity tracking.",
+"Provides Bluetooth calling, message and call reminders, music control, and remote photography.",
+"Offers customizable watch faces, multiple dials, weather, calendar, compass, and other functions."
+],
+"overview": [
+"The GUHUAVMI V93 smartwatch features a 1.32-inch round AMOLED full-circle touchscreen with 466×466 resolution. It provides heart rate, blood oxygen, sleep, blood pressure, stress, calorie, and activity monitoring, plus women's health tracking for ovulation, menstruation, and safety periods.",
+"The watch supports GPS, Bluetooth connectivity and calling, multiple sports modes, customizable watch faces, and DAFit app support. Additional functions include message and call reminders, remote photography, music control, weather, smart alarm clock, exercise records, track maps, compass, calendar, countdown, calculator, and thermometer."
+],
+"features": [
+"1.32-inch AMOLED full-circle touchscreen with 466×466 resolution",
+"Heart rate, blood oxygen, sleep, blood pressure, stress, and calorie monitoring",
+"Women's health, ovulation, menstruation, and safety period tracking",
+"GPS with real-time positioning and multiple sports modes",
+"Bluetooth calling with message and call reminders",
+"Customizable watch faces and multiple dials",
+"DAFit app support with exercise records and health data monitoring",
+"Remote photography, music control, weather, compass, calendar, and alarm functions"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"displaySize": "1.32 inch AMOLED Full circle touch screen",
+"screenSize": "1.32-inch Ultra-thin AMOLED high-definition 3D curved screen",
+"screenMaterial": "Amoled",
+"screenShape": "Round",
+"touchScreen": "Yes",
+"resolution": "466×466 HD AMOLED",
+"resolutionPixels": "466×466 pixels",
+"model": "V93",
+"cpuModel": "New Fashion Smart Watch Women",
+"cpuManufacturer": "MediaTek",
+"ram": "128 MB",
+"rom": "128 MB",
+"movementType": "Electronic",
+"mechanism": "Yes",
+"batteryCapacity": "180–220mAh",
+"batteryCapacityDescription": "200–300mAh",
+"batteryLife": "7",
+"batteryDetachable": "No",
+"chargingMethod": "Magnetic charging",
+"fastCharging": "Yes",
+"wirelessCharger": "Included",
+"bluetoothCompatibleVersion": "5.2",
+"bluetooth": "Bluetooth 5.0",
+"simCardSlot": "No",
+"simCardAvailable": "No",
+"wifi": "No",
+"networkMode": "None",
+"gps": "Yes",
+"appDownloadAvailable": "Yes",
+"voiceAssistantBuiltIn": "Yes",
+"appName": "DAFit / DaFit",
+"compatibility": "All Compatible",
+"appSystem": "Support mobile version iOS 9.0 or above, Android 4.0 or above",
+"system": [
+"Android Wear",
+"Proprietary OS",
+"Android OS",
+"iOS",
+"None",
+"Wear OS",
+"Color OS",
+"HarmonyOS",
+"FreeRTOS",
+"Wacth OS",
+"Zepp OS",
+"DuWear",
+"Tizen OS"
+],
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Other",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Blood Pressure Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Other",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker",
+"Activity Tracker"
+],
+"bandLength": "240 mm",
+"bandWidth": "22 mm",
+"bandDetachable": "Yes",
+"bandMaterial": "Fine Steel",
+"caseMaterial": "Precious Metals",
+"style": "Fashion",
+"type": "On Wrist",
+"category": "Smart Watches",
+"applicationAgeGroup": "Adult",
+"waterproofGrade": "Professional Waterproof",
+"waterproofDescription": "Waterproof for daily life",
+"origin": "Mainland China",
+"certifications": [
+"CE",
+"FCC",
+"RoHS",
+"CEC"
+],
+"highConcernedChemical": "None",
+"watchLanguages": [
+"Chinese",
+"Traditional Chinese",
+"English",
+"German",
+"Korean",
+"Spanish",
+"Japanese",
+"French",
+"Russian",
+"Arabic",
+"Ukrainian",
+"Italian",
+"Portuguese",
+"Netherlands",
+"Maltese",
+"Czech",
+"Romania",
+"Thailand",
+"Vietnamese",
+"Indonesia",
+"Turkey"
+],
+"appLanguages": [
+"Chinese",
+"Traditional Chinese",
+"English",
+"German",
+"Korean",
+"Spanish",
+"Japanese",
+"French",
+"Russian",
+"Arabic",
+"Ukrainian",
+"Italian",
+"Portuguese",
+"Netherlands",
+"Maltese",
+"Czech",
+"Romania",
+"Thailand",
+"Vietnamese",
+"Indonesia",
+"Turkey"
+],
+"multipleDials": "Yes",
+"packageContents": [
+"Wireless charger",
+"Watch strap",
+"Gift box"
+],
+"functions": [
+"Heart rate monitoring",
+"Blood oxygen monitoring",
+"Sleep monitoring",
+"Blood pressure monitoring",
+"Stress monitoring",
+"Calorie tracking",
+"Activity tracking",
+"Steps tracking",
+"Distance tracking",
+"Bluetooth call functionality",
+"Hands-free communication",
+"Customizable watch faces",
+"Multiple dials",
+"GPS",
+"Real-time GPS positioning",
+"Built-in voice assistant",
+"Message reminder",
+"Call reminder",
+"Answer call",
+"Dial call",
+"Push message",
+"Women's health monitoring",
+"Ovulation tracking",
+"Menstruation tracking",
+"Safety period tracking",
+"Sports fitness tracking",
+"Exercise records",
+"Track map",
+"Altitude measurement",
+"Speed measurement",
+"Multiple sports modes",
+"Sitting reminder",
+"Stopwatch",
+"Low battery reminder",
+"Hand-raising screen activation",
+"Fast charging",
+"Ultra-low power consumption",
+"Vibration reminder",
+"Remote photography",
+"Music control",
+"Smart alarm clock",
+"Weather display",
+"WeChat exercise",
+"Calendar",
+"Compass",
+"Countdown",
+"Calculator",
+"Thermometer",
+"Oxymeter",
+"Passometer",
+"Chronograph",
+"World time",
+"Permanent calendar",
+"GMT two places",
+"Phase of the moon",
+"24-hour instruction",
+"Power reserve",
+"Interactive music",
+"Remote control",
+"Door unlock",
+"Lighting"
+]
+},
+"perfectFor": [
+"Fitness and sports tracking",
+"Women's health monitoring",
+"Daily activity and health tracking",
+"Users needing Bluetooth calling and notifications",
+"Users wanting GPS and customizable watch faces"
+],
+"pros": [
+"Features a 1.32-inch AMOLED touchscreen with 466×466 resolution",
+"Includes GPS and multiple sports tracking functions",
+"Supports Bluetooth calling and smartphone notifications",
+"Provides multiple health and women's health monitoring functions",
+"Includes customizable watch faces and multiple dials"
+],
+"considerations": [
+"Bluetooth connectivity is listed as both 5.2 and Bluetooth 5.0.",
+"Battery capacity is listed as both 180–220mAh and 200–300mAh.",
+"The product information lists multiple operating systems under system compatibility.",
+"The watch is described as waterproof for daily life and has a Professional Waterproof grade."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3lJpfER",
+"amazon": ""
+}
+}
+
+]
+
+
+
