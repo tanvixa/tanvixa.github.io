@@ -1,6 +1,41 @@
 /* =========================================================
    TANVIXA V3 - GLOBAL DATA + SITE SYSTEM
    FINAL CLEAN STABLE VERSION
+
+   /* =========================================================
+   GOOGLE ANALYTICS
+   ========================================================= */
+
+(function () {
+    const GA_ID = "G-91RBG3DSJZ";
+
+    window.dataLayer = window.dataLayer || [];
+
+    window.gtag = window.gtag || function () {
+        window.dataLayer.push(arguments);
+    };
+
+    if (!window.__tanvixaGAInitialized) {
+        window.gtag("js", new Date());
+        window.gtag("config", GA_ID);
+        window.__tanvixaGAInitialized = true;
+    }
+
+    if (
+        !document.querySelector(
+            'script[src*="googletagmanager.com/gtag/js"]'
+        )
+    ) {
+        const script = document.createElement("script");
+
+        script.async = true;
+        script.src =
+            "https://www.googletagmanager.com/gtag/js?id=" +
+            GA_ID;
+
+        document.head.appendChild(script);
+    }
+})();
    ========================================================= */
 
 const TVX = {
@@ -9,7 +44,6 @@ const TVX = {
     config: {},
     ready: null
 };
-
 
 /* =========================================================
    ESCAPE HTML
