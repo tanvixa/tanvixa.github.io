@@ -1387,3 +1387,36 @@ img{
         font-size:9px
     }
 }
+
+/* Remove all text/badge overlays from product images */
+.image-wrapper::before,
+.image-wrapper::after,
+.image-wrapper .top-badges,
+.image-wrapper .feature-badges,
+.image-wrapper .specs-badges,
+.image-wrapper .badge,
+.image-wrapper .badges,
+.image-wrapper .image-overlay,
+.image-wrapper .product-overlay,
+.product-card .top-badges,
+.product-card .feature-badges,
+.product-card .specs-badges,
+.product-card .badge,
+.product-card .badges,
+.product-card .image-overlay,
+.product-card .product-overlay {
+    display: none !important;
+}
+
+/* Keep product images clean */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
