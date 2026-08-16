@@ -14,7 +14,7 @@ const TVX = {
    ========================================================= */
 
 (function () {
-    const GA_ID = "G-91RBG3DSJZ";
+    const GA_ID = "G-91RBGJDSWZ";
 
     window.dataLayer = window.dataLayer || [];
 
