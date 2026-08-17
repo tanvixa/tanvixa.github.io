@@ -4749,7 +4749,7 @@
 "AI health analysis and remote care",
 "Mobile APP control with magnetic charging"
 ],
-"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"video": "https://youtu.be/rhC67j89gBE",
 "specifications": {
 "productType": "Wristbands",
 "style": "SPORT",
@@ -4909,7 +4909,7 @@
 "Alarm clock, chronograph, calendar, and countdown functions",
 "Daily waterproof use and shock resistance"
 ],
-"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"video": "https://youtu.be/s8VmYt-kvyY",
 "specifications": {
 "category": "Wristbands",
 "name": "Multifunctional Wristband",
@@ -5103,7 +5103,7 @@
 "Up to 10 days of daily use and 20 days of standby",
 "No touch screen and no screen type"
 ],
-"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"video": "https://youtu.be/RoPB760tGAM",
 "specifications": {
 "productCategory": "Wristbands",
 "applicationAgeGroup": "Adult",
@@ -5253,7 +5253,7 @@
 "Built-in voice assistant with Alexa support",
 "Call, message, music, compass, calendar, and alarm functions"
 ],
-"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"video": "https://youtu.be/gJj6F2g72w0",
 "specifications": {
 "category": "Smart Watches",
 "model": "KE3Pro",
@@ -5447,7 +5447,7 @@
 "DAFit app support with exercise records and health data monitoring",
 "Remote photography, music control, weather, compass, calendar, and alarm functions"
 ],
-"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"video": "https://youtu.be/LEDlHr__Wsc",
 "specifications": {
 "displaySize": "1.32 inch AMOLED Full circle touch screen",
 "screenSize": "1.32-inch Ultra-thin AMOLED high-definition 3D curved screen",
@@ -5675,9 +5675,955 @@
 "aliexpress": "https://s.click.aliexpress.com/e/_c3lJpfER",
 "amazon": ""
 }
+},
+
+  {
+"code": "GL096",
+"name": "GUHUAVMI Women Smartwatch 1.32inch AMOLED Screen Call ECG Sport Watch",
+"brand": "GUHUAVMI",
+"model": "",
+"category": "Smart Watches",
+"subcategory": "Women's Smartwatch",
+"tags": [
+"GUHUAVMI smartwatch",
+"women smartwatch",
+"AMOLED smartwatch",
+"ECG smartwatch",
+"blood pressure monitor",
+"Bluetooth call watch",
+"fitness tracker",
+"AI dial",
+"women health monitoring"
+],
+"rating": null,
+"images": [
+"images/GL096-1.jpg",
+"images/GL096-2.jpg",
+"images/GL096-3.jpg"
+],
+"shortDescription": "GUHUAVMI women’s smartwatch with a 1.32-inch AMOLED full-circle touch screen, ECG+9PPG, health monitoring, Bluetooth 5.3, Bluetooth calling, AI intelligent Q&A, and activity tracking.",
+"benefits": [
+"Provides ECG+9PPG, heart rate, blood pressure, blood oxygen, sleep, stress, and body temperature monitoring.",
+"Supports activity tracking for steps, calories, distance, and multiple fitness metrics.",
+"Supports Bluetooth calling, message reminders, call reminders, and voice assistant functions.",
+"Provides AI intelligent Q&A, customizable dials, and G Band app integration."
+],
+"overview": [
+"The GUHUAVMI women’s smartwatch features a 1.32-inch AMOLED full-circle touch screen with 466*466 resolution. It supports ECG+9PPG, heart rate, blood pressure, blood oxygen, sleep, stress, women’s health, and body temperature monitoring.",
+"The watch supports Bluetooth 5.3, Bluetooth calls, voice assistant, GPS via smartphone, customizable dials, AI intelligent Q&A, and G Band app integration. It has a sapphire crystal dial window, precious metal case, detachable silica gel band, 220–300mAh battery capacity, and 5 days of battery life."
+],
+"features": [
+"1.32-inch AMOLED full-circle touch screen",
+"ECG+9PPG technology",
+"Heart rate, blood pressure, blood oxygen, sleep, stress, and body temperature monitoring",
+"Women’s health monitoring",
+"AI intelligent Q&A and customizable dials",
+"Bluetooth 5.3 and Bluetooth calling",
+"Activity tracking for steps, distance, calories, and activity",
+"Voice assistant and GPS via smartphone"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"category": "Smart Watches",
+"type": "On Wrist",
+"application_age_group": "Adult",
+"style": "fashion",
+"display_size": "1.32",
+"screen_material": "Amoled",
+"screen_shape": "Round",
+"touch_screen": "Yes",
+"resolution": "466*466",
+"dial_window_material_type": "Sapphire Crystal",
+"cpu_model": "Zhongke 5690G",
+"cpu_manufacturer": "qualcomm",
+"ram": "512mb",
+"rom": "512mb",
+"metrics_measured": [
+"Heart Rate Monitor",
+"Women's Health Monitoring",
+"Other",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Blood Pressure Monitor",
+"Body Temperature Monitor",
+"Stress Monitor"
+],
+"activity_tracked": [
+"Other",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker",
+"Activity Tracker"
+],
+"ecg": "ECG+9PPG",
+"bluetooth_compatible_version": "5.3",
+"bluetooth_call": true,
+"voice_assistant_built_in": "Yes",
+"app_name": "G band.",
+"compatibility": "All Compatible",
+"sim_card_available": "No",
+"network_mode": "None",
+"gps": "GPS Via Smartphone",
+"rear_camera": "None",
+"band_length_mm": 220,
+"band_width_mm": 18,
+"band_material": "Silica Gel",
+"band_detachable": "Yes",
+"case_material": "Precious Metals",
+"waterproof_grade": "Professional Waterproof",
+"ip_rating": "IP68",
+"mechanism": "Yes",
+"multiple_dials": "Yes",
+"battery_life": "5",
+"battery_capacity_mah": "220-300mah",
+"system": [
+"Android Wear",
+"Proprietary OS",
+"Android OS",
+"iOS",
+"None",
+"Wear OS",
+"Color OS",
+"HarmonyOS",
+"FreeRTOS",
+"Wacth OS",
+"Zepp OS",
+"DuWear",
+"Tizen OS"
+],
+"language": [
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Italian",
+"French",
+"German",
+"Korean",
+"Japanese",
+"Arabic"
+],
+"function": [
+"Shock Resistant",
+"Passometer",
+"fitness tracker",
+"sleep tracker",
+"Mood Tracker",
+"Message Reminder",
+"Call Reminder",
+"Answer Call",
+"Dial Call",
+"Remote control",
+"Push Message",
+"Altitude Meter",
+"tourbillon",
+"Big Three Needles",
+"24 hour instruction",
+"Chronograph",
+"Alarm Clock",
+"Small Second",
+"World Time",
+"Calorie Counter",
+"Permanent Calendar",
+"Multiple Time Zone",
+"Power Reserve",
+"GMT Two Places",
+"Perspective Window",
+"week",
+"Phase of the Moon",
+"Speed Measurement",
+"Month",
+"Moisture Measurement",
+"Attemper",
+"Heart Rate Tracker",
+"Interactive Music",
+"Noctilucent",
+"Thermometer",
+"Calendar",
+"Compass",
+"Lighting",
+"Countdown",
+"Calculators",
+"Oxymeter"
+],
+"multi_sport_mode": true,
+"high_concerned_chemical": "None",
+"origin": "Mainland China",
+"certification": [
+"CE",
+"FCC",
+"RoHS",
+"CEC"
+],
+"smart_watch_type": "smart watch Women",
+"band_options": [
+"Golden Mesh Belt strap",
+"Diamond Gold 2A",
+"Silver Mesh Belt 2A"
+],
+"ai_dial": true,
+"ai_intelligent_qa": true,
+"customized_dials": true,
+"dynamic_watch_face": true,
+"emotion_detection": true,
+"fatigue_detection": true,
+"micro_physical_examination": true,
+"weather_display": true,
+"music_watch": true,
+"phone_watch": true,
+"fitness_bracelet": true,
+"smartwatch_women": true,
+"sports_watch": true,
+"outdoor_smart_watch": true,
+"steel_smart_watch": true,
+"fashion_smart_watch": true,
+"luxury_smart_watch_male": true,
+"women_fashion_smartwatch": true,
+"smartwatch_mens": true
+},
+"perfectFor": [
+"Women’s health monitoring",
+"Fitness and activity tracking",
+"Bluetooth calling and phone-related functions",
+"Sleep, stress, and health monitoring",
+"Using AI intelligent Q&A and customizable watch dials"
+],
+"pros": [
+"1.32-inch AMOLED full-circle touch screen",
+"ECG+9PPG and multiple health monitoring functions",
+"Bluetooth 5.3 with Bluetooth calling",
+"AI intelligent Q&A and customizable dials",
+"Detachable band with sapphire crystal dial window"
+],
+"considerations": [
+"SIM Card Available: No",
+"GPS: GPS Via Smartphone",
+"Network Mode: None",
+"Rear Camera: None"
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3OO67pz",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL097",
+"name": "GUHUAVMI V93 Smart Watch for Women",
+"brand": "GUHUAVMI",
+"model": "V93",
+"category": "Smart Watches",
+"subcategory": "Fitness Smart Watches",
+"tags": [
+"smart watch",
+"women's smartwatch",
+"fitness tracker",
+"AMOLED smartwatch",
+"Bluetooth calling",
+"heart rate monitor",
+"GPS smartwatch",
+"DAFit",
+"health monitoring"
+],
+"rating": null,
+"images": [
+"images/GL097-1.jpg",
+"images/GL097-2.jpg",
+"images/GL097-3.jpg"
+],
+"shortDescription": "GUHUAVMI V93 smartwatch with a 1.32-inch AMOLED touch screen, health monitoring, fitness tracking, Bluetooth calling, GPS positioning, and DAFit app support.",
+"benefits": [
+"Monitors heart rate, blood oxygen, blood pressure, sleep, and stress",
+"Tracks steps, distance, calories, and activity",
+"Supports Bluetooth calling and message and call reminders",
+"Provides GPS positioning and multiple fitness functions"
+],
+"overview": [
+"The GUHUAVMI V93 is a smart watch with a 1.32-inch AMOLED full circle touch screen and 466×466 resolution. It provides heart rate, blood oxygen, blood pressure, sleep, stress, activity, steps, distance, and calorie tracking.",
+"The watch supports Bluetooth calling, GPS positioning, customizable watch faces, women's health monitoring, remote photography, music control, weather information, and multiple sports functions. It uses the DAFit app and supports Android and iOS devices."
+],
+"features": [
+"1.32-inch AMOLED full circle touch screen",
+"466×466 HD resolution",
+"Heart rate, blood oxygen, blood pressure, sleep, and stress monitoring",
+"Steps, distance, calorie, and activity tracking",
+"Bluetooth calling and message and call reminders",
+"Real-time GPS positioning",
+"Women's health monitoring",
+"Multiple sports modes"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"brand": "GUHUAVMI",
+"model": "V93",
+"category": "Smart Watches",
+"type": "On Wrist",
+"style": "Fashion",
+"application_age_group": "Adult",
+"origin": "Mainland China",
+"screen_material": "Amoled",
+"screen_shape": "Round",
+"display_size": "1.32 inch AMOLED Full circle touch screen",
+"screen_size": "1.32-inch Ultra-thin AMOLED high-definition 3D curved screen",
+"touch_screen": true,
+"resolution": "466×466 HD AMOLED",
+"rom": "128 MB",
+"ram": "128 MB",
+"cpu_manufacturer": "MediaTek",
+"cpu_model": "New Fashion Smart Watch Women",
+"movement_type": "Electronic",
+"mechanism": true,
+"case_material": "Precious Metals",
+"band_material": "Fine Steel",
+"band_length_mm": 240,
+"band_width_mm": 20,
+"band_detachable": true,
+"bluetooth_compatible_version": "5.2",
+"bluetooth": "Bluetooth 5.0",
+"voice_assistant_built_in": true,
+"gps": true,
+"real_time_gps_positioning": true,
+"sim_card_slot": false,
+"sim_card_available": false,
+"wifi": false,
+"network_mode": "None",
+"rear_camera": "None",
+"battery_detachable": false,
+"battery_life": 7,
+"battery_capacity": [
+"180-220mAh",
+"200-300mAh"
+],
+"charging_method": "Magnetic charging",
+"waterproof_grade": "Professional Waterproof",
+"waterproof": "Waterproof for daily life",
+"app_name": "DAFit",
+"app_download_available": true,
+"app_system": "Support mobile version iOS 9.0 or above, Android 4.0 or above",
+"compatibility": "All Compatible",
+"certification": [
+"CE",
+"FCC",
+"RoHS",
+"CEC"
+],
+"high_concerned_chemical": "None",
+"accessory_type": [
+"Wireless charger",
+"watch strap",
+"gift box"
+],
+"metrics_measured": [
+"Heart Rate Monitor",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Blood Pressure Monitor",
+"Stress Monitor"
+],
+"activity_tracked": [
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker",
+"Activity Tracker"
+],
+"languages": [
+"English",
+"Russian",
+"Spanish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Korean",
+"Japanese",
+"Ukrainian",
+"Dutch",
+"Arabic",
+"Indonesian",
+"Chinese",
+"Traditional Chinese",
+"Maltese",
+"Czech",
+"Romanian",
+"Thai",
+"Vietnamese"
+],
+"functions": [
+"Passometer",
+"fitness tracker",
+"sleep tracker",
+"Message Reminder",
+"Call Reminder",
+"Answer Call",
+"Dial Call",
+"Remote control",
+"Push Message",
+"Altitude Meter",
+"tourbillon",
+"Big Three Needles",
+"24 hour instruction",
+"Chronograph",
+"Alarm Clock",
+"Small Second",
+"World Time",
+"Permanent Calendar",
+"Power Reserve",
+"GMT Two Places",
+"Perspective Window",
+"week",
+"Phase of the Moon",
+"Speed Measurement",
+"Month",
+"Heart Rate Tracker",
+"Interactive Music",
+"Noctilucent",
+"Thermometer",
+"Calendar",
+"Compass",
+"Lighting",
+"Countdown",
+"Calculators",
+"Oxymeter"
+],
+"additional_functions": [
+"exercise record",
+"track map",
+"sitting reminder",
+"stopwatch",
+"low battery reminder",
+"hand-raising the screen",
+"fast charging",
+"ultra-low power consumption",
+"vibration reminder",
+"multiple sports modes",
+"remote photography",
+"music control",
+"smart alarm clock",
+"weather",
+"multi-dial switching",
+"WeChat exercise",
+"call function"
+],
+"multiple_dials": true,
+"battery_life_unit": "days"
+},
+"perfectFor": [
+"Fitness activity tracking",
+"Health monitoring",
+"Bluetooth calling",
+"GPS activity tracking"
+],
+"pros": [
+"1.32-inch AMOLED full circle touch screen",
+"Heart rate, blood oxygen, blood pressure, sleep, and stress monitoring",
+"Bluetooth calling support",
+"GPS positioning support",
+"DAFit app compatibility"
+],
+"considerations": [],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c42w1Cth",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL098",
+"name": "VWAR Loop Life Fitness Tracker Smart Band",
+"brand": "Vwar",
+"model": "",
+"category": "Wearable Technology",
+"subcategory": "Fitness Trackers",
+"tags": [
+"fitness tracker",
+"smart band",
+"Vwar",
+"heart rate monitor",
+"blood oxygen monitor",
+"blood pressure monitor",
+"sleep monitor",
+"activity tracker"
+],
+"rating": null,
+"images": [
+"images/GL098-1.jpg",
+"images/GL098-2.jpg",
+"images/GL098-3.jpg"
+],
+"shortDescription": "Vwar fitness tracker smart band with heart rate, blood oxygen, blood pressure, sleep and body temperature monitoring, activity tracking, GPS via smartphone, and Bluetooth 5.3.",
+"benefits": [
+"Tracks heart rate, blood oxygen, blood pressure, sleep, and body temperature",
+"Tracks distance, steps, activity, and calories",
+"Supports GPS via smartphone and Bluetooth 5.3",
+"Provides message, call, remote control, and alarm clock functions"
+],
+"overview": [
+"The VWAR Loop Life Fitness Tracker Smart Band is a sport wristband for adults with heart rate, blood oxygen, blood pressure, sleep, and body temperature monitoring. It also tracks distance, steps, activity, and calories.",
+"The band supports GPS via smartphone, Bluetooth 5.3, message and call reminders, remote control, and alarm clock functions. It has a detachable band, tang buckle, professional waterproof grade, and no touch screen or screen type."
+],
+"features": [
+"Heart rate monitoring",
+"Blood oxygen monitoring",
+"Blood pressure monitoring",
+"Sleep monitoring",
+"Body temperature monitoring",
+"Activity, distance, steps, and calorie tracking",
+"GPS via smartphone",
+"Message and call reminders"
+],
+"video": "",
+"specifications": {
+"weight": "24g",
+"gps": "GPS Via Smartphone",
+"globalPositioning": "NONE",
+"bluetoothCompatibleVersion": "5.3",
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Blood Pressure Monitor",
+"Body Temperature Monitor"
+],
+"activityTracked": [
+"Distance Tracker",
+"Other",
+"Steps Tracker",
+"Activity Tracker",
+"Calorie Tracker"
+],
+"claspType": "Tang buckle",
+"category": "Wristbands",
+"bandDetachable": "Yes",
+"screenStyle": "Rectangle/Square-shape",
+"style": "SPORT",
+"applicationAgeGroup": "Adult",
+"waterproofGrade": "Professional Waterproof",
+"compatibility": "All Compatible",
+"language": [
+"CN",
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Norwegian",
+"Korean",
+"Japanese",
+"Ukrainian",
+"Hebrew"
+],
+"functions": [
+"Shock Resistant",
+"Passometer",
+"fitness tracker",
+"sleep tracker",
+"Message Reminder",
+"Call Reminder",
+"Remote control",
+"Blood Pressure",
+"Alarm Clock",
+"Blood Oxygen",
+"Calorie Counter",
+"Heart Rate Tracker",
+"Activity Tracker",
+"-1",
+"Whoop style"
+],
+"touchScreen": "No",
+"screenType": "None",
+"highConcernedChemical": "None",
+"origin": "Mainland China",
+"certification": [
+"CE",
+"Dot",
+"EPA",
+"RoHS"
+]
+},
+"perfectFor": [
+"Fitness tracking",
+"Activity tracking",
+"Sleep monitoring",
+"Heart rate and blood oxygen monitoring"
+],
+"pros": [
+"Tracks multiple health and activity metrics",
+"Supports distance, steps, activity, and calorie tracking",
+"Bluetooth 5.3 connectivity",
+"Detachable band with tang buckle",
+"Professional waterproof grade"
+],
+"considerations": [
+"Touch screen: No",
+"Screen type: None"
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c4LffUt1",
+"amazon": ""
+}
+},
+
+
+  {
+"code": "GL099",
+"name": "LIGE 2026 ECG+PPG Nursing Grade Smart Bracelet HRV Body Fat BMI Blood Pressure Body Temperature Men Women Health Sports Watches",
+"brand": "LIGE",
+"model": "",
+"category": "Smartwatches",
+"subcategory": "Smart Bracelet",
+"tags": [
+"LIGE",
+"ECG+PPG",
+"health monitoring",
+"smart bracelet",
+"HRV",
+"body fat",
+"BMI",
+"blood pressure",
+"188 sports modes",
+"no screen"
+],
+"rating": null,
+"images": [
+"images/GL099-1.jpg",
+"images/GL099-2.jpg",
+"images/GL099-3.jpg"
+],
+"shortDescription": "No-screen LIGE smart bracelet with ECG+PPG health monitoring, HRV, BMI, body fat, vital measurements, 188 sports modes, reminders, and activity tracking.",
+"benefits": [
+"Monitors heart rate, blood pressure, blood oxygen, body temperature, HRV, sleep, stress, and emotion",
+"Tracks steps, distance, calories, activity, and 188 sports modes",
+"Provides call, message, sedentary, and drinking water reminders",
+"Supports camera control and device finding"
+],
+"overview": [
+"The LIGE 2026 smart bracelet is a no-screen wearable with ECG+PPG technology and 24-hour health monitoring. It tracks heart rate, blood pressure, blood oxygen, body temperature, HRV, sleep, stress and emotion, BMI, and body fat.",
+"The bracelet supports 188 sports modes, step, distance and calorie tracking, vibration reminders, call and message notifications, social media notifications, camera control, and device finding. It uses BLE 5.3, the G BAND APP, and supports Android 8.0+ and iOS 13.0+."
+],
+"features": [
+"ECG+PPG (electrocardiogram+diagnosis)",
+"24H health monitoring",
+"BMI and body fat monitoring",
+"Heart rate, HRV, blood oxygen, blood pressure, and body temperature monitoring",
+"Sleep, stress, and emotion monitoring",
+"188 sports modes with activity tracking",
+"Call, message, sedentary, and drinking water reminders",
+"Camera control and find device functions"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"type": "No Screen Smart Bracelet",
+"bodyThickness": "8.2mm",
+"bluetooth": "BLE 5.3",
+"bluetoothCompatibleVersion": "5.3",
+"batteryCapacity": "200mAh",
+"batteryCapacityRange": "180-220mAh",
+"app": "G BAND",
+"compatibleSystem": "For Android 8.0+ & iOS 13.0+",
+"compatibility": "All Compatible",
+"waterproof": "IP68",
+"waterproofGrade": "Life Waterproof",
+"waterproofLimitation": "Only resistant to daily water splashes like hand washing or rain. Do not wear while swimming, diving, or bathing.",
+"globalPositioning": "NONE",
+"category": "Wristbands",
+"style": "fashion",
+"applicationAgeGroup": "Adult",
+"claspType": "Buckle",
+"bandDetachable": "Yes",
+"bandMaterial": "Nylon",
+"screenStyle": "None",
+"screenType": "None",
+"touchScreen": "No",
+"highConcernedChemical": "None",
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Other",
+"Blood Pressure Monitor",
+"Body Temperature Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Distance Tracker",
+"Other",
+"Steps Tracker",
+"Activity Tracker",
+"Calorie Tracker"
+],
+"functions": [
+"Passometer",
+"fitness tracker",
+"sleep tracker",
+"Call Reminder",
+"Remote control",
+"Blood Pressure",
+"Social Media Notifications",
+"Blood Oxygen",
+"Calorie Counter",
+"Heart Rate Tracker",
+"Thermometer",
+"Activity Tracker",
+"Message Reminder"
+],
+"function1": "ECG+PPG (electrocardiogram+diagnosis)",
+"function2": "BMI & body fat",
+"function3": "sedentary & drinking water reminder",
+"function4": "188 sports modes",
+"function5": "camera control",
+"function6": "find device",
+"certification": [
+"CE",
+"FCC",
+"RoHS"
+],
+"origin": "Mainland China",
+"languages": [
+"CN",
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Norwegian",
+"Korean",
+"Japanese",
+"Ukrainian",
+"Hebrew"
+],
+"appSupportedLanguages": [
+"English",
+"Chinese",
+"Traditional Chinese",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Norwegian",
+"Japanese",
+"Ukrainian",
+"Hebrew",
+"Dutch",
+"Arabic",
+"Indonesian",
+"Greek",
+"Korean",
+"Thai",
+"Vietnamese",
+"Malay",
+"Hindi",
+"Croatian",
+"Urdu",
+"Bengali",
+"Persian",
+"Danish",
+"Finnish",
+"Swedish",
+"Lithuanian",
+"Romanian",
+"Hungarian",
+"Czech",
+"Slovak"
+],
+"vibrationReminder": [
+"incoming calls",
+"messages",
+"sedentary",
+"drinking water"
+],
+"measurementNote": "Measurement data cannot be compared with professional medical equipment."
+},
+"perfectFor": [
+"24-hour health monitoring",
+"Fitness and sports activity tracking",
+"Daily activity and habit reminders",
+"Call and message reminders",
+"BMI and body fat tracking"
+],
+"pros": [
+"ECG+PPG health monitoring",
+"188 sports modes",
+"No-screen smart bracelet design",
+"BLE 5.3 connectivity",
+"Android 8.0+ and iOS 13.0+ compatibility"
+],
+"considerations": [
+"Measurement data cannot be compared with professional medical equipment.",
+"Do not wear while swimming, diving, or bathing.",
+"The device should be charged before use after receiving it."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c43kgTsL",
+"amazon": ""
+}
+},
+
+
+  {
+"code": "GL100",
+"name": "CHAONB Y68 Smart Watch",
+"brand": "CHAONB",
+"model": "Y68",
+"category": "Smart Watches",
+"subcategory": "",
+"tags": [
+"Y68 smartwatch",
+"CHAONB smartwatch",
+"fitness tracker",
+"sleep tracker",
+"heart rate tracker",
+"activity tracker",
+"message reminder",
+"call reminder"
+],
+"rating": null,
+"images": [
+"images/GL100-1.jpg",
+"images/GL100-2.jpg",
+"images/GL100-3.jpg"
+],
+"shortDescription": "CHAONB Y68 electronic smartwatch with a 1.44-inch TFT display, activity tracking, sleep monitoring, heart rate tracking, message reminders, call reminders, and Bluetooth 4.0.",
+"benefits": [
+"Tracks steps, distance, calories, activity, sleep, and heart rate",
+"Provides message and call reminders",
+"Supports remote photo taking and mobile phone retrieval",
+"Uses a detachable wristband with USB charging"
+],
+"overview": [
+"The CHAONB Y68 is an electronic wrist-worn smartwatch with a 1.44-inch TFT display, 128×128 resolution, Bluetooth-compatible version 4.0, activity tracking, sleep monitoring, and heart rate tracking. It also supports message reminders, call reminders, push messages, an alarm clock, chronograph, and multiple dials.",
+"The watch connects to a smartphone through an app for viewing information, remote photo taking, mobile phone retrieval, and sedentary reminders. It has a detachable wristband with USB charging and supports English, French, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, and Chinese."
+],
+"features": [
+"1.44-inch TFT display",
+"128×128 resolution",
+"Steps, distance, calorie, and activity tracking",
+"Sleep monitoring",
+"Heart rate tracking",
+"Message and call reminders",
+"Remote photo taking and mobile phone retrieval",
+"Detachable wristband with USB charging"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"category": "Smart Watches",
+"model": "116plus, Y68",
+"brand_name": "CHAONB",
+"movement_type": "Electronic",
+"style": "Healthy",
+"application_age_group": "Adult",
+"type": "On Wrist",
+"screen_material": "TFT",
+"screen_shape": "SQUARE",
+"display_size": "1.44inch",
+"resolution": "128*128",
+"bluetooth_compatible_version": "4.0",
+"sim_card_available": "No",
+"network_mode": "None",
+"gps": "No",
+"rear_camera": "None",
+"voice_assistant_built_in": "No",
+"system": "None",
+"rom": "<128MB",
+"ram": "<128MB",
+"compatibility": "All Compatible",
+"battery_capacity": "<120mAh",
+"battery_capacity_stated_in_description": "55mAh",
+"battery_life": "4Day",
+"battery_life_stated_in_description": "4H",
+"standby_time": "4 days on full charge",
+"continuous_use": "4 hours",
+"charging_requirement": "Charger output below 1A",
+"charging_method": "USB interface through the detachable wristband",
+"band_detachable": "Yes",
+"waterproof_grade": "Life Waterproof",
+"water_resistance_description": "Surface splash waterproof with cool water",
+"high_concerned_chemical": "None",
+"mechanism": "Yes",
+"multiple_dials": "Yes",
+"metrics_measured": "Other, Sleep Monitor",
+"activity_tracked": "Other, Steps Tracker, Distance Tracker, Calorie Tracker, Activity Tracker",
+"function": "Passometer, fitness tracker, sleep tracker, Message Reminder, Call Reminder, Push Message, 24 hour instruction, Chronograph, Alarm Clock, Month, Heart Rate Tracker",
+"origin": "Mainland China",
+"certification": "CE, FCC",
+"languages": [
+"English",
+"Russian",
+"Spanish",
+"Polish",
+"Portuguese",
+"Turkish",
+"Italian",
+"French",
+"German",
+"Korean",
+"Japanese",
+"Chinese"
+]
+},
+"perfectFor": [
+"Fitness tracking",
+"Sleep tracking",
+"Daily activity monitoring",
+"Smartphone-connected watch functions"
+],
+"pros": [
+"Tracks steps, distance, calories, activity, sleep, and heart rate",
+"Supports message and call reminders",
+"Supports remote photo taking and mobile phone retrieval",
+"Detachable wristband supports USB charging",
+"Supports multiple app languages"
+],
+"considerations": [
+"The screen cannot be swiped and is operated by short or long pressing the circular icon",
+"The product is described as surface splash waterproof with cool water and should not be used for swimming or soaking in water",
+"Chargers with output above 1A may not be able to charge the watch"
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3ahmMmb",
+"amazon": ""
+}
 }
 
 ]
+
+
+
+
+
 
 
 
