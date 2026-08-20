@@ -1328,18 +1328,49 @@ img{
     }
 
     .sticky-inner{
-        gap:8px
-    }
+    height:60px;
+    gap:8px;
+    display:flex;
+    align-items:center;
+}
 
-    .sticky-product{
-        max-width:44%
-    }
+.sticky-product{
+    width:44%;
+    max-width:44%;
+    min-width:0;
+    overflow:hidden;
+}
 
-    .sticky-cta .cta{
-        min-width:0;
-        flex:1;
-        font-size:11px
-    }
+.sticky-product strong{
+    display:block;
+    width:100%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:13px;
+    line-height:1.2;
+}
+
+.sticky-product span{
+    display:block;
+    margin-top:5px;
+    font-size:10px;
+    line-height:1;
+    white-space:nowrap;
+}
+
+.sticky-cta .cta{
+    min-width:0;
+    flex:1;
+    height:58px;
+    padding:8px 12px;
+    font-size:11px;
+    line-height:1.35;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
     .page-hero h1{
         font-size:32px
