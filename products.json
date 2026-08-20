@@ -6616,9 +6616,1419 @@
 "aliexpress": "https://s.click.aliexpress.com/e/_c3ahmMmb",
 "amazon": ""
 }
+},
+
+  {
+"code": "GL101",
+"name": "Uhoofit R10 Smart Ring",
+"brand": "Uhoofit",
+"model": "R10",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"health monitoring",
+"sleep tracking",
+"heart rate monitoring",
+"blood oxygen monitoring",
+"activity tracking",
+"multi-sport mode",
+"wireless charging",
+"5ATM waterproof"
+],
+"rating": null,
+"images": [
+"images/GL101-1.jpg",
+"images/GL101-2.jpg"
+],
+"shortDescription": "Uhoofit R10 Smart Ring supports activity, sleep, heart rate, blood oxygen, body temperature, stress and workout monitoring, plus gesture control, remote photo taking and wireless charging.",
+"benefits": [
+"Tracks daily steps, distance and calorie data.",
+"Monitors heart rate, sleep, blood oxygen, body temperature and stress.",
+"Supports multiple exercise and multi-sport modes.",
+"Adds convenient functions including find ring, gesture control and remote photo taking."
+],
+"overview": [
+"The Uhoofit R10 Smart Ring combines daily activity tracking with health and sleep monitoring. It records steps, distance, calories, sleep, heart rate and workout data, while also supporting blood oxygen, body temperature, stress and heart rate variability monitoring.",
+"Additional functions include multiple exercise modes, remote photo taking, find ring, gesture control, games and female cycle tracking. The R10 uses Bluetooth 5.2, works with the QRing app, supports wireless charging and has a 5ATM waterproof grade."
+],
+"features": [
+"Daily activity tracking for steps, distance and calories",
+"Heart rate and blood oxygen monitoring with a dual PD chip sensor",
+"Sleep, body temperature, stress and heart rate variability monitoring",
+"Multi-sport and multiple exercise modes",
+"Remote photo taking and find ring functions",
+"Gesture control and games",
+"Female cycle tracking",
+"Wireless charging and 5ATM waterproof grade"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "R10",
+"chipset": "RTL8762 ESF",
+"app": "QRing",
+"memory": {
+"ram": "104KB",
+"flash": "512KB"
+},
+"bluetooth": "5.2",
+"sensor": "ST LIS2DOC",
+"heartRateSensor": "Vcare VC9213A (Dual PD Chip Sensor)",
+"batteryCapacity": "14mAh (18mAh for #10 and above)",
+"ringChargingTime": "About 1.5 hours",
+"charging": "Wireless charging with charging dock",
+"waterproofGrade": "5ATM",
+"highConcernedChemical": "None",
+"certification": [
+"CE",
+"FCC"
+],
+"origin": "Mainland China",
+"compatibility": {
+"android": "Android 5.1 or above",
+"ios": "iOS 8.0 or above"
+},
+"measuredMetrics": [
+"Heart rate",
+"Sleep",
+"Blood oxygen",
+"Body temperature",
+"Stress"
+],
+"supportedLanguages": [
+"Danish",
+"Ukrainian",
+"Russian",
+"Croatian",
+"Hungarian",
+"Hindi",
+"Indonesian",
+"Turkish",
+"Hebrew",
+"Greek",
+"German",
+"Italian",
+"Latvian",
+"Czech",
+"Slovak",
+"Slovenian",
+"Japanese",
+"French",
+"Polish",
+"Thai",
+"Estonian",
+"Swedish",
+"Lithuanian",
+"Simplified Chinese",
+"Traditional Chinese",
+"Romanian",
+"English",
+"Dutch",
+"Portuguese",
+"Spanish",
+"Vietnamese",
+"Arabic",
+"Korean",
+"Malay"
+]
+},
+"perfectFor": [
+"Daily activity tracking",
+"Sleep and health monitoring",
+"Heart rate and blood oxygen monitoring",
+"Tracking workouts across multiple exercise modes",
+"Remote photo taking and gesture control"
+],
+"pros": [
+"Combines activity, sleep and multiple health monitoring functions.",
+"Supports multi-sport and multiple exercise modes.",
+"Uses a dual PD chip sensor for heart rate and blood oxygen monitoring.",
+"Supports wireless charging.",
+"Has a 5ATM waterproof grade."
+],
+"considerations": [
+"Battery capacity is 14mAh, with 18mAh specified for size #10 and above.",
+"Body temperature measurement may require a firmware upgrade in the QRing app if the function is unavailable."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c2QGK45Z",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL102",
+"name": "COLMI R06 Smart Ring",
+"brand": "COLMI",
+"model": "COLMI R06",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"heart rate monitor",
+"sleep monitor",
+"blood oxygen monitor",
+"stress monitor",
+"activity tracker",
+"multi-sport mode",
+"5ATM waterproof",
+"fitness tracker"
+],
+"rating": null,
+"images": [
+"images/GL102-1.jpg",
+"images/GL102-2.jpg"
+],
+"shortDescription": "COLMI R06 Smart Ring tracks heart rate, sleep, blood oxygen, stress, activity, steps, distance and calories, with multi-sport mode and 5ATM waterproofing.",
+"benefits": [
+"Monitors heart rate, sleep, blood oxygen and stress.",
+"Tracks activity, steps, distance and calories.",
+"Supports multi-sport mode.",
+"Provides 5ATM waterproofing without a display screen or NFC support."
+],
+"overview": [
+"The COLMI R06 is a smart ring for men and women that provides heart rate, sleep, blood oxygen and stress monitoring. It also tracks daily activity, including steps, distance and calorie data, and supports multi-sport mode.",
+"The ring has no display screen and does not support NFC. It features an alloy case, weighs 4.4g, and has a 5ATM waterproof grade. Certification includes CE and FCC, with battery capacities specified by ring size."
+],
+"features": [
+"Heart rate monitoring",
+"Sleep monitoring",
+"Blood oxygen monitoring",
+"Stress monitoring",
+"Activity, steps, distance and calorie tracking",
+"Multi-sport mode",
+"5ATM waterproof grade",
+"No display screen and no NFC support"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "COLMI R06",
+"origin": "Mainland China",
+"highConcernedChemical": "None",
+"measuredMetrics": [
+"Heart Rate Monitor",
+"Sleep Monitor",
+"Blood Oxygen Monitor",
+"Stress Monitor"
+],
+"activityTracked": [
+"Activity Tracker",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker"
+],
+"itemWeight": "4.4g",
+"caseMaterial": "Alloy",
+"displayScreen": "No",
+"waterproofGrade": "5ATM",
+"nfcSupport": "No",
+"certification": [
+"CE",
+"FCC"
+],
+"batteryCapacity": {
+"8#": "15mAh",
+"9#": "15mAh",
+"10#": "18mAh",
+"11#": "18mAh",
+"12#": "18mAh"
+},
+"productType": "Smart Ring",
+"intendedUsers": [
+"Men",
+"Women"
+]
+},
+"perfectFor": [
+"Daily activity tracking",
+"Heart rate and blood oxygen monitoring",
+"Sleep and stress monitoring",
+"Multi-sport activity tracking"
+],
+"pros": [
+"Tracks multiple health and activity metrics.",
+"Supports multi-sport mode.",
+"Has a 5ATM waterproof grade.",
+"Lightweight 4.4g alloy construction.",
+"CE and FCC certified."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"Battery capacity varies by ring size."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c4qXOnLv",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL103",
+"name": "Ntag216 NFC Programmable Ceramic Finger Ring",
+"brand": "Generic",
+"model": "Ntag216",
+"category": "Wearable Technology",
+"subcategory": "NFC Rings",
+"tags": [
+"NFC ring",
+"Ntag216",
+"programmable ring",
+"NFC wearable",
+"smart ring",
+"electronic business card",
+"access control",
+"smart home",
+"NFC gift ring",
+"ceramic ring"
+],
+"rating": null,
+"images": [
+"images/GL103-1.jpg",
+"images/GL103-2.jpg"
+],
+"shortDescription": "Programmable Ntag216 NFC ceramic ring with 888-byte storage, ISO-14443 support, 3–5 cm sensing distance, Android and Apple compatibility, and NFC shortcut functions.",
+"benefits": [
+"Stores programmable NFC data with 888 bytes of storage.",
+"Supports NFC functions including smart home, access control and electronic business cards.",
+"Works with compatible Android and Apple NFC devices.",
+"Can be used without removing the ring."
+],
+"overview": [
+"The Ntag216 NFC Programmable Ceramic Finger Ring uses an NXP Ntag216 chip with 888 bytes of programmable storage. It supports the ISO-14443 protocol, has a sensing distance of 3–5 cm, and can be used without removing the ring.",
+"Compatible with NFC devices such as Android and Apple devices, the ring supports Android NFC writing software such as NFC Tools PRO and shortcut commands for Apple phones. Functions include smart home control, Wi-Fi and Bluetooth sharing, quick payment, electronic business cards and access control."
+],
+"features": [
+"NXP Ntag216 NFC chip",
+"Programmable 888-byte storage",
+"ISO-14443 protocol support",
+"3–5 cm sensing distance",
+"Android NFC writing and Apple shortcut commands",
+"Smart home, Wi-Fi and Bluetooth sharing functions",
+"Electronic business card and access control support",
+"Waterproof zirconia ceramic construction"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"chip": "NXP Ntag216",
+"frequency": "13.56mHz",
+"storage": "888 bytes",
+"rewriteCount": ">100000 times",
+"storageTime": "10 years",
+"protocol": "ISO-14443",
+"sensingDistance": "3–5 cm",
+"material": "Zirconia",
+"ringConstruction": "Epoxy resin applied to a zirconia ceramic shell",
+"sizes": [
+"7#",
+"8#",
+"10#",
+"11#"
+],
+"sizeStandard": "American standards",
+"dimensions": [
+"7#",
+"8#",
+"10#",
+"11#"
+],
+"colors": [
+"Blue",
+"Red"
+],
+"itemType": "Rings",
+"gender": "Unisex",
+"style": "Casual/Sporty",
+"occasion": "Gift",
+"sideStone": "None",
+"mainStone": "NONE",
+"metalsType": "None",
+"isCustomized": "No",
+"highConcernedChemical": "None",
+"origin": "Mainland China",
+"functions": [
+"Smart home",
+"Wi-Fi and Bluetooth sharing",
+"Quick payment",
+"Electronic business card",
+"Access control",
+"Android NFC writing",
+"Apple shortcut commands"
+],
+"compatibility": [
+"NFC devices such as Android and Apple",
+"Android NFC writing software such as NFC Tools PRO",
+"Apple phones with shortcut commands"
+],
+"waterproof": "Yes",
+"dropResistance": "Described as capable of withstanding a drop from a height of 1 meter",
+"packageContents": "1 piece per pack",
+"packageDimensions": "18 × 16 × 12 cm",
+"packageWeight": "0.050 kg"
+},
+"perfectFor": [
+"Using programmable NFC shortcuts",
+"Sharing electronic business card information",
+"Compatible smart home functions",
+"Access control applications",
+"Wi-Fi and Bluetooth sharing"
+],
+"pros": [
+"Uses an NXP Ntag216 chip with 888-byte programmable storage.",
+"Supports more than 100000 rewrite cycles.",
+"Supports Android NFC writing and Apple shortcut commands.",
+"Can be used without removing the ring.",
+"Waterproof and described as resistant to dust adhesion."
+],
+"considerations": [
+"Available sizes are limited to 7#, 8#, 10# and 11#.",
+"The instructions recommend avoiding prolonged soaking in water.",
+"The instructions recommend avoiding frequent impacts.",
+"Customization is not available."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c4sFFZML",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL104",
+"name": "AMOVAN AMR09 Smart Ring",
+"brand": "AMOVAN",
+"model": "AMR09",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"fitness ring",
+"health ring",
+"sleep tracking",
+"heart rate monitor",
+"blood oxygen monitor",
+"activity tracker",
+"100+ sports modes",
+"AI analysis",
+"5ATM IP68"
+],
+"rating": null,
+"images": [
+"images/GL104-1.jpg",
+"images/GL104-2.jpg"
+],
+"shortDescription": "AMOVAN AMR09 Smart Ring supports activity, sleep, heart rate, blood oxygen, stress and body temperature monitoring, AI analysis, 100+ sports modes, remote control and magnetic charging.",
+"benefits": [
+"Tracks steps, calories, distance and active minutes.",
+"Supports heart rate, sleep, blood oxygen, stress and body temperature monitoring.",
+"Provides AI analysis and AI-generated health reports.",
+"Supports 100+ sports modes, Find Ring and remote control functions."
+],
+"overview": [
+"The AMOVAN AMR09 Smart Ring is a screen-free fitness and health ring for men and women. It supports activity tracking, heart rate, sleep, blood oxygen, stress, body temperature and menstrual cycle information, along with 100+ sports modes and AI analysis.",
+"The ring supports Bluetooth 5.2 BLE and iOS and Android systems. Additional functions include Find Ring, remote control and real-time data sync. It is available in sizes 8 through 12 and charges through a magnetic charging case."
+],
+"features": [
+"Activity tracking for steps, calories, distance and active minutes",
+"Heart rate, sleep, blood oxygen, stress and body temperature monitoring",
+"AI analysis and AI-generated health reports",
+"100+ sports modes",
+"Menstrual cycle information",
+"Find Ring and remote control functions",
+"Bluetooth 5.2 BLE with iOS and Android support",
+"5ATM/IP68 waterproofing and magnetic charging case"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "AMR09",
+"productLevel": "Premium",
+"style": "Thin/Slim",
+"displayScreen": "No",
+"nfcSupport": "No",
+"highConcernedChemical": "None",
+"origin": "Mainland China",
+"certification": [
+"CE"
+],
+"caseMaterial": "STEEL",
+"material": "Stainless Steel",
+"itemWeight": "4.4g",
+"colors": [
+"Gold",
+"Black",
+"Silver"
+],
+"sizes": [
+"8",
+"9",
+"10",
+"11",
+"12"
+],
+"activityTracking": [
+"Steps",
+"Calories",
+"Distance",
+"Active minutes",
+"100+ Sports Mode"
+],
+"healthMonitoring": [
+"Heart rate",
+"Sleep",
+"Blood oxygen",
+"Stress",
+"Real Time Body Temperature",
+"Menstrual Cycle Information"
+],
+"aiAnalysis": [
+"AI Analysis",
+"AI Analysis Report",
+"AI-generated health reports"
+],
+"heartRateTracking": [
+"Real-time HR",
+"Resting HR",
+"HRV tracking"
+],
+"sleepTracking": [
+"Deep/light/REM sleep ratio",
+"Average sleep heart rate",
+"Average HRV",
+"Average sleep blood oxygen",
+"Sleep activity status",
+"Recent 7-day sleep trend"
+],
+"bloodOxygenMonitoring": [
+"Manual blood oxygen tracking",
+"Blood oxygen saturation monitoring on demand"
+],
+"menstrualCycleTracking": [
+"Menstrual cycle prediction",
+"Ovulation reminders",
+"Cycle health monitoring"
+],
+"stressMonitoring": "Stress assessment on demand via HRV data",
+"memoryStorageCapacity": "256kb+8mb",
+"waterproofGrade": "5ATM",
+"waterproof": "5ATM/IP68",
+"bluetooth": "5.2 BLE",
+"system": [
+"iOS",
+"Android"
+],
+"compatibility": [
+"iOS",
+"Android"
+],
+"batteryCapacityMah": "15mah",
+"batteryCapacity": "14mAh (18mAh for size 11 and above)",
+"batteryUsageTime": "5-7 days",
+"batteryLife": "7+ days",
+"charging": "Magnetic Charging Case",
+"chargingTime": "1 Hour",
+"packageContents": [
+"1 x Smart Ring (size selectable)",
+"1 x Magnetic Charging Case",
+"1 x USB Charging Cable",
+"1 x User Manual"
+]
+},
+"perfectFor": [
+"Daily activity and fitness tracking",
+"Sleep and health monitoring",
+"Tracking workouts across 100+ sports modes",
+"Users of compatible iOS and Android systems",
+"Long-term wearable use"
+],
+"pros": [
+"Supports multiple health and fitness monitoring functions.",
+"Includes AI analysis and AI-generated health reports.",
+"Supports 100+ sports modes.",
+"Offers Find Ring and remote control functions.",
+"Includes a magnetic charging case and USB charging cable."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"Battery capacity is specified differently by size and across the product information.",
+"Battery usage information includes both 5-7 days per charge and 7+ days battery life.",
+"Material information includes STEEL and Stainless Steel."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c36I6y7H",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL105",
+"name": "AMOVAN AMR09 Smart Ring",
+"brand": "AMOVAN",
+"model": "AMR09",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"fitness tracker",
+"health ring",
+"heart rate monitor",
+"sleep tracking",
+"blood oxygen monitor",
+"stress monitoring",
+"100+ sports modes",
+"AI health analysis",
+"activity tracking"
+],
+"rating": null,
+"images": [
+"images/GL105-1.jpg",
+"images/GL105-2.jpg"
+],
+"shortDescription": "AMOVAN AMR09 Smart Ring combines activity, sleep, heart rate, blood oxygen, stress and body temperature monitoring with AI analysis, 100+ sports modes and magnetic charging.",
+"benefits": [
+"Tracks daily activity, including steps, distance, calories and active minutes.",
+"Monitors heart rate, sleep, blood oxygen, stress and body temperature.",
+"Uses AI analysis to generate health reports from health and fitness data.",
+"Supports 100+ sports modes and real-time data synchronization."
+],
+"overview": [
+"The AMOVAN AMR09 Smart Ring is a multifunctional fitness and health tracker for men and women. It tracks activity, heart rate, sleep, blood oxygen, stress, body temperature and menstrual cycles, while supporting HRV tracking and 100+ sports modes.",
+"AI analysis processes health and fitness data and provides AI-generated health reports. The ring uses low-power Bluetooth, supports Android and iOS, and offers real-time data synchronization. Its thin, slim and comfortable design is described as suitable for 24/7 wear and includes a portable magnetic charging case."
+],
+"features": [
+"Heart rate monitoring with real-time HR, resting HR and HRV tracking",
+"Sleep tracking with deep, light and REM sleep data",
+"Blood oxygen, stress and real-time body temperature monitoring",
+"Activity tracking for steps, distance, calories and active minutes",
+"100+ sports modes",
+"Menstrual cycle prediction, ovulation reminders and cycle health monitoring",
+"AI analysis and AI-generated health reports",
+"Low-power Bluetooth with Android and iOS compatibility"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "AMR09",
+"origin": "Mainland China",
+"itemWeight": "4.4g",
+"caseMaterial": "STEEL",
+"displayScreen": "No",
+"nfcSupport": "No",
+"highConcernedChemical": "None",
+"memoryStorageCapacity": "256kb+8mb",
+"certification": [
+"CE"
+],
+"activityTracking": [
+"Activity Tracker",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker",
+"Active minutes"
+],
+"sportsModes": "100+ sports mode",
+"measuredMetrics": [
+"Heart Rate Monitor",
+"Sleep Monitor",
+"Blood Oxygen Monitor",
+"Stress Monitor",
+"Real Time Body Temperature"
+],
+"heartRateTracking": [
+"Real-time HR",
+"Resting HR",
+"HRV tracking"
+],
+"sleepTracking": [
+"Deep/light/REM sleep ratio",
+"Average sleep heart rate",
+"Average HRV",
+"Average sleep blood oxygen",
+"Sleep activity status",
+"Recent 7-day sleep trend"
+],
+"bloodOxygenMonitoring": [
+"Manual blood oxygen tracking",
+"Blood oxygen saturation levels"
+],
+"stressMonitoring": "Stress detection via HRV data",
+"menstrualCycleTracking": [
+"Menstrual cycle prediction",
+"Ovulation reminders",
+"Cycle health monitoring"
+],
+"aiAnalysisData": [
+"Heart rate",
+"Sleep",
+"Blood oxygen",
+"Fitness",
+"Menstrual cycle",
+"Meditation",
+"Stress"
+],
+"healthReports": "AI-generated health reports",
+"bluetooth": "Stable low-power Bluetooth",
+"compatibility": [
+"Android",
+"iOS",
+"Samsung",
+"Phone"
+],
+"dataSynchronization": "Real-time data sync",
+"waterproofGrade": "5ATM",
+"waterproofDescription": "IP68; safe for hand washing, showering, and swimming",
+"batteryCapacity": "15mah",
+"batteryUsage": "5–7 days usage per charge",
+"batteryLife": "7+ days",
+"charging": "Portable magnetic charging case",
+"fullCharge": "1 hours",
+"chargingCase": "Doubles as storage box",
+"design": "Thin, slim, sleek, and comfortable",
+"wearability": "24/7 wearable",
+"sizes": "Multiple sizes for men & women",
+"packageContents": [
+"1 x Smart Ring (size selectable)",
+"1 x Magnetic Charging Case",
+"1 x USB Charging Cable",
+"1 x User Manual"
+]
+},
+"perfectFor": [
+"Daily activity and fitness tracking",
+"Sleep and heart rate monitoring",
+"Tracking workouts across 100+ sports modes",
+"Users of compatible Android and iOS devices",
+"Long-term and 24/7 wearable tracking"
+],
+"pros": [
+"Combines multiple health and fitness monitoring functions.",
+"Supports AI analysis and AI-generated health reports.",
+"Includes 100+ sports modes.",
+"Supports real-time data synchronization.",
+"Includes a portable magnetic charging case that also functions as a storage box."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"Waterproof information includes both 5ATM and IP68 descriptions.",
+"The product information includes both 5–7 days usage per charge and 7+ days battery life.",
+"Material descriptions include STEEL, titanium and stainless steel."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3OpG7jZ",
+"amazon": ""
+}
+},
+
+
+  {
+"code": "GL106",
+"name": "Smart Ring with Charging Case",
+"brand": "Generic",
+"model": "Ring",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"health monitoring",
+"activity tracker",
+"heart rate monitor",
+"blood oxygen monitor",
+"blood pressure monitor",
+"sleep monitor",
+"stress monitor",
+"100 exercise modes",
+"5ATM waterproof"
+],
+"rating": null,
+"images": [
+"images/GL106-1.jpg",
+"images/GL106-2.jpg"
+],
+"shortDescription": "Smart Ring with Charging Case supports heart rate, blood oxygen, blood pressure, sleep, stress and skin temperature monitoring, plus activity tracking and 100 exercise modes.",
+"benefits": [
+"Monitors multiple health metrics, including heart rate, blood oxygen, sleep and stress.",
+"Tracks activity, steps, distance and calories.",
+"Supports 100 different exercise modes with real-time exercise data monitoring.",
+"Synchronizes data with compatible Android and iOS devices."
+],
+"overview": [
+"This Smart Ring is designed for health monitoring and daily activity tracking. It monitors heart rate, blood oxygen, blood pressure, sleep, stress and skin temperature, while automatically recording health data and tracking steps, distance and calories.",
+"The ring supports 100 different exercise modes and can monitor exercise data in real time during exercise. It has no display screen, does not support NFC, works with Android and iOS devices, and includes a charging case."
+],
+"features": [
+"Heart rate, blood oxygen and blood pressure monitoring",
+"Sleep, stress and skin temperature monitoring",
+"Activity tracking for steps, distance and calories",
+"100 different exercise modes",
+"Real-time exercise data monitoring",
+"Automatic health data recording",
+"Android and iOS compatibility",
+"5ATM waterproof grade"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "Ring",
+"itemWeight": "2.8g",
+"memoryStorageCapacity": "200KB",
+"displayScreen": "No",
+"nfcSupport": "No",
+"highConcernedChemical": "None",
+"origin": "Mainland China",
+"waterproofGrade": "5ATM",
+"waterproofDescription": "Described as withstanding water up to 50 meters",
+"ip68Description": "Product description states that the ring is waterproof to IP68",
+"caseMaterial": "STEEL",
+"material": "STEEL",
+"shell": "304 stainless steel shell",
+"constructionTechnology": "Low-temperature potting technology",
+"certification": [
+"CE",
+"FCC"
+],
+"measuredMetrics": [
+"Heart Rate Monitor",
+"Blood Pressure Monitor",
+"Sleep Monitor",
+"Blood Oxygen Monitor",
+"Stress Monitor",
+"Skin Temperature"
+],
+"activityTracking": [
+"Activity Tracker",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker"
+],
+"exerciseModes": "100 different exercise modes",
+"exerciseDataMonitoring": "Real-time during exercise",
+"healthDataRecording": "Automatic",
+"compatibility": [
+"Android",
+"iOS"
+],
+"packageContents": [
+"Charging case"
+]
+},
+"perfectFor": [
+"Daily health and activity tracking",
+"Monitoring heart rate and blood oxygen",
+"Sleep and stress monitoring",
+"Tracking workouts across 100 exercise modes",
+"Users of compatible Android and iOS devices"
+],
+"pros": [
+"Monitors multiple health metrics.",
+"Supports 100 different exercise modes.",
+"Automatically records health data.",
+"Supports Android and iOS compatibility.",
+"Includes a charging case."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"Waterproof information includes both a 5ATM grade and an IP68 description."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3UEgMYJ",
+"amazon": ""
+}
+},
+
+
+  {
+"code": "GL107",
+"name": "COLMI R11 Ceramic Smart Ring",
+"brand": "COLMI",
+"model": "COLMI R11",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"COLMI R11",
+"ceramic ring",
+"health monitor",
+"activity tracker",
+"heart rate monitor",
+"sleep monitor",
+"blood oxygen monitor",
+"stress monitor",
+"5ATM waterproof"
+],
+"rating": null,
+"images": [
+"images/GL107-1.jpg",
+"images/GL107-2.jpg"
+],
+"shortDescription": "COLMI R11 Ceramic Smart Ring monitors heart rate, sleep, blood oxygen and stress while tracking activity, steps, distance and calories, with a 5ATM waterproof grade.",
+"benefits": [
+"Monitors heart rate, sleep, blood oxygen and stress.",
+"Tracks activity, steps, distance and calories.",
+"Provides a 5ATM waterproof grade.",
+"Uses a ceramic case material."
+],
+"overview": [
+"The COLMI R11 is a ceramic smart ring with health monitoring and activity tracking functions. It measures heart rate, sleep, blood oxygen and stress while tracking daily activity, including steps, distance and calories.",
+"The ring has no display screen and does not support NFC. It has a 5ATM waterproof grade, weighs about 5g, and has a battery capacity specified as 15~18 mAh. The product name also identifies a charging case and fidget spinner anxiety relieve ring function."
+],
+"features": [
+"Heart rate monitoring",
+"Sleep monitoring",
+"Blood oxygen monitoring",
+"Stress monitoring",
+"Activity, steps, distance and calorie tracking",
+"Ceramic case material",
+"5ATM waterproof grade",
+"No display screen and no NFC support"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "COLMI R11",
+"origin": "Mainland China",
+"itemWeight": "About 5g",
+"highConcernedChemical": "None",
+"caseMaterial": "Ceramic",
+"activityTracked": [
+"Activity Tracker",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker"
+],
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Sleep Monitor",
+"Blood Oxygen Monitor",
+"Stress Monitor"
+],
+"displayScreen": "No",
+"nfcSupport": "No",
+"waterproofGrade": "5ATM",
+"batteryCapacity": "15~18 mAh",
+"certification": [
+"CE",
+"FCC"
+],
+"chargingCase": "Included as stated in the product name",
+"additionalProductFunction": "Fidget spinner anxiety relieve ring"
+},
+"perfectFor": [
+"Daily activity tracking",
+"Heart rate and blood oxygen monitoring",
+"Sleep and stress monitoring",
+"Wearable tracking with a 5ATM waterproof grade"
+],
+"pros": [
+"Combines health monitoring and daily activity tracking.",
+"Uses a ceramic case material.",
+"Has a 5ATM waterproof grade.",
+"Tracks heart rate, sleep, blood oxygen and stress.",
+"CE and FCC certified."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"Package contents are not otherwise specified."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c3THKKzZ",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL108",
+"name": "RUOFINE R09 Fitness Tracker Smart Ring",
+"brand": "RUOFINE",
+"model": "R09",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"fitness tracker",
+"health monitoring",
+"heart rate monitor",
+"blood oxygen monitor",
+"sleep tracking",
+"HRV monitoring",
+"stress monitoring",
+"5ATM waterproof",
+"Qring app"
+],
+"rating": null,
+"images": [
+"images/GL108-1.jpg",
+"images/GL108-2.jpg"
+],
+"shortDescription": "RUOFINE R09 Smart Ring supports heart rate, blood oxygen, HRV, stress, sleep and skin temperature monitoring, activity tracking, exercise modes, remote photography and 5ATM waterproofing.",
+"benefits": [
+"Tracks steps, distance, calories and exercise data.",
+"Monitors heart rate, blood oxygen saturation, HRV, stress, sleep and skin temperature.",
+"Supports remote control photography, ring searching and female physiological reminders.",
+"Provides 5ATM waterproofing and Bluetooth 5.2 connectivity."
+],
+"overview": [
+"The RUOFINE R09 is a screen-free fitness tracker smart ring that uses the Qring APP for health management and activity tracking. It supports heart rate measurement, blood oxygen saturation, HRV, stress monitoring, sleep tracking, skin temperature measurement and multiple exercise modes.",
+"The ring records steps, distance and calories and includes remote control photography, ring searching and female physiological reminders. It uses Bluetooth 5.2, supports Android 5.0 and above and iOS 10.0 and above, and has a 5ATM waterproof grade."
+],
+"features": [
+"Heart rate and blood oxygen saturation monitoring",
+"HRV, stress, sleep and skin temperature monitoring",
+"Activity tracking for steps, distance and calories",
+"Multiple exercise modes and exercise recording",
+"Remote control photography",
+"Ring searching function",
+"Female physiological reminders",
+"Bluetooth 5.2 and 5ATM waterproof grade"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "R09",
+"app": "Qring",
+"displayScreen": "No",
+"nfcSupport": "No",
+"origin": "Mainland China",
+"highConcernedChemical": "None",
+"chipset": "RTL8762",
+"memory": {
+"ram": "104KB",
+"rom": "512KB"
+},
+"bluetooth": "BT5.2",
+"itemWeight": "10",
+"caseMaterial": "STEEL",
+"bodyMaterial": "Alloy",
+"healthMetrics": [
+"Heart Rate Monitor",
+"Sleep Monitor",
+"Blood Oxygen Monitor",
+"Body Temperature Monitor",
+"Stress Monitor",
+"HRV Heart Rate Variability",
+"Heart Rate Measurement",
+"Blood Oxygen Saturation",
+"Skin Temperature Measurement"
+],
+"activityTracking": [
+"Activity Tracker",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker",
+"Multiple Exercise Modes"
+],
+"waterproofGrade": "5ATM",
+"batteryCapacity": "14mAh",
+"batteryType": "14mAh Lithium Polymer",
+"chargingMethod": "Magnetic Charging Warehouse",
+"chargingTime": "About 1.5 hours",
+"normalUsingTime": "5–7 days, depending on personal habits",
+"standbyTime": "7–10 days",
+"certification": [
+"CE",
+"FCC"
+],
+"authentication": [
+"CE",
+"FCC",
+"RoHS"
+],
+"compatibility": {
+"android": "Android 5.0 and above",
+"ios": "iOS 10.0 and above"
+},
+"firmwareLanguages": [
+"Danish",
+"Ukrainian",
+"Russian",
+"Croatian",
+"Hungarian",
+"Hindi",
+"Indonesian",
+"Türkiye",
+"Hebrew",
+"Greek",
+"German",
+"Italian",
+"Latvian",
+"Czech",
+"Slovak",
+"Slovenian",
+"Japanese",
+"French",
+"Polish",
+"Thai",
+"Estonian",
+"Swedish",
+"Lithuanian",
+"Simplified Chinese",
+"Traditional Chinese",
+"Romanian",
+"English",
+"Dutch",
+"Portuguese",
+"Spanish",
+"Vietnamese",
+"Arabic",
+"Korean",
+"Malay"
+],
+"packageContents": [
+"Original Ring x1",
+"Charger Warehouse x1",
+"Manual x1"
+]
+},
+"perfectFor": [
+"Daily activity and fitness tracking",
+"Heart rate, blood oxygen and HRV monitoring",
+"Sleep and stress tracking",
+"Users of compatible Android and iOS devices",
+"Remote photography and ring searching"
+],
+"pros": [
+"Combines health monitoring with activity and exercise tracking.",
+"Supports HRV and skin temperature measurement.",
+"Includes remote photography and ring searching functions.",
+"Supports Android 5.0 and above and iOS 10.0 and above.",
+"Includes a charger warehouse and manual."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"Normal using time is specified as 5–7 days depending on personal habits.",
+"The listed item weight is provided as 10 without a unit."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c4lNvSxN",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL109",
+"name": "Ola Esporte Smart Ring",
+"brand": "Ola Esporte",
+"model": "Smart Ring",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"activity tracker",
+"heart rate monitor",
+"sleep monitor",
+"blood oxygen monitor",
+"gesture control",
+"remote photography",
+"Bluetooth 5.2",
+"5ATM waterproof",
+"step tracker"
+],
+"rating": null,
+"images": [
+"images/GL109-1.jpg",
+"images/GL109-2.jpg"
+],
+"shortDescription": "Ola Esporte Smart Ring supports activity, heart rate, sleep and blood oxygen tracking, gesture-based interaction, remote photography, message reminders and mobile app control.",
+"benefits": [
+"Tracks activity, steps, distance and calories.",
+"Supports heart rate, sleep and blood oxygen monitoring with historical data tracking.",
+"Enables gesture-based video interaction and remote photography.",
+"Supports message reminders and access to WeChat Sports and Apple Health."
+],
+"overview": [
+"The Ola Esporte Smart Ring is a screen-free wearable that supports activity tracking, heart rate monitoring, sleep statistics and blood oxygen testing. It records steps, distance and calories, supports multiple movement modes, and provides historical trend and analysis data through its mobile app.",
+"The ring also supports gesture-based video interaction, page turning, web browsing, shopping and remote photography through hand gestures when connected with a compatible device. It uses Bluetooth 5.2, has a 5ATM waterproof grade, and supports Android 5.0 and above and Apple iOS 10.0 and above."
+],
+"features": [
+"Activity tracking for steps, distance and calories",
+"Heart rate testing, trends and historical data",
+"Sleep statistics, sleep proportion, score and analysis",
+"Blood oxygen testing, trends and historical data",
+"Multiple movement modes",
+"Gesture-based video interaction and page turning",
+"Hand gesture remote photography",
+"Message reminders with WeChat Sports and Apple Health access"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "Smart Ring",
+"displayScreen": "No",
+"nfcSupport": "No",
+"waterproofGrade": "5ATM",
+"highConcernedChemical": "None",
+"caseMaterial": "Alloy",
+"origin": "Mainland China",
+"certification": [
+"CE",
+"FCC"
+],
+"chipset": "German Dialog DA14531",
+"memory": {
+"rom": "128KB",
+"ram": "96KB"
+},
+"gSensor": "SC7A20",
+"bluetoothVersion": "5.2",
+"mobileAppGps": "Yes",
+"charging": "Magnetic Charging",
+"operation": "No touch controls or buttons; the app initiates movement and function tests",
+"function": [
+"Message Reminder",
+"Gesture-based video interaction",
+"Video application operation",
+"Page turning",
+"Web browsing",
+"Shopping",
+"Remote photography through hand gestures",
+"WeChat Sports access",
+"Apple Health access"
+],
+"activityTracked": [
+"Activity Tracker",
+"Steps Tracker",
+"Distance Tracker",
+"Calorie Tracker"
+],
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Sleep Monitor",
+"Blood Oxygen Monitor"
+],
+"heartRateFunctions": [
+"App-initiated heart rate testing",
+"Whole-day dynamic heart rate trend and data analysis",
+"Recent 7 heart rate measurement trend",
+"Heart rate history data"
+],
+"sleepFunctions": [
+"Sleep statistics",
+"Sleep proportion",
+"Sleep score",
+"Sleep analysis",
+"Average sleep heart rate"
+],
+"bloodOxygenFunctions": [
+"App-initiated oximetry testing",
+"7 oximetry data records",
+"Oxygenation trend",
+"Oximetry historical data"
+],
+"compatibility": {
+"android": "Android 5.0 and above",
+"ios": "Apple iOS 10.0 and above",
+"platforms": [
+"WeChat Sports",
+"Apple Health"
+]
+},
+"appLanguageSupport": "National language multilingual",
+"packageContents": [
+"Smart ring ×1",
+"Charging compartment base ×1",
+"Charging cable ×1",
+"Manual ×1"
+]
+},
+"perfectFor": [
+"Daily activity and step tracking",
+"Heart rate, sleep and blood oxygen monitoring",
+"Gesture-based remote photography",
+"Gesture-based video and page interaction",
+"Users of compatible Android and iOS devices"
+],
+"pros": [
+"Combines activity tracking with heart rate, sleep and blood oxygen monitoring.",
+"Supports historical health data and trend analysis.",
+"Provides gesture-based interaction and remote photography.",
+"Supports access to WeChat Sports and Apple Health.",
+"Includes magnetic charging accessories and a manual."
+],
+"considerations": [
+"The ring has no display screen.",
+"NFC is not supported.",
+"The ring has no touch controls or buttons, and movement and function tests are initiated through the app.",
+"Gesture-based video interaction requires connection with a mobile phone or other devices and specific technical support.",
+"Finger measurement and comparison with the ring size chart are recommended before ordering."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c4euFpmB",
+"amazon": ""
+}
+},
+
+  {
+"code": "GL110",
+"name": "Timethinker R11C Bluetooth Smart Ring",
+"brand": "Timethinker",
+"model": "R11C Bluetooth Smart Ring",
+"category": "Wearable Technology",
+"subcategory": "Smart Rings",
+"tags": [
+"smart ring",
+"LED display ring",
+"health ring",
+"fitness tracker",
+"heart rate monitor",
+"blood oxygen monitor",
+"sleep monitor",
+"stress monitor",
+"activity tracker",
+"QRing app"
+],
+"rating": null,
+"images": [
+"images/GL110-1.jpg",
+"images/GL110-2.jpg"
+],
+"shortDescription": "Timethinker R11C Bluetooth Smart Ring features an LED display and tracks heart rate, blood oxygen, sleep, stress, distance, calories, steps and activity.",
+"benefits": [
+"Displays information through an LED display screen.",
+"Monitors heart rate, blood oxygen, sleep and stress.",
+"Tracks distance, calories, steps and activity.",
+"Supports Bluetooth connectivity and the QRing App."
+],
+"overview": [
+"The Timethinker R11C Bluetooth Smart Ring is a finger-worn health and fitness tracker with an LED display screen. It supports heart rate, blood oxygen, sleep and stress monitoring, along with activity tracking for distance, calories and steps.",
+"The ring has a stainless steel case, Bluetooth connectivity, QRing App support and a 1ATM waterproof grade. It is available in Gun Color, Rose Gold and Silver, with sizes ranging from 7 to 13, and supports Android and iOS."
+],
+"features": [
+"LED display screen",
+"Heart rate monitoring",
+"Blood oxygen monitoring",
+"Sleep monitoring",
+"Stress monitoring",
+"Distance, calorie, steps and activity tracking",
+"Bluetooth connectivity with QRing App support",
+"1ATM waterproof grade"
+],
+"video": "YOUR_YOUTUBE_VIDEO_LINK",
+"specifications": {
+"modelNumber": "R11C Bluetooth Smart Ring",
+"productTypes": [
+"R11C Bluetooth Smart Ring",
+"Bluetooth Smart Ring",
+"Smart Ring",
+"LED Display Screen",
+"Health Ring",
+"Sleep Monitor",
+"Heart Rate Blood Pressure Blood Oxygen Sleep Monitor",
+"1ATM Waterproof",
+"QRing App",
+"finger",
+"fitness tracker",
+"Heart rate blood oxygen monitor"
+],
+"displayScreen": "Yes",
+"nfcSupport": "No",
+"memoryStorageCapacity": "None",
+"highConcernedChemical": "None",
+"activityTracked": [
+"Distance Tracker",
+"Calorie Tracker",
+"Steps Tracker",
+"Activity Tracker"
+],
+"metricsMeasured": [
+"Heart Rate Monitor",
+"Blood Oxygen Monitor",
+"Sleep Monitor",
+"Stress Monitor"
+],
+"itemWeight": "140g",
+"caseMaterial": "Stainless Steel",
+"batteryCapacity": "15mAh",
+"waterproofGrade": "1ATM",
+"certification": [
+"CE"
+],
+"origin": "Mainland China",
+"compatibility": [
+"Android",
+"iOS"
+],
+"app": "QRing App",
+"colors": [
+"Gun Color",
+"Rose Gold",
+"Silver"
+],
+"sizes": "7 to 13",
+"boxDimensions": "15 x 15 x 15 cm"
+},
+"perfectFor": [
+"Daily activity tracking",
+"Heart rate and blood oxygen monitoring",
+"Sleep and stress monitoring",
+"Users of compatible Android and iOS devices"
+],
+"pros": [
+"Features an LED display screen.",
+"Combines health monitoring with activity tracking.",
+"Supports Bluetooth connectivity and QRing App support.",
+"Available in multiple colors and sizes.",
+"Uses a stainless steel case."
+],
+"considerations": [
+"The waterproof grade is 1ATM.",
+"NFC is not supported.",
+"Memory storage capacity is listed as none.",
+"Package contents are not provided."
+],
+"dateAdded": "",
+"trending": false,
+"featured": false,
+"deal": false,
+"affiliate": {
+"aliexpress": "https://s.click.aliexpress.com/e/_c37DeppH",
+"amazon": ""
+}
 }
 
 ]
+
+
+
+
+
+
+
+
+
+
 
 
 
